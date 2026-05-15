@@ -38,7 +38,7 @@ The categories overlap. A figure can be ugly and good at once, or bad and wrong 
 
 ## The cohort
 
-Every example in Part II uses the same simulated dataset: 600 adults with treated hypertension, randomised across four arms (Placebo / ACEi / ARB / CCB), followed for six months.
+Every example in Part II uses the same simulated dataset: 600 adults with treated hypertension, randomised across four arms (Placebo / ACEi / ARB / CCB), followed for six months. This is a different dataset from the acute heart failure cohort used for examples in Part I; the hypertension trial structure — four arms, repeated blood-pressure measurements, a binary controlled/not-controlled outcome — provides richer material for the chart-type and pitfalls chapters than the Part I cohort would have.
 
 | Variable             | Type        | Notes                                          |
 |----------------------|-------------|------------------------------------------------|
