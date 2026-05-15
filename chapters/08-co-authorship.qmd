@@ -1,0 +1,11 @@
+# Working with co-authors
+
+Most papers are written by more than one person. A few habits prevent the most common problems.
+
+- **One authoritative version.** Keep a single master file: name it by date or version (`manuscript_2026-04-19_v07.docx`) and make sure every co-author knows which file is current. Better still: use a collaborative editor (Google Docs, Overleaf) or a plain-text, version-controlled setup. My own workflow is Markdown in [Zettlr](https://tiagojct.eu/notes/zettlr/) with [Git](https://tiagojct.eu/notes/git/) for versioning and Quarto for rendering; Pandoc (used under the hood by both Quarto and Zettlr) exports the same source to Word (`.docx`) in a single command, so co-authors who live inside Microsoft Word can still receive a tracked-changes copy to mark up.
+- **Track changes, then clean copy.** Circulate drafts with track changes on. When a section is settled, accept all changes and carry the clean text forward. Never circulate tracked and clean copies simultaneously; it invites version drift. If the manuscript lives in Markdown or Quarto, Git serves the same purpose: each commit is a version, and `git diff` shows exactly what changed between drafts.
+- **Explicit deadlines.** *"Please send comments by Friday 3 May, 12:00 Lisbon time"* works better than *"when you have time"*. Silence after a stated deadline counts as consent.
+- **Merge by meeting, not by stitching.** When two co-authors give contradictory suggestions on the same paragraph, resolve it in a 15-minute conversation rather than trying to honour both. Stitched compromises read poorly.
+- **Escalate judiciously.** If a supervisor and a senior co-author disagree, the corresponding author decides and documents the reasoning in writing so the same argument does not recur at resubmission.
+
+Writing with good co-authors is the single largest accelerator of a scientific career. Writing with poor or absent ones is a slow, private trauma. Pick carefully, and be the kind of co-author you wish you had.

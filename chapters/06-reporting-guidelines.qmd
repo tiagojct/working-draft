@@ -1,0 +1,23 @@
+# Reporting guidelines
+
+For any study design, consult the relevant reporting guideline before writing. The [EQUATOR Network](https://www.equator-network.org/) maintains a comprehensive database. The most common guidelines in clinical and biomedical research:
+
+| Study design                  | Guideline                                                                          | Scope                                                            |
+|-------------------------------|-------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| Randomised trial              | [CONSORT](https://www.consort-statement.org/) (2025 update)                        | Individually randomised, parallel-group trials                   |
+| Non-randomised intervention   | [TREND](https://www.equator-network.org/reporting-guidelines/trend-statement/)     | Evaluations of non-randomised interventions                      |
+| Observational study           | [STROBE](https://www.strobe-statement.org/)                                        | Cohort, case-control, and cross-sectional studies                |
+| Systematic review / meta-analysis | [PRISMA](https://www.prisma-statement.org/)                                    | Systematic reviews and meta-analyses of interventions            |
+| Study protocol (trial)        | [SPIRIT](https://www.spirit-statement.org/)                                        | Protocols of clinical trials                                     |
+| Study protocol (review)       | [PRISMA-P](https://www.prisma-statement.org/)                                      | Protocols of systematic reviews                                  |
+| Diagnostic accuracy study     | [STARD](https://www.equator-network.org/reporting-guidelines/stard/)               | Diagnostic test accuracy                                         |
+| Prediction model (incl. AI)   | [TRIPOD+AI](https://www.equator-network.org/reporting-guidelines/tripod-statement/) | Development, validation, and updating of multivariable prediction models, including machine-learning models |
+| Case report                   | [CARE](https://www.care-statement.org/)                                            | Individual clinical cases                                        |
+| Qualitative research          | [SRQR](https://www.equator-network.org/reporting-guidelines/srqr/)                 | Qualitative studies                                              |
+| Statistical reporting         | [SAMPL](https://www.equator-network.org/reporting-guidelines/sampl/)               | Statistical analyses and methods, applicable across study designs |
+
+Using the appropriate checklist improves completeness, transparency, and the likelihood of acceptance. Use it as a *writing* guide from the start, not as a pre-submission audit; a manuscript drafted around the checklist is almost always easier to revise than one retrofitted to it.
+
+::: {.column-margin}
+If you are writing a randomised trial, the CONSORT checklist is mandatory: most journals will not publish without it, and editors will check it. CONSORT 2025 added items on harms reporting, protocol deviations, and handling of missing outcome data. A poorly reported trial is often a poorly conducted one.
+:::

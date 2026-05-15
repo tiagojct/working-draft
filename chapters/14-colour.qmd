@@ -1,0 +1,13 @@
+# The Pequod palette in figure roles
+
+The palette has three functional groups, and the chart you draw should use them according to function rather than aesthetics.
+
+The Log scale (twelve steps from warm paper to deep ink) is the right palette for sequential or continuous data: heatmaps, density colour ramps, depth-encoded scatter. In R, `scale_fill_pequod_c(palette = "log-cool")`; in matplotlib or seaborn, `cmap="pequod_log_cool"` after `pequod.register_cmaps()`.
+
+The eight crew accents (Ahab, Starbuck, Queequeg, Pip, Ishmael, Stubb, Tashtego, Daggoo) are for categorical data with up to eight groups. Beyond eight, collapse the rare categories into "Other" and re-encode by shape or position. Use `scale_colour_pequod_d(palette = "crew")` in R, or `palette=list(pequod.CREW_DARK.values())` for an explicit list in seaborn.
+
+The light and dark variants of the crew are for light and dark backgrounds, not for two different categorical mappings. Use `pequod_crew_light` on Log 50 paper, `pequod_crew_dark` on Log 950 ink.
+
+The palette has documented colour-vision-deficiency collapses (Pip ↔ Stubb under tritanopia, Ahab ↔ Daggoo under protanopia). When the colour distinction carries the result, as in diff gutters, error states, or "treated vs control" in a two-arm trial, pair the colour with a shape or weight. Hue alone is not enough.
+
+The full palette documentation, including a colour-vision-deficiency report and installation instructions for R and Python, is at [tiagojct.eu/projects/pequod/](https://tiagojct.eu/projects/pequod/).

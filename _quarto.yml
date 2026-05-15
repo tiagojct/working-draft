@@ -1,0 +1,53 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "The Working Draft"
+  subtitle: "Writing and Data Visualisation for Health Researchers"
+  author:
+    name: Tiago Jacinto
+    affiliation: Faculty of Medicine, University of Porto
+    orcid: 0000-0002-7897-1101
+  date: "2026-05-15"
+  repo-url: https://github.com/tiagojct/working-draft
+  repo-actions: [edit, issue]
+  downloads: [pdf]
+  search: true
+  chapters:
+    - index.qmd
+    - part: "Part I · Writing"
+      chapters:
+        - chapters/01-why-writing.qmd
+        - chapters/02-article-structure.qmd
+        - chapters/03-clear-writing.qmd
+        - chapters/04-presenting-data.qmd
+        - chapters/05-editorial-process.qmd
+        - chapters/06-reporting-guidelines.qmd
+        - chapters/07-reference-management.qmd
+        - chapters/08-co-authorship.qmd
+        - chapters/09-workflow.qmd
+    - part: "Part II · Figures"
+      chapters:
+        - chapters/10-principles.qmd
+        - chapters/11-chart-types.qmd
+        - chapters/12-pitfalls.qmd
+        - chapters/13-captions.qmd
+        - chapters/14-colour.qmd
+        - chapters/15-ai-figures.qmd
+    - references.qmd
+
+bibliography: [assets/refs-sw.bib, assets/refs-dataviz.bib]
+csl: assets/nature.csl
+
+format:
+  html:
+    theme:
+      light: [cosmo, assets/custom.scss]
+      dark: [darkly, assets/custom.scss]
+    reference-location: margin
+    footnotes-hover: true
+    fig-align: center
+    toc: true
+    toc-depth: 3
+    number-sections: false

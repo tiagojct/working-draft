@@ -1,0 +1,25 @@
+# Captions and the story of one figure
+
+## Captions that read themselves
+
+Wilke's chapter on captions states the rule plainly: a reader who sees only the figure and the caption, without the methods or the results, should know what was studied, what was measured, and what was found [@wilke2019fundamentals]. A complete caption includes a short title (what is being shown), the groups or conditions (what each colour, line, or symbol represents), the statistical test and which groups are being compared, the sample size for each group, and definitions of any abbreviations.
+
+A short example. The caption
+
+> *"SBP at 6 months by treatment."*
+
+becomes
+
+> *"Systolic blood pressure (SBP) at six months by randomised treatment arm (Placebo, ACEi, ARB, CCB; n = 122/183/142/153). Boxes show median and IQR; whiskers extend to the most extreme value within 1.5 × IQR. Individual participants shown as jittered points. Simulated cohort, n = 600."*
+
+The first answers nothing without the methods open. The second answers everything from the figure outward.
+
+The caption is the part of the figure that does not need to be drawn. Treat it as part of the figure rather than part of the text. Reviewers will read it before the results paragraph.
+
+## Telling a story with one figure
+
+A results figure is an argument. Decide the one sentence the figure has to make ("ACEi and ARB lower SBP by about 12 mmHg over six months; placebo regresses to the mean by 3") and let every visual choice serve that sentence [@cairo2016truthful; @wilke2019fundamentals].
+
+The reader's eye lands somewhere first, and the chart should make sure it lands where you want it. Choose the most striking ink in the chart, a bolder line, a darker fill, a labelled point, to be the *finding*. Push everything else into the background with thinner lines, lighter colours, smaller type. The hero of the figure should be unambiguous within the first second of looking at it.
+
+The hero figure of the original note (top of the page) does this with the four crew accents. None of the four arms is the answer in isolation, so none has visual emphasis over the others. If the answer were that ARB outperforms the rest, the chart would reflect that: ARB at full opacity, the others at 0.4. The visual emphasis encodes the argument.

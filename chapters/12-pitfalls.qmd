@@ -1,0 +1,431 @@
+# Seven paired pitfalls
+
+With the toolkit in hand, the next move is to know how each tool fails. Each pair below shows the same data drawn two ways: a *bad / ugly / wrong* version, then a *good* version.
+
+## 1. Pie chart → ordered horizontal bar
+
+The pie chart is the bad chart most often defended in health research. The eye is poor at angle judgement, and slices that differ by only a few percentage points are nearly indistinguishable. A horizontal bar chart ordered by frequency replaces angle judgement with position on a common scale, the strongest visual encoding available [@cleveland1984graphical]. Compare @fig-pie with @fig-bar.
+
+![Pie chart of BP class at six months. Which slice is bigger, Pre-hypertension or Stage 2? Now check the numbers.](../figures/dataviz/01-pie-bad.png){#fig-pie}
+
+![The same data as a sorted horizontal bar with counts and percentages. The answer is immediate.](../figures/dataviz/01-bar-good.png){#fig-bar}
+
+::: {.callout-note collapse="true"}
+## Code
+
+::: {.panel-tabset}
+
+#### R
+
+```r
+library(ggplot2); library(pequod); library(dplyr)
+
+bp_counts <- cohort |>
+  count(bp_class_6m) |>
+  mutate(pct = n / sum(n))
+
+ggplot(bp_counts, aes(reorder(bp_class_6m, n), n)) +
+  geom_col(fill = pequod_crew_dark[["Starbuck"]], width = 0.7) +
+  geom_text(aes(label = sprintf("%d  (%.0f%%)", n, 100 * pct)),
+            hjust = -0.15, family = "JetBrains Mono", size = 3.4) +
+  coord_flip(clip = "off") +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.32))) +
+  labs(x = NULL, y = "Participants (n)") +
+  theme_minimal(base_family = "Atkinson Hyperlegible Next")
+```
+
+#### Python
+
+```python
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pequod
+
+cohort = pd.read_csv("figures/cohort.csv")
+counts = (cohort["bp_class_6m"].value_counts()
+          .rename_axis("class").reset_index(name="n"))
+counts = counts.sort_values("n")
+counts["pct"] = counts["n"] / counts["n"].sum()
+
+fig, ax = plt.subplots(figsize=(6.4, 4))
+sns.barplot(data=counts, y="class", x="n",
+            color=pequod.CREW_DARK["Starbuck"], ax=ax)
+for i, row in counts.iterrows():
+    ax.text(row["n"] + 6, i, f'{row["n"]}  ({row["pct"]:.0%})',
+            va="center", family="JetBrains Mono")
+ax.set(xlabel="Participants (n)", ylabel=None)
+sns.despine(); fig.tight_layout()
+```
+
+:::
+
+:::
+
+## 2. Rainbow heatmap → sequential ramp
+
+The default `rainbow()` palette stays popular in scientific computing despite being non-monotonic in luminance: yellow is brighter than red and green, and the eye reads brightness as magnitude. A sequential ramp (light to dark) maps luminance and value onto the same axis, so bigger means darker without ambiguity. The Pequod `log-cool` palette is one such ramp; viridis is another. Compare the same heatmap rendered both ways, @fig-rainbow against @fig-sequential.
+
+![Mean SBP reduction by age and BMI band, rainbow palette. The eye fights the palette every time it tries to read magnitude.](../figures/dataviz/02-rainbow-ugly.png){#fig-rainbow}
+
+![Same data on Pequod's `log-cool` ramp. One luminance axis, one mental model.](../figures/dataviz/02-sequential-good.png){#fig-sequential}
+
+::: {.callout-note collapse="true"}
+## Code
+
+::: {.panel-tabset}
+
+#### R
+
+```r
+library(ggplot2); library(pequod); library(dplyr)
+
+heat <- cohort |>
+  mutate(
+    age_band = cut(age, c(29, 45, 55, 65, 75, 86), include.lowest = TRUE,
+                   labels = c("30-44","45-54","55-64","65-74","75-85")),
+    bmi_band = cut(bmi, c(0, 22, 25, 30, 35, 100), include.lowest = TRUE,
+                   labels = c("<22","22-25","25-30","30-35",">35"))
+  ) |>
+  group_by(age_band, bmi_band) |>
+  summarise(delta = mean(sbp_baseline - sbp_6m), .groups = "drop")
+
+ggplot(heat, aes(bmi_band, age_band, fill = delta)) +
+  geom_tile(colour = "white", linewidth = 0.4) +
+  scale_fill_pequod_c(palette = "log-cool", name = "Δ SBP\n(mmHg)") +
+  geom_text(aes(label = sprintf("%.1f", delta)),
+            family = "JetBrains Mono", size = 3.1, colour = "white") +
+  labs(x = "BMI band (kg/m²)", y = "Age band (years)") +
+  theme_minimal(base_family = "Atkinson Hyperlegible Next")
+```
+
+#### Python
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pequod
+import numpy as np
+
+pequod.register_cmaps()
+
+heat = (cohort.assign(
+    age_band = pd.cut(cohort["age"], [29,45,55,65,75,86],
+                      labels=["30-44","45-54","55-64","65-74","75-85"]),
+    bmi_band = pd.cut(cohort["bmi"], [0,22,25,30,35,100],
+                      labels=["<22","22-25","25-30","30-35",">35"]),
+    delta    = cohort["sbp_baseline"] - cohort["sbp_6m"])
+    .groupby(["age_band","bmi_band"])["delta"].mean().unstack())
+
+fig, ax = plt.subplots(figsize=(6.4, 4))
+sns.heatmap(heat, cmap="pequod_log_cool", annot=True, fmt=".1f",
+            annot_kws={"family": "JetBrains Mono"},
+            cbar_kws={"label": "Δ SBP (mmHg)"}, ax=ax)
+ax.set(xlabel="BMI band (kg/m²)", ylabel="Age band (years)")
+fig.tight_layout()
+```
+
+:::
+
+:::
+
+## 3. Truncated y-axis → honest baseline
+
+This is the single most common dishonest figure in clinical journals. Pick a y-axis that starts somewhere convenient (132 mmHg in the example below) and a 10-mmHg gap looks like a chasm. The numbers are right; the visual claim is wrong. Tufte calls this a *lie factor* [@tufte2001visual], Wilke calls it *proportional ink* [@wilke2019fundamentals]. The fix is to anchor at zero whenever the y-axis encodes magnitude with bar length. If the differences then look small, the differences *are* small, and the chart should say so. @fig-truncated and @fig-honest plot the same four numbers.
+
+![Mean SBP at six months by treatment, y-axis starting at 132 mmHg. Placebo looks twice the height of ACEi; the actual difference is about 10 mmHg.](../figures/dataviz/03-truncated-wrong.png){#fig-truncated}
+
+![Same numbers, zero-anchored. The eye reads proportional differences honestly.](../figures/dataviz/03-honest-good.png){#fig-honest}
+
+::: {.callout-warning}
+## When truncation is honest
+
+The zero rule applies to *bar lengths* because the bar's length encodes the value. It does not apply to *line charts* or *dot plots* showing position over time, where the eye reads the slope of change rather than the height of an ink rectangle. A heart-rate strip from 60 to 100 bpm need not show the gap from 0 to 60: there is no rectangle to inflate.
+:::
+
+::: {.callout-note collapse="true"}
+## Code
+
+::: {.panel-tabset}
+
+#### R
+
+```r
+library(ggplot2); library(pequod); library(dplyr)
+
+trt_summary <- cohort |>
+  group_by(treatment) |>
+  summarise(sbp_6m_mean = mean(sbp_6m),
+            se = sd(sbp_6m) / sqrt(n()), .groups = "drop")
+
+ggplot(trt_summary, aes(treatment, sbp_6m_mean)) +
+  geom_col(fill = pequod_crew_dark[["Ahab"]], width = 0.65) +
+  geom_errorbar(aes(ymin = sbp_6m_mean - se, ymax = sbp_6m_mean + se),
+                width = 0.15) +
+  geom_text(aes(label = sprintf("%.1f", sbp_6m_mean)),
+            vjust = -1.6, family = "JetBrains Mono", size = 3.4) +
+  scale_y_continuous(limits = c(0, 160),
+                     expand = expansion(mult = c(0, 0.05))) +
+  labs(x = NULL, y = "SBP (mmHg)") +
+  theme_minimal(base_family = "Atkinson Hyperlegible Next")
+```
+
+#### Python
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pequod
+
+summ = (cohort.groupby("treatment")["sbp_6m"]
+              .agg(mean="mean", se=lambda x: x.std()/len(x)**0.5)
+              .reset_index())
+
+fig, ax = plt.subplots(figsize=(6.4, 4))
+sns.barplot(data=summ, x="treatment", y="mean",
+            color=pequod.CREW_DARK["Ahab"], errorbar=None, ax=ax)
+ax.errorbar(x=summ["treatment"], y=summ["mean"], yerr=summ["se"],
+            fmt="none", color="black", capsize=4)
+for i, m in enumerate(summ["mean"]):
+    ax.text(i, m + 4, f"{m:.1f}", ha="center", family="JetBrains Mono")
+ax.set(xlabel=None, ylabel="SBP (mmHg)", ylim=(0, 160))
+sns.despine(); fig.tight_layout()
+```
+
+:::
+
+:::
+
+## 4. Donut row → ranked dot plot
+
+A row of pies or donuts asks the reader to compare angles across panels. Each donut is its own coordinate system, and the eye cannot triangulate between them. A dot plot puts every group on a single common scale, sortable by effect, and the comparison becomes automatic. The same data appears in @fig-donut and @fig-dotplot.
+
+![Four donuts, one per treatment, showing the proportion controlled at six months. Which arm is highest? Which two are tied?](../figures/dataviz/04-3d-ugly.png){#fig-donut}
+
+![A dot plot of the same percentages. ACEi tops the list. ARB and CCB are within a percentage point of each other. The visual ranking matches the numerical one.](../figures/dataviz/04-dotplot-good.png){#fig-dotplot}
+
+::: {.callout-note collapse="true"}
+## Code
+
+::: {.panel-tabset}
+
+#### R
+
+```r
+library(ggplot2); library(pequod); library(dplyr); library(scales)
+
+ctrl <- cohort |>
+  count(treatment, controlled_6m) |>
+  group_by(treatment) |>
+  mutate(pct = n / sum(n)) |>
+  ungroup() |>
+  filter(controlled_6m)
+
+ggplot(ctrl, aes(reorder(treatment, pct), pct)) +
+  geom_segment(aes(xend = treatment, y = 0, yend = pct),
+               colour = pequod_log[["Log 300"]]) +
+  geom_point(colour = pequod_crew_dark[["Queequeg"]], size = 4.2) +
+  geom_text(aes(label = scales::percent(pct, accuracy = 1)),
+            hjust = -0.5, family = "JetBrains Mono", size = 3.4) +
+  coord_flip() +
+  scale_y_continuous(labels = scales::percent_format(),
+                     limits = c(0, 1)) +
+  labs(x = NULL, y = "Controlled (%)") +
+  theme_minimal(base_family = "Atkinson Hyperlegible Next")
+```
+
+#### Python
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pequod
+
+ctrl = (cohort.groupby("treatment")["controlled_6m"]
+              .mean().reset_index(name="pct")
+              .sort_values("pct"))
+
+fig, ax = plt.subplots(figsize=(6.4, 4))
+ax.hlines(y=ctrl["treatment"], xmin=0, xmax=ctrl["pct"],
+          colors=pequod.LOG["Log 300"])
+ax.scatter(ctrl["pct"], ctrl["treatment"],
+           color=pequod.CREW_DARK["Queequeg"], s=140, zorder=3)
+for _, r in ctrl.iterrows():
+    ax.text(r["pct"] + 0.02, r["treatment"], f'{r["pct"]:.0%}',
+            va="center", family="JetBrains Mono")
+ax.set(xlabel="Controlled (%)", ylabel=None, xlim=(0, 1))
+sns.despine(); fig.tight_layout()
+```
+
+:::
+
+:::
+
+## 5. Dual-axis line chart → small multiples
+
+A second y-axis is the rare chart sin that works against the reader without lying. It invents a relationship by drawing two lines on top of each other; whether the eye reads BMI as "above" or "below" SBP depends entirely on the secondary scale you happened to pick. Two trends that are statistically uncorrelated can be made to look identical, and two that are perfectly correlated can be made to look opposed. Small multiples solve this without effort: each variable gets its own panel and its own axis, and the comparison stays a comparison rather than a coincidence. See @fig-dualaxis and @fig-smallmult.
+
+![SBP and BMI by age band on a dual-axis chart. The two lines look correlated; they barely are.](../figures/dataviz/05-dualaxis-bad.png){#fig-dualaxis}
+
+![Same data, two panels, free y-axes. The shapes of the two trends become legible separately.](../figures/dataviz/05-smallmult-good.png){#fig-smallmult}
+
+::: {.callout-note collapse="true"}
+## Code
+
+::: {.panel-tabset}
+
+#### R
+
+```r
+library(ggplot2); library(pequod); library(dplyr); library(tidyr)
+
+da <- cohort |>
+  mutate(age_band = cut(age, c(30,45,55,65,75,85), include.lowest = TRUE,
+                        labels = c("30-44","45-54","55-64","65-74","75-85"))) |>
+  group_by(age_band) |>
+  summarise(SBP = mean(sbp_6m), BMI = mean(bmi), .groups = "drop") |>
+  pivot_longer(c(SBP, BMI), names_to = "metric", values_to = "value")
+
+ggplot(da, aes(age_band, value, group = 1)) +
+  geom_line(colour = pequod_crew_dark[["Ahab"]], linewidth = 1.1) +
+  geom_point(colour = pequod_crew_dark[["Ahab"]], size = 2.4) +
+  facet_wrap(~ metric, scales = "free_y") +
+  labs(x = "Age band", y = NULL) +
+  theme_minimal(base_family = "Atkinson Hyperlegible Next")
+```
+
+#### Python
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pequod
+
+da = (cohort.assign(
+    age_band = pd.cut(cohort["age"], [30,45,55,65,75,85],
+                      labels=["30-44","45-54","55-64","65-74","75-85"]))
+    .groupby("age_band")[["sbp_6m","bmi"]].mean()
+    .reset_index().rename(columns={"sbp_6m":"SBP","bmi":"BMI"})
+    .melt(id_vars="age_band", var_name="metric"))
+
+g = sns.relplot(data=da, x="age_band", y="value", col="metric",
+                kind="line", marker="o", facet_kws={"sharey": False},
+                color=pequod.CREW_DARK["Ahab"], height=3.2, aspect=1.0)
+g.set_axis_labels("Age band", "")
+```
+
+:::
+
+:::
+
+## 6. Mean ± SE bar → distribution
+
+Bar charts of means with error whiskers are the most-criticised chart pattern in modern statistics. They imply a symmetric sampling distribution that often does not exist, hide the sample size, and hide the outliers. Weissgerber and colleagues showed that distinct distributions can produce visually identical bar-and-whisker plots [@weissgerber2015beyond]. The fix is to show the data: a box plot, a strip plot, a violin, or any combination thereof. A mean is a single number; the distribution is what determines whether that number is informative. @fig-meanbar collapses the four arms into a single statistic; @fig-distribution shows what is actually there.
+
+![Mean SBP per treatment as a bar with SE whiskers. Sample size is invisible, skew is invisible, outliers are invisible.](../figures/dataviz/06-bar-mean-bad.png){#fig-meanbar}
+
+![Same data as a boxplot with jittered points and median markers. Spread, centre, and n become visible at once.](../figures/dataviz/06-distribution-good.png){#fig-distribution}
+
+::: {.callout-note collapse="true"}
+## Code
+
+::: {.panel-tabset}
+
+#### R
+
+```r
+library(ggplot2); library(pequod)
+
+ggplot(cohort, aes(treatment, sbp_6m, colour = treatment)) +
+  geom_jitter(width = 0.18, alpha = 0.25, size = 1.4) +
+  geom_boxplot(width = 0.4, fill = NA, outlier.shape = NA, linewidth = 0.6) +
+  stat_summary(fun = median, geom = "point", shape = 18, size = 3.2,
+               colour = "black") +
+  scale_colour_pequod_d(palette = "crew") +
+  labs(x = NULL, y = "SBP (mmHg)") +
+  theme_minimal(base_family = "Atkinson Hyperlegible Next") +
+  theme(legend.position = "none")
+```
+
+#### Python
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pequod
+
+crew = list(pequod.CREW_DARK.values())[:4]
+
+fig, ax = plt.subplots(figsize=(6.4, 4))
+sns.stripplot(data=cohort, x="treatment", y="sbp_6m",
+              palette=crew, alpha=0.25, jitter=0.18, ax=ax)
+sns.boxplot(data=cohort, x="treatment", y="sbp_6m",
+            palette=crew, showfliers=False, fill=False,
+            width=0.4, ax=ax)
+ax.set(xlabel=None, ylabel="SBP (mmHg)")
+sns.despine(); fig.tight_layout()
+```
+
+:::
+
+:::
+
+## 7. Spaghetti longitudinal → small multiples with mean
+
+A spaghetti plot of every patient's trajectory has its uses: it is the right chart when the message is heterogeneity. For showing a treatment effect, it makes the reader work harder than necessary. Faceting the spaghetti by treatment and overlaying the group mean keeps the heterogeneity visible while letting the average do the rhetorical work, as in the move from @fig-spaghetti to @fig-faceted.
+
+![One hundred and twenty SBP trajectories on a single panel, coloured by treatment. The group signal is buried in the noise.](../figures/dataviz/07-spaghetti-ugly.png){#fig-spaghetti}
+
+![Same data faceted by treatment with the group mean overlaid. The shape of each response becomes legible.](../figures/dataviz/07-smallmult-mean-good.png){#fig-faceted}
+
+::: {.callout-note collapse="true"}
+## Code
+
+::: {.panel-tabset}
+
+#### R
+
+```r
+library(ggplot2); library(pequod); library(dplyr); library(tidyr)
+
+# `traj` is the long-format cohort with months 0/1/3/6 and SBP per id.
+traj_summary <- traj |>
+  group_by(treatment, month) |>
+  summarise(sbp = mean(sbp), .groups = "drop")
+
+ggplot(mapping = aes(month, sbp)) +
+  geom_line(data = traj, aes(group = id),
+            colour = "grey70", alpha = 0.35, linewidth = 0.4) +
+  geom_line(data = traj_summary,
+            aes(group = treatment, colour = treatment), linewidth = 1.4) +
+  geom_point(data = traj_summary, aes(colour = treatment), size = 2.4) +
+  scale_colour_pequod_d(palette = "crew") +
+  facet_wrap(~ treatment, nrow = 1) +
+  labs(x = "Months from baseline", y = "SBP (mmHg)") +
+  theme_minimal(base_family = "Atkinson Hyperlegible Next") +
+  theme(legend.position = "none")
+```
+
+#### Python
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pequod
+
+crew = list(pequod.CREW_DARK.values())[:4]
+
+g = sns.FacetGrid(traj, col="treatment", hue="treatment",
+                  palette=crew, height=3.2, aspect=1.0,
+                  sharey=True)
+g.map_dataframe(sns.lineplot, x="month", y="sbp",
+                units="id", estimator=None,
+                color="lightgrey", alpha=0.35, linewidth=0.5)
+g.map_dataframe(sns.lineplot, x="month", y="sbp",
+                estimator="mean", linewidth=2.0, marker="o")
+g.set_axis_labels("Months from baseline", "SBP (mmHg)")
+```
+
+:::
+
+:::

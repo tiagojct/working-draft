@@ -1,0 +1,30 @@
+# A writing workflow
+
+Advice drawn from Saramäki [@saramaki2022write] and Heard [@heard2016scientist]:
+
+1. **Choose your key result.** Condense it into one or two sentences. This is the nucleus of your paper.
+
+   ::: {.column-margin}
+   A weak key result: *"This study looked at heart failure readmissions."*
+
+   A strong key result: *"Among 5,204 adults discharged after hospitalisation for acute heart failure, the 30-day unplanned readmission rate was 12.3% (95% CI 11.5--13.1%). NT-proBNP ≥ 1,000 pg/mL at discharge was independently associated with readmission (adjusted HR 1.31, 95% CI 1.08--1.59)."*
+
+   The strong version tells the reader exactly what was found, on whom, with what precision. If you cannot write a clear one-sentence version, the paper is not ready to write.
+   :::
+
+2. **Write the abstract first,** following the hourglass structure. It forces you to clarify the story before writing the full text.
+3. **Draft the title.** Short titles work better. Make sure the title and abstract are aligned.
+4. **Sketch the outline.** For each section, write one sentence per paragraph stating its point. A twenty-paragraph paper gets twenty sentences; if two say the same thing, merge them, and if one does not connect to the argument, cut it. Choose your figures and draft their captions before writing the results.
+5. **Write paragraph by paragraph.** One point per paragraph, topic sentence first. Sketch the paragraph's content before filling it in.
+6. **Complete a rough first draft quickly.** Do not revise as you go. A bad draft is progress; an unfinished one is not. Saramäki's version of this principle: your first draft is allowed to be bad [@saramaki2022write]. Get everything down, then revise [@sterk2008joy].
+7. **Revise for structure and content.** Is the paper focused? Is there enough context? Does the story answer an important question?
+8. **Revise for sentences and words.** Is each sentence clear? Are subject and verb close together? Can you cut anything?
+9. **Repeat.** Revise with co-authors. Ask colleagues for comments. Use test readers.
+
+Or, as I tell my students: revise, revise, revise. And then, revise.
+
+::: {.callout-tip}
+## If you remember one thing
+
+The writers you admire are not smarter than you. They have cut more sentences. Keep writing, keep cutting, keep reading papers you admire. Everything else follows.
+:::

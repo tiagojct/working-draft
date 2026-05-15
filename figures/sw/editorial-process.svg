@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" role="img" aria-label="From manuscript to publication: a flowchart showing manuscript ready, submit, editorial screening (1-5 days, desk reject possible), external peer review (4-12 weeks, reject possible), decision (accept, minor revisions, major revisions, reject and resubmit, reject), revise and respond, then publication." font-family="Atkinson Hyperlegible Next, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <polygon points="0 0, 7 3.5, 0 7" fill="#835A49"/>
+    </marker>
+    <marker id="arr-red" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <polygon points="0 0, 7 3.5, 0 7" fill="#A83732"/>
+    </marker>
+  </defs>
+  <!-- Box 1: Manuscript ready -->
+  <rect x="10" y="130" width="120" height="50" rx="5" fill="#EAE1D7" stroke="#0082B1" stroke-width="1.5"/>
+  <text x="70" y="150" text-anchor="middle" font-size="11" fill="#0D2F42" font-weight="bold">Manuscript</text>
+  <text x="70" y="165" text-anchor="middle" font-size="11" fill="#0D2F42">ready</text>
+  <line x1="130" y1="155" x2="155" y2="155" stroke="#835A49" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Box 2: Submit -->
+  <rect x="155" y="130" width="120" height="50" rx="5" fill="#EAE1D7" stroke="#0082B1" stroke-width="1.5"/>
+  <text x="215" y="150" text-anchor="middle" font-size="11" fill="#0D2F42" font-weight="bold">Submit</text>
+  <text x="215" y="165" text-anchor="middle" font-size="11" fill="#0D2F42">to journal</text>
+  <line x1="275" y1="155" x2="300" y2="155" stroke="#835A49" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Box 3: Desk review -->
+  <rect x="300" y="118" width="130" height="74" rx="5" fill="#EAE1D7" stroke="#6A4A00" stroke-width="1.5"/>
+  <text x="365" y="140" text-anchor="middle" font-size="11" fill="#0D2F42" font-weight="bold">Editorial</text>
+  <text x="365" y="154" text-anchor="middle" font-size="11" fill="#0D2F42">screening</text>
+  <text x="365" y="170" text-anchor="middle" font-size="10" fill="#76716B">1–5 days</text>
+  <text x="365" y="184" text-anchor="middle" font-size="9.5" fill="#A83732">→ Desk reject possible</text>
+  <line x1="430" y1="155" x2="455" y2="155" stroke="#835A49" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Box 4: Peer review -->
+  <rect x="455" y="118" width="130" height="74" rx="5" fill="#EAE1D7" stroke="#6A4A00" stroke-width="1.5"/>
+  <text x="520" y="140" text-anchor="middle" font-size="11" fill="#0D2F42" font-weight="bold">External</text>
+  <text x="520" y="154" text-anchor="middle" font-size="11" fill="#0D2F42">peer review</text>
+  <text x="520" y="170" text-anchor="middle" font-size="10" fill="#76716B">4–12 weeks</text>
+  <text x="520" y="184" text-anchor="middle" font-size="9.5" fill="#A83732">→ Reject possible</text>
+  <line x1="585" y1="155" x2="610" y2="155" stroke="#835A49" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Box 5: Decision -->
+  <rect x="610" y="105" width="130" height="100" rx="5" fill="#EAE1D7" stroke="#A83732" stroke-width="1.5"/>
+  <text x="675" y="125" text-anchor="middle" font-size="11" fill="#0D2F42" font-weight="bold">Decision</text>
+  <text x="675" y="142" text-anchor="middle" font-size="10" fill="#177C55">✓ Accept</text>
+  <text x="675" y="157" text-anchor="middle" font-size="10" fill="#6A4A00">Minor revisions</text>
+  <text x="675" y="172" text-anchor="middle" font-size="10" fill="#6A4A00">Major revisions</text>
+  <text x="675" y="187" text-anchor="middle" font-size="10" fill="#A83732">Reject &amp; resubmit</text>
+  <text x="675" y="200" text-anchor="middle" font-size="10" fill="#A83732">✗ Reject</text>
+  <line x1="675" y1="205" x2="675" y2="250" stroke="#835A49" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Revision box -->
+  <rect x="610" y="250" width="130" height="50" rx="5" fill="#EAE1D7" stroke="#177C55" stroke-width="1.5"/>
+  <text x="675" y="270" text-anchor="middle" font-size="11" fill="#0D2F42" font-weight="bold">Revise &amp; respond</text>
+  <text x="675" y="285" text-anchor="middle" font-size="10" fill="#76716B">→ Resubmit → Accept</text>
+  <line x1="740" y1="275" x2="800" y2="275" stroke="#835A49" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Box 6: Publication -->
+  <rect x="800" y="250" width="90" height="50" rx="5" fill="#177C55" stroke="none"/>
+  <text x="845" y="270" text-anchor="middle" font-size="11" fill="white" font-weight="bold">Publi-</text>
+  <text x="845" y="285" text-anchor="middle" font-size="11" fill="white" font-weight="bold">cation</text>
+  <!-- Loop arrow back (reject & resubmit) -->
+  <path d="M 675 250 Q 675 230 610 230 Q 455 230 365 230 Q 300 230 300 192" stroke="#A83732" stroke-width="1" fill="none" stroke-dasharray="4 3" marker-end="url(#arr-red)"/>
+  <text x="490" y="224" text-anchor="middle" font-size="9" fill="#A83732">Reject &amp; resubmit → new journal</text>
+</svg>

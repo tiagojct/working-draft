@@ -1,0 +1,16 @@
+# Preface {.unnumbered}
+
+This book collects two teaching notes that were written separately but belong together.
+
+The first, on scientific writing, grew out of workshops I have been running for doctoral students at the Faculty of Medicine of the University of Porto since the early 2010s. The second, on data visualisation, started as a companion piece — the images that sit between the words. Both notes were published individually on [tiagojct.eu](https://tiagojct.eu), and both were used in teaching before any thought was given to combining them.
+
+The case for combining them is straightforward. A figure is part of a paper. A paper is more than its figures. The two sets of decisions — what to write and how to show it — are made by the same person, for the same readers, under the same editorial pressure. Teaching them together respects that reality.
+
+The audience is the same as for either note separately: doctoral students and early-career researchers in health and medicine, writing their first or second journal article, with some statistical background and a willingness to revise. The approach is practical rather than theoretical. Every principle is followed immediately by an example, and the examples run through the same datasets across both parts so that the visual choices and the writing choices can be read against each other.
+
+Part I covers the architecture and craft of scientific writing: the structure of a journal article, the mechanics of clear prose, the presentation of data in text and tables, the editorial process, reporting guidelines, reference management, co-authorship, and workflow. Part II covers the decisions that produce a figure worth looking at: the encoding choices, the common chart types, the failure modes, captions, colour, and the responsible use of AI for figure construction.
+
+The two parts share a palette, a typeface, and a fictional heart failure cohort in Part I and a hypertension cohort in Part II — both simulated for the examples alone. They also share the underlying conviction that good research communication is a learnable set of habits, not a talent you either have or you don't.
+
+Tiago Jacinto\
+Porto, May 2026

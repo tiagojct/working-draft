@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 420" role="img" aria-label="The hourglass model of a scientific article: introduction narrows from broad context to objective; methods and results are the narrow waist; discussion broadens from interpretation to implications.">
+  <defs>
+    <linearGradient id="topGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#DBC9B6"/>
+      <stop offset="100%" stop-color="#BD8C68" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="botGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#BD8C68" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#DBC9B6"/>
+    </linearGradient>
+  </defs>
+  <!-- Top triangle: Introduction -->
+  <polygon points="10,8 230,8 120,188" fill="url(#topGrad)" stroke="#A16E50" stroke-width="1.5"/>
+  <!-- Bottom triangle: Discussion -->
+  <polygon points="10,412 230,412 120,232" fill="url(#botGrad)" stroke="#A16E50" stroke-width="1.5"/>
+  <!-- Waist: Methods + Results -->
+  <rect x="102" y="185" width="36" height="50" rx="3" fill="#A83732"/>
+  <!-- Top label -->
+  <text x="120" y="58" text-anchor="middle" fill="#0D2F42" font-size="18" font-weight="700" font-family="Atkinson Hyperlegible Next, sans-serif">Introduction</text>
+  <text x="120" y="82" text-anchor="middle" fill="#835A49" font-size="12" font-family="Atkinson Hyperlegible Next, sans-serif">Broad context</text>
+  <text x="120" y="100" text-anchor="middle" fill="#835A49" font-size="12" font-family="Atkinson Hyperlegible Next, sans-serif">Specific gap</text>
+  <text x="120" y="118" text-anchor="middle" fill="#835A49" font-size="12" font-family="Atkinson Hyperlegible Next, sans-serif">Objective</text>
+  <!-- Waist label -->
+  <text x="120" y="216" text-anchor="middle" fill="#F7F3EE" font-size="10" font-weight="700" font-family="Atkinson Hyperlegible Next, sans-serif">M + R</text>
+  <!-- Bottom label -->
+  <text x="120" y="305" text-anchor="middle" fill="#0D2F42" font-size="18" font-weight="700" font-family="Atkinson Hyperlegible Next, sans-serif">Discussion</text>
+  <text x="120" y="329" text-anchor="middle" fill="#835A49" font-size="12" font-family="Atkinson Hyperlegible Next, sans-serif">Interpretation</text>
+  <text x="120" y="347" text-anchor="middle" fill="#835A49" font-size="12" font-family="Atkinson Hyperlegible Next, sans-serif">Comparison</text>
+  <text x="120" y="365" text-anchor="middle" fill="#835A49" font-size="12" font-family="Atkinson Hyperlegible Next, sans-serif">Implications</text>
+</svg>

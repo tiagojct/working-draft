@@ -1,0 +1,59 @@
+# Principles of data visualisation
+
+A figure is the only part of your paper that a tired reviewer is guaranteed to read. They may skim the methods, scan the results, and bookmark the discussion for later, but they will look at every figure you draw. This makes the figure the part of the paper that has to do the most work per square centimetre. A clear chart can carry a modestly written paper. A confused chart can sink a careful one.
+
+Good data visualisation is a set of decisions taken with discipline, the same discipline that produces clear prose. Edward Tufte stated the rule plainly: maximise the data-to-ink ratio [@tufte2001visual]. Erase what does not earn its place. Claus Wilke gave us a practical taxonomy of failure [@wilke2019fundamentals], *ugly*, *bad*, *wrong*, *good*, that turns the rule into a checklist for revision.
+
+::: {.callout-tip}
+## The short version
+
+If you only take away seven things:
+
+1. A chart is a sentence. Decide what it says before you draw it.
+2. Position on a common scale beats every other encoding. Bar before pie. Dot before donut. Length before angle [@cleveland1984graphical].
+3. Sequential data deserves a sequential ramp. No rainbows.
+4. Zero-anchor your y-axis when bars encode magnitude. Truncated bars exaggerate small differences [@tufte2001visual].
+5. Show the data, not its mean. Box plots, strip plots, violins, but not bars-with-error-whiskers [@weissgerber2015beyond].
+6. Small multiples beat one busy panel. A second axis almost never beats a second panel.
+7. Captions complete the figure. A reviewer should understand the chart from the caption alone.
+:::
+
+## The audience is the reviewer
+
+The figure has to survive an unfair amount of attention from a rushed reader, not the careful one you wish you had. A chart that requires squinting, or a legend that needs the methods to be opened in another tab, has already lost.
+
+Two consequences. The figure must be self-sufficient: title, axes, units, sample size, legend, and any abbreviations the reader needs are on the chart, not waiting for the caption. And it must be redundant on purpose: colour, position, label, and shape often encode the same thing, and that overlap is what keeps the figure readable when one channel breaks. About 8 % of men have red-green colour-vision deficiency [@birch2012diagnosis], and they will navigate by shape and label long before they navigate by hue.
+
+::: {.column-margin}
+The full Pequod design rationale, including a colour-vision-deficiency report (Viénot–Brettel–Mollon simulation [@vienot1999digital] across protanopia, deuteranopia, and tritanopia), is at [tiagojct.eu/projects/pequod/](https://tiagojct.eu/projects/pequod/).
+:::
+
+## Wilke's taxonomy
+
+Wilke distinguishes four ways a chart can fail [@wilke2019fundamentals].
+
+An *ugly* chart has aesthetic problems but the data is correct: a rainbow palette on a continuous variable, default `ggplot` grey, lowercase axis labels, no units. A *bad* chart has the right data but a poor encoding: a pie of seven categories, a dual-axis line chart, a bar chart where a strip plot belonged. A *wrong* chart is mathematically incorrect: a truncated y-axis on a bar plot, stacked percentages adding to 102, a 3D pie that distorts the slices it depicts. A *good* chart is none of the above: it says what it says, plainly and accurately.
+
+The categories overlap. A figure can be ugly and good at once, or bad and wrong at once. The point of the taxonomy is that all three failures should be ruled out actively, in revision, rather than discovered by a reviewer.
+
+## The cohort
+
+Every example in Part II uses the same simulated dataset: 600 adults with treated hypertension, randomised across four arms (Placebo / ACEi / ARB / CCB), followed for six months.
+
+| Variable             | Type        | Notes                                          |
+|----------------------|-------------|------------------------------------------------|
+| `id`                 | int         | 1..600                                         |
+| `age`                | num         | mean 58, SD 12, clipped to [30, 85]            |
+| `sex`                | factor      | F / M                                          |
+| `region`             | factor      | North / Centre / South / Islands               |
+| `bmi`                | num         | mean 28, SD 4.5                                |
+| `comorbidities`      | int         | Poisson, λ ≈ 1.2                               |
+| `treatment`          | factor      | Placebo / ACEi / ARB / CCB                     |
+| `sbp_baseline`       | num         | mean 148, SD 16 (mmHg)                         |
+| `sbp_6m`             | num         | baseline minus a treatment-specific shift      |
+| `dbp_baseline`       | num         | mean 90, SD 10 (mmHg)                          |
+| `dbp_6m`             | num         | baseline minus a treatment-specific shift      |
+| `controlled_6m`      | logical     | `sbp_6m < 140 & dbp_6m < 90`                   |
+| `bp_class_6m`        | factor      | Normal / Pre-HT / Stage 1 / Stage 2            |
+
+The dataset and code to generate it are published alongside the original note at [tiagojct.eu/notes/dataviz/](https://tiagojct.eu/notes/dataviz/).

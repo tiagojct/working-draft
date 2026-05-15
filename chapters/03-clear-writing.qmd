@@ -1,0 +1,129 @@
+# The art of clear writing
+
+The core purpose of scientific writing is not the presentation of information but its *communication* [@gopen1990science]. Converting data into sentences is not enough. What matters is whether the reader accurately perceives what you intended.
+
+## Think first, write second
+
+Writing becomes much easier when you separate thinking from writing. Jari Saramäki argues that "you cannot and should not compensate for bad science with good writing" [@saramaki2022write], but the reverse is also true: good science deserves good writing. Before writing a single sentence, clarify the key message, the logical order of your argument, and the role of each paragraph.
+
+A practical discipline: write the one-sentence summary of the paper before writing anything else. Who was studied, what was measured, and what was found, in one honest sentence. If you cannot reduce the finding to that length, the argument is not yet clear enough to write about. Saramäki [@saramaki2022write] and Heard [@heard2016scientist] each recommend a version of this discipline under different names (the journalistic term is "nut graf"). The name varies; the practice does not.
+
+## One idea per paragraph
+
+Every paragraph should make exactly one point. The first sentence (the topic sentence) announces that point. The remaining sentences support, elaborate, or qualify it. If a paragraph wanders into a second idea, split it. If two consecutive paragraphs make the same point, merge them.
+
+Transitions between paragraphs matter as much as the paragraphs themselves. The reader should always know why they are reading the current sentence and where the argument is heading.
+
+An example. The paragraph below tries to carry three ideas at once: a finding, a mechanistic interpretation, and a limitation:
+
+> *"NT-proBNP at discharge was the strongest independent predictor of 30-day readmission (adjusted HR 1.31, 95% CI 1.08--1.59), which is consistent with the physiology of persistent congestion in acute heart failure. However, we did not measure dietary sodium intake, which could confound this relationship. Clinicians may want to use NT-proBNP as a discharge risk-stratification tool, particularly in patients with reduced ejection fraction."*
+
+Split into three paragraphs (one per idea), the reader can follow each thread. Paragraph one states the finding. Paragraph two explains what prior physiological work suggests. Paragraph three separately acknowledges the limitation. The word count barely changes; the clarity does.
+
+## Stress and topic positions
+
+Readers naturally emphasise the material that arrives at the end of a sentence: what Gopen and Swan call the *stress position* [@gopen1990science]. Place your most important information there. The beginning of the sentence (the *topic position*) should provide context and connect to what came before.
+
+Compare:
+
+> *"Furosemide was given to patients with decompensated heart failure."*
+
+> *"Patients with decompensated heart failure received furosemide."*
+
+The first sentence sits "furosemide" in the topic position and lands the stress on the patient population; the second flips the emphasis onto the drug. Neither is inherently better; the choice depends on what the paragraph is about and what the next sentence will say. Pick the version whose stress position hands off to the next sentence.
+
+A second pair, where the choice is less neutral. The same finding, written two ways:
+
+> *"Of the 142 participants enrolled, alpha-synuclein levels were significantly higher in patients with REM sleep behaviour disorder."*
+
+> *"Among 142 participants, those with REM sleep behaviour disorder had significantly higher alpha-synuclein levels."*
+
+The first sentence ends on the participant count (a bookkeeping detail) and buries the finding in the middle. The second ends on the finding, which is what the reader will carry into the next sentence and what the paragraph is presumably about.
+
+## Active voice (mostly)
+
+Active voice is almost always clearer than passive voice. "We recorded vital signs every 15 minutes" is sharper than "Vital signs were recorded every 15 minutes." A useful editing trick: if you can insert "by zombies" after the verb and the sentence still makes grammatical sense, it is in the passive voice.
+
+The exception is the methods section, where the passive voice is conventional and appropriate: "Participants were recruited from three hospitals." The focus there is on the procedure, not the researchers.
+
+::: {.column-margin}
+Compare the two methods sentences below; both are passive and both are correct for the methods section:
+
+*"Participants were included if they met the following criteria: age ≥ 18 years, hospitalisation with a primary diagnosis of acute heart failure (ICD-10 I50), LVEF measured during admission, and survival to hospital discharge."*
+
+The passive voice here keeps the focus on the inclusion logic. Switching to "We included patients who met..." would not be wrong, but in a busy methods section, passive voice reduces noise.
+:::
+
+## Cut ruthlessly
+
+Scientific writing improves most through subtraction. A few common patterns to eliminate:
+
+- **Unnecessary words**: "many in number" → "many", "blue in colour" → "blue", "at this moment in time" → "now".
+- **Nominalisations**: turning verbs into nouns adds length without adding meaning. "We gave much consideration to" → "We considered."
+- **Indirect language**: "It was observed in our department that early beta-blocker initiation reduced readmissions..." → "We observed that early beta-blocker initiation reduced readmissions..."
+- **Double negatives**: "It is not uncommon for patients with heart failure to experience dyspnoea on exertion" → "Dyspnoea on exertion is common in patients with heart failure."
+- **"There is / there are" constructions**: "There was a significant increase in 30-day readmissions among older patients" → "Thirty-day readmissions increased significantly among older patients."
+
+Pascal (or perhaps Mark Twain, or Cicero) wrote: "I have only made this letter rather long because I have not had time to make it shorter." The aphorism holds. Concision takes effort.
+
+Melville could afford the cetological digressions of *Moby-Dick* [@melville1851mobydick]; his readers signed up for a novel. Scientific readers did not. Every tangent you keep is attention spent somewhere other than your finding.
+
+A healthcare example. Before:
+
+> *"In this particular study, which was conducted at our institution over a period of five years, we were able to observe that there was a statistically significant increase in the rate of 30-day hospital readmissions among patients who were discharged following hospitalisation for acute heart failure with NT-proBNP concentrations that were elevated in comparison to those patients whose NT-proBNP concentrations were lower."* (63 words)
+
+After:
+
+> *"Between 2018 and 2023, patients discharged after acute heart failure with higher NT-proBNP were more likely to be readmitted within 30 days."* (23 words)
+
+Same fact. One-third the length. Less noise; no content lost.
+
+::: {.column-margin}
+Revision is where the real writing happens. A rough draft says everything you know; a final draft says only what the reader needs. Cut the first draft ruthlessly, then cut it again.
+:::
+
+## Hedging
+
+Academic writing requires precision about certainty. When you do not have absolute evidence, hedging is appropriate [@hyland1998hedging]. Hedging protects your reputation, conveys honesty, and reflects the genuine uncertainty inherent in most research.
+
+A calibration exercise. The same finding (higher NT-proBNP at discharge is associated with 30-day readmission after acute heart failure, adjusted HR 1.31, 95% CI 1.08--1.59, p = 0.005), stated at three different levels of confidence:
+
+- **Unhedged causal claim.** *"Elevated NT-proBNP at discharge causes 30-day heart failure readmission."*
+  A causal claim from an observational design. Not supported by the data.
+
+- **Appropriate.** *"In our cohort, higher NT-proBNP at discharge was associated with 30-day readmission (adjusted HR 1.31, 95% CI 1.08--1.59), independent of LVEF and NYHA class; residual confounding from unmeasured severity cannot be excluded."*
+  States the association, the direction, the adjusted estimate, and the design-imposed limit.
+
+- **Over-hedged.** *"It is possible that NT-proBNP might perhaps have some form of weak association with readmission in certain patients, though the data do not definitively establish this."*
+  Buries a finding the data clearly support. The 95% CI excludes 1; the p-value is 0.005.
+
+A useful test: if you removed the hedge, would you still be comfortable standing by the claim? If not, the hedge is doing its job. If yes, the hedge may be hiding a finding you should state directly.
+
+::: {.callout-warning}
+## When hedges hurt
+
+A hedge protects your reputation when the data do not support certainty. It buries your findings when the data do. Hedge the claims that exceed your design. State clearly what the data do support. Readers cannot always tell which you meant; do not leave them guessing.
+:::
+
+::: {.column-margin}
+Vague hedging ("it is thought that", "it is possible that") avoids precision rather than replacing it. A well-hedged sentence names what is uncertain, how uncertain it is, and why: *"Our findings suggest an association, but residual confounding from unmeasured diuretic adherence and dietary sodium cannot be excluded."*
+:::
+
+## Abbreviations
+
+Define every abbreviation at first use. Do not use an abbreviation if it appears fewer than three times in the text; the effort of abbreviation is not worth the minimal space saved. The [AMA Manual of Style](https://www.amamanualofstyle.com/) is the standard reference for medical abbreviations.
+
+Ambiguous abbreviations are a genuine risk in clinical writing:
+
+- "MS" could mean multiple sclerosis, mitral stenosis, or mental status
+- "BP" could mean blood pressure or British Pharmacopoeia
+- "HF" means heart failure in cardiology, but high frequency in audiology or ventilator settings; spell it out at first use in any cross-disciplinary paper
+- "COPD" is widely understood, but always spell it out at first use for international readerships
+- "IV" could mean intravenous or invasive (as in invasive mechanical ventilation)
+- "AMI" could mean acute myocardial infarction or, in chart notes, against medical advice
+
+When in doubt, write it out. A reader from a different specialty or country should never have to guess.
+
+::: {.column-margin}
+Drug abbreviation errors have caused patient harm. Never abbreviate drug names in clinical documents. Write "insulin" not "INS", "morphine" not "MRP". The [ISMP List of Error-Prone Abbreviations](https://www.ismp.org/recommendations/error-prone-abbreviations-list) is a useful reference for clinical writing, and many journals will not accept drug name abbreviations.
+:::
