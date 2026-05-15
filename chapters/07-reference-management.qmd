@@ -3,3 +3,62 @@
 Do not track citations by hand. A reference manager keeps metadata, PDFs, annotations, and formatted citations in one searchable library; formatting a reference list that might take hours in Word plus a folder of PDFs takes minutes. [Zotero](https://www.zotero.org/) is the most common choice in healthcare research, with free cloud sync and strong community support. [Mendeley](https://www.mendeley.com/) and [EndNote](https://endnote.com/) are widely used alternatives. All three export to [BibTeX](https://en.wikipedia.org/wiki/BibTeX) (for LaTeX or Quarto) and to most journal styles via [CSL](https://citationstyles.org/).
 
 I have written a longer [note on using Zotero](https://tiagojct.eu/notes/zotero/) that covers installation, tagging, collections, annotations, and integration with Word, LibreOffice, and Quarto. The short version for PhD students: pick one tool, commit to it, and import every paper you cite from your first week. A library you trust saves hours in the final weeks before submission, which is where most manuscripts come apart.
+
+## Building the library
+
+The most useful library habit is consistency at the point of import. When you read a paper, add it. Do not save it to a folder to add later; it will not be added. Import directly from PubMed, Web of Science, Google Scholar, or a journal website using the browser extension (Zotero Connector is the standard for Zotero). If a DOI is available, import by DOI; it fetches complete metadata and often the full-text PDF.
+
+To stay current without manual searching, set up automated alerts. PubMed's MyNCBI can email you new results for any saved search. Web of Science and Scopus offer citation alerts that notify you when a key paper is cited. Google Scholar alerts work for both new papers and new citations. One well-constructed alert replaces an hour of periodic manual searching and catches relevant work you would otherwise miss.
+
+::: {.column-margin}
+For systematic reviews, automated alerts and prospective database monitoring are part of the reproducibility record. Document your search strategy, including the databases searched, date limits, and any filters applied. PRISMA requires this; so does any competent peer reviewer.
+:::
+
+## When and how to cite
+
+A citation is a claim. Cite the source where the finding, method, or argument you are attributing actually appears — not a review that cites it, not a review that the review cites. For core methods, cite the original methodology paper, even if a review article is more convenient for the reader.
+
+A few practical rules.
+
+- **Primary over secondary.** Cite the original study, not the paper that mentioned it. If you have not read the primary source, do not cite it.
+- **Recent over historical, unless the historical source is seminal.** For clinical facts, cite a recent systematic review or guideline, not a thirty-year-old observational study. For methodological concepts — IMRAD, the hourglass model, the stress position in academic prose — cite the source where the concept was established.
+- **Neither too few nor too many.** A paper that cites no one appears to have no context. A paper that cites thirty papers per sentence is burying the reader. Two to four well-chosen sources per factual claim is usually sufficient.
+- **Self-citation.** Citing your own prior work is appropriate when genuinely relevant. When it is the fifth self-citation in three pages, it reads as self-promotion, and some journals cap the proportion of author self-citations.
+
+## Citation hygiene
+
+Citation errors are common and consequential. A reference that says the wrong thing propagates into other work and is difficult to correct after publication.
+
+Before submission, check a sample of your citations against the original papers. Confirm that each says what you say it says, uses the methods you attribute to it, and draws the conclusion you report. This takes time but catches errors that reviewers and editors are increasingly likely to flag.
+
+LLM-generated citations require particular care. Language models produce bibliographically plausible but non-existent references [@icmje2023recommendations]. If you used an AI tool at any stage of writing, verify every citation it produced against a primary database (PubMed, DOI lookup, institutional access) before including it. Do not verify by asking the same or another model whether the paper exists; models will confirm citations they invented.
+
+## Citation styles and output
+
+Most health journals use numerical citation styles (Vancouver, Nature) or author-date styles (APA, Harvard). Your reference manager handles the formatting; your job is to ensure the metadata in the library is correct. The most common errors are missing volume or issue numbers, wrong page ranges, duplicate authors, and garbled accented characters in author names.
+
+If your manuscript is in Quarto, the `.bib` file exported from Zotero or any CSL-compatible manager plugs directly into the `bibliography:` key in your YAML front matter. The `csl:` key selects the citation style; [Zotero's style repository](https://www.zotero.org/styles) hosts thousands of journal-specific CSL files. For Word users, the Zotero word processor plugin inserts citations as formatted fields that update automatically when you change style.
+
+::: {.callout-tip collapse="true"}
+## Practice: citation hygiene check
+
+The following text contains four citation-integrity problems. Find each one.
+
+> *"Population ageing is a major driver of chronic disease burden worldwide.^1^ A recent systematic review of twenty-two trials found no significant difference in 30-day readmission between NT-proBNP-guided and usual-care discharge in acute heart failure.^2^ NT-proBNP has also been proposed as a prognostic biomarker in sepsis, where levels above 5,000 pg/mL predicted ICU mortality with 87% sensitivity.^3^ Our statistical methods followed the approach of Smith et al.^4^"*
+
+Reference list (numbers as cited):
+
+1. United Nations. World Population Ageing 2025. New York: UN, 2025.
+2. Johnson A, et al. NT-proBNP-guided discharge in heart failure: a systematic review. *JAMA Cardiol.* 2024;9(4):312–320.
+3. Martinez R, et al. NT-proBNP and ICU mortality in sepsis. *Crit Care Med.* 2025;53(2):88–97.
+4. Smith J, et al. Cox proportional hazards modelling in clinical registries. *Stat Med.* 2021;40:1234–1245.
+
+---
+
+Suggested answers (one per claim above):
+
+1. Reference 1 is cited by year (2025) but the publication date should be verifiable. Minor point — but always verify that date-sensitive statistics match the cited edition or report.
+2. "No significant difference" is a very specific claim; verify the paper's conclusion matches (a systematic review may have found heterogeneous results or a conditional null).
+3. The very precise figure (87% sensitivity above a specific threshold) is exactly the kind of quantitative claim most often distorted in secondary citation. Trace it to the original paper before repeating it.
+4. "The approach of Smith et al." is too vague. Cite the specific method (e.g., "using the method described by Smith et al. for handling time-varying exposures") or you have not actually told the reader what you did.
+:::

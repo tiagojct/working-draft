@@ -433,3 +433,29 @@ g.set_axis_labels("Months from baseline", "SBP (mmHg)")
 :::
 
 :::
+
+::: {.callout-tip collapse="true"}
+## Practice: classify before you fix
+
+For each figure description below, identify the failure category (ugly / bad / wrong from Chapter 10) and name the specific pitfall from this chapter.
+
+1. A bar chart where the y-axis runs from 130 to 155 mmHg. The tallest bar appears to be about three times the height of the shortest. The actual difference between the groups is 8 mmHg.
+
+2. A two-panel figure with SBP (scale 0–160 mmHg) on the left axis and body weight (scale 60–100 kg) on the right axis. Both variables trend upward with age band and the two lines look nearly identical on the chart.
+
+3. A pie chart with nine slices: four large ones labelled with category names, and five unlabelled slivers. The legend lists all nine categories.
+
+4. A heatmap of mean blood pressure reduction rendered in `rainbow()`. The yellow band near the middle of the colour scale is visually brighter than the deep values at both ends.
+
+---
+
+Suggested answers:
+
+1. **Wrong.** Truncated y-axis (pitfall 3). A bar's length encodes magnitude from zero; starting at 130 inflates the visual difference. The reader sees a ~3× difference; the data show 8 out of ~140 mmHg.
+
+2. **Bad.** Dual-axis chart (pitfall 5). Whether the two lines look similar or opposed depends entirely on the scale chosen for the secondary axis, not on the data.
+
+3. **Bad.** Pie chart with too many categories (pitfall 1). Replace with a sorted horizontal bar chart that shows all nine categories on a common scale.
+
+4. **Ugly/wrong.** Rainbow palette (pitfall 2). Luminance is non-monotonic: yellow (near the middle of the scale) reads as "highest" because it is the brightest, not because the values it represents are the largest.
+:::

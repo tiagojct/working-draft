@@ -127,3 +127,29 @@ When in doubt, write it out. A reader from a different specialty or country shou
 ::: {.column-margin}
 Drug abbreviation errors have caused patient harm. Never abbreviate drug names in clinical documents. Write "insulin" not "INS", "morphine" not "MRP". The [ISMP List of Error-Prone Abbreviations](https://www.ismp.org/recommendations/error-prone-abbreviations-list) is a useful reference for clinical writing, and many journals will not accept drug name abbreviations.
 :::
+
+::: {.callout-tip collapse="true"}
+## Practice: editing for clarity
+
+Each sentence below has at least one clear-writing problem from this chapter. Name the problem (passive voice used unnecessarily, nominalisation, unnecessary length, wrong stress position, or over-hedging) and rewrite the sentence.
+
+1. *"It was observed by the clinical team that a significant elevation in NT-proBNP concentrations was present among those patients who had been readmitted within a 30-day period."*
+
+2. *"There was a possibility that the implementation of early beta-blocker initiation may perhaps have had some effect on outcomes in the studied patients."*
+
+3. *"A considerable amount of the patients enrolled in the study were in possession of multiple comorbid conditions."*
+
+4. *"The primary outcome of this analysis was the occurrence of an in-hospital mortality event."*
+
+5. *"Of the 142 participants enrolled, alpha-synuclein levels were significantly higher in patients with REM sleep behaviour disorder."*
+
+---
+
+Suggested rewrites:
+
+1. Passive voice + nominalisation: *"NT-proBNP was significantly higher in patients readmitted within 30 days."*
+2. Over-hedging + length: *"Early beta-blocker initiation may have improved outcomes."*
+3. Nominalisation + length: *"Many enrolled patients had multiple comorbidities."*
+4. Nominalisation: *"The primary outcome was in-hospital mortality."*
+5. Wrong stress position: *"Among 142 participants, those with REM sleep behaviour disorder had significantly higher alpha-synuclein levels."* (The finding, not the sample size, should land in the stress position.)
+:::

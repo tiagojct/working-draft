@@ -123,3 +123,31 @@ A useful review has three parts:
 Two conventions matter. Write to the authors, not about them: *"the authors should consider..."* rather than *"the authors failed to..."*. And separate *confidential comments to the editor* (where you make a recommendation and may be candid about fit or significance) from comments sent to the authors.
 
 Expect to spend four to eight hours on a first full review. Claim credit via [ORCID](https://orcid.org/) or the publisher's integration with Web of Science Reviewer Recognition. Reviewing is unpaid work, but it builds editorial judgement that steadily improves your own writing.
+
+::: {.callout-tip collapse="true"}
+## Practice: responding to peer review
+
+A reviewer has sent the following comment on your manuscript.
+
+> *"The limitations section is too brief. The authors do not discuss the potential for selection bias given that recruitment was limited to two tertiary hospitals, nor do they address loss-to-follow-up in adequate depth. The generalisability of the findings to primary care settings is not discussed at all."*
+
+Draft a response that follows the point-by-point format described in this chapter. Your response should:
+
+- Acknowledge the concern directly and specifically, without being defensive;
+- Describe what change you made to the manuscript;
+- Quote the revised text (you can write a plausible revision).
+
+There is no single correct answer — what matters is the structure: acknowledge, change, quote.
+
+---
+
+Model response:
+
+> *"We thank the reviewer for this comment. We have expanded the Limitations section to address both points.*
+>
+> *On selection bias: both hospitals are tertiary referral centres, which means our cohort is enriched for patients with more severe acute heart failure than would be seen in district hospitals or primary care. We have added the following sentence: 'Both participating centres are tertiary referral hospitals; the cohort may not represent the full severity spectrum of acute heart failure managed in primary and secondary care settings.'*
+>
+> *On loss-to-follow-up: readmission was ascertained from the national hospital registry, which records all acute hospital encounters, but does not capture primary care or outpatient contacts. Of 5,204 patients, national registry linkage was successful for 5,198 (99.9%). We have added: 'Loss-to-follow-up was minimal given registry linkage (99.9% successful); however, readmissions managed in outpatient or primary care settings would not be captured.'*
+>
+> *The revised Limitations section is on pages 15–16 of the manuscript."*
+:::
