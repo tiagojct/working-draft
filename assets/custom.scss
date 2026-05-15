@@ -173,6 +173,8 @@ a {
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
 .navbar a,
 .nav-link,
+.sidebar a,
+.sidebar-navigation a,
 a.footnote-ref,
 a[role="doc-biblioref"],
 a[role="doc-noteref"],
@@ -387,6 +389,15 @@ $callouts: (
   border-bottom: none !important;
 }
 
+// Chapter links within parts: smaller than top-level items for visual depth
+.sidebar-navigation .chapter-link,
+.sidebar-navigation .sidebar-collapse .sidebar-item-text,
+.sidebar-navigation .sidebar-section-items .sidebar-item-text {
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: rgba($pequod-navy, 0.8);
+}
+
 /* ── Page TOC (right column) ──────────────────────────────────────────── */
 
 // "Table of contents" header label
@@ -538,6 +549,12 @@ body.quarto-dark {
   .book-sidebar .part-title,
   .sidebar .part-title {
     color: rgba($pequod-cream-2, 0.5);
+  }
+
+  .sidebar-navigation .chapter-link,
+  .sidebar-navigation .sidebar-collapse .sidebar-item-text,
+  .sidebar-navigation .sidebar-section-items .sidebar-item-text {
+    color: rgba($pequod-cream, 0.7);
   }
 
   // TOC — dark overrides
