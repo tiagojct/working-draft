@@ -1,4 +1,8 @@
-# Reporting guidelines
+# Reporting and research transparency
+
+Sound reporting is the mechanism by which a study can be examined, replicated, and built upon. It is not a bureaucratic overlay on the science; it is the form through which the science becomes verifiable. This chapter covers the reporting guidelines that specify what a study must include, the preregistration systems that protect the integrity of hypothesis testing, and the data and code sharing practices that make findings reproducible.
+
+## Reporting guidelines
 
 For any study design, consult the relevant reporting guideline before writing. The [EQUATOR Network](https://www.equator-network.org/) maintains a comprehensive database. The most common guidelines in clinical and biomedical research:
 
@@ -11,13 +15,70 @@ For any study design, consult the relevant reporting guideline before writing. T
 | Study protocol (trial)        | [SPIRIT](https://www.spirit-statement.org/)                                        | Protocols of clinical trials                                     |
 | Study protocol (review)       | [PRISMA-P](https://www.prisma-statement.org/)                                      | Protocols of systematic reviews                                  |
 | Diagnostic accuracy study     | [STARD](https://www.equator-network.org/reporting-guidelines/stard/)               | Diagnostic test accuracy                                         |
-| Prediction model (incl. AI)   | [TRIPOD+AI](https://www.equator-network.org/reporting-guidelines/tripod-statement/) | Development, validation, and updating of multivariable prediction models, including machine-learning models |
+| Prediction model (incl. AI)   | [TRIPOD+AI](https://www.equator-network.org/reporting-guidelines/tripod-statement/) | Development, validation, and updating of prediction models, including machine-learning models |
 | Case report                   | [CARE](https://www.care-statement.org/)                                            | Individual clinical cases                                        |
 | Qualitative research          | [SRQR](https://www.equator-network.org/reporting-guidelines/srqr/)                 | Qualitative studies                                              |
 | Statistical reporting         | [SAMPL](https://www.equator-network.org/reporting-guidelines/sampl/)               | Statistical analyses and methods, applicable across study designs |
 
-Using the appropriate checklist improves completeness, transparency, and the likelihood of acceptance. Use it as a *writing* guide from the start, not as a pre-submission audit; a manuscript drafted around the checklist is almost always easier to revise than one retrofitted to it.
+Use the guideline as a writing guide from the start, not as a pre-submission audit. A manuscript drafted around the checklist is easier to revise than one retrofitted to it at the last moment. Submit the filled checklist as a supplement; most journals require it and editors check it on receipt.
 
 ::: {.column-margin}
-If you are writing a randomised trial, the CONSORT checklist is mandatory: most journals will not publish without it, and editors will check it. CONSORT 2025 added items on harms reporting, protocol deviations, and handling of missing outcome data. A poorly reported trial is often a poorly conducted one.
+CONSORT 2025 added items on harms reporting, protocol deviations, and handling of missing outcome data that were absent from the 2010 version. If you wrote a trial protocol before 2025, review the new checklist before submission. Most high-impact journals require a CONSORT flow diagram as a non-negotiable condition of review.
 :::
+
+Three items that are routinely under-reported. **STROBE item 12** (missing data): state the denominator for every analysis and describe how you handled missingness — complete-case analysis is a decision, not a default, and must be justified. **PRISMA item 8** (search strategy): reproduce the full search string for at least one database in the supplement; a partially reported search cannot be replicated. **CONSORT item 16** (numbers analysed): in multi-arm trials, report who was randomised, who received the intervention, and who was analysed for each arm, with reasons for every departure, in a CONSORT flow diagram.
+
+## Preregistration
+
+Preregistration is the practice of recording your study design, primary hypothesis, and pre-specified analysis plan in a public registry before data collection begins. For clinical trials, it is obligatory: the ICMJE has required it since 2004 [@icmje2023recommendations], and the Declaration of Helsinki endorses it. For observational studies, prediction models, and systematic reviews, it is increasingly expected rather than merely encouraged.
+
+For **clinical trials**, register at [ClinicalTrials.gov](https://clinicaltrials.gov/) (US NIH, internationally recognised), [ISRCTN](https://www.isrctn.com/) (UK and EU), or another [WHO Primary Registry](https://www.who.int/clinical-trials-registry-platform/network/primary-registries). Register before first patient enrolment; retrospective registration is recognised as misleading and will result in a note or correction if discovered post-publication. The registration number must appear in the abstract and the manuscript body; editors check this on receipt.
+
+For **observational studies, prediction models, and secondary data analyses**, register at [OSF Registries](https://osf.io/registries) or [AsPredicted](https://aspredicted.org/). For systematic reviews, register at [PROSPERO](https://www.crd.york.ac.uk/prospero/) before screening begins. None of these registries requires funding or institutional affiliation; the process takes thirty minutes. TRIPOD+AI now encourages preregistration for prediction model studies, and journals in this space increasingly expect it.
+
+The scientific purpose of preregistration is to separate confirmatory from exploratory analysis. A confirmatory analysis tests a pre-specified hypothesis with a pre-specified method; an exploratory analysis generates hypotheses for future study. Both are valuable, but they carry different inferential weight and must be clearly labelled as such. The most common failure is presenting exploratory subgroup analyses, secondary endpoints that happen to be significant, or post-hoc sensitivity analyses as if they were confirmatory. Preregistration makes the distinction auditable.
+
+::: {.column-margin}
+A **registered report** goes further: the journal evaluates and conditionally accepts the study design and analysis plan *before* the results are known, guaranteeing publication regardless of the outcome. *BMJ Open*, *PLOS Medicine*, and dozens of other journals now offer this format. For early-career researchers worried about null results, it is worth exploring.
+:::
+
+If the analysis you ran diverges from what you pre-specified — as often happens in the reality of clinical data — report both: the pre-specified analysis in the primary results and the post-hoc analysis clearly labelled as exploratory. Do not silently replace one with the other.
+
+## Data and code sharing
+
+Most funders now require, and many journals mandate, that the data and code underlying a paper are available to reviewers and readers. The minimum is a data availability statement; the ideal is a reproducible workflow that another researcher can execute to regenerate your results.
+
+### Data availability statements
+
+A data availability statement declares where the data are, under what conditions they can be accessed, and — if they cannot be shared — why. Four levels, in descending order of openness:
+
+1. **Fully available** in a public repository (Zenodo, Dryad, OSF, Figshare, or a data journal such as *Scientific Data* or *Data in Brief*). Include the repository DOI in the statement.
+2. **Available on reasonable request** to the corresponding author. Use only when there is a genuine barrier to open sharing: a data use agreement, patient consent that did not cover secondary redistribution, or a third-party licence. "Available on request" is a reproducibility barrier; studies have shown that most requests go unanswered and many datasets are lost within five years of publication [@vines2014availability].
+3. **Restricted access** via a controlled-access repository (UK Biobank, Norwegian Patient Registry, SAIL Databank). Describe the access procedure.
+4. **Data cannot be shared** — requires explicit justification.
+
+If you can deposit the data openly, do so. Level 2 should not be the default.
+
+### Code sharing
+
+Share the analysis code alongside the data. For R users, an `.Rmd` or `.qmd` file that runs from raw data to all manuscript figures and tables is the standard. For Python users, a structured script directory with a `requirements.txt` or `environment.yml` and a `README` that describes execution order.
+
+Three things make shared code useful to a reader: it runs without modification on the data provided; it is commented enough that the analytical logic is followable; and the software environment is specified. A `sessionInfo()` call at the end of an R script, or `renv::snapshot()` for fully reproducible package management, satisfies the last requirement.
+
+::: {.column-margin}
+[Zenodo](https://zenodo.org/) is the most practical repository for research code because it issues a citable DOI, integrates with GitHub (a repository release can be archived to Zenodo automatically), and is hosted by CERN under an open-science mandate. An archived Zenodo record is stable; a GitHub repository alone is not — repositories are deleted, made private, or reorganised.
+:::
+
+Deposit the code in a DOI-issuing repository and include the DOI in the manuscript's data availability statement and methods section. If your data cannot be shared openly, consider releasing a synthetic version: the `synthpop` package in R and the `SDV` library in Python generate realistic synthetic datasets that preserve analytical structure without exposing individuals.
+
+## Supplementary materials
+
+The supplement is where depth lives that does not belong in the main paper: the filled reporting checklist, extended methods for minor analytical choices, sensitivity analyses that support rather than drive the conclusions, and large tables that would interrupt the narrative flow.
+
+**What belongs in the supplement:** the filled reporting checklist (mandatory for most journals); extended methods sections (e.g., the full specification of a complex statistical model); tables with more rows than can be printed legibly in a journal column (more than about twenty rows); secondary and sensitivity analyses with a clear interpretive role.
+
+**What does not belong in the supplement:** anything the reader needs to interpret the primary results. A sensitivity analysis that changes the conclusion, or a table that contains the primary outcome, belongs in the main paper. The supplement is not a rubbish drawer for content that missed the word limit.
+
+**Formatting rules:** every supplementary item must be referenced in the main text ("Supplementary Table S1 shows the full covariate list"). Unreferenced items are invisible. Number items with an "S" prefix (Table S1, Figure S1). Each supplementary figure and table needs a self-contained caption by the same standard as main-paper figures — a reader should understand what is shown without consulting the main text. If the supplement exceeds five items, include a brief table of contents. Match the typeface and caption style to the main manuscript.
+
+Journal requirements vary widely: some require a single combined PDF; others accept separate files per item; still others integrate supplementary tables as HTML or Excel alongside the article. Check the instructions for authors before formatting the supplement.

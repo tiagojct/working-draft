@@ -4,11 +4,71 @@
 *Current as of May 2026. AI tools for figure generation are evolving quickly; check your target journal's current policy on image-model disclosure before submission.*
 :::
 
-Generative tools are now routinely used to draft figures, write the code that produces them, and refine the layout. The principle from @sec-ai-writing carries over.
+Generative tools are now routinely used to draft figures, write the code that produces them, and refine the layout. The principle from @sec-ai-writing carries over, but the risks are different by tool type. Code-generation and image-generation look superficially similar — both produce output from a verbal prompt — but they fail in different ways and must be managed differently.
 
-Code suggestions for plot construction (drafting a `ggplot` call from a verbal description) are equivalent to language editing. Disclose when the journal asks; review every line before you commit it. Figure generation by an image model ("render a forest plot of these effect sizes") must be disclosed and is increasingly scrutinised. The figure must come from your data, not from a model's reconstruction of what such a figure usually looks like. Fabricating data, units, or annotations is misconduct, and the figure is the easiest place for fabrication to slip in. Every label, every n, every confidence interval comes from the analysis.
+## Code-generation tools
+
+A code-generation tool (GitHub Copilot, ChatGPT, Claude, or any equivalent) takes a description of your data and your desired chart and drafts the code to produce it. Used correctly, this is equivalent to autocomplete or a fast Stack Overflow lookup: you describe what you want, the tool drafts the syntax, you review it, correct errors, and run it. The figure is still produced from your data by a deterministic process you can inspect.
+
+The practical workflow for using code-generation safely:
+
+1. **Describe the data structure, not the desired result.** *"I have a data frame with columns `treatment` (4-level factor) and `sbp_6m` (continuous) and want a boxplot with jittered points, coloured by treatment, no legend"* produces better code than *"make a nice boxplot"*.
+2. **Review every line before running it.** Common code-generation errors include wrong geom for the data type, axis direction reversed, factor levels dropped, colour assigned by row number rather than by factor level. These do not produce an error; they produce a misleading figure.
+3. **Run the code on your actual data immediately.** A figure that looks right on a description may break on real data. Check axis limits, check that all groups appear, check that n matches your expectation.
+4. **Adjust, re-prompt, and document.** The final code is yours once you have reviewed and approved it. The tool's draft is a starting point, not a finished product.
+
+::: {.column-margin}
+The most common code-generation error in figure work is a colour assignment that silently breaks when a factor has levels with no observations in a subset. Test on a stratified subset before generating the final figure.
+:::
+
+Disclosure for code-generation follows the tier-2 rule from @sec-ai-writing: it is restructuring of content you already conceptualised. Disclose when the journal requires it; in any case, a brief acknowledgement is safer than none.
+
+## Image-generation tools
+
+An image-generation tool (DALL-E, Midjourney, Stable Diffusion, or any equivalent) produces a raster image from a text prompt. The output is a plausible-looking construction based on training data, not a rendering of your data. This distinction is absolute and non-negotiable in scientific publication.
+
+**What image-generation tools cannot do correctly:** produce a figure that accurately represents your data. Even if the prompt includes your exact numbers — *"generate a forest plot where study A has OR 1.3, 95% CI 1.1 to 1.6"* — the model is interpolating a plausible layout, not calculating from values. Axis ticks, confidence interval endpoints, and label positions are approximate at best, fabricated at worst. The figure looks credible; it is not verifiable.
+
+**What they can do without integrity risk:** generate conceptual diagrams that do not claim to represent data. A schematic of a randomisation process, an anatomical illustration for an introduction panel, a study timeline, a process flow. These are illustrations, not data visualisations, and the standard for them is accuracy of concept rather than accuracy of data.
+
+If you use an image model for any non-data figure, the figure must still be accurate to the concept it represents. A schematic of a clinical trial pathway that omits a key step or misrepresents the study design is wrong, regardless of how it was generated.
+
+Every data label, every n, every confidence interval in every figure comes from the analysis. If a number in a figure cannot be traced to a specific step in your analysis code, it should not be in the figure.
+
+## Disclosure
+
+Code suggestions for plot construction must be disclosed when the journal asks; review every line before you commit it. Figure generation by an image model must be disclosed and is increasingly scrutinised. Fabricating data, units, or annotations is misconduct.
+
+A worked disclosure table for the most common scenarios:
+
+| Use case | Tier | When to disclose |
+|:---------|:----:|:-----------------|
+| Grammar and clarity editing on caption text | 1 | Only if journal requires it |
+| Code-generation for geom calls, axis formatting | 2 | When journal requires; acknowledgement otherwise |
+| Drafting a figure layout from a verbal description | 3 | Always |
+| Generating a schematic or illustration | 3 | Always; describe the tool |
+| Generating a figure that claims to show your data | 4 | **Prohibited** |
 
 A model disclosure sentence that fits most figure work:
 
 > *"During the preparation of this work, the authors used [tool/model] for code suggestions in figure construction. After using this tool, the authors reviewed and edited the output and take full responsibility for the figures presented."*
 
+For image-model use in non-data illustrations:
+
+> *"The schematic in Figure 1A was produced with assistance from [tool/model] and subsequently reviewed and edited by the authors. It does not represent data."*
+
+On peer review: most publishers now prohibit pasting manuscripts or unpublished figures into public AI tools during review because it may leak unpublished work. This prohibition applies equally to figures and to text. Read the publisher's policy before reviewing with AI assistance.
+
+::: {.callout-tip}
+## Part II in seven points
+
+If you only take away seven things from Part II:
+
+1. Decide what the figure says before you draw it. A chart with no pre-specified argument will make no argument.
+2. Position on a common scale beats every other encoding. Bar before pie. Dot before donut.
+3. Match the palette to the data structure: sequential ramp for ordered data, categorical set for unordered groups.
+4. Zero-anchor bars. Show distributions, not means.
+5. Write captions that stand alone. The reviewer reads the caption before the results section.
+6. Test your palette against colour-vision-deficiency simulation before finalising.
+7. Code-generation is safe if you review every line. Image-generation for data figures is not safe.
+:::

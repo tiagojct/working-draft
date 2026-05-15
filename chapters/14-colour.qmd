@@ -35,3 +35,19 @@ The light and dark crew variants are for light and dark backgrounds, not for two
 The palette has documented colour-vision-deficiency collapses (Pip ↔ Stubb under tritanopia, Ahab ↔ Daggoo under protanopia). When the colour distinction carries the result — as in diff gutters, error states, or "treated vs control" in a two-arm trial — pair the colour with a shape or weight. Hue alone is not enough.
 
 The full palette documentation, including a colour-vision-deficiency report and installation instructions for R and Python, is at [tiagojct.eu/projects/pequod/](https://tiagojct.eu/projects/pequod/).
+
+## Preparing figures for submission
+
+Journal specifications for figures are more demanding than most researchers expect. A figure that looks fine on a monitor at 72 ppi will print blurred at journal resolution, and a figure submitted in the wrong colour space will reproduce differently in print than on screen. Check the target journal's figure guidelines before finalising.
+
+**Resolution.** Print journals require 300 dots per inch (dpi) at the figure's final printed dimensions. For a single-column figure (~86 mm wide in most journals), that means at least 1,020 pixels wide; for a double-column figure (~178 mm), at least 2,102 pixels. Figures containing fine lines, text, or points need higher resolution — 600 dpi is common for combination artwork (panels with both photographs and line art). Raster figures (PNG, TIFF) embedded in Word documents are often compressed on saving; export directly from your plotting environment at the target resolution rather than inserting into a document first.
+
+**File formats.** For line art (charts, graphs, diagrams with no photographs), prefer **vector formats** — PDF or SVG — because they scale without loss and embed fonts cleanly. For figures containing raster elements (photographs, confocal images), use **TIFF** for print submission; it is lossless and universally accepted. **PNG** is appropriate for web-only output and for preprints. **JPEG** uses lossy compression that introduces artefacts around sharp edges (text labels, data points) and should be avoided for scientific figures. If the journal's submission system requires a specific format, use it; if it accepts multiple formats, prefer PDF for purely graphical output.
+
+::: {.column-margin}
+In R, `ggsave("figure1.pdf", width = 86, height = 70, units = "mm")` exports a single-column figure as a vector PDF. For TIFF at 300 dpi: `ggsave("figure1.tiff", width = 86, height = 70, units = "mm", dpi = 300)`. In Python / matplotlib: `fig.savefig("figure1.pdf", bbox_inches="tight")` or `fig.savefig("figure1.tiff", dpi=300, bbox_inches="tight")`.
+:::
+
+**Colour space.** Digital displays use RGB (red-green-blue); commercial printing uses CMYK (cyan-magenta-yellow-black). An RGB figure sent to a print journal may shift in colour when converted by the production team. For journals that handle print production (most society journals and high-impact weeklies), ask whether to submit RGB or CMYK, or whether they handle the conversion. For online-only journals, RGB is correct. Most R and Python plotting libraries output RGB by default; CMYK conversion requires a post-processing step (e.g., Inkscape, Acrobat, or `colorspace::writePDF()` in R).
+
+**Font embedding.** Any text in the figure — axis labels, tick marks, legends, annotations — must use fonts that are either embedded in the file or replaced with paths. A figure that uses a system font not installed on the production server will display incorrectly. The safest approach is to export as PDF with embedded fonts (the default in R's PDF device and in matplotlib's PDF backend) or to convert text to outlines in a vector editor before submission.

@@ -147,6 +147,18 @@ Approximate Flesch--Kincaid grade levels, for calibration:
 
 Plain-language summaries sit within a broader shift toward [patient and public involvement](https://en.wikipedia.org/wiki/Patient_and_public_involvement) (PPI) in research: co-designing questions, interpreting findings, and communicating results. For practical guidance on building PPI into a study, see Hardavella and colleagues in the *Breathe* *Doing Science* series [@hardavella2015ppi].
 
+## Supplementary materials
+
+The supplement is not an extension of the paper; it is a companion document serving two distinct purposes — checklist compliance and reproducibility — and it should be built with the same care as the main text.
+
+**What belongs in the supplement:** the filled reporting checklist (CONSORT, STROBE, PRISMA, or whichever applies); extended methods for analytical choices too detailed for the main text; secondary and sensitivity analyses that support rather than drive the conclusions; large tables with more rows than fit legibly in a column (typically more than twenty rows); and the data availability statement if the journal separates it from the main text.
+
+**What does not belong in the supplement:** anything the reader needs to interpret the primary result. A sensitivity analysis that substantially changes the conclusion, or a figure that contains the primary outcome, belongs in the main paper. The supplement is not a holding area for content that missed the word limit.
+
+**Formatting rules:** number supplementary items with an "S" prefix (Figure S1, Table S1) and reference every item in the main text. A supplementary table or figure that is never cited is wasted. Each caption must stand alone by the same standard as main-paper captions — a reader should understand the item without consulting the main text. If the supplement exceeds five items, open it with a brief table of contents.
+
+Journal requirements vary: some accept a single combined PDF, others require separate files per item, and some integrate supplementary tables as HTML or Excel alongside the article. Check the instructions for authors before formatting. The reporting checklist in particular must usually be submitted as its own file, not embedded in the combined supplement.
+
 ## Authorship and responsibility
 
 The ICMJE defines authorship through four cumulative conditions: substantial contribution to conception or design (or data acquisition, analysis, or interpretation); drafting or critically revising the work; final approval of the published version; and accountability for the work's integrity [@icmje2023recommendations]. Activities that alone do not qualify someone for authorship include funding acquisition, general supervision, administrative support, and language editing.

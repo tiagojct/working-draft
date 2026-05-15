@@ -1,11 +1,57 @@
 # Working with co-authors
 
-Most papers are written by more than one person. A few habits prevent the most common problems.
+Most scientific papers are written by more than one person. The median authorship in clinical medicine exceeded five authors per paper by the early 2020s; papers with twenty or more contributors are standard in large consortia. The benefits — divided labour, complementary expertise, broader networks — are real. So are the difficulties. Version control failures, absent contributors, disputes over order, and questions of authorship legitimacy are among the most reliable predictors of a troubled submission.
 
-- **One authoritative version.** Keep a single master file: name it by date or version (`manuscript_2026-04-19_v07.docx`) and make sure every co-author knows which file is current. Better still: use a collaborative editor (Google Docs, Overleaf) or a plain-text, version-controlled setup. My own workflow is Markdown in [Zettlr](https://tiagojct.eu/notes/zettlr/) with [Git](https://tiagojct.eu/notes/git/) for versioning and Quarto for rendering; Pandoc (used under the hood by both Quarto and Zettlr) exports the same source to Word (`.docx`) in a single command, so co-authors who live inside Microsoft Word can still receive a tracked-changes copy to mark up.
-- **Track changes, then clean copy.** Circulate drafts with track changes on. When a section is settled, accept all changes and carry the clean text forward. Never circulate tracked and clean copies simultaneously; it invites version drift. If the manuscript lives in Markdown or Quarto, Git serves the same purpose: each commit is a version, and `git diff` shows exactly what changed between drafts.
-- **Explicit deadlines.** *"Please send comments by Friday 3 May, 12:00 Lisbon time"* works better than *"when you have time"*. Silence after a stated deadline counts as consent.
-- **Merge by meeting, not by stitching.** When two co-authors give contradictory suggestions on the same paragraph, resolve it in a 15-minute conversation rather than trying to honour both. Stitched compromises read poorly.
-- **Escalate judiciously.** If a supervisor and a senior co-author disagree, the corresponding author decides and documents the reasoning in writing so the same argument does not recur at resubmission.
+The formal criteria for who qualifies as an author, and the CRediT taxonomy for recording contributions, are covered in Chapter 2 (Authorship and responsibility). This chapter focuses on the practice: keeping the manuscript under control, agreeing on credit before conflict arises, and handling the scenarios that most often go wrong.
 
-Writing with good co-authors is the single largest accelerator of a scientific career. Writing with poor or absent ones is a slow, private trauma. Pick carefully, and be the kind of co-author you wish you had.
+## Keeping the manuscript under control
+
+The single most damaging mistake in collaborative writing is losing track of which version is current. Two authors working on divergent copies and then stitching them together produces a document that is worse than either input.
+
+**Use one authoritative source.** Collaborative editors (Google Docs, Overleaf) keep everyone on the same document in real time and make the edit history auditable. If the manuscript lives in Word, name files with date and version (`manuscript_2026-04-19_v07.docx`) and tell co-authors which is current before each editing round. If you write in Quarto or plain text, Git tracks every change: `git diff` shows exactly what changed between drafts, and `git blame` shows who changed it.
+
+**Track changes, then clean.** Circulate drafts with track changes active. When a passage is settled, accept all changes and carry the clean text forward. Never circulate a tracked-changes copy and a clean copy simultaneously — version drift is guaranteed. Agree from the start who has authority to accept changes; usually the corresponding author.
+
+**Explicit deadlines with stated consequences.** *"Comments by Friday 3 May, 12:00 Lisbon time"* is actionable. *"When you have time"* is not. State the deadline, the format you expect (in-document comments, email, or a call), and what happens if the deadline passes. Silence after a stated deadline counts as consent in most collaborative settings.
+
+**Merge by conversation, not by stitching.** When two co-authors give contradictory suggestions on the same passage, resolve the conflict in a fifteen-minute call rather than attempting to honour both in text. Stitched compromises read poorly and reopen the same argument at resubmission.
+
+## Author order
+
+In most biomedical and clinical fields, author order carries meaning: the first author did the primary work and drafted the manuscript; the last author is the senior supervisor or principal investigator; middle authors are listed in descending order of contribution. In some mathematical and physics fields, alphabetical order is conventional. In large consortia, the order may be governed by contribution tier (named authors, writing group, collaborators) specified in the methods.
+
+Agree on order before writing, not after. Revisiting authorship order at submission — when everyone has a clear stake in the outcome — is a reliable source of conflict that is much harder to resolve under time pressure. Document the agreed order in writing, even informally, at the start of the project.
+
+The **corresponding author** manages submission, handles reviewer correspondence, and accepts formal responsibility for the work's integrity on behalf of all authors. This role is often the first author in early-career work; in more senior projects it is often the last. Check the target journal's conventions. The corresponding author signs off on the final submitted version and is the point of contact for post-publication correspondence and corrections.
+
+## CRediT in practice
+
+The CRediT taxonomy (Contributor Roles Taxonomy) lists fourteen standardised roles — Conceptualisation, Methodology, Software, Validation, Formal analysis, Investigation, Resources, Data curation, Writing – original draft, Writing – review and editing, Visualisation, Supervision, Project administration, Funding acquisition — and requires journals to publish which roles each author performed. Most major journals now require a CRediT statement at submission.
+
+Fill it with all co-authors together, before submission. Two roles that early-career researchers routinely underattribute to themselves: **Writing – original draft** (if you wrote the first draft, this is yours regardless of how heavily it was revised) and **Formal analysis** (if you ran the statistical models, this is yours). Two roles that senior co-authors sometimes overclaim: **Conceptualisation** (did they conceptualise this specific study, or did they approve it after the fact?) and **Writing – review and editing** (does "reviewed the manuscript once before submission" qualify as a contribution that warrants co-authorship at all?).
+
+::: {.column-margin}
+CRediT does not define who qualifies as an author — that is still ICMJE's four criteria. CRediT records what each author did. An author who meets only one ICMJE criterion does not become a valid author by holding a CRediT role; conversely, a contributor who holds a CRediT role but does not meet all four ICMJE criteria is an acknowledged contributor, not an author.
+:::
+
+## When co-authorship becomes complicated
+
+**The absent co-author.** A contributor who agreed to participate and then stops responding is one of the most common practical problems in academic writing. Address it in writing early, with a clear and final deadline. If they miss it, the question is whether their original contribution still meets ICMJE's fourth criterion — accountability for the work's integrity. Someone who has not approved the final manuscript and cannot be contacted cannot meet that criterion. Consult your institution's authorship policy before removing a co-author; in most cases, this step requires documentation and, where possible, written notice to the person being removed.
+
+**Ghost authorship** — a person who made a substantial qualifying contribution but is not listed — is an integrity violation. Common instances: a medical writer who drafted the manuscript and is buried in the acknowledgements; a statistician who designed and ran the primary analysis and was never added to the author list; a PhD student whose work was published under the supervisor's name. Ghost authorship distorts the scientific record and denies credit to those who earned it. If someone's contribution meets ICMJE criteria, list them as an author.
+
+**Gift authorship** — listing someone who did not contribute enough to qualify — is equally a violation. Common instances: a head of department added as a courtesy; a senior colleague included to improve the paper's reception; an international collaborator who contributed a single email. Journals increasingly require each author to confirm individually that they meet ICMJE criteria; signing off on work you did not genuinely contribute to is a falsification.
+
+**Authorship disputes.** When disagreement cannot be resolved between authors and supervisor, escalate to the institution's research integrity officer or to the journal's editor. Most journals have documented procedures for authorship disputes and will pause review while the matter is investigated. Disputes are harder to resolve after a paper is published and much harder after it has been retracted. Document everything from the start of any project that seems likely to generate disagreement: emails, meeting notes, version histories, and any agreed division of labour.
+
+::: {.column-margin}
+The Singapore Statement on Research Integrity and the European Code of Conduct for Research Integrity [@allea2023european] both address authorship. Institutions are obligated under these frameworks to investigate authorship complaints. A written record is your protection in any dispute.
+:::
+
+## Acknowledgements
+
+The acknowledgements section is for contributors who do not meet authorship criteria: language editors, statisticians who provided a minor consultation, study coordinators, funders (if not in a dedicated funding statement), and patients who participated in the study. It is also currently where most AI-use disclosure resides for tools used in preparation but not in analysis.
+
+Listing someone in the acknowledgements implies that they endorse the work. Many journals require you to confirm that named individuals have given written consent to appear there.
+
+Writing with good co-authors is the single largest accelerator of a scientific career. Writing with absent or obstructive ones is a slow, private attrition. Pick carefully, and be the kind of co-author you wish you had.

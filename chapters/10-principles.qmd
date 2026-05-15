@@ -56,7 +56,7 @@ Every example in Part II uses the same simulated dataset: 600 adults with treate
 | `controlled_6m`      | logical     | `sbp_6m < 140 & dbp_6m < 90`                   |
 | `bp_class_6m`        | factor      | Normal / Pre-HT / Stage 1 / Stage 2            |
 
-The dataset and code to generate it are published alongside the original note at [tiagojct.eu/notes/dataviz/](https://tiagojct.eu/notes/dataviz/).
+The dataset and code to generate it are available at [tiagojct.eu/notes/dataviz/](https://tiagojct.eu/notes/dataviz/).
 
 ::: {.column-margin}
 Part I covered when to use a figure at all and how to report the numbers that go into it. Chapter 4 (Presenting data effectively) is the natural companion to read before or alongside this part.

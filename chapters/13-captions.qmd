@@ -2,7 +2,7 @@
 
 ## Captions that read themselves
 
-Wilke's chapter on captions states the rule plainly: a reader who sees only the figure and the caption, without the methods or the results, should know what was studied, what was measured, and what was found [@wilke2019fundamentals]. A complete caption includes a short title (what is being shown), the groups or conditions (what each colour, line, or symbol represents), the statistical test and which groups are being compared, the sample size for each group, and definitions of any abbreviations.
+Wilke's rule for captions: a reader who sees only the figure and the caption, without the methods or the results, should know what was studied, what was measured, and what was found [@wilke2019fundamentals]. A complete caption includes a short title stating what is being shown, the groups or conditions (what each colour, line, or symbol represents), the statistical test and which groups are compared, the sample size for each group, and definitions of any abbreviations used in the figure.
 
 A short example. The caption
 
@@ -12,14 +12,77 @@ becomes
 
 > *"Systolic blood pressure (SBP) at six months by randomised treatment arm (Placebo, ACEi, ARB, CCB; n = 122/183/142/153). Boxes show median and IQR; whiskers extend to the most extreme value within 1.5 × IQR. Individual participants shown as jittered points. Simulated cohort, n = 600."*
 
-The first answers nothing without the methods open. The second answers everything from the figure outward.
+The first leaves the reader unable to interpret the figure without the methods section open. The second is self-contained.
 
-The caption is the part of the figure that does not need to be drawn. Treat it as part of the figure rather than part of the text. Reviewers will read it before the results paragraph.
+The caption is the part of the figure that does not need to be drawn. Treat it as part of the figure, not as part of the results section. Reviewers read it before they read the surrounding text.
+
+## Bad and good captions across chart types
+
+The anatomy of a complete caption is the same regardless of chart type, but the specific elements change. The following pairs show what gets lost and gained.
+
+**Kaplan-Meier curve:**
+
+Inadequate:
+
+> *"Survival curves by treatment group."*
+
+Complete:
+
+> *"Kaplan-Meier curves for 30-day readmission-free survival by NT-proBNP tertile at discharge (T1: < 600 pg/mL; T2: 600–1,500 pg/mL; T3: > 1,500 pg/mL). Number at risk is shown below the x-axis. Log-rank test p < 0.001. Shaded bands show 95% pointwise confidence intervals. Retrospective cohort of 5,204 adults hospitalised for acute heart failure."*
+
+What is missing from the first: the variable defining the groups, how the groups were defined, the statistical test, and the cohort.
+
+**Scatter plot with regression line:**
+
+Inadequate:
+
+> *"NT-proBNP and ejection fraction."*
+
+Complete:
+
+> *"Association between log-transformed NT-proBNP at discharge and left ventricular ejection fraction (LVEF) in the full cohort (n = 5,070 with both values available). Line shows ordinary least-squares regression (slope: −0.12 log-units per % LVEF, 95% CI −0.15 to −0.09). Shaded band: 95% confidence interval for the regression line. Individual points: random 20% subsample (n = 1,014) for legibility."*
+
+Note the explicit mention that only a subsample of points is plotted — a disclosure that protects against a reader inferring the sample size from the number of visible points.
+
+**Heatmap:**
+
+Inadequate:
+
+> *"Mean SBP reduction by age and BMI."*
+
+Complete:
+
+> *"Mean systolic blood pressure (SBP) reduction from baseline to six months (mmHg) by age band (rows) and BMI category (columns), across all treatment arms combined (n = 600). Cell values are mean ± SD. Cells with fewer than 10 participants are suppressed (shown as grey). Colour encodes magnitude on a sequential ramp (lighter: smaller reduction; darker: larger reduction); scale shown at right."*
+
+Note the suppression rule — telling the reader which cells were excluded and why is an integrity disclosure, not an aesthetic choice.
 
 ## Telling a story with one figure
 
-A results figure is an argument. Decide the one sentence the figure has to make ("ACEi and ARB lower SBP by about 12 mmHg over six months; placebo regresses to the mean by 3") and let every visual choice serve that sentence [@cairo2016truthful; @wilke2019fundamentals].
+A results figure is an argument. Before drawing anything, decide the one sentence the figure has to make, and let every visual choice serve that sentence [@cairo2016truthful; @wilke2019fundamentals].
 
-The reader's eye lands somewhere first, and the chart should make sure it lands where you want it. Choose the most striking ink in the chart, a bolder line, a darker fill, a labelled point, to be the *finding*. Push everything else into the background with thinner lines, lighter colours, smaller type. The hero of the figure should be unambiguous within the first second of looking at it.
+The reader's eye lands somewhere first, and the chart should ensure it lands where you want it. Use the most striking visual element — a bolder line, a darker fill, a labelled point, a highlighted panel — for the *finding*. Push everything else into the background with thinner lines, lighter colours, and smaller type. The hero of the figure should be unambiguous within the first second of looking at it.
 
-The hero figure of the original note (top of the page) does this with the four crew accents. None of the four arms is the answer in isolation, so none has visual emphasis over the others. If the answer were that ARB outperforms the rest, the chart would reflect that: ARB at full opacity, the others at 0.4. The visual emphasis encodes the argument.
+The distribution figure in Chapter 12 (pitfall 6, the boxplot-with-jitter against the bar-with-error-whiskers) does this by suppressing colour distinction across the four treatment arms: none of them is the answer in isolation, so none receives visual privilege. If the analysis had found that ACEi outperforms the rest, the right chart would reflect that — ACEi at full crew-dark opacity, the remaining three arms at 0.4. The visual hierarchy is not decoration; it is the argument made visible.
+
+## Table titles and footnotes
+
+Table captions follow a different convention from figure captions. By journal and field standard:
+
+- **The table title** sits above the table (not below, as for figures). It should be a complete noun phrase that stands alone: *"Baseline characteristics of the full cohort, stratified by 30-day readmission status."* Not: *"Table 1."*
+- **Footnotes** appear below the table and carry information that cannot fit in a column header: abbreviation definitions, the statistical test used, the reference category for odds ratios, the imputation method for missing values, and any asterisks or symbols used in cells. Footnotes are not the place for results interpretation.
+- **Units** belong in the row or column labels, not in the cells. *"Age (years), mean ± SD"* as a row label; the cell contains only *"72.4 ± 11.9"*.
+- **Significance markers** (*, **, ***) in table cells must be defined in a footnote; do not assume the reader knows the thresholds. Many journals now discourage significance stars entirely and prefer reported p-values.
+
+::: {.callout-tip collapse="true"}
+## Practice: write the missing caption
+
+The figure shows a dot plot of the proportion of patients with controlled blood pressure at six months, one dot per treatment arm, sorted from lowest to highest. The arms are Placebo (31%), ACEi (58%), ARB (55%), CCB (54%). Error bars show 95% confidence intervals based on Wilson's interval. The dataset has 600 participants divided across four arms. There are no adjustments for covariates; this is a unadjusted proportion.
+
+Write a complete caption for this figure. Use the criteria above: title, groups and conditions, statistical method, sample sizes, and any necessary disclosures.
+
+---
+
+Model caption:
+
+> *"Proportion of participants with controlled blood pressure (SBP < 140 and DBP < 90 mmHg) at six months by randomised treatment arm (n = 122/183/142/153 for Placebo/ACEi/ARB/CCB). Dots show the observed proportion; error bars show 95% confidence intervals (Wilson's interval). Arms are sorted by proportion controlled. Unadjusted proportions; no covariate adjustment. Simulated cohort, n = 600."*
+:::
