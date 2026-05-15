@@ -13,7 +13,6 @@ book:
   cover-image: figures/dataviz/hero.png
   repo-url: https://github.com/tiagojct/working-draft
   repo-actions: [edit, issue]
-  downloads: [pdf]
   search: true
   open-graph:
     title: "The Working Draft"
@@ -45,6 +44,10 @@ book:
         - chapters/14-colour.qmd
         - chapters/15-ai-figures.qmd
     - references.qmd
+
+citation:
+  url: https://tiagojct.eu/working-draft/
+  type: book
 
 bibliography: [assets/refs-sw.bib, assets/refs-dataviz.bib]
 csl: assets/nature.csl

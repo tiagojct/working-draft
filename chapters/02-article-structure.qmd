@@ -50,6 +50,10 @@ Three rules avoid most problems:
 - **Estimate + 95% CI + p-value, in that order.** Not a p-value alone.
 - **No interpretation.** "We found X" belongs in the results; "this suggests Y" belongs in the discussion.
 
+::: {.column-margin}
+Choosing the right chart type and avoiding common visual errors are covered in Chapter 4 (Presenting data) and, in much greater depth, in Part II (Figures).
+:::
+
 ## Discussion
 
 A five-paragraph discussion covers most papers.
@@ -152,6 +156,10 @@ Many journals now require a [CRediT](https://credit.niso.org/) (Contributor Role
 This matters more than ever in the age of generative AI. Large language models cannot be listed as authors because they cannot be held responsible for the accuracy, integrity, and originality of the work. Authors must disclose AI use, review AI-generated outputs carefully, and remain accountable for everything in the manuscript [@icmje2023recommendations].
 
 ## Using AI tools responsibly {#sec-ai-writing}
+
+::: {.column-margin}
+*Current as of May 2026. Disclosure norms and AI capabilities change rapidly; verify your target journal's current policy before submission.*
+:::
 
 Large language models are now routinely used for language editing, rewriting, summarising, and drafting. The useful question is no longer whether to use them but how to use them without compromising integrity. A working rule for disclosure:
 

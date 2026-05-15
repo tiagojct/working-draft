@@ -1,5 +1,9 @@
 # Seven paired pitfalls
 
+::: {.column-margin}
+Each pitfall here maps to a rule in Part I. The three rules in the Results section of Chapter 2 and the graph guidance in Chapter 4 are the writing counterparts to the visual failures corrected below.
+:::
+
 With the toolkit in hand, the next move is to know how each tool fails. Each pair below shows the same data drawn two ways: a *bad / ugly / wrong* version, then a *good* version.
 
 ## 1. Pie chart → ordered horizontal bar

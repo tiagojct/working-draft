@@ -1,5 +1,9 @@
 # Using AI tools for figures
 
+::: {.column-margin}
+*Current as of May 2026. AI tools for figure generation are evolving quickly; check your target journal's current policy on image-model disclosure before submission.*
+:::
+
 Generative tools are now routinely used to draft figures, write the code that produces them, and refine the layout. The principle from @sec-ai-writing carries over.
 
 Code suggestions for plot construction (drafting a `ggplot` call from a verbal description) are equivalent to language editing. Disclose when the journal asks; review every line before you commit it. Figure generation by an image model ("render a forest plot of these effect sizes") must be disclosed and is increasingly scrutinised. The figure must come from your data, not from a model's reconstruction of what such a figure usually looks like. Fabricating data, units, or annotations is misconduct, and the figure is the easiest place for fabrication to slip in. Every label, every n, every confidence interval comes from the analysis.
@@ -8,6 +12,3 @@ A model disclosure sentence that fits most figure work:
 
 > *"During the preparation of this work, the authors used [tool/model] for code suggestions in figure construction. After using this tool, the authors reviewed and edited the output and take full responsibility for the figures presented."*
 
----
-
-Good charts make readers' lives easier; bad charts make them harder. The fix is rarely a fancier tool. It is choosing the right encoding for the data (position over angle, length over area, luminance over hue), anchoring the y-axis at zero when bars are involved, showing the spread of the data instead of just the mean, splitting busy panels into small multiples, and writing a caption that the figure can stand on. None of this is exotic, and all of it is learnable.

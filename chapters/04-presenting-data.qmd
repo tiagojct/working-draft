@@ -80,6 +80,10 @@ Claus Wilke's taxonomy of bad figures is useful here [@wilke2019fundamentals]. A
 
 Accessibility matters. Roughly 8% of men have some form of colour vision deficiency [@birch2012diagnosis]. Use colour palettes designed for universal readability ([viridis](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html) and [ColorBrewer](https://colorbrewer2.org/) are reliable choices), and do not rely on colour alone to distinguish categories. Duplicate colour distinctions with shape, line style, or pattern.
 
+::: {.column-margin}
+Part II goes deeper. Chapter 10 develops the principles here into a full taxonomy. Chapter 11 surveys chart types by data structure. Chapter 12 works through seven paired failure modes with corrected examples.
+:::
+
 The same fictional heart failure data, plotted four different ways, shows each failure mode and a publication-ready counterpart.
 
 ::: {#fig-wilke layout-ncol=2}
