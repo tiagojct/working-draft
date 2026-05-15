@@ -32,8 +32,10 @@ book:
         - chapters/04-presenting-data.qmd
         - chapters/05-editorial-process.qmd
         - chapters/06-reporting-guidelines.qmd
+        - chapters/open-science.qmd
         - chapters/07-reference-management.qmd
         - chapters/08-co-authorship.qmd
+        - chapters/ai-writing.qmd
         - chapters/09-workflow.qmd
     - part: "Part II · Figures"
       chapters:
@@ -55,6 +57,7 @@ csl: assets/nature.csl
 
 format:
   html:
+    include-in-header: assets/head.html
     theme:
       light: [cosmo, assets/custom.scss]
       dark: [darkly, assets/custom.scss]

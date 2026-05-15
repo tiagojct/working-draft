@@ -1,6 +1,6 @@
 # Why writing matters
 
-I have watched brilliant analyses die in badly written discussions. I have also watched unremarkable findings become quietly influential because the paper was clear, honest, and short. The difference is almost never talent; it is discipline, revision, and a willingness to cut what does not earn its place.
+I have watched brilliant analyses die in badly written discussions. I have also watched unremarkable findings become influential because the paper was clear, honest, and short. The difference is almost never talent; it is discipline, revision, and a willingness to cut what does not earn its place.
 
 Good scientific writing is a set of learnable principles applied with patience, rather than a gift you either have or you don't. William Zinsser put it well: "Clear thinking becomes clear writing: one can't exist without the other" [@zinsser2006writing]. This book distils the core lessons I teach in my scientific writing workshops, aimed at doctoral students across disciplines. It covers the structure of a scientific article, how to write clearly, how to present data effectively, how to handle the editorial process, which reporting guidelines to follow, how to manage references and co-authors, and how to sustain a writing workflow you can live with.
 
@@ -26,4 +26,4 @@ In health research, the consequences extend beyond citation counts. Evidence tha
 
 This gives scientific writing a dimension that pure craft advice tends to understate. Communicating clearly is not only a career advantage. It is part of the obligation that comes with access to patients, research funding, and the public trust.
 
-Writing well also matters for practical reasons. Reviewers are busy. Editors skim. Readers decide within seconds whether to keep reading. Every unclear sentence is an invitation to stop.
+Writing well also matters for practical reasons. Reviewers are busy, editors skim, and readers decide within seconds whether to keep reading. Every unclear sentence is an invitation to stop.

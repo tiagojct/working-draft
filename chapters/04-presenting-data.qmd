@@ -4,8 +4,6 @@ Readers look at tables and figures before they read the text. Each one must stan
 
 ## Choosing the right format
 
-The decision is simple.
-
 - **Text** when a result is one or two numbers and no comparison is needed ("Participants were mostly female, 3,300 (83%)").
 - **Table** when exact values matter, or when readers may want to compare more than two or three numbers.
 - **Figure** when the pattern, distribution, or trend matters more than individual values.

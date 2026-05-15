@@ -4,7 +4,7 @@
 Each pitfall here maps to a rule in Part I. The three rules in the Results section of Chapter 2 and the graph guidance in Chapter 4 are the writing counterparts to the visual failures corrected below.
 :::
 
-With the toolkit in hand, the next move is to know how each tool fails. Each pair below shows the same data drawn two ways: a *bad / ugly / wrong* version, then a *good* version.
+With the toolkit established, each tool's failure modes need to be named. Each pair below shows the same data drawn two ways: a *bad / ugly / wrong* version, then a *good* version.
 
 ## 1. Pie chart → ordered horizontal bar
 
@@ -267,7 +267,7 @@ sns.despine(); fig.tight_layout()
 
 ## 5. Dual-axis line chart → small multiples
 
-A second y-axis is the rare chart sin that works against the reader without lying. It invents a relationship by drawing two lines on top of each other; whether the eye reads BMI as "above" or "below" SBP depends entirely on the secondary scale you happened to pick. Two trends that are statistically uncorrelated can be made to look identical, and two that are perfectly correlated can be made to look opposed. Small multiples solve this without effort: each variable gets its own panel and its own axis, and the comparison stays a comparison rather than a coincidence. See @fig-dualaxis and @fig-smallmult.
+A second y-axis misleads without technically lying. It invents a relationship by drawing two lines on top of each other; whether the eye reads BMI as "above" or "below" SBP depends entirely on the secondary scale you happened to pick. Two trends that are statistically uncorrelated can be made to look identical, and two that are perfectly correlated can be made to look opposed. Small multiples solve this without effort: each variable gets its own panel and its own axis, and the comparison stays a comparison rather than a coincidence. See @fig-dualaxis and @fig-smallmult.
 
 ![SBP and BMI by age band on a dual-axis chart. The two lines look correlated; they barely are.](../figures/dataviz/05-dualaxis-bad.png){#fig-dualaxis}
 

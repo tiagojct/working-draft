@@ -203,6 +203,8 @@ a[role="doc-noteref"],
 /* ── Breadcrumbs ──────────────────────────────────────────────────────── */
 
 .quarto-page-breadcrumbs {
+  padding-top: 2rem;
+  border-top: 1.5px solid $border-color;
   margin-bottom: 1.75rem;
 }
 
@@ -304,6 +306,34 @@ table {
   color: $pequod-warm-grey;
 }
 
+/* ── Lead paragraph ────────────────────────────────────────────────────── */
+
+// First paragraph after a chapter h1 — lede treatment for chapter openings
+h1 + p {
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+/* ── Sidebar search ────────────────────────────────────────────────────── */
+
+#quarto-sidebar .sidebar-search .form-control,
+#quarto-sidebar input[type="search"] {
+  background: rgba($pequod-sage, 0.07);
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: $pequod-navy;
+  box-shadow: none;
+
+  &::placeholder { color: rgba($pequod-navy, 0.4); }
+  &:focus {
+    border-color: rgba($pequod-taupe-2, 0.5);
+    background: rgba($pequod-sage, 0.1);
+    outline: none;
+    box-shadow: none;
+  }
+}
+
 /* ── Callouts — Pequod crew palette ───────────────────────────────────── */
 
 .callout {
@@ -366,27 +396,38 @@ $callouts: (
   border-bottom: none !important;
 }
 
-// Active chapter: taupe colour + inset left-edge marker
+// Active chapter: taupe colour + background tint
 .sidebar-navigation .active > .chapter-link,
 .sidebar-navigation a.active {
   color: $pequod-taupe-2 !important;
   font-weight: 600;
-  box-shadow: inset 2px 0 0 $pequod-taupe-2;
+  background: rgba($pequod-taupe-2, 0.09);
+  border-radius: 3px;
 }
 
 // Part labels: small uppercase landmark, clearly above chapters
+// li.sidebar-item-section is Quarto's book structure for collapsible parts
 .sidebar-navigation .sidebar-section .sidebar-section-item,
 .sidebar-navigation .sidebar-part-title,
 .book-sidebar .part-title,
-.sidebar .part-title {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: rgba($pequod-navy, 0.5);
+.sidebar .part-title,
+li.sidebar-item.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text,
+li.sidebar-item.sidebar-item-section > .sidebar-item-container > .sidebar-item-text {
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase !important;
+  color: rgba($pequod-navy, 0.5) !important;
   margin-top: 1.5rem;
   margin-bottom: 0.25rem;
   border-bottom: none !important;
+}
+
+// Standalone sidebar items not inside a part (Preface, References, Conclusion)
+.sidebar-navigation > ul > li.sidebar-item:not(.sidebar-item-section) > .sidebar-item-container > a.sidebar-item-text {
+  font-size: 0.85rem;
+  color: rgba($pequod-navy, 0.6);
+  font-style: italic;
 }
 
 // Chapter links within parts: smaller than top-level items for visual depth
@@ -400,9 +441,11 @@ $callouts: (
 
 /* ── Page TOC (right column) ──────────────────────────────────────────── */
 
-// "Table of contents" header label
+// "Table of contents" header label — #toc-title is the actual Quarto ID (lowercase)
 .toc-title,
-#TOC-title,
+#toc-title,
+h2#toc-title,
+nav#TOC > h2,
 #quarto-margin-sidebar .toc-title,
 .sidebar-toc .toc-title,
 div.sidebar-toc-active .toc-title {
@@ -448,12 +491,20 @@ div.sidebar-toc-active .toc-title {
   font-size: 0.84rem;
 }
 
-// "Edit this page" / "Report an issue" links — smaller and muted
+// Stronger specificity to ensure warm-grey wins over Bootstrap's nav defaults
+#TOC li > a.nav-link:not(.active),
+#quarto-margin-sidebar li > a.nav-link:not(.active) {
+  color: $pequod-warm-grey !important;
+}
+
+// "Edit this page" / "Report an issue" — separated by a hairline rule
 .quarto-alternate-formats,
 .quarto-page-navigation-actions,
 #quarto-margin-sidebar .toc-actions {
   font-size: 0.8rem;
   margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid $border-color;
 
   a {
     color: $pequod-warm-grey;
@@ -526,6 +577,19 @@ body.quarto-dark {
 
   .column-margin { color: rgba($pequod-cream, 0.72); }
 
+  .quarto-page-breadcrumbs { border-top-color: rgba($pequod-sage, 0.28); }
+
+  h1 + p { color: $pequod-cream; }
+
+  #quarto-sidebar .sidebar-search .form-control,
+  #quarto-sidebar input[type="search"] {
+    background: rgba($pequod-sage, 0.12);
+    border-color: rgba($pequod-sage, 0.3);
+    color: $pequod-cream;
+    &::placeholder { color: rgba($pequod-cream, 0.35); }
+    &:focus { background: rgba($pequod-sage, 0.18); border-color: rgba($pequod-taupe, 0.5); }
+  }
+
   .callout {
     background-color: rgba($pequod-sage, 0.08);
   }
@@ -541,7 +605,8 @@ body.quarto-dark {
   .sidebar-navigation .active > .chapter-link,
   .sidebar-navigation a.active {
     color: $pequod-taupe !important;
-    box-shadow: inset 2px 0 0 $pequod-taupe;
+    background: rgba($pequod-taupe, 0.12);
+    border-radius: 3px;
   }
 
   .sidebar-navigation .sidebar-section .sidebar-section-item,
@@ -557,9 +622,20 @@ body.quarto-dark {
     color: rgba($pequod-cream, 0.7);
   }
 
+  li.sidebar-item.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text,
+  li.sidebar-item.sidebar-item-section > .sidebar-item-container > .sidebar-item-text {
+    color: rgba($pequod-cream-2, 0.45) !important;
+  }
+
+  .sidebar-navigation > ul > li.sidebar-item:not(.sidebar-item-section) > .sidebar-item-container > a.sidebar-item-text {
+    color: rgba($pequod-cream, 0.45);
+  }
+
   // TOC — dark overrides
   .toc-title,
-  #TOC-title,
+  #toc-title,
+  h2#toc-title,
+  nav#TOC > h2,
   #quarto-margin-sidebar .toc-title {
     color: rgba($pequod-cream-2, 0.5);
   }
@@ -567,7 +643,7 @@ body.quarto-dark {
   #TOC .nav-link,
   .sidebar-toc .nav-link,
   #quarto-margin-sidebar .nav-link {
-    color: rgba($pequod-cream, 0.6);
+    color: rgba($pequod-cream, 0.55);
 
     &.active {
       color: $pequod-taupe !important;
@@ -578,6 +654,17 @@ body.quarto-dark {
       color: $pequod-taupe;
       border-left-color: rgba($pequod-taupe, 0.4);
     }
+  }
+
+  #TOC li > a.nav-link:not(.active),
+  #quarto-margin-sidebar li > a.nav-link:not(.active) {
+    color: rgba($pequod-cream, 0.55) !important;
+  }
+
+  .quarto-alternate-formats,
+  .quarto-page-navigation-actions,
+  #quarto-margin-sidebar .toc-actions {
+    border-top-color: rgba($pequod-sage, 0.28);
   }
 
   .quarto-alternate-formats a,

@@ -1,6 +1,6 @@
 # Common chart types
 
-Before diagnosing what can go wrong, it helps to be clear on the toolkit. Six chart types cover most figures in clinical and epidemiological research. Each one earns its place when the data shape and the message line up.
+Before diagnosing failures, the toolkit needs to be established. Six chart types cover most figures in clinical and epidemiological research; each is the right choice when the data structure and the message align.
 
 ## Histogram and density: one variable's distribution
 
@@ -104,7 +104,7 @@ sns.despine(); fig.tight_layout()
 
 ## Scatter plot: two continuous variables
 
-A scatter plot puts two continuous variables on the two axes and one dot per observation. Every point is its own evidence; the chart is the most direct depiction of a bivariate relationship in statistics. A regression line with a confidence ribbon, as in @fig-type-scatter, summarises the trend without erasing the underlying spread; a third variable can be encoded with colour or shape. Use scatter for any pair of continuous variables: SBP versus DBP, age versus a lab value, dose versus response. The failure mode at large n is overplotting; alpha transparency, hex-binning (`geom_hex`), or 2D density contours all help.
+A scatter plot puts two continuous variables on the two axes and one dot per observation. Each point is one observation; the scatter plot is the most direct depiction of a bivariate relationship in statistics. A regression line with a confidence ribbon, as in @fig-type-scatter, summarises the trend without erasing the underlying spread; a third variable can be encoded with colour or shape. Use scatter for any pair of continuous variables: SBP versus DBP, age versus a lab value, dose versus response. The failure mode at large n is overplotting; alpha transparency, hex-binning (`geom_hex`), or 2D density contours all help.
 
 ![Scatter plot of SBP against DBP at baseline with a linear regression overlay and 95% confidence ribbon.](../figures/dataviz/type-03-scatter.png){#fig-type-scatter}
 

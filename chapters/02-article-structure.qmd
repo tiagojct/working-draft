@@ -145,7 +145,7 @@ Approximate Flesch--Kincaid grade levels, for calibration:
 - **Lay summary target: Grade 6--8.**
 :::
 
-Plain-language summaries sit within a broader shift toward [patient and public involvement](https://en.wikipedia.org/wiki/Patient_and_public_involvement) (PPI) in research: co-designing questions, interpreting findings, and communicating results. For practical guidance on building PPI into a study, see Hardavella and colleagues in the *Breathe* *Doing Science* series [@hardavella2015ppi].
+Plain-language summaries are part of a wider practice of [patient and public involvement](https://en.wikipedia.org/wiki/Patient_and_public_involvement) (PPI) in research: co-designing questions, interpreting findings, and communicating results. For practical guidance on building PPI into a study, see Hardavella and colleagues in the *Breathe* *Doing Science* series [@hardavella2015ppi].
 
 ## Supplementary materials
 
@@ -165,34 +165,8 @@ The ICMJE defines authorship through four cumulative conditions: substantial con
 
 Many journals now require a [CRediT](https://credit.niso.org/) (Contributor Roles Taxonomy) statement at submission, listing each author's contribution against fourteen standardised roles (*conceptualisation, methodology, data curation, formal analysis, writing – original draft, writing – review and editing*, and so on). CRediT complements the ICMJE criteria rather than replacing them: it describes *what* each author did, while ICMJE defines *who* qualifies as an author. Fill the CRediT form together with all authors before submission, not after; disputes about contribution are much harder to settle post-hoc. For a practical companion on getting credit for scientific work more broadly (ORCID, author contributions, and credit disputes), see Caudri and colleagues in the *Breathe* *Doing Science* series [@caudri2015credit].
 
-This matters more than ever in the age of generative AI. Large language models cannot be listed as authors because they cannot be held responsible for the accuracy, integrity, and originality of the work. Authors must disclose AI use, review AI-generated outputs carefully, and remain accountable for everything in the manuscript [@icmje2023recommendations].
-
-## Using AI tools responsibly {#sec-ai-writing}
+AI writing tools have made this distinction more pressing. Large language models cannot be listed as authors because they cannot be held responsible for the accuracy, integrity, and originality of the work. Authors must disclose AI use, review AI-generated outputs carefully, and remain accountable for everything in the manuscript [@icmje2023recommendations].
 
 ::: {.column-margin}
-*Current as of May 2026. Disclosure norms and AI capabilities change rapidly; verify your target journal's current policy before submission.*
+AI tools in the writing process — disclosure standards, the four-tier framework, and peer-review confidentiality — are covered in the dedicated chapter later in Part I.
 :::
-
-Large language models are now routinely used for language editing, rewriting, summarising, and drafting. The useful question is no longer whether to use them but how to use them without compromising integrity. A working rule for disclosure:
-
-- **Language editing** (grammar, concision, register) usually does not require a formal declaration unless the journal specifies otherwise, but an acknowledgement is always safer.
-- **Content generation** (drafting a paragraph, summarising the literature, producing methods text, suggesting interpretations) must be disclosed, even if the authors edited heavily after.
-- **Data analysis or figure generation** (code produced by an LLM, figures produced by image models) must be disclosed and is increasingly scrutinised by editors.
-- **Fabricating citations or results** is misconduct. LLMs produce plausible but non-existent references; check every citation the model suggests against the primary source.
-
-Disclosure rules tell you *what to declare*. They do not tell you *when in the writing process* to bring the tool in. Trainees in particular need a stricter rule, because the act of drafting is itself the skill the supervisor is trying to assess. A four-tier taxonomy I have proposed elsewhere [@jacinto2026ai] sorts AI use by the cognitive nature of the task:
-
-| Tier | Task                                                                | When acceptable during training              |
-|:----:|---------------------------------------------------------------------|----------------------------------------------|
-| 1    | Mechanical edits on your own text (grammar, formatting, synonyms)   | Any stage                                    |
-| 2    | Restructuring text you already wrote (translation, compression)     | After a complete first draft                 |
-| 3    | Generating substantive content (introduction, discussion, lit review) | Only after an unassisted first draft exists |
-| 4    | Fabricated references, ghost-authored sections, unverified claims   | **Prohibited always**                        |
-
-The sequencing rule that makes this work: for Tier 2 and Tier 3 tasks during training, the cognitive work of drafting must happen *before* the tool touches the text. A trainee who outsources the first draft has not practised the act the supervisor is trying to assess, and will not learn from the revision either, because the model's prose is not theirs to revise.
-
-A model disclosure sentence that fits most manuscripts:
-
-> *"During the preparation of this work, the authors used [tool/model] for [language editing / rephrasing / code suggestions]. After using this tool, the authors reviewed and edited the content as needed and take full responsibility for the final manuscript."*
-
-On peer review, most publishers now prohibit pasting manuscripts into public LLMs during review because it may leak unpublished work. Read the publisher's policy before reviewing with AI assistance. When in doubt, do not.

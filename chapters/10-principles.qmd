@@ -1,6 +1,6 @@
 # Principles of data visualisation
 
-A figure is the only part of your paper that a tired reviewer is guaranteed to read. They may skim the methods, scan the results, and bookmark the discussion for later, but they will look at every figure you draw. This makes the figure the part of the paper that has to do the most work per square centimetre. A clear chart can carry a modestly written paper. A confused chart can sink a careful one.
+A figure is the only part of your paper that a tired reviewer is guaranteed to read. They may skim the methods, scan the results, and bookmark the discussion for later, but they will look at every figure you draw. This makes the figure the part of the paper that has to do the most work per square centimetre. A clear chart can carry a modestly written paper; a confused chart can sink a careful one.
 
 Good data visualisation is a set of decisions taken with discipline, the same discipline that produces clear prose. Edward Tufte stated the rule plainly: maximise the data-to-ink ratio [@tufte2001visual]. Erase what does not earn its place. Claus Wilke gave us a practical taxonomy of failure [@wilke2019fundamentals], *ugly*, *bad*, *wrong*, *good*, that turns the rule into a checklist for revision.
 
@@ -10,7 +10,7 @@ Good data visualisation is a set of decisions taken with discipline, the same di
 If you only take away seven things:
 
 1. A chart is a sentence. Decide what it says before you draw it.
-2. Position on a common scale beats every other encoding. Bar before pie. Dot before donut. Length before angle [@cleveland1984graphical].
+2. Position on a common scale beats every other encoding: bar before pie, dot before donut, length before angle [@cleveland1984graphical].
 3. Sequential data deserves a sequential ramp. No rainbows.
 4. Zero-anchor your y-axis when bars encode magnitude. Truncated bars exaggerate small differences [@tufte2001visual].
 5. Show the data, not its mean. Box plots, strip plots, violins, but not bars-with-error-whiskers [@weissgerber2015beyond].

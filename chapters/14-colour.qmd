@@ -2,7 +2,7 @@
 
 Colour is the element of a figure most likely to be discussed in peer review and most likely to fail. A default rainbow palette, a red-green pair that excludes 8 % of male readers, or a gradient that looks meaningful but encodes nothing — all are routine in health research and all are avoidable.
 
-Colour encodes meaning. The choice of palette is a claim about the structure of the data: a sequential ramp claims the data have a direction; a diverging scale claims there is a meaningful midpoint; a categorical set claims the groups are unordered. Getting the encoding wrong produces a wrong figure even if the numbers are correct.
+Colour encodes meaning: the choice of palette is a claim about the structure of the data: a sequential ramp claims the data have a direction; a diverging scale claims there is a meaningful midpoint; a categorical set claims the groups are unordered. Getting the encoding wrong produces a wrong figure even if the numbers are correct.
 
 ## The three functional categories
 
@@ -32,7 +32,7 @@ The eight crew accents (Ahab, Starbuck, Queequeg, Pip, Ishmael, Stubb, Tashtego,
 
 The light and dark crew variants are for light and dark backgrounds, not for two different categorical mappings. Use `pequod_crew_light` on Log 50 paper, `pequod_crew_dark` on Log 950 ink.
 
-The palette has documented colour-vision-deficiency collapses (Pip ↔ Stubb under tritanopia, Ahab ↔ Daggoo under protanopia). When the colour distinction carries the result — as in diff gutters, error states, or "treated vs control" in a two-arm trial — pair the colour with a shape or weight. Hue alone is not enough.
+The palette has documented colour-vision-deficiency collapses (Pip ↔ Stubb under tritanopia, Ahab ↔ Daggoo under protanopia). When the colour distinction carries the result — as in diff gutters, error states, or "treated vs control" in a two-arm trial — pair the colour with a shape or weight; hue alone is insufficient.
 
 The full palette documentation, including a colour-vision-deficiency report and installation instructions for R and Python, is at [tiagojct.eu/projects/pequod/](https://tiagojct.eu/projects/pequod/).
 

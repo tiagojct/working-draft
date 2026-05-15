@@ -1,14 +1,14 @@
 # Where writing and figures meet
 
-A paper and its figures are not two separate deliverables assembled at submission. They are one argument rendered in two registers: the words carry the logic and the context; the figures carry the data and its shape. The reader needs both. More than that, the reader uses each to interpret the other — a confused figure strains the prose around it, and muddled prose makes even a clean figure harder to trust.
+A paper and its figures are one argument rendered in two registers: the words carry the logic and the context; the figures carry the data and its shape. Each helps the reader interpret the other — a confused figure strains the prose around it, and muddled prose makes even a clean figure harder to trust.
 
-The reason this book joins a writing guide and a visualisation guide is not economy of effort. It is that the same discipline governs both. Tufte's rule for figures — maximise the ratio of data to ink, erase what does not earn its place — is Zinsser's rule for prose in visual form [@tufte2001visual; @zinsser2006writing]. A caption that says everything necessary and nothing extra is good writing. A paragraph that reports only the numbers the reader cannot infer is good visualisation in text form. The skills are not analogous; they are the same skill.
+This book joins a writing guide and a visualisation guide because the same discipline governs both. Tufte's rule for figures — maximise the ratio of data to ink, erase what does not earn its place — is Zinsser's rule for prose in visual form [@tufte2001visual; @zinsser2006writing]. A caption that says everything necessary and nothing extra is good writing. A paragraph that reports only the numbers the reader cannot infer is good visualisation in text form. The skills are the same skill.
 
 ## What to do next
 
 The most common response to advice on writing is to find it persuasive in the abstract and ignore it in practice. The commitments that matter are specific and dated.
 
-Write a title for your current project — today, not after the results are in. Take the methods section you last submitted and test one rule from Chapter 3: can you cut one word in three? Read your last figure against the criteria in Chapter 10 and note one change. None of these require waiting for a new project. The paper you are working on right now is the material.
+Write a title for your current project today, before the results are in. Take the methods section you last submitted and test one rule from Chapter 3: can you cut one word in three? Read your last figure against the criteria in Chapter 10 and note one change. None of these require waiting for a new project. The paper you are working on right now is the material.
 
 If you are starting from scratch, the workflow in Chapter 9 gives you a sequence. Begin with the key result. Draft the abstract before the full text. Sketch the figures before writing the results. Revise the prose and the figures together, not in separate rounds, because what each one says about the data should be consistent.
 
@@ -22,6 +22,6 @@ The book also does not settle every question it raises. Reporting guidelines evo
 
 The researchers I have learned from most have one habit in common: they revise more than their peers. Not because their first drafts are worse, but because they know revision is where the thinking happens. The difference between a draft and a paper is not length, structure, or even accuracy. It is the number of times someone read it carefully and made it say what they actually meant.
 
-Revise. Ask someone outside the field to read it and watch where they slow down or stop. Then revise again. The figure that took three iterations to get right is the one that will still be clear to a reviewer who opens it at midnight before the deadline. The paragraph that went through four drafts is the one that makes a junior researcher feel, for the first time, that they understand something.
+Revise, ask someone outside the field to read it and watch where they slow down or stop, then revise again. The figure that took three iterations to get right is the one that will still be clear to a reviewer who opens it at midnight before the deadline. The paragraph that went through four drafts is the one that makes a junior researcher feel, for the first time, that they understand something.
 
 That, in the end, is what the communication is for.

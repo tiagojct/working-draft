@@ -1,0 +1,66 @@
+# Using AI tools in scientific writing {#sec-ai-writing}
+
+::: {.column-margin}
+*Current as of May 2026. Disclosure norms and AI capabilities change rapidly; verify your target journal's current policy before submission.*
+:::
+
+Large language models are now routine in scientific writing: grammar correction, rephrasing, summarising, and, increasingly, drafting. Using them is now common practice; the real question is how to do it without compromising integrity, learning, or attribution. The risks are not uniform across use cases. A tool used to tighten a sentence you already wrote is categorically different from a tool used to draft a discussion section you have not yet thought through, and the two warrant different levels of caution and disclosure.
+
+## Language editing and rewriting
+
+The most common and least controversial use is polishing prose you have already written: correcting grammar, reducing wordiness, adjusting register for a non-specialist audience, improving clarity. Tools used this way — language checkers, grammar assistants, and LLMs given a specific editing task — function as a fast alternative to a copy editor. The intellectual content remains entirely yours; the tool has altered expression without altering the thinking.
+
+Two practical limits apply. First, an LLM editing your prose may alter meaning without flagging the change. Compare the input and output carefully; any sentence in which the subject, verb, or quantitative claim has changed needs your explicit approval before you accept it. Second, these tools apply statistical norms of written English, not the conventions of your field. They will regularise abbreviations, smooth away technical phrasing that is precise for good reason, and replace hedging that is epistemically accurate with confident language that overstates. Read the output as a domain expert.
+
+## Content generation
+
+The more consequential use is generating substantive content: drafting a paragraph, summarising a literature body, writing an introduction, proposing interpretations of results. This is the territory where integrity is most at risk and where the benefit to a trainee is most ambiguous. A supervisor assigning a student to write a methods section is not asking them to review an LLM's draft; the writing is the learning.
+
+A practical taxonomy separates uses by the cognitive nature of the task [@jacinto2026ai]:
+
+| Tier | Task                                                                | When acceptable during training              |
+|:----:|---------------------------------------------------------------------|----------------------------------------------|
+| 1    | Mechanical edits on your own text (grammar, formatting, synonyms)   | Any stage                                    |
+| 2    | Restructuring text you already wrote (translation, compression)     | After a complete first draft                 |
+| 3    | Generating substantive content (introduction, discussion, lit review) | Only after an unassisted first draft exists |
+| 4    | Fabricated references, ghost-authored sections, unverified claims   | **Prohibited always**                        |
+
+The sequencing rule that makes Tiers 2 and 3 acceptable: the cognitive work of drafting must happen before the tool touches the text. A trainee who outsources the first draft has not practised the act the supervisor is trying to assess, and will not learn from the revision either, because the model's prose is not theirs to revise.
+
+For experienced researchers, Tier 3 use is more defensible — you can evaluate the output critically because you already know the field — but it carries two persistent risks: over-reliance on the model's framing, which tends to be generic rather than precise, and the gradual erosion of voice. A paper that could have been written by any LLM about any study has lost the specificity that makes it worth reading.
+
+## Hallucinated references
+
+The most dangerous AI writing risk in research is the fabricated citation. LLMs generate plausible-sounding references — author names, journal, year, volume, page number — that do not exist. The hallucination is not flagged; it looks like a real citation, formats like a real citation, passes a casual reading, and fails a DOI check.
+
+Three rules prevent this failure:
+
+1. **Never accept a reference suggested by an LLM without verifying it exists.** Check the DOI, or search PubMed, Scopus, or the journal directly.
+2. **Do not use LLMs to summarise papers you have not read.** The model's summary may accurately reflect the training data, which may itself misrepresent the original.
+3. **If you ask an LLM to identify relevant literature, use the output as a starting list for your own search, not as a finished reference list.**
+
+A retraction for a fabricated citation is one of the most damaging events in an early career; no efficiency gain justifies the risk.
+
+## Disclosure
+
+The disclosure standard varies by journal, but the underlying principle is consistent: declare the role of AI in producing content, take responsibility for the accuracy of everything in the manuscript, and ensure no co-author names an AI system as an author. Large language models cannot be listed as authors because they cannot meet the ICMJE authorship criteria: they cannot be held responsible for the accuracy, integrity, or originality of the work, and they cannot approve the final version or be held accountable for errors [@icmje2023recommendations].
+
+A worked disclosure table for the most common writing scenarios:
+
+| Use case | Tier | When to disclose |
+|:---------|:----:|:-----------------|
+| Grammar and clarity editing on your own text | 1 | Only if journal requires it |
+| Rephrasing or condensing text you wrote | 2 | When journal requires; acknowledgement otherwise |
+| Drafting sections, summarising literature | 3 | Always |
+| Writing methods, results, or discussion without an independent prior draft | 3 | Always; describe the tool |
+| Fabricated references, ghost-authored sections | 4 | **Prohibited** |
+
+A model disclosure sentence that fits most manuscripts:
+
+> *"During the preparation of this work, the authors used [tool/model] for [language editing / rephrasing / code suggestions]. After using this tool, the authors reviewed and edited the content as needed and take full responsibility for the final manuscript."*
+
+## Peer review and confidentiality
+
+When you receive a manuscript to review, do not paste it into a public AI interface. The manuscript is unpublished work shared in confidence; submitting it to a tool whose training data includes user inputs is a breach of confidentiality and, in some jurisdictions, may violate data protection agreements. Most publishers now prohibit this explicitly. Read your publisher's reviewer policy before using any AI assistance during review.
+
+For your own submissions: AI tools used to check or improve a manuscript before submission are generally permissible under your own responsibility. AI tools used to generate content that is not disclosed and not your independent work are not. When in doubt, the default is to disclose.
