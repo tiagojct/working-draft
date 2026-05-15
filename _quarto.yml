@@ -10,10 +10,19 @@ book:
     affiliation: Faculty of Medicine, University of Porto
     orcid: 0000-0002-7897-1101
   date: "2026-05-15"
+  cover-image: figures/dataviz/hero.png
   repo-url: https://github.com/tiagojct/working-draft
   repo-actions: [edit, issue]
   downloads: [pdf]
   search: true
+  open-graph:
+    title: "The Working Draft"
+    description: "Writing and data visualisation for health researchers."
+    image: figures/dataviz/hero.png
+  page-footer:
+    center: |
+      [Tiago Jacinto](https://tiagojct.eu) · Faculty of Medicine, University of Porto ·
+      [tiagojct.eu/working-draft/](https://tiagojct.eu/working-draft/)
   chapters:
     - index.qmd
     - part: "Part I · Writing"
