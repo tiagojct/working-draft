@@ -118,6 +118,15 @@ blockquote, table, figure, pre {
 
 strong, b { font-weight: 600; }
 
+// Footnote superscripts: small breathing room so they don't weld to the word
+sup {
+  font-size: 0.72em;
+  line-height: 0;
+  position: relative;
+  top: -0.48em;
+  margin-left: 0.06em;
+}
+
 /* ── Typography hierarchy ─────────────────────────────────────────────── */
 
 h1, h2, h3, h4, h5, h6 {
@@ -133,7 +142,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 2rem;    letter-spacing: -0.018em; margin-top: 3rem; }
-h2 { font-size: 1.5rem;  margin-top: 2rem; }
+
+// cosmo adds border-bottom to h2 by default — removed here; spacing carries the hierarchy
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2.25rem;
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+
 h3 { font-size: 1.2rem;  margin-top: 1.5rem; }
 h4 { font-size: 1.05rem; margin-top: 1.5rem; }
 h5, h6 { font-size: 1rem; margin-top: 1rem; }
@@ -179,6 +196,40 @@ a[role="doc-noteref"],
   outline: 2px solid $pequod-taupe-2;
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+/* ── Breadcrumbs ──────────────────────────────────────────────────────── */
+
+.quarto-page-breadcrumbs {
+  margin-bottom: 1.75rem;
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+
+  .breadcrumb-item {
+    a {
+      color: $pequod-sage;
+      border-bottom: none;
+      font-weight: 400;
+
+      &:hover { color: $pequod-taupe-2; }
+    }
+
+    // Current page — not a link, should look muted not clickable
+    &.active,
+    &:last-child {
+      color: $pequod-warm-grey;
+      font-weight: 400;
+
+      a {
+        color: $pequod-warm-grey;
+        border-bottom: none;
+        pointer-events: none;
+        cursor: default;
+      }
+    }
+  }
 }
 
 /* ── Inline code ──────────────────────────────────────────────────────── */
@@ -285,21 +336,120 @@ $callouts: (
 
 /* ── Book sidebar navigation ──────────────────────────────────────────── */
 
-// Active chapter: taupe accent
-.sidebar-navigation a.active {
-  color: $pequod-taupe-2;
-  font-weight: 600;
+// Book title in the sidebar header — more weight, better presence
+.sidebar-title,
+.sidebar .book-title,
+#quarto-sidebar .title,
+.quarto-sidebar .sidebar-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+
+  a {
+    color: $pequod-navy;
+    border-bottom: none;
+    font-weight: 700;
+
+    &:hover { color: $pequod-taupe-2; }
+  }
 }
 
-// Part labels: small uppercase navy, breathing room above
-.sidebar-navigation .sidebar-section .sidebar-section-item,
-.book-sidebar .part-title {
-  font-size: 0.78rem;
+// Remove per-chapter dividers — vertical rhythm handles separation
+.sidebar .sidebar-item,
+.sidebar-navigation .sidebar-item,
+.sidebar-navigation li,
+.sidebar-item-container {
+  border-bottom: none !important;
+}
+
+// Active chapter: taupe colour + inset left-edge marker
+.sidebar-navigation .active > .chapter-link,
+.sidebar-navigation a.active {
+  color: $pequod-taupe-2 !important;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  box-shadow: inset 2px 0 0 $pequod-taupe-2;
+}
+
+// Part labels: small uppercase landmark, clearly above chapters
+.sidebar-navigation .sidebar-section .sidebar-section-item,
+.sidebar-navigation .sidebar-part-title,
+.book-sidebar .part-title,
+.sidebar .part-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: rgba($pequod-navy, 0.65);
+  color: rgba($pequod-navy, 0.5);
+  margin-top: 1.5rem;
+  margin-bottom: 0.25rem;
+  border-bottom: none !important;
+}
+
+/* ── Page TOC (right column) ──────────────────────────────────────────── */
+
+// "Table of contents" header label
+.toc-title,
+#TOC-title,
+#quarto-margin-sidebar .toc-title,
+.sidebar-toc .toc-title,
+div.sidebar-toc-active .toc-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba($pequod-navy, 0.5);
+  margin-bottom: 0.75rem;
+  border-bottom: none;
+}
+
+// Section links: left-border track, taupe on active
+#TOC .nav-link,
+.sidebar-toc .nav-link,
+#quarto-margin-sidebar .nav-link {
+  color: $pequod-warm-grey;
+  border-bottom: none;
+  border-left: 2px solid transparent;
+  padding-top: 0.22rem;
+  padding-bottom: 0.22rem;
+  padding-left: 0.6rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  transition: color 120ms ease, border-color 120ms ease;
+
+  &.active {
+    color: $pequod-taupe-2 !important;
+    border-left-color: $pequod-taupe-2 !important;
+    font-weight: 600;
+  }
+
+  &:hover {
+    color: $pequod-taupe-2;
+    border-left-color: rgba($pequod-taupe-2, 0.35);
+  }
+}
+
+// Nested TOC levels (h3 entries)
+#TOC ul ul .nav-link,
+.sidebar-toc ul ul .nav-link {
+  padding-left: 1.2rem;
+  font-size: 0.84rem;
+}
+
+// "Edit this page" / "Report an issue" links — smaller and muted
+.quarto-alternate-formats,
+.quarto-page-navigation-actions,
+#quarto-margin-sidebar .toc-actions {
+  font-size: 0.8rem;
   margin-top: 1.25rem;
+
+  a {
+    color: $pequod-warm-grey;
+    border-bottom: none;
+
+    &:hover { color: $pequod-taupe-2; }
+  }
 }
 
 /* ── Page navigation (prev / next) ───────────────────────────────────── */
@@ -340,6 +490,11 @@ body.quarto-dark {
 
   :focus-visible { outline-color: $pequod-taupe; }
 
+  .breadcrumb .breadcrumb-item {
+    a { color: rgba($pequod-cream, 0.55); border-bottom: none; }
+    &.active, &:last-child { color: rgba($pequod-cream, 0.4); }
+  }
+
   code:not(.sourceCode):not(pre code) {
     background: rgba($pequod-sage, 0.18);
     color: $pequod-cream-2;
@@ -364,11 +519,55 @@ body.quarto-dark {
     background-color: rgba($pequod-sage, 0.08);
   }
 
-  .sidebar-navigation a.active { color: $pequod-taupe; }
+  // Sidebar — dark overrides
+  .sidebar-title a,
+  .sidebar .book-title a,
+  #quarto-sidebar .title a {
+    color: $pequod-cream;
+    &:hover { color: $pequod-taupe; }
+  }
+
+  .sidebar-navigation .active > .chapter-link,
+  .sidebar-navigation a.active {
+    color: $pequod-taupe !important;
+    box-shadow: inset 2px 0 0 $pequod-taupe;
+  }
 
   .sidebar-navigation .sidebar-section .sidebar-section-item,
-  .book-sidebar .part-title {
-    color: rgba($pequod-cream-2, 0.65);
+  .sidebar-navigation .sidebar-part-title,
+  .book-sidebar .part-title,
+  .sidebar .part-title {
+    color: rgba($pequod-cream-2, 0.5);
+  }
+
+  // TOC — dark overrides
+  .toc-title,
+  #TOC-title,
+  #quarto-margin-sidebar .toc-title {
+    color: rgba($pequod-cream-2, 0.5);
+  }
+
+  #TOC .nav-link,
+  .sidebar-toc .nav-link,
+  #quarto-margin-sidebar .nav-link {
+    color: rgba($pequod-cream, 0.6);
+
+    &.active {
+      color: $pequod-taupe !important;
+      border-left-color: $pequod-taupe !important;
+    }
+
+    &:hover {
+      color: $pequod-taupe;
+      border-left-color: rgba($pequod-taupe, 0.4);
+    }
+  }
+
+  .quarto-alternate-formats a,
+  .quarto-page-navigation-actions a,
+  #quarto-margin-sidebar .toc-actions a {
+    color: rgba($pequod-cream, 0.45);
+    &:hover { color: $pequod-taupe; }
   }
 
   .nav-page .nav-page-text { color: $pequod-taupe; }

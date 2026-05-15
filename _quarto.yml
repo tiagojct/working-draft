@@ -64,3 +64,6 @@ format:
     toc: true
     toc-depth: 3
     number-sections: false
+    grid:
+      body-width: 700px
+      margin-width: 260px
