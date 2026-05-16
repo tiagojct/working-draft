@@ -44,7 +44,6 @@ ggplot(bp_counts, aes(reorder(bp_class_6m, n), n)) +
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import pequod
 
 cohort = pd.read_csv("figures/cohort.csv")
 counts = (cohort["bp_class_6m"].value_counts()
@@ -54,10 +53,10 @@ counts["pct"] = counts["n"] / counts["n"].sum()
 
 fig, ax = plt.subplots(figsize=(6.4, 4))
 sns.barplot(data=counts, y="class", x="n",
-            color=pequod.CREW_DARK["Starbuck"], ax=ax)
+            color="#2B7BB9", ax=ax)
 for i, row in counts.iterrows():
     ax.text(row["n"] + 6, i, f'{row["n"]}  ({row["pct"]:.0%})',
-            va="center", family="JetBrains Mono")
+            va="center", family="monospace")
 ax.set(xlabel="Participants (n)", ylabel=None)
 sns.despine(); fig.tight_layout()
 ```
@@ -123,7 +122,7 @@ heat = (cohort.assign(
 
 fig, ax = plt.subplots(figsize=(6.4, 4))
 sns.heatmap(heat, cmap="pequod_log_cool", annot=True, fmt=".1f",
-            annot_kws={"family": "JetBrains Mono"},
+            annot_kws={"family": "monospace"},
             cbar_kws={"label": "Δ SBP (mmHg)"}, ax=ax)
 ax.set(xlabel="BMI band (kg/m²)", ylabel="Age band (years)")
 fig.tight_layout()
@@ -179,7 +178,6 @@ ggplot(trt_summary, aes(treatment, sbp_6m_mean)) +
 ```python
 import seaborn as sns
 import matplotlib.pyplot as plt
-import pequod
 
 summ = (cohort.groupby("treatment")["sbp_6m"]
               .agg(mean="mean", se=lambda x: x.std()/len(x)**0.5)
@@ -187,11 +185,11 @@ summ = (cohort.groupby("treatment")["sbp_6m"]
 
 fig, ax = plt.subplots(figsize=(6.4, 4))
 sns.barplot(data=summ, x="treatment", y="mean",
-            color=pequod.CREW_DARK["Ahab"], errorbar=None, ax=ax)
+            color="#FFCD00", errorbar=None, ax=ax)
 ax.errorbar(x=summ["treatment"], y=summ["mean"], yerr=summ["se"],
             fmt="none", color="black", capsize=4)
 for i, m in enumerate(summ["mean"]):
-    ax.text(i, m + 4, f"{m:.1f}", ha="center", family="JetBrains Mono")
+    ax.text(i, m + 4, f"{m:.1f}", ha="center", family="monospace")
 ax.set(xlabel=None, ylabel="SBP (mmHg)", ylim=(0, 160))
 sns.despine(); fig.tight_layout()
 ```
@@ -243,7 +241,6 @@ ggplot(ctrl, aes(reorder(treatment, pct), pct)) +
 ```python
 import seaborn as sns
 import matplotlib.pyplot as plt
-import pequod
 
 ctrl = (cohort.groupby("treatment")["controlled_6m"]
               .mean().reset_index(name="pct")
@@ -251,12 +248,12 @@ ctrl = (cohort.groupby("treatment")["controlled_6m"]
 
 fig, ax = plt.subplots(figsize=(6.4, 4))
 ax.hlines(y=ctrl["treatment"], xmin=0, xmax=ctrl["pct"],
-          colors=pequod.LOG["Log 300"])
+          colors="#B3BBC4")
 ax.scatter(ctrl["pct"], ctrl["treatment"],
-           color=pequod.CREW_DARK["Queequeg"], s=140, zorder=3)
+           color="#3A9653", s=140, zorder=3)
 for _, r in ctrl.iterrows():
     ax.text(r["pct"] + 0.02, r["treatment"], f'{r["pct"]:.0%}',
-            va="center", family="JetBrains Mono")
+            va="center", family="monospace")
 ax.set(xlabel="Controlled (%)", ylabel=None, xlim=(0, 1))
 sns.despine(); fig.tight_layout()
 ```
@@ -303,7 +300,6 @@ ggplot(da, aes(age_band, value, group = 1)) +
 ```python
 import seaborn as sns
 import matplotlib.pyplot as plt
-import pequod
 
 da = (cohort.assign(
     age_band = pd.cut(cohort["age"], [30,45,55,65,75,85],
@@ -314,7 +310,7 @@ da = (cohort.assign(
 
 g = sns.relplot(data=da, x="age_band", y="value", col="metric",
                 kind="line", marker="o", facet_kws={"sharey": False},
-                color=pequod.CREW_DARK["Ahab"], height=3.2, aspect=1.0)
+                color="#1A1A1A", height=3.2, aspect=1.0)
 g.set_axis_labels("Age band", "")
 ```
 
@@ -356,9 +352,8 @@ ggplot(cohort, aes(treatment, sbp_6m, colour = treatment)) +
 ```python
 import seaborn as sns
 import matplotlib.pyplot as plt
-import pequod
 
-crew = list(pequod.CREW_DARK.values())[:4]
+crew = ["#1A1A1A", "#2B7BB9", "#D06B3A", "#3A9653"]
 
 fig, ax = plt.subplots(figsize=(6.4, 4))
 sns.stripplot(data=cohort, x="treatment", y="sbp_6m",
@@ -415,9 +410,8 @@ ggplot(mapping = aes(month, sbp)) +
 ```python
 import seaborn as sns
 import matplotlib.pyplot as plt
-import pequod
 
-crew = list(pequod.CREW_DARK.values())[:4]
+crew = ["#1A1A1A", "#2B7BB9", "#D06B3A", "#3A9653"]
 
 g = sns.FacetGrid(traj, col="treatment", hue="treatment",
                   palette=crew, height=3.2, aspect=1.0,
