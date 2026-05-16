@@ -324,7 +324,7 @@ g.set_axis_labels("Age band", "")
 
 ## 6. Mean ± SE bar → distribution
 
-Bar charts of means with error whiskers are the most-criticised chart pattern in modern statistics. They imply a symmetric sampling distribution that often does not exist, hide the sample size, and hide the outliers. Weissgerber and colleagues showed that distinct distributions can produce visually identical bar-and-whisker plots [@weissgerber2015beyond]. The fix is to show the data: a box plot, a strip plot, a violin, or any combination thereof. A mean is a single number; the distribution is what determines whether that number is informative. @fig-meanbar collapses the four arms into a single statistic; @fig-distribution shows what is actually there.
+Bar charts of means with error whiskers are the most-criticised chart pattern in modern statistics. They imply a symmetric sampling distribution that often does not exist, hide the sample size, and hide the outliers. Weissgerber and colleagues showed that distinct distributions can produce visually identical bar-and-whisker plots [@weissgerber2015beyond; @motulsky2014misconceptions]. The fix is to show the data: a box plot, a strip plot, a violin, or any combination thereof. A mean is a single number; the distribution is what determines whether that number is informative. @fig-meanbar collapses the four arms into a single statistic; @fig-distribution shows what is actually there.
 
 ![Mean SBP per treatment as a bar with SE whiskers. Sample size is invisible, skew is invisible, outliers are invisible.](../figures/dataviz/06-bar-mean-bad.png){#fig-meanbar}
 

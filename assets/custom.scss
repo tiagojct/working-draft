@@ -1,275 +1,227 @@
 /*-- scss:defaults --*/
 
-/* ── Fonts ───────────────────────────────────────────────────────────────
-   Self-hosted woff2 files served from the main site at tiagojct.eu/fonts/
-   Same domain as this book — no CDN, no tracking, instant cache hit.     */
+// FMUP institutional palette
+$fmup-yellow:        #FFCD00;
+$fmup-yellow-dark:   #E6B800;
+$fmup-text:          #1A1A1A;
+$fmup-text-muted:    #5B6470;
+$fmup-bg:            #FFFFFF;
+$fmup-surface:       #F7F7F7;
+$fmup-border:        #E0E0E0;
+$fmup-border-strong: #B3BBC4;
 
-@font-face {
-  font-family: "Atkinson Hyperlegible Next";
-  src: url("/fonts/AtkinsonHyperlegibleNext-latin.woff2") format("woff2");
-  font-weight: 200 800;
-  font-style: normal;
-  font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: "Atkinson Hyperlegible Next";
-  src: url("/fonts/AtkinsonHyperlegibleNext-latin-ext.woff2") format("woff2");
-  font-weight: 200 800;
-  font-style: normal;
-  font-display: swap;
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-  font-family: "Atkinson Hyperlegible Next";
-  src: url("/fonts/AtkinsonHyperlegibleNext-italic-latin.woff2") format("woff2");
-  font-weight: 200 800;
-  font-style: italic;
-  font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: "Atkinson Hyperlegible Next";
-  src: url("/fonts/AtkinsonHyperlegibleNext-italic-latin-ext.woff2") format("woff2");
-  font-weight: 200 800;
-  font-style: italic;
-  font-display: swap;
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono-latin.woff2") format("woff2");
-  font-weight: 100 800;
-  font-style: normal;
-  font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono-latin-ext.woff2") format("woff2");
-  font-weight: 100 800;
-  font-style: normal;
-  font-display: swap;
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-/* ── Palette ─────────────────────────────────────────────────────────────
-   Pequod v0.2.0 tokens. Semantic names kept stable across themes.       */
-
-$pequod-navy:       #0D2F42;   // Log 800 — body text / headings on light
-$pequod-dark:       #0C222F;   // Log 900 — dark-theme surface
-$pequod-off-black:  #0B1720;   // Log 950 — dark-theme body bg
-$pequod-taupe:      #BD8C68;   // Log 300 — warm accent on dark / blockquote
-$pequod-taupe-2:    #A16E50;   // Log 400 — warm hover/focus on light
-$pequod-sage:       #335260;   // Log 600 — tints, borders
-$pequod-sage-2:     #163F54;   // Log 700 — body link on light
-$pequod-paper:      #F7F3EE;   // Log 50  — light-mode body bg
-$pequod-cream:      #EAE1D7;   // Log 100 — dark-mode body text
-$pequod-cream-2:    #DBC9B6;   // Log 150 — dark-mode headings
-$pequod-warm-grey:  #835A49;   // Log 500 — muted text on light
-$border-color:      rgba($pequod-sage, 0.22);
-
-// Bootstrap overrides — light theme
-$body-bg:            $pequod-paper;
-$body-color:         $pequod-navy;
-$link-color:         $pequod-sage-2;
+// Bootstrap mappings
+$primary:            $fmup-yellow;
+$body-bg:            $fmup-bg;
+$body-color:         $fmup-text;
+$link-color:         $fmup-text;
 $link-decoration:    none;
-$link-hover-color:   $pequod-taupe-2;
 
 // Typography
-$font-family-sans-serif: "Atkinson Hyperlegible Next", system-ui, -apple-system, sans-serif;
-$font-family-monospace:  "JetBrains Mono", "SF Mono", Menlo, monospace;
-$headings-font-family:   "Atkinson Hyperlegible Next", sans-serif;
-$headings-color:         $pequod-navy;
+$font-family-sans-serif: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+$font-family-monospace:  "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+$headings-font-family:   $font-family-sans-serif;
+$headings-font-weight:   700;
+$headings-color:         $fmup-text;
+
+$font-size-base:    1rem;
+$line-height-base:  1.6;
+
+$border-radius:     6px;
+$border-radius-sm:  4px;
+
+// Surfaces
+$gray-100: $fmup-surface;
+$gray-200: $fmup-border;
+$gray-600: $fmup-text-muted;
+
+// Focus
+$input-focus-border-color: $fmup-text;
+$input-focus-box-shadow:   0 0 0 0.2rem rgba($fmup-yellow, 0.4);
 
 /*-- scss:rules --*/
 
-/* ── Base ────────────────────────────────────────────────────────────── */
+// ── Base ──────────────────────────────────────────────────────────────────
 
-html {
-  text-rendering: optimizeLegibility;
+body {
+  font-family: $font-family-sans-serif;
+  font-feature-settings: "kern", "liga";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  font-family: $font-family-sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-size: 1.0625rem;
-  line-height: 1.6;
-  font-feature-settings: "kern", "liga", "calt";
-}
-
-p, ul, ol, dl {
-  margin-top: 0;
-  margin-bottom: 0.92rem;
-}
-
-blockquote, table, figure, pre {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-strong, b { font-weight: 600; }
-
-// Footnote superscripts: small breathing room so they don't weld to the word
-sup {
-  font-size: 0.72em;
-  line-height: 0;
-  position: relative;
-  top: -0.48em;
-  margin-left: 0.06em;
-}
-
-/* ── Typography hierarchy ─────────────────────────────────────────────── */
+// ── Headings ──────────────────────────────────────────────────────────────
 
 h1, h2, h3, h4, h5, h6 {
-  color: $pequod-navy;
   font-family: $font-family-sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.012em;
-  line-height: 1.3;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
-
-  &:first-child { margin-top: 0; }
+  letter-spacing: -0.005em;
 }
 
-h1 { font-size: 2rem;    letter-spacing: -0.018em; margin-top: 3rem; }
+h1 { font-weight: 800; }
 
-// cosmo adds border-bottom to h2 by default — removed here; spacing carries the hierarchy
+// cosmo adds border-bottom to h2 — remove it
 h2 {
-  font-size: 1.5rem;
-  margin-top: 2.25rem;
   border-bottom: none !important;
   padding-bottom: 0 !important;
 }
 
-h3 { font-size: 1.2rem;  margin-top: 1.5rem; }
-h4 { font-size: 1.05rem; margin-top: 1.5rem; }
-h5, h6 { font-size: 1rem; margin-top: 1rem; }
+// ── Links ─────────────────────────────────────────────────────────────────
+// Prose links: yellow underline + yellow bg on hover. Scoped to article/main
+// so it does not cascade into navbar, sidebar, TOC, footer, or repo links.
 
-/* ── Links ────────────────────────────────────────────────────────────── */
+main a:not(.citation):not(.no-underline):not([role="doc-biblioref"]):not([role="doc-noteref"]),
+.content a:not(.citation):not(.no-underline):not([role="doc-biblioref"]):not([role="doc-noteref"]),
+article a:not(.citation):not(.no-underline):not([role="doc-biblioref"]):not([role="doc-noteref"]),
+.quarto-document-content a:not(.citation):not(.no-underline):not([role="doc-biblioref"]):not([role="doc-noteref"]) {
+  text-decoration: underline;
+  text-decoration-color: $fmup-yellow;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 
-a {
-  color: $link-color;
-  text-decoration: none;
-  border-bottom: 1px solid rgba($pequod-sage-2, 0.5);
-  transition: color 160ms cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 160ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover, &:focus-visible {
-    color: $link-hover-color;
-    border-bottom-color: rgba($pequod-taupe-2, 0.75);
+  &:hover {
+    background: $fmup-yellow;
+    color: $fmup-text;
+    text-decoration-color: $fmup-text;
   }
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
-.navbar a,
-.nav-link,
-.sidebar a,
-.sidebar-navigation a,
-a.footnote-ref,
-a[role="doc-biblioref"],
-a[role="doc-noteref"],
-.citation a,
-a:has(> iconify-icon),
-a:has(> i[class*="bi-"]),
-a:has(> i.bi),
-a:has(> svg),
-a:has(> img) {
-  border-bottom: none;
+// Citation / reference numbers — grey chip
+main span.citation,
+.content span.citation,
+article span.citation,
+.quarto-document-content span.citation {
+  background: $fmup-surface;
+  padding: 0.04em 0.4em;
+  border-radius: 3px;
+  font-size: 0.88em;
+  transition: background 120ms ease-out;
+  white-space: nowrap;
+
+  &:hover { background: $fmup-border; }
+
+  a, a:hover {
+    background: transparent !important;
+    text-decoration: none !important;
+    color: $fmup-text !important;
+    font-weight: 500;
+  }
 }
 
-a.footnote-ref,
-a[role="doc-biblioref"],
-a[role="doc-noteref"],
-.citation a {
-  padding: 0 0.15em;
+// Footnote markers — same grey chip, smaller scale
+main sup a.footnote-ref,
+sup a.footnote-ref {
+  background: $fmup-surface;
+  padding: 0.04em 0.3em;
+  border-radius: 3px;
+  text-decoration: none !important;
+  color: $fmup-text !important;
+  font-weight: 500;
+
+  &:hover { background: $fmup-border; }
+}
+
+// Internal cross-references (same-site .html links) — yellow chip
+main a[href*=".html"]:not([href^="http"]):not([href^="//"]):not(.citation):not(.no-underline),
+.content a[href*=".html"]:not([href^="http"]):not([href^="//"]):not(.citation):not(.no-underline),
+article a[href*=".html"]:not([href^="http"]):not([href^="//"]):not(.citation):not(.no-underline),
+.quarto-document-content a[href*=".html"]:not([href^="http"]):not([href^="//"]):not(.citation):not(.no-underline) {
+  background: rgba($fmup-yellow, 0.22);
+  padding: 0.04em 0.4em;
+  border-radius: 3px;
+  text-decoration: none !important;
+  color: $fmup-text !important;
+  font-weight: 500;
+  transition: background 120ms ease-out;
+
+  &:hover {
+    background: $fmup-yellow !important;
+    text-decoration: none !important;
+  }
+}
+
+// Quiet anchors (section anchors, anchor icons)
+main a.quarto-xref,
+main a.anchorjs-link,
+main .header-anchor {
+  text-decoration: none;
+  background: transparent;
+
+  &:hover {
+    text-decoration: none;
+    background: transparent;
+    color: $fmup-text;
+  }
+}
+
+// Navigation contexts: no yellow treatment
+.navbar a,
+.sidebar a,
+.toc-actions a,
+nav.toc-active a,
+#TOC a,
+.quarto-secondary-nav a,
+.nav-footer a {
+  text-decoration: none;
+
+  &:hover { background: transparent; }
 }
 
 :focus-visible {
-  outline: 2px solid $pequod-taupe-2;
-  outline-offset: 3px;
-  border-radius: 2px;
+  outline: 3px solid $fmup-yellow;
+  outline-offset: 2px;
 }
 
-/* ── Breadcrumbs ──────────────────────────────────────────────────────── */
+// ── Inline code ────────────────────────────────────────────────────────────
 
-.quarto-page-breadcrumbs {
-  padding-top: 2rem;
-  border-top: 1.5px solid $border-color;
-  margin-bottom: 1.75rem;
+code, pre, kbd, samp {
+  font-family: $font-family-monospace;
+  font-size: 0.92em;
 }
 
-.breadcrumb {
-  font-size: 0.85rem;
-
-  .breadcrumb-item {
-    a {
-      color: $pequod-sage;
-      border-bottom: none;
-      font-weight: 400;
-
-      &:hover { color: $pequod-taupe-2; }
-    }
-
-    // Current page — not a link, should look muted not clickable
-    &.active,
-    &:last-child {
-      color: $pequod-warm-grey;
-      font-weight: 400;
-
-      a {
-        color: $pequod-warm-grey;
-        border-bottom: none;
-        pointer-events: none;
-        cursor: default;
-      }
-    }
-  }
+pre {
+  background: $fmup-surface !important;
+  border: 1px solid $fmup-border;
+  border-radius: $border-radius;
+  padding: 0.85rem 1rem;
 }
 
-/* ── Inline code ──────────────────────────────────────────────────────── */
-
-code:not(.sourceCode):not(pre code) {
-  background: rgba($pequod-sage, 0.12);
-  color: $pequod-navy;
-  font-size: 0.88em;
+code:not(pre code) {
+  background: $fmup-surface;
   padding: 0.1em 0.35em;
-  border-radius: 3px;
+  border-radius: $border-radius-sm;
+  color: $fmup-text;
 }
 
-/* ── Blockquote ───────────────────────────────────────────────────────── */
+// ── Blockquote ─────────────────────────────────────────────────────────────
 
-blockquote, .blockquote {
-  border-left: 2px solid $pequod-taupe;
-  padding: 0.25rem 1rem;
-  margin-left: 0;
-  margin-right: 0;
-  color: $pequod-warm-grey;
+blockquote {
+  border-left: 4px solid $fmup-yellow;
+  background: $fmup-surface;
+  padding: 0.85rem 1rem;
+  border-radius: 0 $border-radius $border-radius 0;
+  color: $fmup-text;
+  font-style: normal;
 
   p:last-child { margin-bottom: 0; }
 }
 
-/* ── Horizontal rule ──────────────────────────────────────────────────── */
+// ── Tables ─────────────────────────────────────────────────────────────────
 
-hr {
-  border: 0;
-  height: 1px;
-  background: $border-color;
-  margin: 2rem 0;
+table.table {
+  thead th {
+    background: $fmup-text;
+    color: $fmup-yellow;
+    border-bottom: none;
+    font-weight: 700;
+  }
+
+  tbody tr:nth-of-type(odd) {
+    background: lighten($fmup-surface, 1.5%);
+  }
 }
 
-/* ── Tables — academic style ──────────────────────────────────────────── */
-
-table {
+// Academic table style (non-.table tables used in book chapters)
+table:not(.table) {
   font-size: 0.94rem;
   width: 100%;
   border-collapse: collapse;
@@ -282,113 +234,200 @@ table {
   }
 
   thead th {
-    font-weight: 600;
-    color: $pequod-navy;
-    border-bottom: 1.5px solid $pequod-navy;
+    font-weight: 700;
+    background: $fmup-text;
+    color: $fmup-yellow;
+    border-bottom: none;
   }
 
-  tbody tr {
-    border-bottom: 1px solid $border-color;
-  }
-
-  tbody tr:last-child {
-    border-bottom: 1.5px solid $pequod-navy;
-  }
-
-  &:not(.striped) tbody tr { background: transparent; }
+  tbody tr:nth-of-type(odd) { background: lighten($fmup-surface, 1.5%); }
+  tbody tr:nth-of-type(even) { background: transparent; }
 }
 
-/* ── Column margin ────────────────────────────────────────────────────── */
+// ── Column margin notes ────────────────────────────────────────────────────
 
 .column-margin {
   font-size: 0.86rem;
   line-height: 1.55;
-  color: $pequod-warm-grey;
+  color: $fmup-text-muted;
 }
 
-/* ── Lead paragraph ────────────────────────────────────────────────────── */
+// ── Callouts ───────────────────────────────────────────────────────────────
 
-// First paragraph after a chapter h1 — lede treatment for chapter openings
-h1 + p {
-  font-size: 1.08rem;
-  line-height: 1.65;
+div.callout.callout-style-default {
+  border: 1px solid $fmup-border !important;
+  border-left-width: 4px !important;
+  border-radius: $border-radius;
 }
 
-/* ── Sidebar search ────────────────────────────────────────────────────── */
+// Note — yellow
+div.callout.callout-note,
+div.callout-note.callout {
+  border-left-color: $fmup-yellow !important;
+}
+div.callout.callout-note .callout-title,
+div.callout-note .callout-title {
+  background-color: rgba($fmup-yellow, 0.15) !important;
+}
 
-#quarto-sidebar .sidebar-search .form-control,
-#quarto-sidebar input[type="search"] {
-  background: rgba($pequod-sage, 0.07);
-  border: 1px solid $border-color;
-  border-radius: 6px;
-  font-size: 0.875rem;
-  color: $pequod-navy;
-  box-shadow: none;
+// Tip — dark
+div.callout.callout-tip,
+div.callout-tip.callout {
+  border-left-color: $fmup-text !important;
+}
+div.callout.callout-tip .callout-title,
+div.callout-tip .callout-title {
+  background-color: $fmup-surface !important;
+}
 
-  &::placeholder { color: rgba($pequod-navy, 0.4); }
-  &:focus {
-    border-color: rgba($pequod-taupe-2, 0.5);
-    background: rgba($pequod-sage, 0.1);
-    outline: none;
-    box-shadow: none;
+// Warning — mid grey
+div.callout.callout-warning,
+div.callout-warning.callout {
+  border-left-color: $fmup-border-strong !important;
+}
+div.callout.callout-warning .callout-title,
+div.callout-warning .callout-title {
+  background-color: $fmup-surface !important;
+}
+
+// Caution — slightly darker grey
+div.callout.callout-caution,
+div.callout-caution.callout {
+  border-left-color: $fmup-text-muted !important;
+}
+div.callout.callout-caution .callout-title,
+div.callout-caution .callout-title {
+  background-color: $fmup-surface !important;
+}
+
+// Important — red
+div.callout.callout-important,
+div.callout-important.callout {
+  border-left-color: #B91C1C !important;
+}
+div.callout.callout-important .callout-title,
+div.callout-important .callout-title {
+  background-color: rgba(#B91C1C, 0.08) !important;
+}
+
+// ── Navbar ─────────────────────────────────────────────────────────────────
+
+.navbar {
+  background: $fmup-bg !important;
+  border-bottom: 4px solid $fmup-yellow;
+  padding: 0.5rem 1rem;
+  font-family: $font-family-sans-serif;
+  font-size: 0.9rem;
+
+  .navbar-brand {
+    font-weight: 800;
+    color: $fmup-text !important;
+    font-size: 0.95rem;
+
+    img { max-height: 32px; width: auto; }
   }
-}
 
-/* ── Callouts — Pequod crew palette ───────────────────────────────────── */
+  .navbar-nav .nav-link {
+    color: $fmup-text !important;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 0.35rem 0.75rem;
+    text-decoration: none;
 
-.callout {
-  border-radius: 4px;
-  margin: 1.5rem 0;
-}
-
-.callout-title {
-  font-weight: 600;
-  letter-spacing: -0.005em;
-}
-
-.callout.callout-style-default .callout-icon-container { display: none; }
-
-$callouts: (
-  tip:       #177C55,
-  note:      #0082B1,
-  warning:   #6A4A00,
-  important: #A83732,
-  caution:   #CA6435,
-);
-
-@each $type, $color in $callouts {
-  .callout.callout-style-default.callout-#{$type} {
-    border-left-color: $color;
-
-    > .callout-header {
-      background-color: rgba($color, 0.12);
+    &:hover, &.active {
+      background: $fmup-yellow;
+      color: $fmup-text !important;
     }
   }
-}
 
-/* ── Book sidebar navigation ──────────────────────────────────────────── */
-
-// Book title in the sidebar header — more weight, better presence
-.sidebar-title,
-.sidebar .book-title,
-#quarto-sidebar .title,
-.quarto-sidebar .sidebar-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-  margin-bottom: 0.5rem;
-
-  a {
-    color: $pequod-navy;
-    border-bottom: none;
-    font-weight: 700;
-
-    &:hover { color: $pequod-taupe-2; }
+  .navbar-toggler {
+    border-color: $fmup-text;
+    color: $fmup-text;
   }
 }
 
-// Remove per-chapter dividers — vertical rhythm handles separation
+// ── Sidebar (book left rail) ───────────────────────────────────────────────
+
+.sidebar {
+  background: $fmup-surface;
+  font-family: $font-family-sans-serif;
+
+  .sidebar-title,
+  .book-title {
+    font-weight: 800;
+    color: $fmup-text;
+
+    a {
+      color: $fmup-text;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 48px;
+        height: 24px;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 32"><rect width="64" height="32" fill="%23FFCD00" rx="4"/><text x="32" y="22" font-family="system-ui" font-weight="800" font-size="15" text-anchor="middle" fill="%231A1A1A" letter-spacing="-0.5">TWD</text></svg>') no-repeat center / contain;
+        flex-shrink: 0;
+      }
+
+      &:hover { color: $fmup-text; background: transparent; }
+    }
+  }
+
+  // Part-heading rows
+  .sidebar-item-section > .sidebar-item-container > .sidebar-item-text,
+  .sidebar-section .sidebar-section-item,
+  li.sidebar-item.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text,
+  li.sidebar-item.sidebar-item-section > .sidebar-item-container > .sidebar-item-text {
+    font-weight: 800 !important;
+    color: $fmup-text !important;
+    padding-top: 0.55rem;
+    padding-bottom: 0.25rem;
+    margin-top: 0.4rem;
+    letter-spacing: -0.005em;
+    text-transform: none !important;
+    font-size: 0.875rem !important;
+  }
+
+  // Chapter rows
+  .sidebar-item-text {
+    color: $fmup-text;
+    text-decoration: none;
+    padding: 0.3rem 0.6rem;
+    line-height: 1.32;
+    display: block;
+    font-size: 0.875rem;
+  }
+
+  // Active chapter
+  .sidebar-item.active > .sidebar-item-container .sidebar-item-text,
+  .sidebar-link.active,
+  .sidebar-navigation .active > .chapter-link,
+  .sidebar-navigation a.active {
+    background: $fmup-yellow !important;
+    color: $fmup-text !important;
+    font-weight: 700;
+    border-left: 3px solid $fmup-text;
+    padding: 0.3rem 0.6rem 0.3rem calc(0.6rem - 3px);
+    border-radius: 0;
+  }
+
+  // Chapter numbering via CSS counters
+  counter-reset: fmup-chapter;
+}
+
+.sidebar .sidebar-item:not(.sidebar-item-section) > .sidebar-item-container > .sidebar-item-text::before {
+  counter-increment: fmup-chapter;
+  content: counter(fmup-chapter) ". ";
+  color: $fmup-text-muted;
+  font-weight: 500;
+  margin-right: 0.15em;
+}
+
+// Remove per-item dividers
 .sidebar .sidebar-item,
 .sidebar-navigation .sidebar-item,
 .sidebar-navigation li,
@@ -396,283 +435,139 @@ $callouts: (
   border-bottom: none !important;
 }
 
-// Active chapter: taupe colour + background tint
-.sidebar-navigation .active > .chapter-link,
-.sidebar-navigation a.active {
-  color: $pequod-taupe-2 !important;
-  font-weight: 600;
-  background: rgba($pequod-taupe-2, 0.09);
-  border-radius: 3px;
+// ── Page TOC (right margin) ────────────────────────────────────────────────
+
+#quarto-margin-sidebar {
+  padding: 1rem 1rem 1rem 1.25rem;
 }
 
-// Part labels: small uppercase landmark, clearly above chapters
-// li.sidebar-item-section is Quarto's book structure for collapsible parts
-.sidebar-navigation .sidebar-section .sidebar-section-item,
-.sidebar-navigation .sidebar-part-title,
-.book-sidebar .part-title,
-.sidebar .part-title,
-li.sidebar-item.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text,
-li.sidebar-item.sidebar-item-section > .sidebar-item-container > .sidebar-item-text {
-  font-size: 0.72rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.07em !important;
-  text-transform: uppercase !important;
-  color: rgba($pequod-navy, 0.5) !important;
-  margin-top: 1.5rem;
-  margin-bottom: 0.25rem;
-  border-bottom: none !important;
+#TOC,
+nav.toc-active {
+  border-left: 0 !important;
 }
 
-// Standalone sidebar items not inside a part (Preface, References, Conclusion)
-.sidebar-navigation > ul > li.sidebar-item:not(.sidebar-item-section) > .sidebar-item-container > a.sidebar-item-text {
-  font-size: 0.85rem;
-  color: rgba($pequod-navy, 0.6);
-  font-style: italic;
-}
-
-// Chapter links within parts: smaller than top-level items for visual depth
-.sidebar-navigation .chapter-link,
-.sidebar-navigation .sidebar-collapse .sidebar-item-text,
-.sidebar-navigation .sidebar-section-items .sidebar-item-text {
-  font-size: 0.875rem;
-  line-height: 1.45;
-  color: rgba($pequod-navy, 0.8);
-}
-
-/* ── Page TOC (right column) ──────────────────────────────────────────── */
-
-// "Table of contents" header label — #toc-title is the actual Quarto ID (lowercase)
+#TOC > #toc-title,
+#quarto-margin-sidebar #toc-title,
 .toc-title,
-#toc-title,
 h2#toc-title,
-nav#TOC > h2,
-#quarto-margin-sidebar .toc-title,
-.sidebar-toc .toc-title,
-div.sidebar-toc-active .toc-title {
-  font-size: 0.72rem;
+nav#TOC > h2 {
   font-weight: 700;
-  letter-spacing: 0.07em;
+  color: $fmup-text;
+  margin-bottom: 0.65rem;
+  padding-left: 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba($pequod-navy, 0.5);
-  margin-bottom: 0.75rem;
-  border-bottom: none;
 }
 
-// Section links: left-border track, taupe on active
-#TOC .nav-link,
-.sidebar-toc .nav-link,
-#quarto-margin-sidebar .nav-link {
-  color: $pequod-warm-grey;
-  border-bottom: none;
-  border-left: 2px solid transparent;
-  padding-top: 0.22rem;
-  padding-bottom: 0.22rem;
-  padding-left: 0.6rem;
-  font-size: 0.88rem;
-  line-height: 1.4;
-  transition: color 120ms ease, border-color 120ms ease;
+nav#TOC ul,
+nav.toc-active ul {
+  border-left: 0;
+  padding-left: 0.5rem;
+  margin: 0;
+  list-style: none;
+}
 
-  &.active {
-    color: $pequod-taupe-2 !important;
-    border-left-color: $pequod-taupe-2 !important;
-    font-weight: 600;
-  }
+nav#TOC ul li,
+nav.toc-active ul li {
+  margin: 0.15rem 0;
+}
+
+nav#TOC ul li a,
+nav.toc-active ul li a {
+  border-left: 0 !important;
+  padding: 0.2rem 0 0.2rem 0.4rem;
+  color: $fmup-text-muted;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  line-height: 1.45;
 
   &:hover {
-    color: $pequod-taupe-2;
-    border-left-color: rgba($pequod-taupe-2, 0.35);
+    color: $fmup-text;
+    background: transparent;
+    text-decoration: underline;
+    text-decoration-color: $fmup-yellow;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
   }
 }
 
-// Nested TOC levels (h3 entries)
-#TOC ul ul .nav-link,
-.sidebar-toc ul ul .nav-link {
-  padding-left: 1.2rem;
-  font-size: 0.84rem;
+nav#TOC ul li a.active,
+nav.toc-active ul li a.active {
+  color: $fmup-text;
+  font-weight: 700;
+  background: transparent;
+  border-left: 0 !important;
 }
 
-// Stronger specificity to ensure warm-grey wins over Bootstrap's nav defaults
-#TOC li > a.nav-link:not(.active),
-#quarto-margin-sidebar li > a.nav-link:not(.active) {
-  color: $pequod-warm-grey !important;
-}
+// ── Toc-actions (Edit / Report links) ─────────────────────────────────────
 
-// "Edit this page" / "Report an issue" — separated by a hairline rule
-.quarto-alternate-formats,
-.quarto-page-navigation-actions,
+.toc-actions,
 #quarto-margin-sidebar .toc-actions {
-  font-size: 0.8rem;
-  margin-top: 1.25rem;
-  padding-top: 1rem;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid $fmup-border;
+  margin-top: 1.1rem;
+  padding: 0.85rem 0 0 0.5rem;
+  list-style: none;
+
+  li { margin: 0.3rem 0; }
 
   a {
-    color: $pequod-warm-grey;
-    border-bottom: none;
+    color: $fmup-text-muted;
+    font-size: 0.85rem;
+    text-decoration: none;
+    background: transparent;
+    padding: 0.15rem 0;
+    line-height: 1.45;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
 
-    &:hover { color: $pequod-taupe-2; }
+    &:hover {
+      color: $fmup-text;
+      background: transparent;
+      text-decoration: underline;
+      text-decoration-color: $fmup-yellow;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
   }
 }
 
-/* ── Page navigation (prev / next) ───────────────────────────────────── */
+// ── Page navigation (prev / next) ─────────────────────────────────────────
 
 .nav-page .nav-page-text {
-  color: $pequod-sage-2;
+  color: $fmup-text-muted;
   font-size: 0.9rem;
 }
 
 .nav-page a {
-  border-bottom: none;
-  &:hover .nav-page-text { color: $pequod-taupe-2; }
+  text-decoration: none;
+  &:hover .nav-page-text { color: $fmup-text; }
 }
 
-/* ── Dark theme ─────────────────────────────────────────────────────────
-   Overrides applied via body.quarto-dark (set by Quarto's colour toggle).
-   darkly provides the base; these rules re-map to the Pequod dark palette. */
+// ── Footer ─────────────────────────────────────────────────────────────────
 
-html:has(body.quarto-dark) {
-  background-color: $pequod-off-black;
+.nav-footer {
+  background: $fmup-surface;
+  border-top: 1px solid $fmup-border;
+  font-size: 0.88rem;
+  color: $fmup-text-muted;
+
+  a { color: $fmup-text; }
 }
 
-body.quarto-dark {
-  background-color: $pequod-off-black !important;
-  color: $pequod-cream;
+// ── Buttons ────────────────────────────────────────────────────────────────
 
-  h1, h2, h3, h4, h5, h6 { color: $pequod-cream-2; }
+.btn-primary {
+  background-color: $fmup-yellow !important;
+  border-color: $fmup-text !important;
+  color: $fmup-text !important;
+  font-weight: 700;
 
-  a {
-    color: $pequod-taupe;
-    border-bottom-color: rgba($pequod-taupe, 0.4);
-
-    &:hover, &:focus-visible {
-      color: $pequod-taupe;
-      border-bottom-color: rgba($pequod-taupe, 0.7);
-    }
+  &:hover, &:focus, &:active {
+    background-color: $fmup-text !important;
+    border-color: $fmup-text !important;
+    color: $fmup-yellow !important;
   }
-
-  :focus-visible { outline-color: $pequod-taupe; }
-
-  .breadcrumb .breadcrumb-item {
-    a { color: rgba($pequod-cream, 0.55); border-bottom: none; }
-    &.active, &:last-child { color: rgba($pequod-cream, 0.4); }
-  }
-
-  code:not(.sourceCode):not(pre code) {
-    background: rgba($pequod-sage, 0.18);
-    color: $pequod-cream-2;
-  }
-
-  blockquote, .blockquote {
-    border-left-color: $pequod-taupe;
-    color: rgba($pequod-cream, 0.8);
-  }
-
-  hr { background: rgba($pequod-sage, 0.28); }
-
-  table {
-    thead th            { color: $pequod-cream-2; border-bottom-color: $pequod-cream-2; }
-    tbody tr            { border-bottom-color: rgba($pequod-sage, 0.22); }
-    tbody tr:last-child { border-bottom-color: $pequod-cream-2; }
-  }
-
-  .column-margin { color: rgba($pequod-cream, 0.72); }
-
-  .quarto-page-breadcrumbs { border-top-color: rgba($pequod-sage, 0.28); }
-
-  h1 + p { color: $pequod-cream; }
-
-  #quarto-sidebar .sidebar-search .form-control,
-  #quarto-sidebar input[type="search"] {
-    background: rgba($pequod-sage, 0.12);
-    border-color: rgba($pequod-sage, 0.3);
-    color: $pequod-cream;
-    &::placeholder { color: rgba($pequod-cream, 0.35); }
-    &:focus { background: rgba($pequod-sage, 0.18); border-color: rgba($pequod-taupe, 0.5); }
-  }
-
-  .callout {
-    background-color: rgba($pequod-sage, 0.08);
-  }
-
-  // Sidebar — dark overrides
-  .sidebar-title a,
-  .sidebar .book-title a,
-  #quarto-sidebar .title a {
-    color: $pequod-cream;
-    &:hover { color: $pequod-taupe; }
-  }
-
-  .sidebar-navigation .active > .chapter-link,
-  .sidebar-navigation a.active {
-    color: $pequod-taupe !important;
-    background: rgba($pequod-taupe, 0.12);
-    border-radius: 3px;
-  }
-
-  .sidebar-navigation .sidebar-section .sidebar-section-item,
-  .sidebar-navigation .sidebar-part-title,
-  .book-sidebar .part-title,
-  .sidebar .part-title {
-    color: rgba($pequod-cream-2, 0.5);
-  }
-
-  .sidebar-navigation .chapter-link,
-  .sidebar-navigation .sidebar-collapse .sidebar-item-text,
-  .sidebar-navigation .sidebar-section-items .sidebar-item-text {
-    color: rgba($pequod-cream, 0.7);
-  }
-
-  li.sidebar-item.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text,
-  li.sidebar-item.sidebar-item-section > .sidebar-item-container > .sidebar-item-text {
-    color: rgba($pequod-cream-2, 0.45) !important;
-  }
-
-  .sidebar-navigation > ul > li.sidebar-item:not(.sidebar-item-section) > .sidebar-item-container > a.sidebar-item-text {
-    color: rgba($pequod-cream, 0.45);
-  }
-
-  // TOC — dark overrides
-  .toc-title,
-  #toc-title,
-  h2#toc-title,
-  nav#TOC > h2,
-  #quarto-margin-sidebar .toc-title {
-    color: rgba($pequod-cream-2, 0.5);
-  }
-
-  #TOC .nav-link,
-  .sidebar-toc .nav-link,
-  #quarto-margin-sidebar .nav-link {
-    color: rgba($pequod-cream, 0.55);
-
-    &.active {
-      color: $pequod-taupe !important;
-      border-left-color: $pequod-taupe !important;
-    }
-
-    &:hover {
-      color: $pequod-taupe;
-      border-left-color: rgba($pequod-taupe, 0.4);
-    }
-  }
-
-  #TOC li > a.nav-link:not(.active),
-  #quarto-margin-sidebar li > a.nav-link:not(.active) {
-    color: rgba($pequod-cream, 0.55) !important;
-  }
-
-  .quarto-alternate-formats,
-  .quarto-page-navigation-actions,
-  #quarto-margin-sidebar .toc-actions {
-    border-top-color: rgba($pequod-sage, 0.28);
-  }
-
-  .quarto-alternate-formats a,
-  .quarto-page-navigation-actions a,
-  #quarto-margin-sidebar .toc-actions a {
-    color: rgba($pequod-cream, 0.45);
-    &:hover { color: $pequod-taupe; }
-  }
-
-  .nav-page .nav-page-text { color: $pequod-taupe; }
 }

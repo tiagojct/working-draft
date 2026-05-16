@@ -45,7 +45,7 @@ A retraction for a fabricated citation is one of the most damaging events in an 
 
 The disclosure standard varies by journal, but the underlying principle is consistent: declare the role of AI in producing content, take responsibility for the accuracy of everything in the manuscript, and ensure no co-author names an AI system as an author. Large language models cannot be listed as authors because they cannot meet the ICMJE authorship criteria: they cannot be held responsible for the accuracy, integrity, or originality of the work, and they cannot approve the final version or be held accountable for errors [@icmje2023recommendations].
 
-A worked disclosure table for the most common writing scenarios:
+Here is where disclosure falls for the most common writing uses:
 
 | Use case | Tier | When to disclose |
 |:---------|:----:|:-----------------|
@@ -55,7 +55,7 @@ A worked disclosure table for the most common writing scenarios:
 | Writing methods, results, or discussion without an independent prior draft | 3 | Always; describe the tool |
 | Fabricated references, ghost-authored sections | 4 | **Prohibited** |
 
-A model disclosure sentence that fits most manuscripts:
+When disclosure is required, adapt this:
 
 > *"During the preparation of this work, the authors used [tool/model] for [language editing / rephrasing / code suggestions]. After using this tool, the authors reviewed and edited the content as needed and take full responsibility for the final manuscript."*
 

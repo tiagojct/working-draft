@@ -61,9 +61,9 @@ csl: assets/nature.csl
 format:
   html:
     include-in-header: assets/head.html
-    theme:
-      light: [cosmo, assets/custom.scss]
-      dark: [darkly, assets/custom.scss]
+    theme: [cosmo, assets/custom.scss]
+    mainfont: "Atkinson Hyperlegible Next, Atkinson Hyperlegible, system-ui, sans-serif"
+    monofont: "Geist Mono, ui-monospace, Menlo, monospace"
     reference-location: margin
     footnotes-hover: true
     fig-align: center

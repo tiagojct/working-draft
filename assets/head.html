@@ -13,56 +13,7 @@
 </script>
 <!-- End Matomo Code -->
 
-<!-- Quarto theme-pair patch.
-
-     Two issues this script fixes:
-
-     (1) Quarto renders both bootstrap stylesheet links with
-         data-mode="light" rather than tagging the alternate one as
-         "dark". Quarto's toggleBodyColorMode() reads that attribute to
-         decide whether to add body.quarto-dark, so without this patch
-         the toggle never updates the body class.
-
-     (2) Even with (1) fixed, Quarto's init runs synchronously in the
-         page body and may read data-mode before this patch had a
-         chance to set it. So we also re-apply the body class from
-         localStorage on DOMContentLoaded as a guarantee.
-
-     Runs as early as possible to avoid a flash of un-themed content. -->
-<script>
-  (function () {
-    function setAltMode() {
-      var alt = document.querySelector(
-        'link.quarto-color-scheme.quarto-color-alternate#quarto-bootstrap'
-      );
-      if (!alt) return false;
-      if (alt.getAttribute('data-mode') !== 'dark') {
-        alt.setAttribute('data-mode', 'dark');
-      }
-      return true;
-    }
-
-    if (!setAltMode()) {
-      var attempts = 0;
-      var interval = setInterval(function () {
-        if (setAltMode() || ++attempts > 200) clearInterval(interval);
-      }, 1);
-    }
-
-    function applyBodyClass() {
-      try {
-        var dark = window.localStorage.getItem('quarto-color-scheme') === 'alternate';
-        if (document.body) {
-          document.body.classList.toggle('quarto-dark', dark);
-          document.body.classList.toggle('quarto-light', !dark);
-        }
-      } catch (e) { /* ignore */ }
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', applyBodyClass);
-    } else {
-      applyBodyClass();
-    }
-  })();
-</script>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Geist+Mono:wght@400;500&display=swap">
