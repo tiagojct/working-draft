@@ -12,5 +12,7 @@ Part I covers the architecture and craft of scientific writing: the structure of
 
 The two parts share a palette, a typeface, and a fictional heart failure cohort in Part I and a hypertension cohort in Part II — both simulated for the examples alone. They also share the underlying conviction that good research communication is a learnable set of habits, not a talent you either have or you don't.
 
+**How to read it.** If you are actively writing a paper, read Part I in order. If you have data but have not yet started writing, begin with Chapters 1, 3, and 9. If you are earlier still — at the stage where research is something that happens to other people — Chapters 1, 3, and 8 are useful now; the structural and compliance chapters are designed to be returned to when you have a study in front of you. Part II can be read independently of Part I at any stage.
+
 Tiago Jacinto\
 Porto, May 2026

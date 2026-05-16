@@ -1,0 +1,5 @@
+# From words to figures {.unnumbered}
+
+A figure is part of a paper. A paper is more than its figures. Part I covers what to write and how to write it; Part II covers how to draw the figures that sit between the words. The decisions are made by the same person, for the same readers, under the same editorial pressure — and the same discipline governs both. Tufte's rule for figures, *maximise the data-to-ink ratio, erase what does not earn its place*, is Zinsser's rule for prose in visual form. A paragraph that reports only what the reader cannot infer is data visualisation in text. A caption that says everything necessary and nothing extra is good writing.
+
+Part I ended with workflow and revision. Part II begins with the principles behind every visual decision in a scientific figure, then works through chart types, failure modes, captions, colour, and the responsible use of AI. The examples shift from the heart failure cohort to a four-arm hypertension trial — a different dataset chosen because its structure (repeated measures, a binary outcome, four groups to compare) offers richer material for the chart-type and pitfalls chapters. The discipline is the same.

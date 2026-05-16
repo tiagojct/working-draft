@@ -39,6 +39,7 @@ book:
         - chapters/08-co-authorship.qmd
         - chapters/ai-writing.qmd
         - chapters/09-workflow.qmd
+    - chapters/part-ii-bridge.qmd
     - part: "Part II · Figures"
       chapters:
         - chapters/10-principles.qmd
