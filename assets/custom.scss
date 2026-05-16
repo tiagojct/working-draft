@@ -43,6 +43,13 @@ $input-focus-box-shadow:   0 0 0 0.2rem rgba($fmup-yellow, 0.4);
 
 // ── Base ──────────────────────────────────────────────────────────────────
 
+// Book header bar (breadcrumb + search) — carries the FMUP yellow stripe
+// that .navbar provides on the website equivalent.
+#quarto-header {
+  background: $fmup-bg !important;
+  border-bottom: 4px solid $fmup-yellow;
+}
+
 body {
   font-family: $font-family-sans-serif;
   font-feature-settings: "kern", "liga";
@@ -356,8 +363,12 @@ div.callout-important .callout-title {
   .book-title {
     font-weight: 800;
     color: $fmup-text;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid $fmup-border;
+    margin-bottom: 0.25rem;
 
-    a {
+    // Title link only (direct child) — not the GitHub tool icon link
+    > a {
       color: $fmup-text;
       text-decoration: none;
       display: flex;
@@ -415,16 +426,6 @@ div.callout-important .callout-title {
     border-radius: 0;
   }
 
-  // Chapter numbering via CSS counters
-  counter-reset: fmup-chapter;
-}
-
-.sidebar .sidebar-item:not(.sidebar-item-section) > .sidebar-item-container > .sidebar-item-text::before {
-  counter-increment: fmup-chapter;
-  content: counter(fmup-chapter) ". ";
-  color: $fmup-text-muted;
-  font-weight: 500;
-  margin-right: 0.15em;
 }
 
 // Remove per-item dividers
