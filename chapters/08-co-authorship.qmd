@@ -48,6 +48,32 @@ CRediT does not define who qualifies as an author — that is still ICMJE's four
 The Singapore Statement on Research Integrity and the European Code of Conduct for Research Integrity [@allea2023european] both address authorship. Institutions are obligated under these frameworks to investigate authorship complaints. A written record is your protection in any dispute.
 :::
 
+## Working with your supervisor
+
+The supervisor-student writing relationship is different from any other co-authorship. In most collaborations, disagreement is symmetrical: each author has standing to argue their position. In the supervisory relationship, the power difference is structural, and both parties know it. This creates failure modes on both sides: the student who never pushes back and learns nothing from the revision; the supervisor who rewrites so thoroughly that the student never has the chance to learn from their own mistakes.
+
+The clearest advice I can give a doctoral student: write the first draft yourself, without asking your supervisor to shape the argument in advance. If the supervisor drafts the introduction "to save time", you have lost the one chance you will have to learn to write an introduction by doing it. You cannot learn to write by revising someone else's first draft. The revision of your own poor draft is where the writing is learned.
+
+When supervisor feedback arrives, distinguish the types of comment. A comment about structure or argument — *"the gap in paragraph three is unclear"* — is scientific feedback. A comment about phrasing — *"I would write this differently"* — may be taste. Both matter, but they carry different weights. Implement structural comments without negotiation unless you have a specific reason to disagree. Question phrasing changes only when they alter scientific meaning.
+
+When the feedback is too vague to act on, ask for specificity. *"I understand this section isn't working — could you point to the specific sentence or argument that's the problem? That would help me revise more accurately."* Supervisors who give vague feedback often do so because they have not had time to read carefully, not because they are withholding the diagnosis.
+
+When two supervisors contradict each other, bring the specific disagreement to both of them together or separately, named clearly. Do not silently implement one and ignore the other; this produces a manuscript with an unresolved internal inconsistency that will resurface at the next round. Most supervisory disagreements about manuscripts are about emphasis and framing, not about facts, and they can be resolved in a short conversation.
+
+When the supervisor returns a manuscript that has been rewritten rather than commented on, read the rewritten version carefully and try to understand why each change was made. The goal is not to preserve your sentences; it is to develop the judgment that produces sentences the supervisor will leave alone.
+
+## Receiving feedback before submission
+
+The peer review chapter covers how to respond to reviewers after a journal receives your manuscript. Before submission, your paper should have been read by at least two people who are not co-authors. Responding to their feedback is a different skill and is worth practising deliberately.
+
+Pre-submission feedback is less formal than reviewer comments. It may arrive as tracked changes, annotated comments, a conversation, or an email. It is also less filtered: a colleague reading a draft may simply say *"I don't understand this paragraph"* without identifying why. This is useful information; it tells you where the reader stopped, even if it does not tell you what stopped them.
+
+Read pre-submission feedback for patterns, not for individual fixes. If one reader flags a paragraph as unclear, it may be the reader. If three readers flag it, the paragraph is unclear. The first task when reading a set of comments is to identify the underlying signal. A single reader's stylistic preference is different from three readers stalling at the same point.
+
+Distinguish the diagnosis from the prescription. A reader who says *"you should cite the 2022 GUIDE-IT trial"* has given you a prescription. The underlying diagnosis is likely *"the comparison with prior work in the discussion is thin"*. The prescription may or may not be right — the cited trial may not be relevant — but the diagnosis usually is. Implement diagnoses. Evaluate prescriptions.
+
+The feedback that stings most on first reading is often the most useful. A comment that feels not like criticism of the work but like criticism of you — *"I don't think this finding is as interesting as you do"* — should be set aside for a day before you respond to it. What feels most unjust in the first hour is sometimes still unjust on reflection, but not as often as it initially seems. The comments that sting are frequently naming something you already know is true and have been avoiding.
+
 ## Acknowledgements
 
 The acknowledgements section is for contributors who do not meet authorship criteria: language editors, statisticians who provided a minor consultation, study coordinators, funders (if not in a dedicated funding statement), and patients who participated in the study. It is also currently where most AI-use disclosure resides for tools used in preparation but not in analysis.

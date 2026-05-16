@@ -1,5 +1,21 @@
 # A writing workflow
 
+## The blank page
+
+The workflow that follows tells you what to do. This section addresses why you are not already doing it.
+
+The most common reason doctoral students do not write is not a lack of craft or of time. It is fear. Fear of committing an imperfect argument to the page. Fear that the writing will reveal the analysis is less settled than it seemed. Fear of being wrong in a document that other people will read. In a second language, the fear compounds: you are afraid of the argument and of the sentences simultaneously.
+
+None of this is overcome by better information about how to write. It is overcome by writing.
+
+A few things that help. Give yourself permission to write badly. The first draft is not the paper; it is the thinking made visible enough to revise. A sentence on the page, even a wrong one, gives you something to work with. Nothing on the page gives you nothing. Separate the session: a writing session is not a session in which you also check email, read references, and edit figures. Set a timer for 45 minutes, close everything else, and write. Not well — write. The quality of prose in a timed session is lower than in a relaxed afternoon; the quantity is higher; and you cannot revise nothing.
+
+Write at a fixed time, not when you feel ready. Waiting to feel ready is waiting for something that does not reliably come. The researchers who write consistently are not those who feel more motivated; they are those who write before checking whether they feel motivated. The feeling often arrives during the writing, not before.
+
+Find one person to show the draft to. The transition from private writing to a draft that someone else will read is one of the largest single barriers in doctoral writing. Reduce it by choosing one person — a peer, not the supervisor — and sending them the worst section. Their response will almost always be better than you expected, and it will make the next draft easier to start.
+
+## The nine steps
+
 Advice drawn from Saramäki [@saramaki2022write] and Heard [@heard2016scientist]:
 
 1. **Choose your key result.** Condense it into one or two sentences. This is the nucleus of your paper.

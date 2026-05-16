@@ -1,0 +1,49 @@
+# Writing in English as a second language
+
+Most health researchers publish in English regardless of the language they think in, dream in, and use to argue with their supervisors. This is not a disadvantage to be overcome; it is the condition of contemporary science. The researchers who handle it best are not those who write perfect English; they are those who have learned to separate the two distinct problems: saying what you mean, and saying it in English.
+
+These are not the same problem, and they have different remedies.
+
+## The two sources of difficulty
+
+When an L2 writer produces an unclear sentence, the cause is usually one of two things. Either the argument is not yet clear enough to be written in any language — the problem is thinking, not translation — or the argument is clear but the English is getting in the way. The first problem requires more thinking; the second requires language help. Misdiagnosing the source wastes time. Before asking an editor or a tool to fix a sentence, ask whether you can state the sentence in Portuguese in a way you are satisfied with. If you cannot, fix the thinking first. If you can, the problem is the translation.
+
+## Over-hedging in L2
+
+The most consistent writing pattern I observe in L2 health researchers is over-hedging. The scientific caution is often real: observational studies warrant hedges, association is not causation, single-centre findings should not be generalised. But L2 writers hedge for an additional reason that has nothing to do with the data: linguistic caution. When you are not confident in your English, qualifying everything feels safer. The result is prose that systematically understates findings the data actually support.
+
+The diagnostic question is the same as for native writers: if you removed the hedge, would the claim still be accurate? If yes, the hedge is linguistic, not scientific, and should come out. A finding supported by an adjusted HR of 1.31 with a 95% CI that excludes 1 does not need "might perhaps suggest a possible trend toward".
+
+::: {.column-margin}
+The hedging chapter (Chapter 3) gives a calibration exercise using three versions of the same finding — unhedged, appropriate, and over-hedged. The over-hedged version is a reliable portrait of the default L2 first draft. The appropriate version is the target.
+:::
+
+## Common Portuguese-to-English patterns
+
+Some transfer errors from Portuguese are grammatically legal in English and therefore survive copyediting. A native-speaker reviewer will read them as non-native; some will be flagged; many will not. The most common in clinical health writing:
+
+**Direct transfer of verb constructions.** *"The study allowed to conclude"* (o estudo permitiu concluir) is grammatically wrong in English; the correct form is *"the study allowed us to conclude"*, or more cleanly, *"the study showed"*. *"It was evidenced that"* (evidenciou-se que) translates to *"we found that"* or *"the results showed that"*. *"It was verified that"* (verificou-se que) → *"we found"* or *"we observed"*.
+
+**False cognates.** *"Actual"* in English means real or existing; Portuguese *actual* means current. Write *"current guidelines"*, not *"actual guidelines"*. *"Eventually"* in English means at some unspecified future time; Portuguese *eventualmente* means possibly. *"Proper"* in English means appropriate; Portuguese *próprio* can mean own. These errors survive because they are not errors in English — they are just the wrong word.
+
+**Register imports.** *"In what concerns"* (no que diz respeito a) → *"regarding"* or *"for"*. *"Under the point of view of"* → *"from the perspective of"* or simply *"for"*. *"The majority of"* is correct but often heavy; *"most"* is usually cleaner. *"In the present study"* is a formality imported from Portuguese academic register; in English biomedical prose, *"in this study"* or *"here"* is more natural.
+
+**Preposition errors.** Portuguese uses *em* for relationships that English covers with *in*, *on*, *at*, and *by*. These errors are the most resistant to self-correction because they feel invisible. *"The patients were admitted in the hospital"* → *"admitted to the hospital"*. *"Enrolled in the study since 2018"* → *"enrolled from 2018"* or *"enrolled between 2018 and 2023"*.
+
+::: {.column-margin}
+Keep a personal list of the constructions you reach for in Portuguese and their English equivalents. A reference of twenty to thirty phrases built from your own errors — not a generic style guide — is the most effective L2 editing tool available, because it is calibrated to your specific patterns.
+:::
+
+## Using tools for L2 writing
+
+The tier framework in the AI writing chapter applies, but with a calibration specific to L2 writers. For a native English speaker, Tier 1 (grammar and clarity editing on your own prose) is a minor convenience. For an L2 writer, it is closer to essential: a tool that catches preposition errors, agreement errors, and awkward transfer constructions is doing genuine work that would otherwise require a human language editor or extensive self-editing. Using a grammar tool or LLM for language revision of your own prose is not a shortcut to thinking; it is appropriate tool use for a real constraint.
+
+Two limits apply. First, the tool applies the statistical norms of general written English, not the conventions of your field. Highly technical phrasing — *"adjusted for confounders by propensity score overlap weighting"* — may be flagged as unusual or rewritten to something generic. Accept language corrections; scrutinise content corrections. Second, the tool's output may pass for native-speaker English while subtly changing what you meant. Compare every rewritten sentence against your original to confirm the scientific claim is intact.
+
+## Preserving your voice
+
+The fear L2 writers most often express is losing their voice. In practice, L2 scientific writing has two separate voice problems: the personality of the prose (which tool revision can flatten) and the precision of the argument (which tool revision can distort). Protect both differently. For personality: revise the tool's output back toward your sentence rhythms; you are not obligated to accept every stylistic change. For precision: read the revised version as a scientist, not as a writer, and check every claim against your data.
+
+Scientific prose is not where individual style does its most important work. What is most distinctively yours in a journal article is not the sentence rhythm; it is the question you chose to ask, the analytical decision you made, the limitation you were honest about when others would have glossed it. Those survive any language revision.
+
+A practical note: if a sentence in English feels wrong, it usually is. Trust the discomfort. You may not be able to say why the sentence is wrong, but your reading-in-English accumulation is often a reliable detector even when it cannot articulate the problem. Write a note to yourself — *"recheck this sentence"* — and return to it after the draft is done, when you can compare it against the surrounding text and decide whether it needs a language editor's eye.

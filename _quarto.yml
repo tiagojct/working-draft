@@ -29,7 +29,9 @@ book:
         - chapters/01-why-writing.qmd
         - chapters/02-article-structure.qmd
         - chapters/03-clear-writing.qmd
+        - chapters/writing-l2.qmd
         - chapters/04-presenting-data.qmd
+        - chapters/statistical-writing.qmd
         - chapters/05-editorial-process.qmd
         - chapters/06-reporting-guidelines.qmd
         - chapters/open-science.qmd
