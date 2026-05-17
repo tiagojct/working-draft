@@ -20,9 +20,9 @@ Disclosure for code-generation follows the tier-2 rule from @sec-ai-writing: it 
 
 ## Image-generation tools
 
-An image-generation tool (DALL-E, Midjourney, Stable Diffusion, or any equivalent) produces a raster image from a text prompt. The output is a plausible-looking construction based on training data, not a rendering of your data. This distinction is absolute and non-negotiable in scientific publication.
+An image-generation tool (DALL-E, Midjourney, Stable Diffusion, or any equivalent) produces a raster image from a text prompt. The output is a plausible-looking construction based on training data, not a rendering of your data. Scientific journals require that every data figure be produced from the data it claims to represent. There is no compliant middle ground.
 
-**What image-generation tools cannot do correctly:** produce a figure that accurately represents your data. Even if the prompt includes your exact numbers — *"generate a forest plot where study A has OR 1.3, 95% CI 1.1 to 1.6"* — the model is interpolating a plausible layout, not calculating from values. Axis ticks, confidence interval endpoints, and label positions are approximate at best, fabricated at worst. The figure looks credible; it is not verifiable.
+**What image-generation tools cannot do correctly:** produce a figure that accurately represents your data. Even if the prompt includes your exact numbers — *"generate a forest plot where study A has OR 1.3, 95% CI 1.1 to 1.6"* — the model is interpolating a plausible layout, not calculating from values. Axis ticks, confidence interval endpoints, and label positions are approximate at best, fabricated at worst. Nothing in the output — no axis tick, no confidence interval endpoint, no label — can be traced back to a calculation.
 
 **What they can do without integrity risk:** generate conceptual diagrams that do not claim to represent data. A schematic of a randomisation process, an anatomical illustration for an introduction panel, a study timeline, a process flow. These are illustrations, not data visualisations, and the standard for them is accuracy of concept rather than accuracy of data.
 

@@ -80,4 +80,4 @@ The acknowledgements section is for contributors who do not meet authorship crit
 
 Listing someone in the acknowledgements implies that they endorse the work. Many journals require you to confirm that named individuals have given written consent to appear there.
 
-Writing with good co-authors is the single largest accelerator of a scientific career. Writing with absent or obstructive ones is a slow, private attrition. Pick carefully, and be the kind of co-author you wish you had.
+The co-authors you work with shape a scientific career more than most choices you will make. Absent or obstructive ones are a slow, private attrition. Pick carefully, and be the kind of co-author you wish you had.

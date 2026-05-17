@@ -2,7 +2,7 @@
 
 A paper and its figures are one argument rendered in two registers: the words carry the logic and the context; the figures carry the data and its shape. Each helps the reader interpret the other — a confused figure strains the prose around it, and muddled prose makes even a clean figure harder to trust.
 
-This book joins a writing guide and a visualisation guide because the same discipline governs both. Tufte's rule for figures — maximise the ratio of data to ink, erase what does not earn its place — is Zinsser's rule for prose in visual form [@tufte2001visual; @zinsser2006writing]. A caption that says everything necessary and nothing extra is good writing. A paragraph that reports only the numbers the reader cannot infer is good visualisation in text form. The skills are the same skill.
+The two parts of this book share a premise: a paper and its figures are one argument, and the same discipline governs both. In practice, this means revising prose and figures together, not in separate rounds. What the prose says the analysis found and what the figure shows must agree — on the direction of effects, on the degree of uncertainty, on what the study could not establish. When they conflict, the problem is not a sentence or a colour choice. The argument has come apart.
 
 ## What to do next
 
