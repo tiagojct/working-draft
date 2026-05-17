@@ -74,6 +74,34 @@ Name each sensitivity analysis in methods and give it a label — (i), (ii), (ii
 
 The labels (i), (ii), (iii) match the methods exactly. Each estimate is reported in the same format as the primary result. The last sentence gives an honest summary that distinguishes which analyses were consistent and which were not, and why.
 
+## Non-significant pre-specified primary outcome
+
+A null result for a pre-specified primary endpoint must be reported as a result, not as a failure. Do not frame it as "the study was underpowered" unless post-hoc power analysis was pre-specified; the methods should have included a power calculation, and if that calculation was adequate the null result stands.
+
+**In methods:**
+
+> *"The primary outcome was the proportion of patients with NT-proBNP below 1,000 pg/mL at six months. Based on a pilot study estimating a 45% responder rate in the control arm, 600 participants (150 per arm) provided 80% power to detect a 15 percentage-point absolute difference at a two-sided α of 0.05."*
+
+**In results:**
+
+> *"The proportion with NT-proBNP below 1,000 pg/mL at six months did not differ significantly across treatment arms (ACEi 48%, ARB 46%, CCB 43%, Placebo 44%; χ² test p = 0.61). The absolute difference between the most effective arm (ACEi) and placebo was 4 percentage points (95% CI −4 to 12 pp). The study was adequately powered to detect a 15 percentage-point difference; the observed difference was smaller than the pre-specified minimum clinically important difference."*
+
+Two things this results paragraph does: reports the data with a 95% CI on the difference (not just a p-value), and states the power argument in terms of the pre-specified minimum detectable effect rather than claiming underpowering.
+
+## Discordant sensitivity analysis
+
+When a sensitivity analysis produces a different result from the primary analysis, report both, note the direction of the discordance, and interpret it in terms of what changed. Do not bury the difference, and do not over-interpret it as contradicting the primary result unless the sensitivity analysis was pre-specified to do so.
+
+**In methods:**
+
+> *"A pre-specified sensitivity analysis repeated the primary logistic regression in the sub-cohort of patients with index NT-proBNP above the study median (≥ 1,500 pg/mL; n = 2,540), in whom the association was hypothesised to be stronger."*
+
+**In results:**
+
+> *"In the full cohort, NT-proBNP at discharge was associated with 30-day readmission (adjusted OR 1.31, 95% CI 1.08–1.59). In the pre-specified sensitivity analysis restricted to patients with index NT-proBNP ≥ 1,500 pg/mL, the adjusted OR was 1.09 (95% CI 0.83–1.43), with the confidence interval crossing the null. This attenuation is consistent with the higher baseline readmission rate in this subgroup reducing the relative discriminative contribution of discharge NT-proBNP; it does not contradict the primary finding but limits its extension to the highest-risk stratum."*
+
+The last sentence does the interpretive work: it explains the mechanism of the discordance rather than simply noting it.
+
 ::: {.callout-tip collapse="true"}
 ## Practice: find the mismatch
 

@@ -14,7 +14,7 @@ If you are starting from scratch, the workflow in Chapter 9 gives you a sequence
 
 ## What this book does not cover
 
-A book is an argument about what matters, which means it is also an argument about what to leave out. This one does not cover meta-analyses and systematic reviews, which follow conventions of their own (PRISMA, Cochrane) and warrant separate treatment. It does not cover grant writing, which shares the logic of scientific argument but follows a different genre for different audiences. It does not cover the oral presentation of data, though the figures chapters touch on norms for slides.
+A book is an argument about what matters, which means it is also an argument about what to leave out. This one does not cover meta-analyses and systematic reviews, which follow conventions of their own and warrant separate treatment; the PRISMA 2020 statement [@page2021prisma] and the Cochrane Handbook [@higgins2019cochrane] are the canonical references for those genres. The figure principles in Part II — honest axes, sequential palettes, caption self-sufficiency — apply to forest plots and GRADE summary tables as well as to primary studies. It does not cover grant writing, which shares the logic of scientific argument but follows a different genre for different audiences. It does not cover the oral presentation of data, though the figures chapters touch on norms for slides.
 
 The book also does not settle every question it raises. Reporting guidelines evolve. AI disclosure norms are in flux. The margin notes flagged as "current as of May 2026" are honest signals that specific parts of the text will age differently from the rest. Read them against your target journal's current submission guidelines before acting.
 

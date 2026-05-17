@@ -34,6 +34,30 @@ Some transfer errors from Portuguese are grammatically legal in English and ther
 Keep a personal list of the constructions you reach for in Portuguese and their English equivalents. A reference of twenty to thirty phrases built from your own errors — not a generic style guide — is the most effective L2 editing tool available, because it is calibrated to your specific patterns.
 :::
 
+## Common Mandarin-to-English patterns
+
+The patterns below are the most common in published clinical research submissions from Mandarin L1 speakers. Identify your own list in revision; these are starting points, not a complete inventory.
+
+**Topic-prominence constructions.** Mandarin is a topic-prominent language: it is natural to front-load the sentence with a topic frame before the main predicate. *"As for the patients with LVEF below 40%, their readmission rate was higher"* → *"Patients with LVEF below 40% had a higher readmission rate."* The topic frame adds no information the predicate does not already carry.
+
+**Article omission.** Mandarin has no grammatical articles. The most consistent error is the missing definite article before noun phrases already established in context. *"Patient was admitted to hospital"* → *"The patient was admitted to hospital."* *"Result showed that"* → *"The result showed that."* This error is easy to miss in self-editing because it is invisible to the writer.
+
+**Tense inconsistency.** Mandarin encodes time through adverbs and context rather than verb morphology. In English clinical writing, completed actions are past tense. The abstract, methods, and results are in past tense; the introduction and discussion may use present tense for established facts. Mixing tenses within a section — often defaulting to present — is a common signal of L1 Mandarin transfer.
+
+**Stacked noun modifiers.** Mandarin allows long noun-noun compounds that are grammatical but dense in English. *"NT-proBNP discharge level prediction model accuracy"* → *"the accuracy of the NT-proBNP-based discharge prediction model"*. Use prepositions to break the stack.
+
+## Common Spanish-to-English patterns
+
+The patterns below are the most common in published clinical research submissions from Spanish L1 speakers. The overlap with Portuguese is partial; the differences matter.
+
+**False cognates (Spanish-specific set).** *Realizar* means to carry out or conduct, not to realise. *"We realized a clinical trial"* → *"We conducted a clinical trial."* *Evidenciar* means to show or demonstrate, not to evidence: *"the results evidenced that"* → *"the results showed that."* *Actual* and *eventually* share the same trap as in Portuguese (current and possibly, not real and finally).
+
+*Se* **constructions.** Spanish uses reflexive *se* for impersonal constructions that English renders with passive or active voice. *"Se observó que"* → *"We observed that"* or *"It was observed that"* (not *"It was observed itself that"*). *"Se excluyeron los pacientes"* → *"Patients were excluded"* (not *"Patients excluded themselves"*). Choose active voice where possible.
+
+**Sentence length.** Spanish biomedical writing favours longer, more syntactically complex sentences than English. A Spanish methods sentence may carry three subordinate clauses and remain readable; the English version usually benefits from splitting. When a sentence in your translation runs past 35 words, look for a natural split point.
+
+**Adjective-noun agreement.** Spanish adjectives agree in gender and number with the noun they modify. In translation, agreement errors sometimes persist: *"the patients were treated with the various protocols"* where *"various protocols"* translates *varios protocolos* without adjustment. These are usually minor but catch the eye of native readers.
+
 ## Using tools for L2 writing
 
 The tier framework in the AI writing chapter applies, but with a calibration specific to L2 writers. For a native English speaker, Tier 1 (grammar and clarity editing on your own prose) is a minor convenience. For an L2 writer, it is closer to essential: a tool that catches preposition errors, agreement errors, and awkward transfer constructions is doing genuine work that would otherwise require a human language editor or extensive self-editing. Using a grammar tool or LLM for language revision of your own prose is not a shortcut to thinking; it is appropriate tool use for a real constraint.

@@ -127,6 +127,8 @@ Expect to spend four to eight hours on a first full review. Claim credit via [OR
 ::: {.callout-tip collapse="true"}
 ## Practice: responding to peer review
 
+*These exercises are for self-check or peer workshop use. Try each before expanding the answer.*
+
 A reviewer has sent the following comment on your manuscript.
 
 > *"The limitations section is too brief. The authors do not discuss the potential for selection bias given that recruitment was limited to two tertiary hospitals, nor do they address loss-to-follow-up in adequate depth. The generalisability of the findings to primary care settings is not discussed at all."*

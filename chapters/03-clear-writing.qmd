@@ -131,6 +131,8 @@ Drug abbreviation errors have caused patient harm. Never abbreviate drug names i
 ::: {.callout-tip collapse="true"}
 ## Practice: editing for clarity
 
+*These exercises are for self-check or peer workshop use. Try each before expanding the answer.*
+
 Each sentence below has at least one clear-writing problem from this chapter. Name the problem (passive voice used unnecessarily, nominalisation, unnecessary length, wrong stress position, or over-hedging) and rewrite the sentence.
 
 1. *"It was observed by the clinical team that a significant elevation in NT-proBNP concentrations was present among those patients who had been readmitted within a 30-day period."*

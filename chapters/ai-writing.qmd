@@ -29,6 +29,8 @@ The sequencing rule that makes Tiers 2 and 3 acceptable: the cognitive work of d
 
 For experienced researchers, Tier 3 use is more defensible — you can evaluate the output critically because you already know the field — but it carries two persistent risks: over-reliance on the model's framing, which tends to be generic rather than precise, and the gradual erosion of voice. A paper that could have been written by any LLM about any study has lost the specificity that makes it worth reading.
 
+There is a deeper problem for early-career researchers that the tier framework does not fully address. The first draft of a discussion section is where you discover what you actually think about your findings — which implications you are confident in, which comparisons feel forced, where the data runs out before your argument does. That discomfort is the cognitive work. A model will produce a coherent discussion quickly; it will not produce your discussion, and it will not produce the experience of working through those questions yourself. Outsourcing that draft means practising interpretation with permanent assistance: the skill builds only in the unassisted attempt. The sequencing rule is not bureaucratic caution — it is the minimum condition under which training in scientific reasoning actually occurs.
+
 ## Hallucinated references
 
 The most dangerous AI writing risk in research is the fabricated citation. LLMs generate plausible-sounding references — author names, journal, year, volume, page number — that do not exist. The hallucination is not flagged; it looks like a real citation, formats like a real citation, passes a casual reading, and fails a DOI check.

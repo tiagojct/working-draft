@@ -1,0 +1,41 @@
+# Quick reference {.unnumbered}
+
+Two tables for when you need a specific answer fast. The first maps common reviewer comments to the chapter that addresses them. The second maps figure problems to the chapters that cover them.
+
+## If your reviewer said…
+
+| Reviewer comment | Where to look |
+|:----------------|:-------------|
+| "The abstract doesn't state the main finding" | Ch. 2 — Abstract section |
+| "The introduction is too long / too broad" | Ch. 2 — Introduction section |
+| "The key result is buried in a subordinate clause" | Ch. 3 — Stress position |
+| "You report p-values without confidence intervals" | Ch. 4 — Statistical significance |
+| "Your methods and results use different terminology" | Statistical writing chapter |
+| "The sensitivity analysis contradicts your primary result" | Statistical writing chapter — Discordant sensitivity analysis |
+| "You don't discuss what happens when data are missing" | Statistical writing chapter — Missing-data paragraph |
+| "I couldn't tell what the figure shows without reading the methods" | Ch. 13 — Captions |
+| "Your y-axis doesn't start at zero" | Ch. 12 — Pitfall 3 (Truncated y-axis) |
+| "Colours are indistinguishable to colour-blind readers" | Ch. 14 — Colour-vision deficiency |
+| "The figure contradicts the results text" | Ch. 10 — Principles |
+| "Too many pie charts" | Ch. 12 — Pitfall 1 (Pie chart) |
+| "The figure uses a rainbow palette" | Ch. 12 — Pitfall 2 / Ch. 14 — Sequential palettes |
+| "I can't find the dataset or analysis code" | Open science chapter |
+| "The citation doesn't say what you say it says" | Ch. 7 — Citation hygiene |
+| "I'm not sure who actually wrote this" | AI writing chapter |
+| "Ghost authorship / I can't identify the contribution" | Ch. 8 — CRediT and authorship |
+| "The reporting checklist item is incomplete" | Ch. 6 — Reporting guidelines |
+| "The English is non-native but the argument is unclear" | Writing in a second language chapter |
+
+## If your figure fails at…
+
+| Problem | Where to look |
+|:--------|:-------------|
+| Choosing the right chart type for your data | Ch. 11 — Chart types |
+| A palette that is not perceptually uniform | Ch. 14 — Sequential palettes / CVD |
+| An incomplete or under-specified caption | Ch. 13 — Captions |
+| Bars that don't start at zero | Ch. 12 — Pitfall 3 |
+| Too many categories in one panel | Ch. 14 — Categorical palettes (max 8) |
+| File format or resolution for journal submission | Ch. 14 — Preparing figures for submission |
+| Dual-axis confusion | Ch. 12 — Pitfall 5 |
+| Mean ± SE bars hiding the distribution | Ch. 12 — Pitfall 6 |
+| Code-generated figure with unverified values | Ch. 15 — Code-generation tools |

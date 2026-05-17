@@ -49,6 +49,7 @@ book:
         - chapters/14-colour.qmd
         - chapters/15-ai-figures.qmd
     - chapters/16-conclusion.qmd
+    - chapters/guide.qmd
     - references.qmd
 
 citation:

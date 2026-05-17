@@ -46,6 +46,8 @@ For a plain-text pipeline — stable Zotero cite keys, auto-exported `.bib`, and
 ::: {.callout-tip collapse="true"}
 ## Practice: citation hygiene check
 
+*These exercises are for self-check or peer workshop use. Try each before expanding the answer.*
+
 The following text contains four citation-integrity problems. Find each one.
 
 > *"Population ageing is a major driver of chronic disease burden worldwide.^1^ A recent systematic review of twenty-two trials found no significant difference in 30-day readmission between NT-proBNP-guided and usual-care discharge in acute heart failure.^2^ NT-proBNP has also been proposed as a prognostic biomarker in sepsis, where levels above 5,000 pg/mL predicted ICU mortality with 87% sensitivity.^3^ Our statistical methods followed the approach of Smith et al.^4^"*
