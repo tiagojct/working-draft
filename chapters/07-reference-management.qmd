@@ -39,6 +39,10 @@ Most health journals use numerical citation styles (Vancouver, Nature) or author
 
 If your manuscript is in Quarto, the `.bib` file exported from Zotero or any CSL-compatible manager plugs directly into the `bibliography:` key in your YAML front matter. The `csl:` key selects the citation style; [Zotero's style repository](https://www.zotero.org/styles) hosts thousands of journal-specific CSL files. For Word users, the Zotero word processor plugin inserts citations as formatted fields that update automatically when you change style.
 
+::: {.column-margin}
+For a plain-text pipeline — stable Zotero cite keys, auto-exported `.bib`, and Pandoc citation rendering — see [Zettlr and Zotero](https://tiagojct.eu/notes/zettlr-zotero/) on tiagojct.eu.
+:::
+
 ::: {.callout-tip collapse="true"}
 ## Practice: citation hygiene check
 

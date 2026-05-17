@@ -33,6 +33,11 @@ Advice drawn from Saramäki [@saramaki2022write] and Heard [@heard2016scientist]
 4. **Sketch the outline.** For each section, write one sentence per paragraph stating its point. A twenty-paragraph paper gets twenty sentences; if two say the same thing, merge them, and if one does not connect to the argument, cut it. Choose your figures and draft their captions before writing the results.
 5. **Write paragraph by paragraph.** One point per paragraph, topic sentence first. Sketch the paragraph's content before filling it in.
 6. **Complete a rough first draft quickly.** Do not revise as you go. A bad draft is progress; an unfinished one is not. Saramäki's version of this principle: your first draft is allowed to be bad [@saramaki2022write]. Get everything down, then revise [@sterk2008joy].
+
+   ::: {.column-margin}
+   [Zettlr](https://tiagojct.eu/notes/zettlr/) is a Markdown editor designed for academic writing: distraction-free, outline-aware, and built around plain `.md` files. It pairs directly with Zotero for in-text citations and Pandoc for export.
+   :::
+
 7. **Revise for structure and content.** Is the paper focused? Is there enough context? Does the story answer an important question?
 8. **Revise for sentences and words.** Is each sentence clear? Are subject and verb close together? Can you cut anything?
 9. **Repeat.** Revise with co-authors. Ask colleagues for comments. Use test readers.
