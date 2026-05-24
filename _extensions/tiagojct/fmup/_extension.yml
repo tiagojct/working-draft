@@ -1,0 +1,123 @@
+title: FMUP
+author: Tiago Jacinto
+version: 1.2.3
+quarto-required: ">=1.4.0"
+contributes:
+  formats:
+    common:
+      number-sections: false
+      filters:
+        - fmup.lua
+    html:
+      toc: true
+      # Theme stack. Quarto compiles `scss:defaults` in REVERSE list
+      # order, so design tokens (`fmup-variables.scss` / dark variant)
+      # come LAST so their `!default` declarations win and are in scope
+      # by the time `fmup.scss` defaults reference them.
+      theme:
+        light:
+          - default
+          - fmup.scss
+          - fmup-variables.scss
+        dark:
+          - default
+          - fmup.scss
+          - fmup-variables-dark.scss
+      # Self-hosted fonts. Shipped as a plain CSS file (not SCSS) so
+      # the base64-inlined woff2 payload bypasses Quarto's css-vars
+      # analyser, which mis-parses the data URIs when they pass through
+      # the theme: pipeline.
+      css:
+        - fmup-fonts.css
+      # Restrained syntax-highlighting theme. Pandoc .theme files are
+      # static JSON (do not react to data-bs-theme), so light + dark
+      # ship as separate files; Quarto picks the active one when the
+      # user has both theme variants enabled. Users can override with a
+      # single `highlight-style: github` (etc.) in their own format
+      # block.
+      highlight-style:
+        light: fmup-highlight.theme
+        dark: fmup-highlight-dark.theme
+      # Open Graph + Twitter Card defaults are injected by fmup.lua
+      # (registered under common.filters above) using each page's
+      # title / description / lang / author from the frontmatter.
+      mainfont: "Atkinson Hyperlegible Next, Atkinson Hyperlegible, system-ui, sans-serif"
+      monofont: "Geist Mono, ui-monospace, Menlo, monospace"
+      code-copy: true
+      code-overflow: wrap
+      smooth-scroll: true
+      anchor-sections: true
+      link-external-newwindow: true
+      link-external-icon: false
+      fig-cap-location: bottom
+      tbl-cap-location: top
+    revealjs:
+      theme:
+        - default
+        - fmup-revealjs.scss
+        - fmup-variables.scss
+      # Reveal's `css:` key adds a <link> tag but does NOT copy the
+      # file into the output bundle, so the font CSS would 404 once
+      # the deck is shared (or served by anything that does not
+      # follow the in-source `_extensions` symlink). Inline the
+      # base64 payload through include-in-header instead: a single
+      # self-contained slides.html that works file:// and http://.
+      include-in-header:
+        - fmup-fonts.html
+      # Reveal does not currently support light/dark theme toggling,
+      # but the dark .theme stays shippable for users who set
+      # highlight-style: fmup-highlight-dark.theme explicitly.
+      highlight-style: fmup-highlight.theme
+      mainfont: "Atkinson Hyperlegible Next, Atkinson Hyperlegible, system-ui, sans-serif"
+      monofont: "Geist Mono, ui-monospace, Menlo, monospace"
+      slide-number: c/t
+      slide-level: 2
+      transition: none
+      background-transition: none
+      progress: true
+      controls: false
+      # Vertically centre slide content. Reveal's built-in centring,
+      # not CSS — overriding display/position/height on slides via the
+      # theme would break reveal's own layout. Users who want
+      # top-anchored slides can set `center: false` in their YAML.
+      center: true
+      menu: false
+      hash: true
+      hash-one-based-index: true
+      history: true
+      preview-links: auto
+      view-distance: 5
+      mobile-view-distance: 3
+      width: 1280
+      height: 720
+      margin: 0.07
+      min-scale: 0.2
+      max-scale: 2.0
+    typst:
+      papersize: a4
+      mainfont: "Atkinson Hyperlegible Next"
+      sansfont: "Atkinson Hyperlegible Next"
+      monofont: "Geist Mono"
+      # Quarto's Typst template uses `codefont` (not `monofont`) to
+      # populate `show raw: set text(font: codefont)`. Without this
+      # explicit key, raw / code blocks fall through to Typst's
+      # hardcoded DejaVu Sans Mono fallback, even though monofont is
+      # set. See Quarto typst-show.typ. Both kept for forward compat.
+      codefont: "Geist Mono"
+      fontsize: 11pt
+      margin:
+        x: 2.5cm
+        y: 2.5cm
+      number-sections: true
+      toc: true
+      toc-depth: 3
+      # Static-weight TTFs bundled inside the extension. Typst <= 0.14
+      # does not support variable fonts and warns on each render if
+      # left to find the variable woff2 / system variants; with these
+      # paths set, Typst loads the static Regular / Italic / Bold /
+      # BoldItalic + Geist Mono Regular / Medium directly, no warnings
+      # and PDFs render with the institutional typography end-to-end.
+      font-paths:
+        - fonts
+      include-in-header:
+        - fmup-typst.typ

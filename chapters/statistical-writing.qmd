@@ -2,7 +2,7 @@
 
 The methods section and results section are a contract. The methods announce, in advance, every analysis you will report; the results deliver them, in the same order, with the same terminology. A results section that contains analyses not named in the methods is unreported work. A methods section that names analyses absent from the results is unfulfilled specification. Reviewers read both against each other, and mismatches are one of the most common reasons for major revisions.
 
-This chapter provides worked templates for the most common analytical scenarios in clinical health research. Each template pairs a methods paragraph with its results paragraph, because the two must be read and written as a unit.
+This chapter provides worked templates for the most common analytical scenarios in clinical health research. Each template pairs a methods paragraph with its results paragraph, because the two must be read and written as a unit. The SAMPL guidelines [@lang2015sampl] catalogue the minimum statistical information that must appear in any biomedical article; this chapter operationalises that catalogue as paired paragraphs you can adapt directly.
 
 ## The vocabulary rule
 
@@ -12,7 +12,7 @@ Name the analysis once in methods, using the exact term you will use in results.
 
 **In methods:**
 
-> *"The association between NT-proBNP at discharge and 30-day readmission was assessed using multivariable logistic regression. Covariates were selected a priori based on clinical relevance and included age, sex, NYHA class at admission, and LVEF measured during the index hospitalisation. Effect modification by LVEF was assessed with a multiplicative interaction term. Model discrimination was quantified by the c-statistic with 95% CI by the DeLong method."*
+> *"The association between NT-proBNP at discharge and 30-day readmission was assessed using multivariable logistic regression. Covariates were selected a priori based on clinical relevance and included age, sex, NYHA class at admission, and LVEF measured during the index hospitalisation. Effect modification by LVEF was assessed with a multiplicative interaction term. Model discrimination was quantified by the c-statistic with 95% CI by the DeLong method [@delong1988roc]."*
 
 **In results:**
 
@@ -26,7 +26,7 @@ Most survival analyses in clinical research involve three related outputs report
 
 **In methods:**
 
-> *"Time to 30-day readmission was analysed using Kaplan-Meier estimation, with group comparisons by the log-rank test. The independent association between NT-proBNP at discharge and time to readmission was assessed with a Cox proportional hazards model, adjusted for the same covariates as the logistic regression. NT-proBNP was modelled both continuously (per log-unit increment) and in quartiles. The proportional hazards assumption was examined by Schoenfeld residuals."*
+> *"Time to 30-day readmission was analysed using Kaplan-Meier estimation, with group comparisons by the log-rank test. The independent association between NT-proBNP at discharge and time to readmission was assessed with a Cox proportional hazards model, adjusted for the same covariates as the logistic regression. NT-proBNP was modelled both continuously (per log-unit increment) and in quartiles. The proportional hazards assumption was examined by Schoenfeld residuals [@schoenfeld1982residuals]."*
 
 **In results:**
 
@@ -40,7 +40,7 @@ Diagnostic accuracy studies produce a cluster of statistics that should be repor
 
 **In methods:**
 
-> *"The discriminative ability of NT-proBNP at discharge for 30-day readmission was assessed by receiver operating characteristic (ROC) curve analysis. The AUC with 95% CI was calculated by the DeLong method. The threshold associated with the maximum Youden index was identified and used to calculate sensitivity, specificity, and positive and negative predictive values with 95% Wilson confidence intervals."*
+> *"The discriminative ability of NT-proBNP at discharge for 30-day readmission was assessed by receiver operating characteristic (ROC) curve analysis. The AUC with 95% CI was calculated by the DeLong method [@delong1988roc]. The threshold associated with the maximum Youden index [@youden1950index] was identified and used to calculate sensitivity, specificity, and positive and negative predictive values with 95% Wilson confidence intervals [@wilson1927interval]."*
 
 **In results:**
 
@@ -52,7 +52,7 @@ Missing-data handling requires two coordinated paragraphs: one in methods (what 
 
 **In methods:**
 
-> *"NT-proBNP at discharge was available for 5,070 of 5,204 participants (97.4%). For all covariates, missingness was below 2%. Complete-case analysis was the primary approach. A pre-specified sensitivity analysis using multiple imputation by chained equations (20 imputed datasets; predictive mean matching for continuous variables, logistic regression for binary variables) was conducted to assess the influence of missing data on the primary result."*
+> *"NT-proBNP at discharge was available for 5,070 of 5,204 participants (97.4%). For all covariates, missingness was below 2%. Complete-case analysis was the primary approach. A pre-specified sensitivity analysis using multiple imputation by chained equations [@vanbuuren2011mice] (20 imputed datasets; predictive mean matching for continuous variables, logistic regression for binary variables) was conducted to assess the influence of missing data on the primary result [@sterne2009missing]."*
 
 **In results:**
 

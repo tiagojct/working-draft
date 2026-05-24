@@ -56,7 +56,7 @@ Every example in Part II uses the same simulated dataset: 600 adults with treate
 | `controlled_6m`      | logical     | `sbp_6m < 140 & dbp_6m < 90`                   |
 | `bp_class_6m`        | factor      | Normal / Pre-HT / Stage 1 / Stage 2            |
 
-The dataset and code to generate it are available at [tiagojct.eu/notes/dataviz/](https://tiagojct.eu/notes/dataviz/).
+The dataset is committed at [`figures/dataviz/cohort.csv`](https://github.com/tiagojct/working-draft/blob/main/figures/dataviz/cohort.csv); the generation script is at [`figures/dv_cohort.py`](https://github.com/tiagojct/working-draft/blob/main/figures/dv_cohort.py). The Part I heart-failure cohort has a parallel generator at [`figures/sw_cohort.py`](https://github.com/tiagojct/working-draft/blob/main/figures/sw_cohort.py).
 
 ::: {.column-margin}
 Part I covered when to use a figure at all and how to report the numbers that go into it. Chapter 4 (Presenting data effectively) is the natural companion to read before or alongside this part.

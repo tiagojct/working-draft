@@ -1,0 +1,31 @@
+name: Check render
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render book
+        run: quarto render --to html
+
+      - name: Upload preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: book-preview
+          path: _book
+          retention-days: 7

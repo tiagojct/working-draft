@@ -1,0 +1,67 @@
+// FMUP design tokens - single source of truth.
+//
+// Listed as a Quarto theme entry BEFORE the format SCSS in
+// _extension.yml so all downstream theme files see these tokens.
+// All tokens use !default so downstream themes layered after this file
+// can override individual values without forking the whole palette.
+
+/*-- scss:defaults --*/
+
+// ---- Palette ----
+$fmup-yellow:         #FFCD00 !default;  // accent only - never a body bg
+$fmup-yellow-dark:    #E6B800 !default;
+$fmup-text:           #1A1A1A !default;
+$fmup-text-muted:     #5B6470 !default;
+$fmup-bg:             #FFFFFF !default;
+$fmup-surface:        #F7F7F7 !default;
+$fmup-surface-strong: #F0F0F0 !default;  // code blocks, callout headers
+$fmup-border:         #E0E0E0 !default;
+$fmup-border-strong:  #B3BBC4 !default;
+
+// Reserved semantic colour - kept red. The only red in the palette,
+// used solely for callout-important (the universal "stop" signal).
+$fmup-danger:         #B91C1C !default;
+
+// "Ink-on-anchor" tokens: text colour to use ON the institutional
+// anchor backgrounds. These do NOT flip between light/dark mode
+// because the anchor colours themselves do not flip. $fmup-text
+// would invert to near-white in dark mode and become unreadable on
+// the still-yellow background. See design scar #2d.
+$fmup-ink-on-yellow:  #1A1A1A !default;
+$fmup-ink-on-danger:  #FFFFFF !default;
+
+// ---- Typography ----
+$fmup-font-sans: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !default;
+$fmup-font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace !default;
+
+// ---- Radii ----
+$fmup-radius-sm: 4px !default;
+$fmup-radius:    6px !default;
+
+// ---- Data-viz palette ----
+// Six categorical colours, deuteranopia-safe (Okabe-Ito derived) with
+// FMUP yellow + near-black anchored as the first two slots. Avoids
+// green because in a medical-faculty context green reads as a
+// semaphore "OK" that biases interpretation. Order matters: charts
+// with fewer series should use slots 1..N in order so the first
+// colours seen are always the institutional ones.
+$fmup-chart-1: $fmup-text  !default;  // #1A1A1A near-black
+$fmup-chart-2: $fmup-yellow !default; // #FFCD00 institutional yellow
+$fmup-chart-3: #0072B2     !default;  // deep blue
+$fmup-chart-4: #D55E00     !default;  // vermilion
+$fmup-chart-5: #56B4E9     !default;  // sky blue
+$fmup-chart-6: #CC79A7     !default;  // pink
+
+/*-- scss:rules --*/
+
+// Exported as CSS custom properties on :root so external scripts
+// (Observable, htmlwidgets) can pick them up at runtime via
+// getComputedStyle(document.documentElement).getPropertyValue(...).
+:root {
+  --fmup-chart-1: #{$fmup-chart-1};
+  --fmup-chart-2: #{$fmup-chart-2};
+  --fmup-chart-3: #{$fmup-chart-3};
+  --fmup-chart-4: #{$fmup-chart-4};
+  --fmup-chart-5: #{$fmup-chart-5};
+  --fmup-chart-6: #{$fmup-chart-6};
+}

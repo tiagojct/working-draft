@@ -8,23 +8,49 @@ The [EQUATOR Network](https://www.equator-network.org/) catalogues every publish
 
 | Study design                  | Guideline                                                                          | Scope                                                            |
 |-------------------------------|-------------------------------------------------------------------------------------|------------------------------------------------------------------|
-| Randomised trial              | [CONSORT](https://www.consort-statement.org/) (2025 update)                        | Individually randomised, parallel-group trials                   |
-| Non-randomised intervention   | [TREND](https://www.equator-network.org/reporting-guidelines/trend-statement/)     | Evaluations of non-randomised interventions                      |
-| Observational study           | [STROBE](https://www.strobe-statement.org/)                                        | Cohort, case-control, and cross-sectional studies                |
-| Systematic review / meta-analysis | [PRISMA](https://www.prisma-statement.org/)                                    | Systematic reviews and meta-analyses of interventions            |
-| Study protocol (trial)        | [SPIRIT](https://www.spirit-statement.org/)                                        | Protocols of clinical trials                                     |
+| Randomised trial              | [CONSORT](https://www.consort-statement.org/) [@schulz2010consort]                  | Individually randomised, parallel-group trials                   |
+| Non-randomised intervention   | [TREND](https://www.equator-network.org/reporting-guidelines/trend-statement/) [@desjarlais2004trend] | Evaluations of non-randomised interventions                      |
+| Observational study           | [STROBE](https://www.strobe-statement.org/) [@vonelm2007strobe]                     | Cohort, case-control, and cross-sectional studies                |
+| Systematic review / meta-analysis | [PRISMA](https://www.prisma-statement.org/) [@page2021prisma]                  | Systematic reviews and meta-analyses of interventions            |
+| Study protocol (trial)        | [SPIRIT](https://www.spirit-statement.org/) [@chan2013spirit]                       | Protocols of clinical trials                                     |
 | Study protocol (review)       | [PRISMA-P](https://www.prisma-statement.org/)                                      | Protocols of systematic reviews                                  |
-| Diagnostic accuracy study     | [STARD](https://www.equator-network.org/reporting-guidelines/stard/)               | Diagnostic test accuracy                                         |
-| Prediction model (incl. AI)   | [TRIPOD+AI](https://www.equator-network.org/reporting-guidelines/tripod-statement/) | Development, validation, and updating of prediction models, including machine-learning models |
-| Case report                   | [CARE](https://www.care-statement.org/)                                            | Individual clinical cases                                        |
-| Qualitative research          | [SRQR](https://www.equator-network.org/reporting-guidelines/srqr/)                 | Qualitative studies                                              |
-| Statistical reporting         | [SAMPL](https://www.equator-network.org/reporting-guidelines/sampl/)               | Statistical analyses and methods, applicable across study designs |
+| Diagnostic accuracy study     | [STARD](https://www.equator-network.org/reporting-guidelines/stard/) [@bossuyt2015stard] | Diagnostic test accuracy                                         |
+| Prediction model (incl. AI)   | [TRIPOD+AI](https://www.equator-network.org/reporting-guidelines/tripod-statement/) [@collins2024tripod] | Development, validation, and updating of prediction models, including machine-learning models |
+| Case report                   | [CARE](https://www.care-statement.org/) [@gagnier2014care]                          | Individual clinical cases                                        |
+| Qualitative research          | [SRQR](https://www.equator-network.org/reporting-guidelines/srqr/) [@obrien2014srqr] | Qualitative studies                                              |
+| Statistical reporting         | [SAMPL](https://www.equator-network.org/reporting-guidelines/sampl/) [@lang2015sampl] | Statistical analyses and methods, applicable across study designs |
 
 Use the guideline as a writing guide from the start, not as a pre-submission audit. A manuscript drafted around the checklist is easier to revise than one retrofitted to it at the last moment. Submit the filled checklist as a supplement; most journals require it and editors check it on receipt.
 
 ::: {.column-margin}
-CONSORT 2025 added items on harms reporting, protocol deviations, and handling of missing outcome data that were absent from the 2010 version. If you wrote a trial protocol before 2025, review the new checklist before submission. Most high-impact journals require a CONSORT flow diagram as a non-negotiable condition of review.
+CONSORT 2025 added items on harms reporting, protocol deviations, and handling of missing outcome data that were absent from the 2010 version [@schulz2010consort]. If you wrote a trial protocol before 2025, review the new checklist before submission. Most high-impact journals require a CONSORT flow diagram as a non-negotiable condition of review.
 :::
 
-Three items that are routinely under-reported. **STROBE item 12** (missing data): state the denominator for every analysis and describe how you handled missingness — complete-case analysis is a decision, not a default, and must be justified. **PRISMA item 8** (search strategy): reproduce the full search string for at least one database in the supplement; a partially reported search cannot be replicated. **CONSORT item 16** (numbers analysed): in multi-arm trials, report who was randomised, who received the intervention, and who was analysed for each arm, with reasons for every departure, in a CONSORT flow diagram.
+## Three under-reported items, with worked text
+
+The three items below are flagged most often in peer review and most often missing from a first draft. Each is paired with the methods or results text that satisfies it.
+
+### STROBE item 12 — missing data
+
+State the denominator for every analysis and describe how you handled missingness. Complete-case analysis is a decision, not a default; it must be justified, and any sensitivity analysis with multiple imputation must be pre-specified [@sterne2009missing]. The full template for the paired methods + results paragraphs is in the [statistical writing chapter](statistical-writing.qmd#the-missing-data-paragraph); the minimum for STROBE compliance is:
+
+> *"NT-proBNP at discharge was available for 5,070 of 5,204 participants (97.4%). Missingness for all covariates was below 2%. The primary analysis was complete-case; a pre-specified sensitivity analysis used multiple imputation by chained equations (20 imputed datasets) [@vanbuuren2011mice]."*
+
+The denominator, the missingness rate, the analytic decision, and the sensitivity check are all named. *"Complete-case analysis was performed"* without these elements does not satisfy the item.
+
+### PRISMA item 8 — search strategy
+
+Reproduce the full search string for at least one database in the supplement. A partially reported search cannot be replicated and cannot be audited. The methods section names the databases, the date of the search, and any restrictions; the supplement carries the full line-by-line strategy for each database, with line numbers and result counts.
+
+> *"We searched MEDLINE (via Ovid), Embase (via Ovid), and the Cochrane Central Register of Controlled Trials from inception to 1 March 2025. The full search strategy for each database is in Supplementary Appendix S1; the MEDLINE strategy is reproduced below. No language or date restrictions were applied. We also screened the reference lists of all included studies and of three recent systematic reviews on related questions."*
+
+A reviewer should be able to paste the supplementary strategy into the same database and reproduce the result count to within the noise of date-of-search differences.
+
+### CONSORT item 16 — numbers analysed
+
+In multi-arm trials, report who was randomised, who received the intervention, and who was analysed for each arm, with reasons for every departure, in a CONSORT flow diagram [@schulz2010consort]. The text in the results section must agree with the flow diagram on every number.
+
+> *"Of 612 patients screened, 600 were randomised (Placebo n = 150, ACEi n = 150, ARB n = 150, CCB n = 150). All randomised patients received the allocated intervention and were included in the intention-to-treat analysis. Three patients in the ACEi arm and two in the ARB arm withdrew consent before week 4 and contributed no follow-up data; their baseline values were carried forward in a sensitivity analysis. The per-protocol analysis (n = 583) excluded 17 patients with documented protocol deviations (Placebo 4, ACEi 5, ARB 4, CCB 4)."*
+
+Three things this paragraph does: the analysis populations are named explicitly (ITT, per-protocol), the departures are itemised by arm with reasons, and the per-protocol denominator is reconciled with the randomised total. A reviewer can match every number to the flow diagram without a calculator.
 

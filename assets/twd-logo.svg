@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 32">
   <rect width="64" height="32" fill="#FFCD00" rx="4"/>
-  <text x="32" y="22" font-family="system-ui, -apple-system, sans-serif"
+  <text x="32" y="22" font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
         font-weight="800" font-size="15" text-anchor="middle" fill="#1A1A1A"
         letter-spacing="-0.5">TWD</text>
 </svg>

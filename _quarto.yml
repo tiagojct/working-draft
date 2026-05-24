@@ -11,6 +11,7 @@ book:
     orcid: 0000-0002-7897-1101
   date: "2026-05-15"
   cover-image: figures/dataviz/hero.png
+  favicon: assets/favicon.svg
   repo-url: https://github.com/tiagojct/working-draft
   repo-actions: [edit, issue]
   search: true
@@ -60,11 +61,17 @@ bibliography: [assets/refs-sw.bib, assets/refs-dataviz.bib]
 csl: assets/nature.csl
 
 format:
-  html:
+  fmup-html:
     include-in-header: assets/head.html
-    theme: [cosmo, assets/custom.scss]
-    mainfont: "Atkinson Hyperlegible Next, Atkinson Hyperlegible, system-ui, sans-serif"
-    monofont: "Geist Mono, ui-monospace, Menlo, monospace"
+    # Book-specific SCSS overrides layered on top of the fmup theme.
+    # The extension provides fonts, palette, navbar, sidebar, TOC,
+    # links, code, tables, callouts, blockquotes, focus, buttons,
+    # print styles, and reduced-motion handling.
+    theme:
+      light:
+        - assets/custom.scss
+      dark:
+        - assets/custom.scss
     reference-location: margin
     footnotes-hover: true
     fig-align: center
@@ -72,5 +79,5 @@ format:
     toc-depth: 3
     number-sections: false
     grid:
-      body-width: 700px
+      body-width: 780px
       margin-width: 260px

@@ -7,15 +7,26 @@ Figures:
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
 # ── inject pequod ──────────────────────────────────────────────────────────────
-PEQUOD_SRC = Path("/Users/tiagojct/rokovoko/pequod/python/src")
-if str(PEQUOD_SRC) not in sys.path:
+# The pequod package supplies the comparison palette used by the alternative
+# theme in this script. It is an external sibling repo; set PEQUOD_SRC to
+# override the default path, or install pequod into the active environment.
+_DEFAULT_PEQUOD_SRC = Path.home() / "rokovoko" / "pequod" / "python" / "src"
+PEQUOD_SRC = Path(os.environ.get("PEQUOD_SRC", _DEFAULT_PEQUOD_SRC))
+if PEQUOD_SRC.is_dir() and str(PEQUOD_SRC) not in sys.path:
     sys.path.insert(0, str(PEQUOD_SRC))
 
-import pequod  # noqa: E402
+try:
+    import pequod  # noqa: E402
+except ModuleNotFoundError as exc:
+    raise SystemExit(
+        f"pequod not found at {PEQUOD_SRC} and not importable from the environment.\n"
+        f"Set PEQUOD_SRC=/path/to/pequod/python/src or `pip install pequod`."
+    ) from exc
 
 # ── standard imports ───────────────────────────────────────────────────────────
 import numpy as np
