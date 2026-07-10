@@ -10,9 +10,9 @@ With the toolkit established, each tool's failure modes need to be named. Each p
 
 The pie chart is the bad chart most often defended in health research. The eye is poor at angle judgement, and slices that differ by only a few percentage points are nearly indistinguishable. A horizontal bar chart ordered by frequency replaces angle judgement with position on a common scale, the strongest visual encoding available [@cleveland1984graphical]. Compare @fig-pie with @fig-bar.
 
-![Pie chart of BP class at six months. Which slice is bigger, Pre-hypertension or Stage 2? Now check the numbers.](../figures/dataviz/01-pie-bad.png){#fig-pie}
+![Pie chart of BP class at six months. Which slice is bigger, Pre-hypertension or Stage 2? Now check the numbers.](../figures/dataviz/01-pie-bad.png){#fig-pie fig-alt="A pie chart of blood-pressure class at six months whose Pre-hypertension and Stage 2 slices are too close in size to rank by eye."}
 
-![The same data as a sorted horizontal bar with counts and percentages. The answer is immediate.](../figures/dataviz/01-bar-good.png){#fig-bar}
+![The same data as a sorted horizontal bar with counts and percentages. The answer is immediate.](../figures/dataviz/01-bar-good.png){#fig-bar fig-alt="The same blood-pressure-class data as a horizontal bar chart sorted by count, each bar labelled with its count and percentage."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -45,7 +45,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-cohort = pd.read_csv("figures/cohort.csv")
+cohort = pd.read_csv("figures/dataviz/cohort.csv")
 counts = (cohort["bp_class_6m"].value_counts()
           .rename_axis("class").reset_index(name="n"))
 counts = counts.sort_values("n")
@@ -69,9 +69,9 @@ sns.despine(); fig.tight_layout()
 
 The default `rainbow()` palette stays popular in scientific computing despite being non-monotonic in luminance: yellow is brighter than red and green, and the eye reads brightness as magnitude. A sequential ramp (light to dark) maps luminance and value onto the same axis, so bigger means darker without ambiguity. The Pequod `log-cool` palette is one such ramp; viridis is another. Compare the same heatmap rendered both ways, @fig-rainbow against @fig-sequential.
 
-![Mean SBP reduction by age and BMI band, rainbow palette. The eye fights the palette every time it tries to read magnitude.](../figures/dataviz/02-rainbow-ugly.png){#fig-rainbow}
+![Mean SBP reduction by age and BMI band, rainbow palette. The eye fights the palette every time it tries to read magnitude.](../figures/dataviz/02-rainbow-ugly.png){#fig-rainbow fig-alt="A heatmap of mean systolic reduction by age and BMI band using a rainbow palette, where hue does not track magnitude."}
 
-![Same data on Pequod's `log-cool` ramp. One luminance axis, one mental model.](../figures/dataviz/02-sequential-good.png){#fig-sequential}
+![Same data on Pequod's `log-cool` ramp. One luminance axis, one mental model.](../figures/dataviz/02-sequential-good.png){#fig-sequential fig-alt="The same heatmap on a single-hue sequential ramp where darker cells clearly mean larger reductions."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -136,9 +136,9 @@ fig.tight_layout()
 
 This is the single most common dishonest figure in clinical journals. Pick a y-axis that starts somewhere convenient (132 mmHg in the example below) and a 10-mmHg gap looks like a chasm. The numbers are right; the visual claim is wrong. Tufte calls this a *lie factor* [@tufte2001visual], Wilke calls it *proportional ink* [@wilke2019fundamentals]. The fix is to anchor at zero whenever the y-axis encodes magnitude with bar length. If the differences then look small, the differences *are* small, and the chart should say so. @fig-truncated and @fig-honest plot the same four numbers.
 
-![Mean SBP at six months by treatment, y-axis starting at 132 mmHg. Placebo looks twice the height of ACEi; the actual difference is about 10 mmHg.](../figures/dataviz/03-truncated-wrong.png){#fig-truncated}
+![Mean SBP at six months by treatment, y-axis starting at 132 mmHg. Placebo looks twice the height of ACEi; the actual difference is about 10 mmHg.](../figures/dataviz/03-truncated-wrong.png){#fig-truncated fig-alt="A bar chart of mean six-month systolic by treatment with the y-axis starting at 132 mmHg, exaggerating a roughly 10 mmHg difference."}
 
-![Same numbers, zero-anchored. The eye reads proportional differences honestly.](../figures/dataviz/03-honest-good.png){#fig-honest}
+![Same numbers, zero-anchored. The eye reads proportional differences honestly.](../figures/dataviz/03-honest-good.png){#fig-honest fig-alt="The same means on a zero-anchored y-axis, where the between-arm differences look proportionally small."}
 
 ::: {.callout-warning}
 ## When truncation is honest
@@ -202,9 +202,9 @@ sns.despine(); fig.tight_layout()
 
 A row of pies or donuts asks the reader to compare angles across panels. Each donut is its own coordinate system, and the eye cannot triangulate between them. A dot plot puts every group on a single common scale, sortable by effect, and the comparison becomes automatic. The same data appears in @fig-donut and @fig-dotplot.
 
-![Four donuts, one per treatment, showing the proportion controlled at six months. Which arm is highest? Which two are tied?](../figures/dataviz/04-3d-ugly.png){#fig-donut}
+![Four donuts, one per treatment, showing the proportion controlled at six months. Which arm is highest? Which two are tied?](../figures/dataviz/04-3d-ugly.png){#fig-donut fig-alt="Four donut charts, one per treatment, showing proportion controlled; the four are hard to rank against each other by eye."}
 
-![A dot plot of the same percentages. ACEi tops the list. ARB and CCB are within a percentage point of each other. The visual ranking matches the numerical one.](../figures/dataviz/04-dotplot-good.png){#fig-dotplot}
+![A dot plot of the same percentages. ACEi tops the list. ARB and CCB are within a percentage point of each other. The visual ranking matches the numerical one.](../figures/dataviz/04-dotplot-good.png){#fig-dotplot fig-alt="A dot plot of the same four proportions on one axis: ACEi highest, ARB and CCB nearly tied, the ranking immediately clear."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -266,9 +266,9 @@ sns.despine(); fig.tight_layout()
 
 A second y-axis misleads without technically lying. It invents a relationship by drawing two lines on top of each other; whether the eye reads BMI as "above" or "below" SBP depends entirely on the secondary scale you happened to pick. Two trends that are statistically uncorrelated can be made to look identical, and two that are perfectly correlated can be made to look opposed. Small multiples solve this without effort: each variable gets its own panel and its own axis, and the comparison stays a comparison rather than a coincidence. See @fig-dualaxis and @fig-smallmult.
 
-![SBP and BMI by age band on a dual-axis chart. The two lines look correlated; they barely are.](../figures/dataviz/05-dualaxis-bad.png){#fig-dualaxis}
+![SBP and BMI by age band on a dual-axis chart. The two lines look correlated; they barely are.](../figures/dataviz/05-dualaxis-bad.png){#fig-dualaxis fig-alt="A dual-axis line chart overlaying systolic and BMI by age band on two different y-scales, the two lines appearing to move together."}
 
-![Same data, two panels, free y-axes. The shapes of the two trends become legible separately.](../figures/dataviz/05-smallmult-good.png){#fig-smallmult}
+![Same data, two panels, free y-axes. The shapes of the two trends become legible separately.](../figures/dataviz/05-smallmult-good.png){#fig-smallmult fig-alt="The same two series in separate panels with independent y-axes, their trends now clearly different."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -322,9 +322,9 @@ g.set_axis_labels("Age band", "")
 
 Bar charts of means with error whiskers are the most-criticised chart pattern in modern statistics. They imply a symmetric sampling distribution that often does not exist, hide the sample size, and hide the outliers. Weissgerber and colleagues showed that distinct distributions can produce visually identical bar-and-whisker plots [@weissgerber2015beyond; @motulsky2014misconceptions]. The fix is to show the data: a box plot, a strip plot, a violin, or any combination thereof. A mean is a single number; the distribution is what determines whether that number is informative. @fig-meanbar collapses the four arms into a single statistic; @fig-distribution shows what is actually there.
 
-![Mean SBP per treatment as a bar with SE whiskers. Sample size is invisible, skew is invisible, outliers are invisible.](../figures/dataviz/06-bar-mean-bad.png){#fig-meanbar}
+![Mean SBP per treatment as a bar with SE whiskers. Sample size is invisible, skew is invisible, outliers are invisible.](../figures/dataviz/06-bar-mean-bad.png){#fig-meanbar fig-alt="A bar chart of mean systolic per treatment with standard-error whiskers, hiding sample size, skew, and outliers."}
 
-![Same data as a boxplot with jittered points and median markers. Spread, centre, and n become visible at once.](../figures/dataviz/06-distribution-good.png){#fig-distribution}
+![Same data as a boxplot with jittered points and median markers. Spread, centre, and n become visible at once.](../figures/dataviz/06-distribution-good.png){#fig-distribution fig-alt="The same data as boxplots with jittered points and median markers, showing spread, centre, and sample size together."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -373,9 +373,9 @@ sns.despine(); fig.tight_layout()
 
 A spaghetti plot of every patient's trajectory has its uses: it is the right chart when the message is heterogeneity. For showing a treatment effect, it makes the reader work harder than necessary. Faceting the spaghetti by treatment and overlaying the group mean keeps the heterogeneity visible while letting the average do the rhetorical work, as in the move from @fig-spaghetti to @fig-faceted.
 
-![One hundred and twenty SBP trajectories on a single panel, coloured by treatment. The group signal is buried in the noise.](../figures/dataviz/07-spaghetti-ugly.png){#fig-spaghetti}
+![One hundred and twenty SBP trajectories on a single panel, coloured by treatment. The group signal is buried in the noise.](../figures/dataviz/07-spaghetti-ugly.png){#fig-spaghetti fig-alt="About 120 individual systolic trajectories over time on one panel coloured by treatment, overlapping into an unreadable tangle."}
 
-![Same data faceted by treatment with the group mean overlaid. The shape of each response becomes legible.](../figures/dataviz/07-smallmult-mean-good.png){#fig-faceted}
+![Same data faceted by treatment with the group mean overlaid. The shape of each response becomes legible.](../figures/dataviz/07-smallmult-mean-good.png){#fig-faceted fig-alt="The same trajectories faceted into one panel per treatment with the group-mean line overlaid, each response shape now legible."}
 
 ::: {.callout-note collapse="true"}
 ## Code

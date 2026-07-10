@@ -1,12 +1,12 @@
 # Common chart types
 
-Before diagnosing failures, the toolkit needs to be established. Six chart types cover most figures in clinical and epidemiological research; each is the right choice when the data structure and the message align.
+Before diagnosing failures, the toolkit needs to be established. Six chart types cover most figures in clinical and epidemiological research; each is the right choice when the data structure and the message align. The worked code uses seaborn [@waskom2021seaborn] in Python and ggplot2 [@wickham2016ggplot2] in R; VanderPlas's *Python Data Science Handbook* [@vanderplas2016pythondatascience] is a fuller reference for the Python plotting stack.
 
 ## Histogram and density: one variable's distribution
 
 A histogram bins a single continuous variable into ranges and draws the count (or density) of observations per bin. The bin width is the only knob, and it changes the chart's character: too narrow, and the histogram becomes noisy; too wide, and meaningful structure (bimodality, a clipped lower limit) gets erased. Pair the histogram with a kernel density estimate, as in @fig-type-histogram, to keep both the discrete and the smoothed silhouette visible. Use it for any continuous variable in your cohort: age, BMI, lab values, biomarkers. Watch for clipped distributions (an assay's lower limit of detection appearing as a spike) and right-skew (HbA1c, NT-proBNP, CRP), where a log-x axis is often more honest.
 
-![Histogram with overlaid kernel density of SBP at baseline. Bin width 5 mmHg.](../figures/dataviz/type-01-histogram.png){#fig-type-histogram}
+![Histogram with overlaid kernel density of SBP at baseline. Bin width 5 mmHg.](../figures/dataviz/type-01-histogram.png){#fig-type-histogram fig-alt="A histogram of baseline systolic blood pressure with an overlaid smooth kernel-density curve, roughly bell-shaped and centred near 148 mmHg."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -52,7 +52,7 @@ sns.despine(); fig.tight_layout()
 
 A boxplot summarises a distribution as five numbers: median, quartiles, whiskers. A strip plot shows every observation as a jittered dot. A violin plot shows the kernel density mirrored around a vertical axis. Layered together, as in @fig-type-distribution, they cover the full vocabulary: median for the centre, IQR for the spread, individual points for outliers and sample size, and the violin's silhouette for shape. For small groups (n < 30), drop the box and just show the points; the percentile machinery is unstable. Use this combination for comparing the distribution of a continuous variable across two or more groups. The temptation to replace the whole layered chart with a bar of means and an error whisker is the failure mode addressed in the pitfalls chapter.
 
-![Layered box, strip, and violin plot of DBP at baseline by treatment arm.](../figures/dataviz/type-02-distribution.png){#fig-type-distribution}
+![Layered box, strip, and violin plot of DBP at baseline by treatment arm.](../figures/dataviz/type-02-distribution.png){#fig-type-distribution fig-alt="Overlaid box, strip, and violin plots of baseline diastolic blood pressure for each treatment arm, showing similar spreads across arms."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -104,7 +104,7 @@ sns.despine(); fig.tight_layout()
 
 A scatter plot puts two continuous variables on the two axes and one dot per observation. Each point is one observation; the scatter plot is the most direct depiction of a bivariate relationship in statistics. A regression line with a confidence ribbon, as in @fig-type-scatter, summarises the trend without erasing the underlying spread; a third variable can be encoded with colour or shape. Use scatter for any pair of continuous variables: SBP versus DBP, age versus a lab value, dose versus response. The failure mode at large n is overplotting; alpha transparency, hex-binning (`geom_hex`), or 2D density contours all help.
 
-![Scatter plot of SBP against DBP at baseline with a linear regression overlay and 95% confidence ribbon.](../figures/dataviz/type-03-scatter.png){#fig-type-scatter}
+![Scatter plot of SBP against DBP at baseline with a linear regression overlay and 95% confidence ribbon.](../figures/dataviz/type-03-scatter.png){#fig-type-scatter fig-alt="A scatter plot of systolic against diastolic blood pressure at baseline with a rising linear-regression line and a shaded 95 percent confidence ribbon."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -149,7 +149,7 @@ sns.despine(); fig.tight_layout()
 
 A line plot connects points across an ordered x-axis (usually time, visit, or dose) so that the trajectory itself is the visual unit. Where a scatter or bar tells you "where", a line tells you "where, then where, then where", and the eye reads the slope pre-attentively. @fig-type-line shows the mean SBP per arm across the four study visits. Use line plots for longitudinal cohort means, time series of an outcome by group, and dose-response curves. The two failure modes at the extremes are too many lines on one panel (the spaghetti pitfall) and the two-axis trap (both addressed in the next chapter).
 
-![Line plot of mean SBP per treatment over the six-month follow-up.](../figures/dataviz/type-04-line.png){#fig-type-line}
+![Line plot of mean SBP per treatment over the six-month follow-up.](../figures/dataviz/type-04-line.png){#fig-type-line fig-alt="A line plot of mean systolic blood pressure over six months for each treatment arm, the active arms declining below placebo."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -196,7 +196,7 @@ sns.despine(); fig.tight_layout()
 
 A forest plot puts one effect-size estimate per row, each with its 95 % confidence interval drawn as a horizontal whisker. The reader sees the point estimate and its precision in a single glance, and a vertical reference line at zero (or 1 for ratios) does the rhetorical work of "is this difference compatible with no effect?". @fig-type-forest shows the effect of each active arm versus placebo on six-month SBP change. Forest plots are central to clinical research: subgroup analyses, regression coefficients, and meta-analyses all live in this format. Watch for stretched x-axes that make small effects look substantial, and report the test statistic alongside the interval.
 
-![Forest plot of mean Δ SBP versus Placebo by treatment arm; whiskers are 95% confidence intervals.](../figures/dataviz/type-05-forest.png){#fig-type-forest}
+![Forest plot of mean Δ SBP versus Placebo by treatment arm; whiskers are 95% confidence intervals.](../figures/dataviz/type-05-forest.png){#fig-type-forest fig-alt="A forest plot of mean change in systolic blood pressure versus placebo per treatment arm, each point with horizontal 95 percent confidence-interval whiskers, active arms left of the null line."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -271,7 +271,7 @@ sns.despine(); fig.tight_layout()
 
 A Kaplan–Meier curve plots the proportion of the cohort still event-free over time, dropping in steps as events occur. Censoring (loss to follow-up) is shown by tick marks. Two or more groups can be overlaid for direct comparison of survival or event-free trajectories. @fig-type-km shows time to BP control across the four arms, computed via `survival::survfit()` with synthetic event times. Use it for time-to-event outcomes: death, hospitalisation, recurrence, or any "first time the outcome happened" measure. The classic missing element in published KM plots is the *number-at-risk* table below the x-axis; without it, the visual confidence in the right-hand tail can far exceed the actual sample size.
 
-![Kaplan–Meier curve of the proportion still uncontrolled over six months, by treatment arm.](../figures/dataviz/type-06-km.png){#fig-type-km}
+![Kaplan–Meier curve of the proportion still uncontrolled over six months, by treatment arm.](../figures/dataviz/type-06-km.png){#fig-type-km fig-alt="A Kaplan–Meier step curve of the proportion still uncontrolled over six months by treatment arm, the active arms falling faster than placebo."}
 
 ::: {.callout-note collapse="true"}
 ## Code

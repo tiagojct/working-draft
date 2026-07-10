@@ -1,5 +1,5 @@
 ::: {.hero}
-![](figures/dataviz/hero.png){.hero-image}
+![](figures/dataviz/hero.png){.hero-image fig-alt="Cover image for The Working Draft: writing and data visualisation for health researchers."}
 
 **Writing and Data Visualisation for Health Researchers**
 :::
