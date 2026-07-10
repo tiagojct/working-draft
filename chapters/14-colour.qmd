@@ -22,19 +22,25 @@ Before publishing, run your palette through a CVD simulation. The Colblindor too
 
 Two rules prevent most accessibility failures. First, never rely on colour alone to encode a distinction that carries the result: pair hue with shape, line style, fill pattern, or a direct label. Second, check your palette in simulation before submission, not after review.
 
-## Pequod in practice
+## Accessibility beyond colour
 
-The Pequod palette has three functional groups, and the chart you draw should use them according to function rather than aesthetics.
+Colour is the accessibility failure reviewers name most often, but it is not the only one. Two further checks catch the rest.
 
-The Log scale (twelve steps from warm paper to deep ink) is the right palette for sequential or continuous data: heatmaps, density colour ramps, depth-encoded scatter. In R, `scale_fill_pequod_c(palette = "log-cool")`; in matplotlib or seaborn, `cmap="pequod_log_cool"` after `pequod.register_cmaps()`.
+**Text size.** Figure text competes with the body text around it, and it is set at the size of the final printed figure, not the size on screen while you draw it. Axis labels, tick labels, and annotations should stay legible when the figure is scaled to its column width. A safe floor is 7 pt for the smallest text at final dimensions; below 5 pt it is unreadable in print. Export at the target width (see [Preparing figures for submission](#preparing-figures-for-submission) below) and read the labels at 100 %.
 
-The eight crew accents (Ahab, Starbuck, Queequeg, Pip, Ishmael, Stubb, Tashtego, Daggoo) are for categorical data with up to eight groups. Beyond eight, collapse the rare categories into "Other" and re-encode by shape or position. Use `scale_colour_pequod_d(palette = "crew")` in R, or `palette=list(pequod.CREW_DARK.values())` for an explicit list in seaborn.
+**Alt text.** An online figure needs a text alternative for readers using a screen reader. The caption does not serve: it states the point of the figure, whereas the alt text describes what the figure shows — the chart type, the axes, and the shape of the pattern — so that a reader who cannot see it reaches the same conclusion. One sentence is usually enough: *"Kaplan-Meier curves for two arms; the treated arm separates upward after month two."* In Quarto, set it with the `fig-alt` attribute; most journal submission systems now provide an alt-text field, and leaving it blank is a growing cause of accessibility-desk queries.
 
-The light and dark crew variants are for light and dark backgrounds, not for two different categorical mappings. Use `pequod_crew_light` on Log 50 paper, `pequod_crew_dark` on Log 950 ink.
+## The book's palette
 
-The palette has documented colour-vision-deficiency collapses (Pip ↔ Stubb under tritanopia, Ahab ↔ Daggoo under protanopia). When the colour distinction carries the result — as in diff gutters, error states, or "treated vs control" in a two-arm trial — pair the colour with a shape or weight; hue alone is insufficient.
+Every figure in this book uses [Glauca](https://github.com/tiagojct/glauca), and its three scales map directly onto the three functional categories above.
 
-The full palette documentation, including a colour-vision-deficiency report and installation instructions for R and Python, is at [tiagojct.eu/projects/pequod/](https://tiagojct.eu/projects/pequod/).
+**Categorical** is the Okabe-Ito set — seven colours chosen for maximum separation under all three types of colour-vision deficiency, not for brand. Treatment arms, regions, diagnostic groups: `scale_colour_glauca_d()` in R, or the default cycle after `use_glauca()` in Python. Placebo is drawn in ink rather than a hue, so the control reads as a baseline against the coloured active arms.
+
+**Sequential** is a single-hue blue ramp (`glauca_seq`) with even luminance steps: darker means more, without ambiguity. Heatmaps, density ramps, a dot coloured by biomarker level. `scale_fill_glauca_c()` in R, `cmap="glauca_seq"` in matplotlib after `import glauca`.
+
+**Diverging** is a blue-copper ramp with a pale centre (`glauca_div`), for change from baseline or a correlation matrix. The two directions run along the blue-orange axis, the one axis that survives every CVD type.
+
+One identity colour, a sky-blue (`#007AFF`), is kept rare: it marks a single element per figure — a regression line, a highlighted series — never the whole palette. Magnitude scales encode value, so the brand hue is free there; a categorical figure gets Okabe-Ito, not seven shades of blue. The style files are vendored at [`figures/glauca.py`](https://github.com/tiagojct/working-draft/blob/main/figures/glauca.py) and [`figures/glauca.R`](https://github.com/tiagojct/working-draft/blob/main/figures/glauca.R).
 
 ## Preparing figures for submission
 
@@ -54,111 +60,52 @@ In R, `ggsave("figure1.pdf", width = 86, height = 70, units = "mm")` exports a s
 
 ## Theme showcase
 
-A theme is not just a colour palette — it is the complete visual vocabulary of a figure: background, grid, spine style, text colour, and typeface working together. The same data drawn in two different themes will look like different papers, even if the geometry and the numbers are identical.
+A theme is not just a colour palette — it is the complete visual vocabulary of a figure: background, grid, spine style, text colour, and typeface working together. The same data drawn with different defaults will look like different papers, even if the geometry and the numbers are identical.
 
-@fig-theme-comparison shows the same layered distribution plot (DBP at baseline by treatment arm) rendered in two themes. The FMUP theme uses a white background and an institutional categorical palette designed to read on white. The Pequod theme uses the warm Log 50 paper background with the Crew Light accents tuned for that surface. Neither is wrong; they belong to different visual contexts.
+@fig-theme-comparison shows the same layered distribution plot (DBP at baseline by treatment arm) drawn twice: on the left with matplotlib's out-of-the-box defaults (a boxed frame, the tab10 colour cycle, no considered typography); on the right with the Glauca theme (a pale ground, Okabe-Ito arms, IBM Plex, spines and grid pared back). The geometry and the numbers are identical. The difference is entirely vocabulary, and it is the difference between a figure that looks provisional and one that looks published.
 
-![DBP at baseline by treatment arm: FMUP theme (left) and Pequod theme (right). Same data, same geometry, different visual register.](../figures/dataviz/theme-comparison.png){#fig-theme-comparison}
+![DBP at baseline by treatment arm: matplotlib default (left) and the Glauca theme (right). Same data, same geometry, different visual register.](../figures/dataviz/theme-comparison.png){#fig-theme-comparison fig-alt="The same layered distribution plot side by side: left in matplotlib's boxed default style with the tab10 palette, right in the Glauca theme with a pale ground, Okabe-Ito arm colours, IBM Plex type, and pared-back spines."}
 
 ::: {.callout-note collapse="true"}
 ## Theme setup code
 
 ::: {.panel-tabset}
 
-#### Python · FMUP
+#### Python
 
 ```python
-import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.pyplot as plt
+from glauca import use_glauca, GLAUCA_CATEGORICAL
 
-# FMUP theme rcParams
-FMUP_RC = {
-    "figure.facecolor": "white",   "axes.facecolor": "white",
-    "axes.edgecolor":   "#E0E0E0", "axes.linewidth":  0.8,
-    "axes.spines.top":  False,     "axes.spines.right": False,
-    "axes.grid":        True,      "axes.grid.axis":  "y",
-    "grid.color":       "#E0E0E0", "grid.linewidth":   0.5,
-    "xtick.color":      "#5B6470", "ytick.color":     "#5B6470",
-    "axes.labelcolor":  "#1A1A1A", "text.color":      "#1A1A1A",
-    "legend.frameon":   False,
-    "font.sans-serif":  ["Atkinson Hyperlegible", "Arial", "DejaVu Sans"],
-}
+use_glauca("light")            # IBM Plex, pale ground, Okabe-Ito cycle
 
-# 4-colour categorical palette (Placebo, ACEi, ARB, CCB)
-FMUP4   = ["#1A1A1A", "#2B7BB9", "#D06B3A", "#3A9653"]
-FMUP_BAR = "#FFCD00"   # for filled bars only (not lines or small points)
+arms = ["Placebo", "ACEi", "ARB", "CCB"]
+pal  = {"Placebo": "#16222a", **dict(zip(arms[1:], GLAUCA_CATEGORICAL))}
 
-with plt.rc_context(FMUP_RC):
-    fig, ax = plt.subplots(figsize=(6.5, 4.0))
-    sns.violinplot(data=cohort, x="treatment", y="dbp_baseline",
-                   palette=FMUP4, fill=False, linewidth=0.6, ax=ax)
-    sns.stripplot(data=cohort, x="treatment", y="dbp_baseline",
-                  palette=FMUP4, alpha=0.25, jitter=True, size=3, ax=ax)
-    ax.set(xlabel=None, ylabel="DBP at baseline (mmHg)")
-    sns.despine(); fig.tight_layout()
+fig, ax = plt.subplots(figsize=(6.5, 4.0))
+sns.violinplot(data=cohort, x="treatment", y="dbp_baseline",
+               palette=pal, fill=False, linewidth=0.6, ax=ax)
+sns.stripplot(data=cohort, x="treatment", y="dbp_baseline",
+              palette=pal, alpha=0.25, jitter=True, size=3, ax=ax)
+ax.set(xlabel=None, ylabel="DBP at baseline (mmHg)")
+sns.despine(); fig.tight_layout()
 ```
 
-#### Python · Pequod
-
-```python
-import matplotlib.pyplot as plt
-import seaborn as sns
-import pequod
-
-# Pequod theme rcParams
-PEQUOD_RC = {
-    "figure.facecolor": "#F7F3EE", "axes.facecolor": "#F7F3EE",
-    "axes.edgecolor":   "#BD8C68", "axes.linewidth":  0.8,
-    "axes.spines.top":  False,     "axes.spines.right": False,
-    "axes.grid":        True,      "axes.grid.axis":  "y",
-    "grid.color":       "#DBC9B6", "grid.linewidth":   0.5,
-    "xtick.color":      "#835A49", "ytick.color":     "#835A49",
-    "axes.labelcolor":  "#0D2F42", "text.color":      "#0D2F42",
-    "legend.frameon":   False,
-    "font.sans-serif":  ["Atkinson Hyperlegible", "Arial", "DejaVu Sans"],
-}
-
-# Crew Light accents (tuned for paper background)
-PEQUOD4 = [pequod.CREW_LIGHT[c] for c in ["Starbuck","Ahab","Tashtego","Stubb"]]
-
-with plt.rc_context(PEQUOD_RC):
-    fig, ax = plt.subplots(figsize=(6.5, 4.0))
-    ax.set_facecolor("#F7F3EE")
-    sns.violinplot(data=cohort, x="treatment", y="dbp_baseline",
-                   palette=PEQUOD4, fill=False, linewidth=0.6, ax=ax)
-    sns.stripplot(data=cohort, x="treatment", y="dbp_baseline",
-                  palette=PEQUOD4, alpha=0.25, jitter=True, size=3, ax=ax)
-    ax.set(xlabel=None, ylabel="DBP at baseline (mmHg)")
-    sns.despine(); fig.tight_layout()
-```
-
-#### R · Pequod
+#### R
 
 ```r
-library(ggplot2); library(pequod)
-
-# Pequod theme wrapper for ggplot2
-theme_pequod <- function() {
-  theme_minimal(base_family = "Atkinson Hyperlegible Next") +
-  theme(
-    plot.background   = element_rect(fill = "#F7F3EE", colour = NA),
-    panel.background  = element_rect(fill = "#F7F3EE", colour = NA),
-    panel.grid.major.y = element_line(colour = "#DBC9B6"),
-    panel.grid.major.x = element_blank(),
-    axis.text   = element_text(colour = "#835A49"),
-    axis.title  = element_text(colour = "#0D2F42"),
-    legend.position = "none"
-  )
-}
+library(ggplot2)
+source("glauca.R")             # theme_glauca(), scale_*_glauca_d()
 
 ggplot(cohort, aes(treatment, dbp_baseline, colour = treatment, fill = treatment)) +
   geom_violin(alpha = 0.18, linewidth = 0.4) +
   geom_jitter(width = 0.16, alpha = 0.30, size = 1.3) +
   geom_boxplot(width = 0.18, fill = NA, outlier.shape = NA, linewidth = 0.5) +
-  scale_colour_pequod_d(palette = "crew") +
-  scale_fill_pequod_d(palette = "crew") +
+  scale_colour_glauca_d() +
+  scale_fill_glauca_d() +
   labs(x = NULL, y = "DBP at baseline (mmHg)") +
-  theme_pequod()
+  theme_glauca()
 ```
 
 :::

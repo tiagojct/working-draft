@@ -23,8 +23,16 @@ readmit_30d       : bool   primary outcome (30-day unplanned readmission)
 time_to_readmit   : num    days to readmission or 30 if event-free
 
 The simulation reproduces the headline estimates referenced in the chapters
-(primary adjusted OR ~1.31 for log-unit NT-proBNP, ~12% readmission rate, BNP
-subset ~2,104, ~97.4% NT-proBNP availability) to within Monte Carlo noise.
+(primary adjusted OR ~1.31 for log-unit NT-proBNP, ~12.8% readmission rate, BNP
+subset ~2,068, ~97.3% NT-proBNP availability) to within Monte Carlo noise.
+
+Reproducibility
+---------------
+The committed ``figures/sw/cohort.csv`` was generated with numpy 2.4.6 and
+pandas 3.0.3. The RNG stream of ``numpy.random.default_rng`` and pandas' CSV
+float formatting can differ across major versions, so regenerating under other
+versions may shift the descriptive counts by a handful of patients. Pin these
+versions to reproduce the committed file byte-for-byte.
 
 Run
 ---

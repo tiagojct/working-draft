@@ -23,7 +23,7 @@ Advice drawn from Saramäki [@saramaki2022write] and Heard [@heard2016scientist]
    ::: {.column-margin}
    A weak key result: *"This study looked at heart failure readmissions."*
 
-   A strong key result: *"Among 5,204 adults discharged after hospitalisation for acute heart failure, the 30-day unplanned readmission rate was 12.3% (95% CI 11.5--13.1%). NT-proBNP ≥ 1,000 pg/mL at discharge was independently associated with readmission (adjusted HR 1.31, 95% CI 1.08--1.59)."*
+   A strong key result: *"Among 5,204 adults discharged after hospitalisation for acute heart failure, the 30-day unplanned readmission rate was 12.8% (95% CI 11.9--13.7%). NT-proBNP ≥ 1,000 pg/mL at discharge was independently associated with readmission (adjusted HR 1.31, 95% CI 1.08--1.59)."*
 
    The strong version tells the reader exactly what was found, on whom, with what precision. If you cannot write a clear one-sentence version, the paper is not ready to write.
    :::

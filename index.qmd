@@ -1,10 +1,5 @@
-::: {.hero}
-![](figures/dataviz/hero.png){.hero-image}
-
-**Writing and Data Visualisation for Health Researchers**
+::: {.landing}
 :::
-
-# Preface {.unnumbered}
 
 This book collects two teaching notes that were written separately but belong together.
 

@@ -1,0 +1,50 @@
+# Systematic reviews and meta-analysis
+
+A primary study reports what you found. A systematic review reports what the literature found, and it is judged by a different standard: not the novelty of the result but the reproducibility of the search. If another team cannot rerun your methods and arrive at the same set of included studies, the review is an opinion with a bibliography. The whole genre exists to remove the reviewer's discretion from the evidence, and the writing has to show that it did.
+
+This chapter covers what changes when the unit of analysis is a study rather than a patient: how to report the search so it can be repeated, how the sections rearrange, and how to write up a pooled estimate and its uncertainty. The signature figure of the genre, the forest plot, gets its own treatment, because most of what Part II says about honest figures applies to it directly.
+
+## Report the search so it can be repeated
+
+The Methods of a review is a protocol someone else could execute. Three things make it reproducible.
+
+**Registration and reporting standard.** Register the protocol before you start (PROSPERO for health reviews) and report against PRISMA 2020 [@page2021prisma]. The checklist is not bureaucracy; each item is a place where reviews routinely hide a decision that changed the result. The Cochrane Handbook [@higgins2019cochrane] is the reference for the methods behind the checklist.
+
+**The search, in full.** Give the databases, the date of the last search, and the complete search string for at least one database, verbatim, in a supplement. "We searched PubMed and Embase for relevant studies" is not a method. A reader must be able to paste your string and see your numbers.
+
+**Eligibility, decided in advance.** State the inclusion and exclusion criteria as they stood in the protocol, and flag any that were added later. Post-hoc criteria that happen to exclude the inconvenient studies are the most common way a systematic review stops being systematic.
+
+The PRISMA flow diagram carries the accounting: records identified, duplicates removed, records screened, full texts assessed, studies included, with the exclusions counted and reasoned at the full-text stage. It is the one figure a reader checks first, because it is where the numbers either reconcile or do not.
+
+## The sections rearrange
+
+The hourglass (Chapter: article structure) still holds, but the waist is different. The Introduction motivates the question and states why a synthesis is needed now. The Methods describes the search, screening, data extraction, and risk-of-bias assessment rather than a study population. The Results leads with the flow diagram and a study-characteristics table (one row per included study: design, n, population, effect estimate), then the synthesis. The Discussion interprets the pooled estimate against its heterogeneity and the certainty of the evidence, not against a single confidence interval.
+
+Risk of bias is assessed per study and reported per study, with a recognised tool (RoB 2 for randomised trials, ROBINS-I for non-randomised). Do not collapse it into a single adjective. A reader needs to see which studies are at high risk and whether the pooled estimate depends on them.
+
+## Reading a forest plot
+
+The forest plot is how a meta-analysis shows its work. @fig-forest-meta is a random-effects synthesis of nine fictional studies of discharge NT-proBNP (≥ 1,000 vs < 1,000 pg/mL) and 30-day readmission — the same question as the worked cohort in Part I, which appears here as one study among the nine.
+
+![Random-effects meta-analysis of discharge NT-proBNP and 30-day readmission across nine simulated studies. Squares are study odds ratios, sized by their weight in the pooled estimate; horizontal lines are 95% confidence intervals; the diamond is the pooled estimate; the dotted line through it is the 95% prediction interval. All data are simulated.](../figures/sw/forest-meta.png){#fig-forest-meta fig-alt="A forest plot: nine study rows, each a square sized by weight with a horizontal 95 percent confidence-interval line, scattered on both sides of the no-effect line but mostly to the right; a pooled diamond at the bottom sits right of no-effect with a dotted prediction-interval line that crosses it."}
+
+Read it from the parts:
+
+- **Each row** is one study: a point estimate (the square), sized by the weight the study carries in the pool, and its confidence interval (the whisker). Bigger squares are more precise studies, and they pull the pooled estimate harder.
+- **The vertical line** is the null (odds ratio 1). Whiskers crossing it are individually non-significant.
+- **The diamond** is the pooled estimate; its width is the confidence interval of the pool. Here the pooled odds ratio is 1.30 (95% CI 1.16–1.45): higher discharge NT-proBNP is associated with more readmission across the literature, and the interval excludes the null.
+- **The dotted line through the diamond** is the 95% prediction interval, and it is the number most reviews omit and most reviewers should demand [@inthout2016plea]. It runs from 0.93 to 1.80. The pooled *mean* is clearly above the null, but a future study drawn from this heterogeneous set could still land below it. Reporting only the diamond hides that.
+
+Everything Part II says applies. The x-axis is a ratio, so it is on a log scale, or the confidence intervals would be visually asymmetric and the plot would lie about which studies disagree (Chapter: pitfalls, on honest axes). Studies are ordered by year, not sorted by effect size, because sorting by effect manufactures a gradient the data do not have. The weight is shown, not just implied by the square, so the reader can see that the pool is not being driven by one study.
+
+## Report the synthesis in words
+
+The forest plot is not self-sufficient; the Results must state the pool, the heterogeneity, and the certainty in text.
+
+> *"Nine studies (n = 12,340) were pooled using a random-effects model (DerSimonian-Laird) [@dersimonian1986meta]. Higher discharge NT-proBNP was associated with 30-day readmission (pooled OR 1.30, 95% CI 1.16–1.45). Heterogeneity was substantial (I² = 56%, τ² = 0.016) [@higgins2003measuring]; the 95% prediction interval (0.93–1.80) crossed the null, indicating that the association may not hold in every setting. Certainty of evidence was rated moderate (GRADE) [@guyatt2008grade], downgraded for inconsistency. A funnel plot and Egger's test showed no strong evidence of small-study effects [@egger1997bias]."*
+
+Three habits keep this honest. Name the model (fixed-effect assumes one true effect; random-effects assumes a distribution of effects, and you almost always want the latter in clinical synthesis). Report heterogeneity as a number and act on it: if I² is high, the pooled mean is a summary of disagreement, and the prediction interval, subgroup analyses, or a decision not to pool at all is the honest response. Grade the certainty of the evidence separately from its statistical significance; a tight confidence interval built on studies at high risk of bias is precise and untrustworthy at once.
+
+## When not to pool
+
+Not every set of studies should be combined into a single number. If the populations, interventions, or outcomes are too different to share a common effect, a pooled estimate is a category error dressed as precision. Synthesise the evidence narratively, present the forest plot without a diamond, and say why. A meta-analysis that reports a clean pooled odds ratio across studies that measured different things is worse than no meta-analysis, because the false precision travels further than the caveat.

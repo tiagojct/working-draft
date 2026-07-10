@@ -10,9 +10,9 @@ With the toolkit established, each tool's failure modes need to be named. Each p
 
 The pie chart is the bad chart most often defended in health research. The eye is poor at angle judgement, and slices that differ by only a few percentage points are nearly indistinguishable. A horizontal bar chart ordered by frequency replaces angle judgement with position on a common scale, the strongest visual encoding available [@cleveland1984graphical]. Compare @fig-pie with @fig-bar.
 
-![Pie chart of BP class at six months. Which slice is bigger, Pre-hypertension or Stage 2? Now check the numbers.](../figures/dataviz/01-pie-bad.png){#fig-pie}
+![Pie chart of BP class at six months. Which slice is bigger, Pre-hypertension or Stage 2? Now check the numbers.](../figures/dataviz/01-pie-bad.png){#fig-pie fig-alt="A pie chart of blood-pressure class at six months whose Pre-hypertension and Stage 2 slices are too close in size to rank by eye."}
 
-![The same data as a sorted horizontal bar with counts and percentages. The answer is immediate.](../figures/dataviz/01-bar-good.png){#fig-bar}
+![The same data as a sorted horizontal bar with counts and percentages. The answer is immediate.](../figures/dataviz/01-bar-good.png){#fig-bar fig-alt="The same blood-pressure-class data as a horizontal bar chart sorted by count, each bar labelled with its count and percentage."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -22,20 +22,21 @@ The pie chart is the bad chart most often defended in health research. The eye i
 #### R
 
 ```r
-library(ggplot2); library(pequod); library(dplyr)
+library(ggplot2); library(dplyr)
+source("glauca.R")
 
 bp_counts <- cohort |>
   count(bp_class_6m) |>
   mutate(pct = n / sum(n))
 
 ggplot(bp_counts, aes(reorder(bp_class_6m, n), n)) +
-  geom_col(fill = pequod_crew_dark[["Starbuck"]], width = 0.7) +
+  geom_col(fill = "#16222a", width = 0.7) +
   geom_text(aes(label = sprintf("%d  (%.0f%%)", n, 100 * pct)),
             hjust = -0.15, family = "JetBrains Mono", size = 3.4) +
   coord_flip(clip = "off") +
   scale_y_continuous(expand = expansion(mult = c(0, 0.32))) +
   labs(x = NULL, y = "Participants (n)") +
-  theme_minimal(base_family = "Atkinson Hyperlegible Next")
+  theme_glauca()
 ```
 
 #### Python
@@ -45,7 +46,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-cohort = pd.read_csv("figures/cohort.csv")
+cohort = pd.read_csv("figures/dataviz/cohort.csv")
 counts = (cohort["bp_class_6m"].value_counts()
           .rename_axis("class").reset_index(name="n"))
 counts = counts.sort_values("n")
@@ -53,7 +54,7 @@ counts["pct"] = counts["n"] / counts["n"].sum()
 
 fig, ax = plt.subplots(figsize=(6.4, 4))
 sns.barplot(data=counts, y="class", x="n",
-            color="#2B7BB9", ax=ax)
+            color="#0b62cf", ax=ax)
 for i, row in counts.iterrows():
     ax.text(row["n"] + 6, i, f'{row["n"]}  ({row["pct"]:.0%})',
             va="center", family="monospace")
@@ -67,11 +68,11 @@ sns.despine(); fig.tight_layout()
 
 ## 2. Rainbow heatmap → sequential ramp
 
-The default `rainbow()` palette stays popular in scientific computing despite being non-monotonic in luminance: yellow is brighter than red and green, and the eye reads brightness as magnitude. A sequential ramp (light to dark) maps luminance and value onto the same axis, so bigger means darker without ambiguity. The Pequod `log-cool` palette is one such ramp; viridis is another. Compare the same heatmap rendered both ways, @fig-rainbow against @fig-sequential.
+The default `rainbow()` palette stays popular in scientific computing despite being non-monotonic in luminance: yellow is brighter than red and green, and the eye reads brightness as magnitude. A sequential ramp (light to dark) maps luminance and value onto the same axis, so bigger means darker without ambiguity. The Glauca `glauca_seq` ramp is one such palette; viridis is another. Compare the same heatmap rendered both ways, @fig-rainbow against @fig-sequential.
 
-![Mean SBP reduction by age and BMI band, rainbow palette. The eye fights the palette every time it tries to read magnitude.](../figures/dataviz/02-rainbow-ugly.png){#fig-rainbow}
+![Mean SBP reduction by age and BMI band, rainbow palette. The eye fights the palette every time it tries to read magnitude.](../figures/dataviz/02-rainbow-ugly.png){#fig-rainbow fig-alt="A heatmap of mean systolic reduction by age and BMI band using a rainbow palette, where hue does not track magnitude."}
 
-![Same data on Pequod's `log-cool` ramp. One luminance axis, one mental model.](../figures/dataviz/02-sequential-good.png){#fig-sequential}
+![Same data on Glauca's `glauca_seq` ramp. One luminance axis, one mental model.](../figures/dataviz/02-sequential-good.png){#fig-sequential fig-alt="The same heatmap on a single-hue sequential ramp where darker cells clearly mean larger reductions."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -81,7 +82,8 @@ The default `rainbow()` palette stays popular in scientific computing despite be
 #### R
 
 ```r
-library(ggplot2); library(pequod); library(dplyr)
+library(ggplot2); library(dplyr)
+source("glauca.R")
 
 heat <- cohort |>
   mutate(
@@ -95,11 +97,11 @@ heat <- cohort |>
 
 ggplot(heat, aes(bmi_band, age_band, fill = delta)) +
   geom_tile(colour = "white", linewidth = 0.4) +
-  scale_fill_pequod_c(palette = "log-cool", name = "Δ SBP\n(mmHg)") +
+  scale_fill_glauca_c(name = "Δ SBP\n(mmHg)") +
   geom_text(aes(label = sprintf("%.1f", delta)),
             family = "JetBrains Mono", size = 3.1, colour = "white") +
   labs(x = "BMI band (kg/m²)", y = "Age band (years)") +
-  theme_minimal(base_family = "Atkinson Hyperlegible Next")
+  theme_glauca()
 ```
 
 #### Python
@@ -107,10 +109,10 @@ ggplot(heat, aes(bmi_band, age_band, fill = delta)) +
 ```python
 import seaborn as sns
 import matplotlib.pyplot as plt
-import pequod
+import glauca
 import numpy as np
 
-pequod.register_cmaps()
+glauca.use_glauca("light")
 
 heat = (cohort.assign(
     age_band = pd.cut(cohort["age"], [29,45,55,65,75,86],
@@ -121,7 +123,7 @@ heat = (cohort.assign(
     .groupby(["age_band","bmi_band"])["delta"].mean().unstack())
 
 fig, ax = plt.subplots(figsize=(6.4, 4))
-sns.heatmap(heat, cmap="pequod_log_cool", annot=True, fmt=".1f",
+sns.heatmap(heat, cmap="glauca_seq", annot=True, fmt=".1f",
             annot_kws={"family": "monospace"},
             cbar_kws={"label": "Δ SBP (mmHg)"}, ax=ax)
 ax.set(xlabel="BMI band (kg/m²)", ylabel="Age band (years)")
@@ -136,9 +138,9 @@ fig.tight_layout()
 
 This is the single most common dishonest figure in clinical journals. Pick a y-axis that starts somewhere convenient (132 mmHg in the example below) and a 10-mmHg gap looks like a chasm. The numbers are right; the visual claim is wrong. Tufte calls this a *lie factor* [@tufte2001visual], Wilke calls it *proportional ink* [@wilke2019fundamentals]. The fix is to anchor at zero whenever the y-axis encodes magnitude with bar length. If the differences then look small, the differences *are* small, and the chart should say so. @fig-truncated and @fig-honest plot the same four numbers.
 
-![Mean SBP at six months by treatment, y-axis starting at 132 mmHg. Placebo looks twice the height of ACEi; the actual difference is about 10 mmHg.](../figures/dataviz/03-truncated-wrong.png){#fig-truncated}
+![Mean SBP at six months by treatment, y-axis starting at 132 mmHg. Placebo looks twice the height of ACEi; the actual difference is about 10 mmHg.](../figures/dataviz/03-truncated-wrong.png){#fig-truncated fig-alt="A bar chart of mean six-month systolic by treatment with the y-axis starting at 132 mmHg, exaggerating a roughly 10 mmHg difference."}
 
-![Same numbers, zero-anchored. The eye reads proportional differences honestly.](../figures/dataviz/03-honest-good.png){#fig-honest}
+![Same numbers, zero-anchored. The eye reads proportional differences honestly.](../figures/dataviz/03-honest-good.png){#fig-honest fig-alt="The same means on a zero-anchored y-axis, where the between-arm differences look proportionally small."}
 
 ::: {.callout-warning}
 ## When truncation is honest
@@ -154,7 +156,8 @@ The zero rule applies to *bar lengths* because the bar's length encodes the valu
 #### R
 
 ```r
-library(ggplot2); library(pequod); library(dplyr)
+library(ggplot2); library(dplyr)
+source("glauca.R")
 
 trt_summary <- cohort |>
   group_by(treatment) |>
@@ -162,7 +165,7 @@ trt_summary <- cohort |>
             se = sd(sbp_6m) / sqrt(n()), .groups = "drop")
 
 ggplot(trt_summary, aes(treatment, sbp_6m_mean)) +
-  geom_col(fill = pequod_crew_dark[["Ahab"]], width = 0.65) +
+  geom_col(fill = "#16222a", width = 0.65) +
   geom_errorbar(aes(ymin = sbp_6m_mean - se, ymax = sbp_6m_mean + se),
                 width = 0.15) +
   geom_text(aes(label = sprintf("%.1f", sbp_6m_mean)),
@@ -170,7 +173,7 @@ ggplot(trt_summary, aes(treatment, sbp_6m_mean)) +
   scale_y_continuous(limits = c(0, 160),
                      expand = expansion(mult = c(0, 0.05))) +
   labs(x = NULL, y = "SBP (mmHg)") +
-  theme_minimal(base_family = "Atkinson Hyperlegible Next")
+  theme_glauca()
 ```
 
 #### Python
@@ -185,7 +188,7 @@ summ = (cohort.groupby("treatment")["sbp_6m"]
 
 fig, ax = plt.subplots(figsize=(6.4, 4))
 sns.barplot(data=summ, x="treatment", y="mean",
-            color="#FFCD00", errorbar=None, ax=ax)
+            color="#5b9edb", errorbar=None, ax=ax)
 ax.errorbar(x=summ["treatment"], y=summ["mean"], yerr=summ["se"],
             fmt="none", color="black", capsize=4)
 for i, m in enumerate(summ["mean"]):
@@ -202,9 +205,9 @@ sns.despine(); fig.tight_layout()
 
 A row of pies or donuts asks the reader to compare angles across panels. Each donut is its own coordinate system, and the eye cannot triangulate between them. A dot plot puts every group on a single common scale, sortable by effect, and the comparison becomes automatic. The same data appears in @fig-donut and @fig-dotplot.
 
-![Four donuts, one per treatment, showing the proportion controlled at six months. Which arm is highest? Which two are tied?](../figures/dataviz/04-3d-ugly.png){#fig-donut}
+![Four donuts, one per treatment, showing the proportion controlled at six months. Which arm is highest? Which two are tied?](../figures/dataviz/04-3d-ugly.png){#fig-donut fig-alt="Four donut charts, one per treatment, showing proportion controlled; the four are hard to rank against each other by eye."}
 
-![A dot plot of the same percentages. ACEi tops the list. ARB and CCB are within a percentage point of each other. The visual ranking matches the numerical one.](../figures/dataviz/04-dotplot-good.png){#fig-dotplot}
+![A dot plot of the same percentages. ACEi tops the list. ARB and CCB are within a percentage point of each other. The visual ranking matches the numerical one.](../figures/dataviz/04-dotplot-good.png){#fig-dotplot fig-alt="A dot plot of the same four proportions on one axis: ACEi highest, ARB and CCB nearly tied, the ranking immediately clear."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -214,7 +217,8 @@ A row of pies or donuts asks the reader to compare angles across panels. Each do
 #### R
 
 ```r
-library(ggplot2); library(pequod); library(dplyr); library(scales)
+library(ggplot2); library(dplyr)
+source("glauca.R"); library(scales)
 
 ctrl <- cohort |>
   count(treatment, controlled_6m) |>
@@ -225,15 +229,15 @@ ctrl <- cohort |>
 
 ggplot(ctrl, aes(reorder(treatment, pct), pct)) +
   geom_segment(aes(xend = treatment, y = 0, yend = pct),
-               colour = pequod_log[["Log 300"]]) +
-  geom_point(colour = pequod_crew_dark[["Queequeg"]], size = 4.2) +
+               colour = "#c8cdd2") +
+  geom_point(colour = "#16222a", size = 4.2) +
   geom_text(aes(label = scales::percent(pct, accuracy = 1)),
             hjust = -0.5, family = "JetBrains Mono", size = 3.4) +
   coord_flip() +
   scale_y_continuous(labels = scales::percent_format(),
                      limits = c(0, 1)) +
   labs(x = NULL, y = "Controlled (%)") +
-  theme_minimal(base_family = "Atkinson Hyperlegible Next")
+  theme_glauca()
 ```
 
 #### Python
@@ -250,7 +254,7 @@ fig, ax = plt.subplots(figsize=(6.4, 4))
 ax.hlines(y=ctrl["treatment"], xmin=0, xmax=ctrl["pct"],
           colors="#B3BBC4")
 ax.scatter(ctrl["pct"], ctrl["treatment"],
-           color="#3A9653", s=140, zorder=3)
+           color="#009E73", s=140, zorder=3)
 for _, r in ctrl.iterrows():
     ax.text(r["pct"] + 0.02, r["treatment"], f'{r["pct"]:.0%}',
             va="center", family="monospace")
@@ -266,9 +270,9 @@ sns.despine(); fig.tight_layout()
 
 A second y-axis misleads without technically lying. It invents a relationship by drawing two lines on top of each other; whether the eye reads BMI as "above" or "below" SBP depends entirely on the secondary scale you happened to pick. Two trends that are statistically uncorrelated can be made to look identical, and two that are perfectly correlated can be made to look opposed. Small multiples solve this without effort: each variable gets its own panel and its own axis, and the comparison stays a comparison rather than a coincidence. See @fig-dualaxis and @fig-smallmult.
 
-![SBP and BMI by age band on a dual-axis chart. The two lines look correlated; they barely are.](../figures/dataviz/05-dualaxis-bad.png){#fig-dualaxis}
+![SBP and BMI by age band on a dual-axis chart. The two lines look correlated; they barely are.](../figures/dataviz/05-dualaxis-bad.png){#fig-dualaxis fig-alt="A dual-axis line chart overlaying systolic and BMI by age band on two different y-scales, the two lines appearing to move together."}
 
-![Same data, two panels, free y-axes. The shapes of the two trends become legible separately.](../figures/dataviz/05-smallmult-good.png){#fig-smallmult}
+![Same data, two panels, free y-axes. The shapes of the two trends become legible separately.](../figures/dataviz/05-smallmult-good.png){#fig-smallmult fig-alt="The same two series in separate panels with independent y-axes, their trends now clearly different."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -278,7 +282,8 @@ A second y-axis misleads without technically lying. It invents a relationship by
 #### R
 
 ```r
-library(ggplot2); library(pequod); library(dplyr); library(tidyr)
+library(ggplot2); library(dplyr)
+source("glauca.R"); library(tidyr)
 
 da <- cohort |>
   mutate(age_band = cut(age, c(30,45,55,65,75,85), include.lowest = TRUE,
@@ -288,11 +293,11 @@ da <- cohort |>
   pivot_longer(c(SBP, BMI), names_to = "metric", values_to = "value")
 
 ggplot(da, aes(age_band, value, group = 1)) +
-  geom_line(colour = pequod_crew_dark[["Ahab"]], linewidth = 1.1) +
-  geom_point(colour = pequod_crew_dark[["Ahab"]], size = 2.4) +
+  geom_line(colour = "#16222a", linewidth = 1.1) +
+  geom_point(colour = "#16222a", size = 2.4) +
   facet_wrap(~ metric, scales = "free_y") +
   labs(x = "Age band", y = NULL) +
-  theme_minimal(base_family = "Atkinson Hyperlegible Next")
+  theme_glauca()
 ```
 
 #### Python
@@ -310,7 +315,7 @@ da = (cohort.assign(
 
 g = sns.relplot(data=da, x="age_band", y="value", col="metric",
                 kind="line", marker="o", facet_kws={"sharey": False},
-                color="#1A1A1A", height=3.2, aspect=1.0)
+                color="#16222a", height=3.2, aspect=1.0)
 g.set_axis_labels("Age band", "")
 ```
 
@@ -322,9 +327,9 @@ g.set_axis_labels("Age band", "")
 
 Bar charts of means with error whiskers are the most-criticised chart pattern in modern statistics. They imply a symmetric sampling distribution that often does not exist, hide the sample size, and hide the outliers. Weissgerber and colleagues showed that distinct distributions can produce visually identical bar-and-whisker plots [@weissgerber2015beyond; @motulsky2014misconceptions]. The fix is to show the data: a box plot, a strip plot, a violin, or any combination thereof. A mean is a single number; the distribution is what determines whether that number is informative. @fig-meanbar collapses the four arms into a single statistic; @fig-distribution shows what is actually there.
 
-![Mean SBP per treatment as a bar with SE whiskers. Sample size is invisible, skew is invisible, outliers are invisible.](../figures/dataviz/06-bar-mean-bad.png){#fig-meanbar}
+![Mean SBP per treatment as a bar with SE whiskers. Sample size is invisible, skew is invisible, outliers are invisible.](../figures/dataviz/06-bar-mean-bad.png){#fig-meanbar fig-alt="A bar chart of mean systolic per treatment with standard-error whiskers, hiding sample size, skew, and outliers."}
 
-![Same data as a boxplot with jittered points and median markers. Spread, centre, and n become visible at once.](../figures/dataviz/06-distribution-good.png){#fig-distribution}
+![Same data as a boxplot with jittered points and median markers. Spread, centre, and n become visible at once.](../figures/dataviz/06-distribution-good.png){#fig-distribution fig-alt="The same data as boxplots with jittered points and median markers, showing spread, centre, and sample size together."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -334,16 +339,17 @@ Bar charts of means with error whiskers are the most-criticised chart pattern in
 #### R
 
 ```r
-library(ggplot2); library(pequod)
+library(ggplot2)
+source("glauca.R")
 
 ggplot(cohort, aes(treatment, sbp_6m, colour = treatment)) +
   geom_jitter(width = 0.18, alpha = 0.25, size = 1.4) +
   geom_boxplot(width = 0.4, fill = NA, outlier.shape = NA, linewidth = 0.6) +
   stat_summary(fun = median, geom = "point", shape = 18, size = 3.2,
                colour = "black") +
-  scale_colour_pequod_d(palette = "crew") +
+  scale_colour_glauca_d() +
   labs(x = NULL, y = "SBP (mmHg)") +
-  theme_minimal(base_family = "Atkinson Hyperlegible Next") +
+  theme_glauca() +
   theme(legend.position = "none")
 ```
 
@@ -353,7 +359,7 @@ ggplot(cohort, aes(treatment, sbp_6m, colour = treatment)) +
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-crew = ["#1A1A1A", "#2B7BB9", "#D06B3A", "#3A9653"]
+crew = ["#16222a", "#0b62cf", "#D55E00", "#009E73"]
 
 fig, ax = plt.subplots(figsize=(6.4, 4))
 sns.stripplot(data=cohort, x="treatment", y="sbp_6m",
@@ -373,9 +379,9 @@ sns.despine(); fig.tight_layout()
 
 A spaghetti plot of every patient's trajectory has its uses: it is the right chart when the message is heterogeneity. For showing a treatment effect, it makes the reader work harder than necessary. Faceting the spaghetti by treatment and overlaying the group mean keeps the heterogeneity visible while letting the average do the rhetorical work, as in the move from @fig-spaghetti to @fig-faceted.
 
-![One hundred and twenty SBP trajectories on a single panel, coloured by treatment. The group signal is buried in the noise.](../figures/dataviz/07-spaghetti-ugly.png){#fig-spaghetti}
+![One hundred and twenty SBP trajectories on a single panel, coloured by treatment. The group signal is buried in the noise.](../figures/dataviz/07-spaghetti-ugly.png){#fig-spaghetti fig-alt="About 120 individual systolic trajectories over time on one panel coloured by treatment, overlapping into an unreadable tangle."}
 
-![Same data faceted by treatment with the group mean overlaid. The shape of each response becomes legible.](../figures/dataviz/07-smallmult-mean-good.png){#fig-faceted}
+![Same data faceted by treatment with the group mean overlaid. The shape of each response becomes legible.](../figures/dataviz/07-smallmult-mean-good.png){#fig-faceted fig-alt="The same trajectories faceted into one panel per treatment with the group-mean line overlaid, each response shape now legible."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -385,7 +391,8 @@ A spaghetti plot of every patient's trajectory has its uses: it is the right cha
 #### R
 
 ```r
-library(ggplot2); library(pequod); library(dplyr); library(tidyr)
+library(ggplot2); library(dplyr)
+source("glauca.R"); library(tidyr)
 
 # `traj` is the long-format cohort with months 0/1/3/6 and SBP per id.
 traj_summary <- traj |>
@@ -398,10 +405,10 @@ ggplot(mapping = aes(month, sbp)) +
   geom_line(data = traj_summary,
             aes(group = treatment, colour = treatment), linewidth = 1.4) +
   geom_point(data = traj_summary, aes(colour = treatment), size = 2.4) +
-  scale_colour_pequod_d(palette = "crew") +
+  scale_colour_glauca_d() +
   facet_wrap(~ treatment, nrow = 1) +
   labs(x = "Months from baseline", y = "SBP (mmHg)") +
-  theme_minimal(base_family = "Atkinson Hyperlegible Next") +
+  theme_glauca() +
   theme(legend.position = "none")
 ```
 
@@ -411,7 +418,7 @@ ggplot(mapping = aes(month, sbp)) +
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-crew = ["#1A1A1A", "#2B7BB9", "#D06B3A", "#3A9653"]
+crew = ["#16222a", "#0b62cf", "#D55E00", "#009E73"]
 
 g = sns.FacetGrid(traj, col="treatment", hue="treatment",
                   palette=crew, height=3.2, aspect=1.0,

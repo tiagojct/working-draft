@@ -1,0 +1,10 @@
+# Generated from glauca.json. Glauca matplotlib base (non-colour keys only).
+# Colours are applied by glauca.use_glauca(); hex values are not parsed here
+# because the style-file parser treats '#' as a comment.
+font.family: sans-serif
+font.sans-serif: IBM Plex Sans, DejaVu Sans
+axes.grid: True
+grid.linewidth: 0.6
+axes.spines.top: False
+axes.spines.right: False
+axes.titlelocation: left

@@ -40,7 +40,7 @@ Inadequate:
 
 Complete:
 
-> *"Association between log-transformed NT-proBNP at discharge and left ventricular ejection fraction (LVEF) in the full cohort (n = 5,070 with both values available). Line shows ordinary least-squares regression (slope: −0.12 log-units per % LVEF, 95% CI −0.15 to −0.09). Shaded band: 95% confidence interval for the regression line. Individual points: random 20% subsample (n = 1,014) for legibility."*
+> *"Association between log-transformed NT-proBNP at discharge and left ventricular ejection fraction (LVEF) in the full cohort (n = 5,065 with both values available). Line shows ordinary least-squares regression (slope: −0.12 log-units per % LVEF, 95% CI −0.15 to −0.09). Shaded band: 95% confidence interval for the regression line. Individual points: random 20% subsample (n = 1,013) for legibility."*
 
 Note the explicit mention that only a subsample of points is plotted — a disclosure that protects against a reader inferring the sample size from the number of visible points.
 
