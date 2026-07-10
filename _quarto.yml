@@ -15,6 +15,7 @@ book:
   repo-url: https://github.com/tiagojct/working-draft
   repo-actions: [edit, issue]
   search: true
+  downloads: [pdf]
   open-graph:
     title: "The Working Draft"
     description: "Writing and data visualisation for health researchers."
@@ -62,7 +63,6 @@ csl: assets/nature.csl
 
 format:
   fmup-html:
-    include-in-header: assets/head.html
     # Book-specific SCSS overrides layered on top of the fmup theme.
     # The extension provides fonts, palette, navbar, sidebar, TOC,
     # links, code, tables, callouts, blockquotes, focus, buttons,
@@ -81,3 +81,8 @@ format:
     grid:
       body-width: 780px
       margin-width: 260px
+  fmup-typst:
+    # Downloadable PDF via the fmup extension's Typst format (institutional
+    # fonts bundled). Margin references have no Typst equivalent, so they
+    # fall back to inline footnotes/citations in the PDF.
+    reference-location: document
