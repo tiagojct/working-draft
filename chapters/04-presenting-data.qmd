@@ -14,9 +14,9 @@ A worked example of why the format choice matters. The same finding (*"participa
 
 ::: {#fig-overkill layout-ncol=2}
 
-![A pie chart of a single proportion: two slices, one short sentence of information, several seconds of reader effort to estimate the angle.](../figures/sw/05-pie-overkill.png){#fig-pie-overkill}
+![A pie chart of a single proportion: two slices, one short sentence of information, several seconds of reader effort to estimate the angle.](../figures/sw/05-pie-overkill.png){#fig-pie-overkill fig-alt="A two-slice pie chart of a single proportion; the slices are close in size and hard to compare by angle."}
 
-![A bar chart of the same proportion: two bars, the y-axis carries no extra meaning, and the reader still has to read the number off the label.](../figures/sw/06-bar-overkill.png){#fig-bar-overkill}
+![A bar chart of the same proportion: two bars, the y-axis carries no extra meaning, and the reader still has to read the number off the label.](../figures/sw/06-bar-overkill.png){#fig-bar-overkill fig-alt="A two-bar chart of the same single proportion; the value is still read from the number label rather than the bar height."}
 
 Both charts occupy valuable space to communicate a single number. The sentence *"Participants were mostly female, 3,300 (83%)"* conveys the same information in less space, with no risk of misreading.
 :::
@@ -59,6 +59,22 @@ Problems: spurious precision (`72.431`, `12.812%`); inconsistent labels (`Gender
 
 Improvements: decimals consistent and proportionate to measurement precision; units in the variable labels; `n (%)` for every categorical variable; medians with IQR for skewed variables (BMI, eGFR, NT-proBNP, the latter always reported on a skewed scale); group sizes in the header; p-values reported to two decimals, or `<0.001` when smaller; precise category labels (`Male sex`); rows ordered by a clinically intuitive logic (demographics, anthropometry, behaviour, severity, biomarkers, comorbidity, outcomes).
 
+## Results tables
+
+A baseline table describes the sample; a results table carries the analysis, and it follows different rules. A multivariable model gets one row per predictor, and each row needs the effect estimate, its 95% confidence interval, and the p-value. Report the estimate on its natural scale (odds ratio, hazard ratio, mean difference), state the per-unit contrast for continuous predictors, and name the reference category for every categorical one. Put the outcome, the model, and the denominator in the title, once, rather than repeating them down the rows.
+
+| Predictor                    | Adjusted OR (95% CI) | p       |
+|------------------------------|----------------------|---------|
+| NT-proBNP (per log-unit)     | 1.31 (1.08--1.59)    | 0.005   |
+| Age (per 10 years)           | 1.14 (1.02--1.28)    | 0.02    |
+| Male sex (vs female)         | 1.09 (0.88--1.35)    | 0.43    |
+| LVEF (per 5 %)               | 0.92 (0.85--0.99)    | 0.03    |
+| NYHA III--IV (vs I--II)      | 1.67 (1.31--2.13)    | <0.001  |
+
+: Multivariable logistic regression for 30-day readmission (complete-case, n = 5,065). Reference categories: female sex, NYHA I--II. {tbl-colwidths="[46,30,24]"}
+
+The intercept is not a finding; omit it. Do not report a predictor as significant in the table and then discuss a different unadjusted number in the text — the table and the prose must name the same estimate. And do not print the same estimates in a table, a figure, and the running text: choose the one that does the work and cross-reference it from the others. A table earns its place when the reader needs exact values — a confidence interval a regulator will check, a number a later meta-analysis will extract. A figure earns its place when the reader needs a pattern, such as a monotonic gradient across quartiles. When both are true, the figure carries the message and the table goes to the supplement.
+
 ## Reporting numbers
 
 Precision matters more than volume. A few rules avoid most problems in peer review.
@@ -67,7 +83,7 @@ Precision matters more than volume. A few rules avoid most problems in peer revi
 - **p-values.** Two decimals when p ≥ 0.01. Three decimals when 0.001 ≤ p < 0.01. Below that, report `<0.001`. Never `p = 0.000`. Never `NS`; give the actual number so the reader can judge.
 - **Estimate + 95% CI with every p-value.** A p-value says whether a difference is unlikely by chance; it does not say whether it is clinically meaningful. Report the estimate (mean difference, OR, HR, RR) with its confidence interval.
 - **Statistical significance is not clinical importance.** A finding can be statistically significant and clinically trivial (e.g. *"mean LDL fell by 0.03 mmol/L (95% CI 0.01--0.05, p = 0.002)"* is significant and clinically negligible), or clinically meaningful but not statistically significant in an underpowered study. Use "significant" only when you mean statistical significance, and always pair it with the effect size so the reader can judge [@motulsky2014misconceptions].
-- **Missing data.** State the denominator for every analysis. If 134 of 5,204 participants have a missing NT-proBNP value, say so (`NT-proBNP available for 5,070 of 5,204 patients, 97.4%`) and describe how you handled the missingness (complete-case, multiple imputation). STROBE item 12 covers this.
+- **Missing data.** State the denominator for every analysis. If 139 of 5,204 participants have a missing NT-proBNP value, say so (`NT-proBNP available for 5,065 of 5,204 patients, 97.3%`) and describe how you handled the missingness (complete-case, multiple imputation). STROBE item 12 covers this.
 - **Units.** SI units for laboratory values (μmol/L, mmol/L) unless the target journal specifies otherwise, and consistent throughout the paper.
 
 ## Graphs
@@ -86,13 +102,13 @@ The same fictional heart failure data, plotted four different ways, shows each f
 
 ::: {#fig-wilke layout-ncol=2}
 
-![**Ugly.** Harsh red/green defaults, lowercase axis labels, no units. Accurate, but unpublishable.](../figures/sw/01-ugly.png){#fig-ugly}
+![**Ugly.** Harsh red/green defaults, lowercase axis labels, no units. Accurate, but unpublishable.](../figures/sw/01-ugly.png){#fig-ugly fig-alt="A bar chart with harsh red and green bars, lowercase axis labels, and no units."}
 
-![**Bad.** Bar chart with SD error bars on a right-skewed biomarker. The distribution is log-normal; the bars imply a symmetric sampling distribution that does not exist here.](../figures/sw/02-bad-bar.png){#fig-bad-bar}
+![**Bad.** Bar chart with SD error bars on a right-skewed biomarker. The distribution is log-normal; the bars imply a symmetric sampling distribution that does not exist here.](../figures/sw/02-bad-bar.png){#fig-bad-bar fig-alt="A bar chart with symmetric standard-deviation error bars on a right-skewed biomarker, implying a symmetry the data lack."}
 
-![**Bad.** A truncated y-axis turns a ~15% true difference (1,000 vs 1,150 pg/mL, clinically modest) into what looks like a 4-fold effect. The same numbers on a zero-anchored axis would look unremarkable.](../figures/sw/03-bad-truncated.png){#fig-bad-trunc}
+![**Bad.** A truncated y-axis turns a ~15% true difference (1,000 vs 1,150 pg/mL, clinically modest) into what looks like a 4-fold effect. The same numbers on a zero-anchored axis would look unremarkable.](../figures/sw/03-bad-truncated.png){#fig-bad-trunc fig-alt="A bar chart whose y-axis does not start at zero, exaggerating a roughly 15 percent difference into an apparent several-fold gap."}
 
-![**Good.** Boxplot with jittered raw data, log-scaled y-axis (appropriate for a right-skewed biomarker), accessible two-colour palette, and a caption that makes the figure self-contained.](../figures/sw/04-good.png){#fig-good}
+![**Good.** Boxplot with jittered raw data, log-scaled y-axis (appropriate for a right-skewed biomarker), accessible two-colour palette, and a caption that makes the figure self-contained.](../figures/sw/04-good.png){#fig-good fig-alt="A boxplot with jittered raw data points on a log-scaled y-axis in a two-colour accessible palette, showing the biomarker distribution by group."}
 
 NT-proBNP at discharge by 30-day readmission status (simulated). Panels A, B, and D share the same cohort (n = 200 per group); panel C uses a separate, deliberately modest scenario to isolate the truncation effect.
 :::

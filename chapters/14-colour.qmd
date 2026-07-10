@@ -22,6 +22,14 @@ Before publishing, run your palette through a CVD simulation. The Colblindor too
 
 Two rules prevent most accessibility failures. First, never rely on colour alone to encode a distinction that carries the result: pair hue with shape, line style, fill pattern, or a direct label. Second, check your palette in simulation before submission, not after review.
 
+## Accessibility beyond colour
+
+Colour is the accessibility failure reviewers name most often, but it is not the only one. Two further checks catch the rest.
+
+**Text size.** Figure text competes with the body text around it, and it is set at the size of the final printed figure, not the size on screen while you draw it. Axis labels, tick labels, and annotations should stay legible when the figure is scaled to its column width. A safe floor is 7 pt for the smallest text at final dimensions; below 5 pt it is unreadable in print. Export at the target width (see [Preparing figures for submission](#preparing-figures-for-submission) below) and read the labels at 100 %.
+
+**Alt text.** An online figure needs a text alternative for readers using a screen reader. The caption does not serve: it states the point of the figure, whereas the alt text describes what the figure shows — the chart type, the axes, and the shape of the pattern — so that a reader who cannot see it reaches the same conclusion. One sentence is usually enough: *"Kaplan-Meier curves for two arms; the treated arm separates upward after month two."* In Quarto, set it with the `fig-alt` attribute; most journal submission systems now provide an alt-text field, and leaving it blank is a growing cause of accessibility-desk queries.
+
 ## Pequod in practice
 
 The Pequod palette has three functional groups, and the chart you draw should use them according to function rather than aesthetics.
@@ -58,7 +66,7 @@ A theme is not just a colour palette — it is the complete visual vocabulary of
 
 @fig-theme-comparison shows the same layered distribution plot (DBP at baseline by treatment arm) rendered in two themes. The FMUP theme uses a white background and an institutional categorical palette designed to read on white. The Pequod theme uses the warm Log 50 paper background with the Crew Light accents tuned for that surface. Neither is wrong; they belong to different visual contexts.
 
-![DBP at baseline by treatment arm: FMUP theme (left) and Pequod theme (right). Same data, same geometry, different visual register.](../figures/dataviz/theme-comparison.png){#fig-theme-comparison}
+![DBP at baseline by treatment arm: FMUP theme (left) and Pequod theme (right). Same data, same geometry, different visual register.](../figures/dataviz/theme-comparison.png){#fig-theme-comparison fig-alt="The same layered distribution plot rendered twice side by side: left on a white FMUP theme, right on a warm Pequod paper background, with identical geometry and data."}
 
 ::: {.callout-note collapse="true"}
 ## Theme setup code
