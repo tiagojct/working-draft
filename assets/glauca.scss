@@ -1,0 +1,19 @@
+/*-- scss:defaults --*/
+$body-bg: #f0f4f6;
+$body-color: #16222a;
+$link-color: #0b62cf;
+$border-color: #cdd7dc;
+$font-family-base: "IBM Plex Sans", Georgia, serif;
+$headings-font-family: "IBM Plex Serif", Georgia, serif;
+$font-family-monospace: "IBM Plex Mono", ui-monospace, monospace;
+$code-color: #084b96;
+$code-bg: #f7fafb;
+$blockquote-border-color: #0b62cf;
+
+/*-- scss:rules --*/
+body { font-variant-numeric: oldstyle-nums proportional-nums; line-height: 1.62; }
+h1, h2, h3, h4 { font-variation-settings: "opsz" 60, "wght" 600, "WONK" 1; letter-spacing: -0.01em; text-wrap: balance; }
+h1 { color: #0b62cf; }
+a { text-underline-offset: 0.15em; }
+.callout { border-inline-start-color: #0b62cf; }
+pre, code { font-feature-settings: "liga" 1, "calt" 1; }

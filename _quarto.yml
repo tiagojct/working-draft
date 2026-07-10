@@ -10,7 +10,6 @@ book:
     affiliation: Faculty of Medicine, University of Porto
     orcid: 0000-0002-7897-1101
   date: "2026-05-15"
-  cover-image: figures/dataviz/hero.png
   favicon: assets/favicon.svg
   repo-url: https://github.com/tiagojct/working-draft
   repo-actions: [edit, issue]
@@ -19,7 +18,6 @@ book:
   open-graph:
     title: "The Working Draft"
     description: "Writing and data visualisation for health researchers."
-    image: figures/dataviz/hero.png
   page-footer:
     center: |
       [Tiago Jacinto](https://tiagojct.eu) · Faculty of Medicine, University of Porto ·
@@ -63,16 +61,22 @@ bibliography: [assets/refs-sw.bib, assets/refs-dataviz.bib]
 csl: assets/nature.csl
 
 format:
-  fmup-html:
-    # Book-specific SCSS overrides layered on top of the fmup theme.
-    # The extension provides fonts, palette, navbar, sidebar, TOC,
-    # links, code, tables, callouts, blockquotes, focus, buttons,
-    # print styles, and reduced-motion handling.
+  html:
+    # Glauca theme: light (Pruina) leads, dark (Profundum) answers.
+    # book.scss is the book-only layer over the vendored Glauca SCSS.
     theme:
       light:
-        - assets/custom.scss
+        - assets/glauca.scss
+        - assets/book.scss
       dark:
-        - assets/custom.scss
+        - assets/glauca-dark.scss
+        - assets/book.scss
+    # Self-hosted IBM Plex (base64-inlined woff2) so fonts load on
+    # GitHub Pages and file:// without path resolution issues.
+    css: assets/glauca-fonts.css
+    highlight-style: assets/glauca.theme
+    mainfont: "IBM Plex Sans"
+    monofont: "IBM Plex Mono"
     reference-location: margin
     footnotes-hover: true
     fig-align: center
@@ -82,8 +86,21 @@ format:
     grid:
       body-width: 780px
       margin-width: 260px
-  fmup-typst:
-    # Downloadable PDF via the fmup extension's Typst format (institutional
-    # fonts bundled). Margin references have no Typst equivalent, so they
-    # fall back to inline footnotes/citations in the PDF.
-    reference-location: document
+  typst:
+    # Downloadable PDF. Glauca brand (IBM Plex + blue headings/links)
+    # injected via typst-brand.typ; static IBM Plex faces bundled under
+    # fonts/glauca so the PDF is correctly set on CI too.
+    include-in-header: assets/glauca-typst.typ
+    font-paths:
+      - fonts/glauca
+    papersize: a4
+    fontsize: 11pt
+    margin:
+      x: 2.5cm
+      y: 2.5cm
+    mainfont: "IBM Plex Sans"
+    monofont: "IBM Plex Mono"
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    fig-align: center
