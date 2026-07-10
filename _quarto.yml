@@ -37,6 +37,7 @@ book:
         - chapters/05-editorial-process.qmd
         - chapters/06-reporting-guidelines.qmd
         - chapters/open-science.qmd
+        - chapters/systematic-reviews.qmd
         - chapters/07-reference-management.qmd
         - chapters/08-co-authorship.qmd
         - chapters/ai-writing.qmd
