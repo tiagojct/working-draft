@@ -30,7 +30,7 @@ Most survival analyses in clinical research involve three related outputs report
 
 **In results:**
 
-> *"The 30-day readmission rate was 12.3% (95% CI 11.5–13.1%). Kaplan-Meier curves showed a higher cumulative incidence of readmission in patients with NT-proBNP ≥ 1,000 pg/mL at discharge (log-rank p < 0.001; Figure 2). In multivariable Cox regression, NT-proBNP at discharge was independently associated with time to readmission both continuously (adjusted HR per log-unit: 1.31, 95% CI 1.08–1.59, p = 0.005) and across quartiles, with a monotonic gradient from Q1 (reference) to Q4 (adjusted HR 2.14, 95% CI 1.56–2.94). The proportional hazards assumption was satisfied for all covariates (global Schoenfeld test p = 0.61)."*
+> *"The 30-day readmission rate was 12.8% (95% CI 11.9–13.7%). Kaplan-Meier curves showed a higher cumulative incidence of readmission in patients with NT-proBNP ≥ 1,000 pg/mL at discharge (log-rank p < 0.001; Figure 2). In multivariable Cox regression, NT-proBNP at discharge was independently associated with time to readmission both continuously (adjusted HR per log-unit: 1.31, 95% CI 1.08–1.59, p = 0.005) and across quartiles, with a monotonic gradient from Q1 (reference) to Q4 (adjusted HR 2.14, 95% CI 1.56–2.94). The proportional hazards assumption was satisfied for all covariates (global Schoenfeld test p = 0.61)."*
 
 The order matters: event rate first, visual result second, adjusted estimate third. The Schoenfeld test is reported regardless of the result; it was named in methods.
 
@@ -44,7 +44,7 @@ Diagnostic accuracy studies produce a cluster of statistics that should be repor
 
 **In results:**
 
-> *"The AUC for NT-proBNP at discharge was 0.71 (95% CI 0.68–0.74). At the threshold of 1,000 pg/mL (Youden index 0.31), sensitivity was 73% (95% CI 69–77%) and specificity 62% (95% CI 61–64%). Given the observed readmission prevalence of 12.3%, the positive predictive value was 21% (95% CI 19–24%) and the negative predictive value 94% (95% CI 93–95%)."*
+> *"The AUC for NT-proBNP at discharge was 0.71 (95% CI 0.68–0.74). At the threshold of 1,000 pg/mL (Youden index 0.31), sensitivity was 73% (95% CI 69–77%) and specificity 62% (95% CI 61–64%). Given the observed readmission prevalence of 12.8%, the positive predictive value was 21% (95% CI 19–24%) and the negative predictive value 94% (95% CI 93–95%)."*
 
 ## The missing-data paragraph
 
@@ -52,11 +52,11 @@ Missing-data handling requires two coordinated paragraphs: one in methods (what 
 
 **In methods:**
 
-> *"NT-proBNP at discharge was available for 5,070 of 5,204 participants (97.4%). For all covariates, missingness was below 2%. Complete-case analysis was the primary approach. A pre-specified sensitivity analysis using multiple imputation by chained equations [@vanbuuren2011mice] (20 imputed datasets; predictive mean matching for continuous variables, logistic regression for binary variables) was conducted to assess the influence of missing data on the primary result [@sterne2009missing]."*
+> *"NT-proBNP at discharge was available for 5,065 of 5,204 participants (97.3%). For all covariates, missingness was below 2%. Complete-case analysis was the primary approach. A pre-specified sensitivity analysis using multiple imputation by chained equations [@vanbuuren2011mice] (20 imputed datasets; predictive mean matching for continuous variables, logistic regression for binary variables) was conducted to assess the influence of missing data on the primary result [@sterne2009missing]."*
 
 **In results:**
 
-> *"The complete-case analysis included 5,070 participants. In the multiple imputation sensitivity analysis, results were consistent with the primary analysis: the adjusted OR was 1.28 (95% CI 1.05–1.56) in the imputed dataset, compared with 1.31 (95% CI 1.08–1.59) in the complete-case analysis."*
+> *"The complete-case analysis included 5,065 participants. In the multiple imputation sensitivity analysis, results were consistent with the primary analysis: the adjusted OR was 1.28 (95% CI 1.05–1.56) in the imputed dataset, compared with 1.31 (95% CI 1.08–1.59) in the complete-case analysis."*
 
 Note what this results paragraph does not say: it does not declare the results "similar" without a number. It reports both estimates in the same format and lets the reader judge.
 
@@ -66,7 +66,7 @@ Name each sensitivity analysis in methods and give it a label — (i), (ii), (ii
 
 **In methods:**
 
-> *"Three pre-specified sensitivity analyses were conducted: (i) restricting to patients with LVEF < 50%; (ii) excluding patients with a prior HF admission in the preceding 12 months; (iii) replacing NT-proBNP with BNP as the exposure, available in a subset of 2,104 patients."*
+> *"Three pre-specified sensitivity analyses were conducted: (i) restricting to patients with LVEF < 50%; (ii) excluding patients with a prior HF admission in the preceding 12 months; (iii) replacing NT-proBNP with BNP as the exposure, available in a subset of 2,068 patients."*
 
 **In results:**
 

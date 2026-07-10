@@ -34,7 +34,7 @@ The three items below are flagged most often in peer review and most often missi
 
 State the denominator for every analysis and describe how you handled missingness. Complete-case analysis is a decision, not a default; it must be justified, and any sensitivity analysis with multiple imputation must be pre-specified [@sterne2009missing]. The full template for the paired methods + results paragraphs is in the [statistical writing chapter](statistical-writing.qmd#the-missing-data-paragraph); the minimum for STROBE compliance is:
 
-> *"NT-proBNP at discharge was available for 5,070 of 5,204 participants (97.4%). Missingness for all covariates was below 2%. The primary analysis was complete-case; a pre-specified sensitivity analysis used multiple imputation by chained equations (20 imputed datasets) [@vanbuuren2011mice]."*
+> *"NT-proBNP at discharge was available for 5,065 of 5,204 participants (97.3%). Missingness for all covariates was below 2%. The primary analysis was complete-case; a pre-specified sensitivity analysis used multiple imputation by chained equations (20 imputed datasets) [@vanbuuren2011mice]."*
 
 The denominator, the missingness rate, the analytic decision, and the sensitivity check are all named. *"Complete-case analysis was performed"* without these elements does not satisfy the item.
 
