@@ -17,6 +17,7 @@ python scripts/check-refs.py         # lint: undefined citations / missing figur
 python figures/sw_cohort.py          # regenerate figures/sw/cohort.csv (heart failure)
 python figures/dv_cohort.py          # regenerate figures/dataviz/cohort.csv (hypertension)
 python figures/generate.py           # regenerate every PNG under figures/sw/ and figures/dataviz/
+python figures/meta_forest.py        # regenerate figures/sw/forest-meta.png (meta-analysis forest)
 ```
 
 [.github/workflows/deploy.yml](.github/workflows/deploy.yml) builds and deploys to GitHub Pages on push to `main`. [.github/workflows/check.yml](.github/workflows/check.yml) runs on every pull request: [scripts/check-refs.py](scripts/check-refs.py) first (fails the check on undefined citations or missing figure/asset paths, which `quarto render` alone lets through with exit 0), then the render, then a non-blocking lychee external-link check, then uploads `_book/` as an artifact.
