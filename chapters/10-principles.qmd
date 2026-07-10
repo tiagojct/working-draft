@@ -25,7 +25,7 @@ The figure has to survive an unfair amount of attention from a rushed reader, no
 Two consequences. The figure must be self-sufficient: title, axes, units, sample size, legend, and any abbreviations the reader needs are on the chart, not waiting for the caption. And it must be redundant on purpose: colour, position, label, and shape often encode the same thing, and that overlap is what keeps the figure readable when one channel breaks. About 8 % of men have red-green colour-vision deficiency [@birch2012diagnosis], and they will navigate by shape and label long before they navigate by hue.
 
 ::: {.column-margin}
-The full Pequod design rationale, including a colour-vision-deficiency report (Viénot–Brettel–Mollon simulation [@vienot1999digital] across protanopia, deuteranopia, and tritanopia), is at [tiagojct.eu/projects/pequod/](https://tiagojct.eu/projects/pequod/).
+The book's figures use the Glauca palette, audited for colour-vision deficiency across protanopia, deuteranopia, and tritanopia (a Viénot–Brettel–Mollon simulation [@vienot1999digital]); the categorical scale is the CVD-safe Okabe-Ito set. The design system is at [github.com/tiagojct/glauca](https://github.com/tiagojct/glauca).
 :::
 
 ## Wilke's taxonomy

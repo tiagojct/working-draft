@@ -16,16 +16,17 @@ A histogram bins a single continuous variable into ranges and draws the count (o
 #### R
 
 ```r
-library(ggplot2); library(pequod)
+library(ggplot2)
+source("glauca.R")
 
 ggplot(cohort, aes(sbp_baseline)) +
   geom_histogram(aes(y = after_stat(density)),
                  binwidth = 5,
-                 fill = pequod_crew_light[["Starbuck"]],
+                 fill = "#5b9edb",
                  colour = "white", linewidth = 0.4) +
-  geom_density(colour = pequod_crew_dark[["Ahab"]], linewidth = 1.0) +
+  geom_density(colour = "#16222a", linewidth = 1.0) +
   labs(x = "SBP at baseline (mmHg)", y = "Density") +
-  theme_minimal(base_family = "Atkinson Hyperlegible Next")
+  theme_glauca()
 ```
 
 #### Python
@@ -36,10 +37,10 @@ import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots(figsize=(6.4, 3.6))
 sns.histplot(data=cohort, x="sbp_baseline", binwidth=5,
-             stat="density", color="#FFCD00", alpha=0.75,
+             stat="density", color="#5b9edb", alpha=0.75,
              edgecolor="white", ax=ax)
 sns.kdeplot(data=cohort, x="sbp_baseline",
-            color="#1A1A1A", linewidth=2, ax=ax)
+            color="#16222a", linewidth=2, ax=ax)
 ax.set(xlabel="SBP at baseline (mmHg)", ylabel="Density")
 sns.despine(); fig.tight_layout()
 ```
@@ -62,17 +63,18 @@ A boxplot summarises a distribution as five numbers: median, quartiles, whiskers
 #### R
 
 ```r
-library(ggplot2); library(pequod)
+library(ggplot2)
+source("glauca.R")
 
 ggplot(cohort, aes(treatment, dbp_baseline,
                    colour = treatment, fill = treatment)) +
   geom_violin(alpha = 0.18, linewidth = 0.4) +
   geom_jitter(width = 0.16, alpha = 0.30, size = 1.3) +
   geom_boxplot(width = 0.18, fill = NA, outlier.shape = NA, linewidth = 0.5) +
-  scale_colour_pequod_d(palette = "crew") +
-  scale_fill_pequod_d(palette = "crew") +
+  scale_colour_glauca_d() +
+  scale_fill_glauca_d() +
   labs(x = NULL, y = "DBP at baseline (mmHg)") +
-  theme_minimal(base_family = "Atkinson Hyperlegible Next") +
+  theme_glauca() +
   theme(legend.position = "none")
 ```
 
@@ -82,7 +84,7 @@ ggplot(cohort, aes(treatment, dbp_baseline,
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-palette = ["#1A1A1A", "#2B7BB9", "#D06B3A", "#3A9653"]
+palette = ["#16222a", "#0b62cf", "#D55E00", "#009E73"]
 
 fig, ax = plt.subplots(figsize=(6.4, 4))
 sns.violinplot(data=cohort, x="treatment", y="dbp_baseline",
@@ -114,16 +116,17 @@ A scatter plot puts two continuous variables on the two axes and one dot per obs
 #### R
 
 ```r
-library(ggplot2); library(pequod)
+library(ggplot2)
+source("glauca.R")
 
 ggplot(cohort, aes(sbp_baseline, dbp_baseline)) +
-  geom_point(alpha = 0.30, colour = pequod_crew_dark[["Queequeg"]],
+  geom_point(alpha = 0.30, colour = "#16222a",
              size = 1.4) +
   geom_smooth(method = "lm", se = TRUE,
-              colour = pequod_crew_dark[["Ahab"]],
-              fill   = pequod_crew_light[["Ahab"]], alpha = 0.25) +
+              colour = "#16222a",
+              fill   = "#0b62cf", alpha = 0.25) +
   labs(x = "SBP at baseline (mmHg)", y = "DBP at baseline (mmHg)") +
-  theme_minimal(base_family = "Atkinson Hyperlegible Next")
+  theme_glauca()
 ```
 
 #### Python
@@ -134,8 +137,8 @@ import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots(figsize=(6.4, 4.4))
 sns.regplot(data=cohort, x="sbp_baseline", y="dbp_baseline",
-            scatter_kws=dict(alpha=0.30, color="#2B7BB9", s=14),
-            line_kws=dict(color="#1A1A1A", linewidth=2),
+            scatter_kws=dict(alpha=0.30, color="#0b62cf", s=14),
+            line_kws=dict(color="#16222a", linewidth=2),
             ax=ax)
 ax.set(xlabel="SBP at baseline (mmHg)", ylabel="DBP at baseline (mmHg)")
 sns.despine(); fig.tight_layout()
@@ -159,16 +162,17 @@ A line plot connects points across an ordered x-axis (usually time, visit, or do
 #### R
 
 ```r
-library(ggplot2); library(pequod); library(dplyr)
+library(ggplot2); library(dplyr)
+source("glauca.R")
 
 # `traj_summary` has columns: treatment, month, sbp (mean per group/visit)
 ggplot(traj_summary, aes(month, sbp, colour = treatment)) +
   geom_line(linewidth = 1.3) +
   geom_point(size = 2.4) +
-  scale_colour_pequod_d(palette = "crew") +
+  scale_colour_glauca_d() +
   scale_x_continuous(breaks = c(0, 1, 3, 6)) +
   labs(x = "Months from baseline", y = "SBP (mmHg)", colour = NULL) +
-  theme_minimal(base_family = "Atkinson Hyperlegible Next")
+  theme_glauca()
 ```
 
 #### Python
@@ -177,7 +181,7 @@ ggplot(traj_summary, aes(month, sbp, colour = treatment)) +
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-palette = ["#1A1A1A", "#2B7BB9", "#D06B3A", "#3A9653"]
+palette = ["#16222a", "#0b62cf", "#D55E00", "#009E73"]
 
 fig, ax = plt.subplots(figsize=(7.2, 4))
 sns.lineplot(data=traj_summary, x="month", y="sbp",
@@ -206,7 +210,8 @@ A forest plot puts one effect-size estimate per row, each with its 95 % confiden
 #### R
 
 ```r
-library(ggplot2); library(pequod)
+library(ggplot2)
+source("glauca.R")
 
 fit_lm <- lm(delta_sbp ~ treatment, data = cohort)
 ci <- confint(fit_lm)
@@ -222,14 +227,14 @@ forest_data <- data.frame(
 ggplot(forest_data, aes(estimate, arm)) +
   geom_vline(xintercept = 0, linetype = "dashed") +
   geom_errorbar(aes(xmin = lo, xmax = hi), width = 0.18,
-                colour = pequod_crew_dark[["Ahab"]],
+                colour = "#16222a",
                 orientation = "y") +
-  geom_point(colour = pequod_crew_dark[["Ahab"]], size = 4) +
+  geom_point(colour = "#16222a", size = 4) +
   geom_text(aes(x = hi, label = sprintf("%.1f  (%.1f – %.1f)",
                                         estimate, lo, hi)),
             hjust = 0, nudge_x = 0.4, family = "JetBrains Mono", size = 3.3) +
   labs(x = "Δ SBP (mmHg, vs Placebo)", y = NULL) +
-  theme_minimal(base_family = "Atkinson Hyperlegible Next")
+  theme_glauca()
 ```
 
 #### Python
@@ -253,7 +258,7 @@ ax.axvline(0, color="#B3BBC4", linestyle="--")
 ax.errorbar(x=forest["estimate"], y=forest["arm"],
             xerr=[forest["estimate"] - forest["lo"],
                   forest["hi"]      - forest["estimate"]],
-            fmt="o", color="#1A1A1A",
+            fmt="o", color="#16222a",
             ms=10, capsize=4)
 for _, r in forest.iterrows():
     ax.text(r["hi"] + 0.4, r["arm"],
@@ -281,7 +286,8 @@ A Kaplan–Meier curve plots the proportion of the cohort still event-free over 
 #### R
 
 ```r
-library(ggplot2); library(pequod); library(survival); library(dplyr)
+library(ggplot2); library(survival); library(dplyr)
+source("glauca.R")
 
 # cohort_km has: treatment, event_time (months), event (0/1)
 fit  <- survfit(Surv(event_time, event) ~ treatment, data = cohort_km)
@@ -296,11 +302,11 @@ km_df <- data.frame(
 
 ggplot(km_df, aes(time, surv, colour = treatment)) +
   geom_step(linewidth = 1.1) +
-  scale_colour_pequod_d(palette = "crew") +
+  scale_colour_glauca_d() +
   scale_y_continuous(labels = scales::percent_format(), limits = c(0, 1)) +
   scale_x_continuous(breaks = 0:6) +
   labs(x = "Months from baseline", y = "Uncontrolled (%)", colour = NULL) +
-  theme_minimal(base_family = "Atkinson Hyperlegible Next")
+  theme_glauca()
 ```
 
 #### Python
@@ -310,7 +316,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from lifelines import KaplanMeierFitter
 
-palette = ["#1A1A1A", "#2B7BB9", "#D06B3A", "#3A9653"]
+palette = ["#16222a", "#0b62cf", "#D55E00", "#009E73"]
 
 fig, ax = plt.subplots(figsize=(7.2, 4))
 for arm, colour in zip(["Placebo", "ACEi", "ARB", "CCB"], palette):

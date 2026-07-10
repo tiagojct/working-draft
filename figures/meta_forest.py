@@ -33,42 +33,41 @@ BASE = Path(__file__).resolve().parent
 OUT = BASE / "sw" / "forest-meta.png"
 
 # ── register the institutional font if the bundled TTFs are present ──────────────
-_FONT_DIR = BASE.parent / "_extensions" / "tiagojct" / "fmup" / "fonts"
+_FONT_DIR = BASE.parent / "fonts" / "glauca"
 if _FONT_DIR.is_dir():
-    for _ttf in _FONT_DIR.glob("AtkinsonHyperlegibleNext-*.ttf"):
+    for _ttf in _FONT_DIR.glob("IBMPlex*.ttf"):
         try:
             fm.fontManager.addfont(str(_ttf))
         except Exception:
             pass
 
-FMUP_RC = {
-    "figure.facecolor": "white",
-    "axes.facecolor": "white",
-    "axes.edgecolor": "#E0E0E0",
+GLAUCA_RC = {
+    "figure.facecolor": "#ffffff",
+    "axes.facecolor": "#ffffff",
+    "axes.edgecolor": "#dde6ea",
     "axes.linewidth": 0.8,
     "axes.spines.top": False,
     "axes.spines.right": False,
     "axes.spines.left": False,
     "axes.grid": False,
-    "xtick.color": "#5B6470",
-    "ytick.color": "#5B6470",
+    "xtick.color": "#55646d",
+    "ytick.color": "#55646d",
     "xtick.labelsize": 8.5,
     "ytick.labelsize": 9,
-    "axes.labelcolor": "#1A1A1A",
+    "axes.labelcolor": "#16222a",
     "axes.labelsize": 9.5,
-    "text.color": "#1A1A1A",
+    "text.color": "#16222a",
     "font.family": "sans-serif",
-    "font.sans-serif": ["Atkinson Hyperlegible Next", "Atkinson Hyperlegible",
-                        "Helvetica Neue", "Arial", "DejaVu Sans"],
+    "font.sans-serif": ["IBM Plex Sans", "Helvetica Neue", "Arial", "DejaVu Sans"],
     "figure.dpi": 150,
     "savefig.dpi": 150,
-    "savefig.facecolor": "white",
+    "savefig.facecolor": "#ffffff",
     "savefig.pad_inches": 0.15,
 }
 
-INK = "#1A1A1A"
-ACCENT = "#2B7BB9"
-MUTED = "#5B6470"
+INK = "#16222a"
+ACCENT = "#0b62cf"   # Glauca blue mark
+MUTED = "#55646d"
 
 # ── fictional study estimates: (label, year, odds ratio, 95% CI low, high) ──────
 # Ordered oldest to newest; the final row is the book's own simulated cohort.
@@ -123,7 +122,7 @@ def main() -> None:
     mmax = max(wre)
     msize = [6 + 9 * (w / mmax) for w in wre]  # marker side scaled by weight
 
-    plt.rcParams.update(FMUP_RC)
+    plt.rcParams.update(GLAUCA_RC)
     fig, ax = plt.subplots(figsize=(8.2, 4.9))
 
     n = len(STUDIES)
