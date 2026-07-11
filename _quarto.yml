@@ -27,6 +27,7 @@ book:
     - part: "Part I · Writing"
       chapters:
         - chapters/01-why-writing.qmd
+        - chapters/framing-the-question.qmd
         - chapters/02-article-structure.qmd
         - chapters/03-clear-writing.qmd
         - chapters/writing-l2.qmd
@@ -55,6 +56,7 @@ book:
         - chapters/prediction-models.qmd
         - chapters/reproducibility.qmd
     - chapters/16-conclusion.qmd
+    - chapters/worked-example.qmd
     - chapters/guide.qmd
     - chapters/glossary.qmd
     - chapters/checklists.qmd
