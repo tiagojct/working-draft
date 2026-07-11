@@ -8,7 +8,7 @@ This chapter reports one worked model to that standard: a model for 30-day readm
 
 Report them as such. The model here was **developed** on a random 60% of the cohort (3,038 patients) and **validated** on the held-out 40% (2,027 patients) that played no part in fitting. Every performance number below is the validation number, because the development numbers are optimistic by construction: a model always fits the data it was trained on better than it fits anything else.
 
-A held-out split is the weakest form of validation and the one to use only when nothing better is available. Internal validation by bootstrapping or cross-validation uses the data more efficiently and yields an optimism-corrected estimate. **External** validation (a different hospital, a later time period, a different country) is what a reader actually wants, because it is the only evidence that the model survives the distribution shift it will meet in use. State which one you did, in the title if it is the point of the paper: *"development and internal validation"* and *"external validation"* are different studies and TRIPOD+AI asks you to say which.
+A held-out split is the weakest form of validation and the one to use only when nothing better is available. Internal validation by bootstrapping or cross-validation uses the data more efficiently and yields an optimism-corrected estimate. **External** validation (a different hospital, a later time period, a different country) is what a reader wants, because it is the only evidence that the model survives the distribution shift it will meet in use. State which one you did, in the title if it is the point of the paper: *"development and internal validation"* and *"external validation"* are different studies and TRIPOD+AI asks you to say which.
 
 ## Discrimination: can the model rank?
 
@@ -32,7 +32,7 @@ Discrimination and calibration are properties of the probabilities. Whether the 
 
 ![Decision curve on the validation set: net benefit of the model against the treat-all and treat-none strategies across threshold probabilities. The model line is at or above both defaults across the clinically relevant range.](../figures/sw/predmodel-dca.png){#fig-pred-dca fig-alt="A decision-curve plot: the model's net-benefit line stays at or above the treat-all diagonal and the treat-none horizontal across threshold probabilities from about 5 to 30 percent."}
 
-The model is worth using only where its curve is above both defaults. Here it beats *treat all* once the acting threshold exceeds roughly 7% and stays above *treat none* to about 20%. So for a clinician who would intervene on a patient at, say, 15% readmission risk, the model adds net benefit; for one who would act only above 30%, it does not, and the honest report says so. A decision curve turns an abstract c-statistic into the question a reader actually has: at my threshold, is this model better than the blunt alternatives?
+The model is worth using only where its curve is above both defaults. Here it beats *treat all* once the acting threshold exceeds roughly 7% and stays above *treat none* to about 20%. So for a clinician who would intervene on a patient at, say, 15% readmission risk, the model adds net benefit; for one who would act only above 30%, it does not, and the honest report says so. A decision curve turns an abstract c-statistic into the question a reader has: at my threshold, is this model better than the blunt alternatives?
 
 ::: {.callout-note collapse="true"}
 ## Code

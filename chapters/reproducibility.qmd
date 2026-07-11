@@ -45,7 +45,7 @@ The co-authorship chapter used Git to track manuscript drafts. Its more importan
 
 Two rules specific to clinical code:
 
-- **Never commit patient data.** A `.gitignore` that excludes `data/raw/`, `*.csv` with real values, and anything under a controlled-access agreement keeps protected health information out of the history, where, once committed and pushed, it is very hard to remove. Commit the *code* and a *synthetic* or de-identified sample, never the real records.
+- **Never commit patient data.** A `.gitignore` that excludes `data/raw/`, `*.csv` with real values, and anything under a controlled-access agreement keeps protected health information out of the history, where, once committed and pushed, it is hard to remove. Commit the *code* and a *synthetic* or de-identified sample, never the real records.
 - **Tag the release.** When the paper is submitted, tag the exact commit (`git tag v1.0-submission`) so the code that produced the reported results is recoverable even as the repository moves on.
 
 A public GitHub repository is not an archive: repositories are deleted, made private, or rewritten. Archive the tagged release to a DOI-issuing repository (open science chapter) so the citable version is permanent.
