@@ -1,5 +1,14 @@
 # The art of clear writing
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- place the key information in the stress position of a sentence
+- cut redundant words and calibrate hedging to the evidence
+- edit a paragraph to one idea, in the active voice where it earns it
+:::
+
 The core purpose of scientific writing is not the presentation of information but its *communication* [@gopen1990science]. Converting data into sentences is not enough. What matters is whether the reader accurately perceives what you intended.
 
 ## Think first, write second

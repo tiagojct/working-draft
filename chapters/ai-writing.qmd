@@ -1,5 +1,14 @@
 # Using AI tools in scientific writing {#sec-ai-writing}
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- decide when generative AI helps or harms a manuscript
+- detect and prevent hallucinated references
+- disclose AI use to journal and reviewer standards
+:::
+
 ::: {.column-margin}
 *Current as of May 2026. Disclosure norms and AI capabilities change rapidly; verify your target journal's current policy before submission.*
 :::

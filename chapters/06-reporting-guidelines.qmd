@@ -1,5 +1,14 @@
 # Reporting and research transparency
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- select the reporting guideline for a given study design
+- write the most under-reported items in methods and results
+- write the ethics, registration, PPI, and declarations statements
+:::
+
 Your paper will be checked against a reporting guideline before it clears peer review. Write from one. The most common reason for desk rejection at high-impact journals is not a flawed study — it is a missing item on a reporting checklist. This chapter covers the main guidelines for clinical and biomedical research. Preregistration, data sharing, and code sharing are covered in the next chapter.
 
 ## Reporting guidelines

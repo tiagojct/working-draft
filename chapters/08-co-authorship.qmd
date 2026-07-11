@@ -1,5 +1,14 @@
 # Working with co-authors
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- apply the ICMJE criteria and CRediT to authorship decisions
+- keep a multi-author manuscript under version control
+- handle author order, disputes, and acknowledgements
+:::
+
 Most scientific papers are written by more than one person. The median authorship in clinical medicine exceeded five authors per paper by the early 2020s; papers with twenty or more contributors are standard in large consortia. The benefits — divided labour, complementary expertise, broader networks — are real, and so are the difficulties. Version control failures, absent contributors, disputes over order, and questions of authorship legitimacy are among the most reliable predictors of a troubled submission.
 
 The formal criteria for who qualifies as an author, and the CRediT taxonomy for recording contributions, are covered in Chapter 2 (Authorship and responsibility). This chapter focuses on the practice: keeping the manuscript under control, agreeing on credit before conflict arises, and handling the scenarios that most often go wrong.

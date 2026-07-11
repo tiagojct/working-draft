@@ -1,5 +1,14 @@
 # Systematic reviews and meta-analysis
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- report a reproducible search to PRISMA
+- read and report a forest plot, heterogeneity, and a prediction interval
+- decide when evidence should and should not be pooled
+:::
+
 A primary study reports what you found. A systematic review reports what the literature found, and it is judged by a different standard: not the novelty of the result but the reproducibility of the search. If another team cannot rerun your methods and arrive at the same set of included studies, the review is an opinion with a bibliography. The whole genre exists to remove the reviewer's discretion from the evidence, and the writing has to show that it did.
 
 This chapter covers what changes when the unit of analysis is a study rather than a patient: how to report the search so it can be repeated, how the sections rearrange, and how to write up a pooled estimate and its uncertainty. The signature figure of the genre, the forest plot, gets its own treatment, because most of what Part II says about honest figures applies to it directly.

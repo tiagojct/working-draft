@@ -1,5 +1,14 @@
 # Open science practices
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- preregister a study and separate confirmatory from exploratory analysis
+- write a data-availability statement at the right level of openness
+- share code and data so another researcher can reuse them
+:::
+
 Research that cannot be examined cannot be trusted. Studies that contact original researchers for their raw data find them available less than half the time; most datasets become irretrievable within a few years of publication, and compliance with published data availability statements remains low even under open-access mandates [@vines2014availability; @gabelica2022availability]. Open science practices — preregistering your study before data collection, sharing your data and code after publication — exist because this is the normal outcome when they are absent. They make findings verifiable, enable replication, and keep the literature honest. Treated as compliance obligations they do this job poorly; treated as part of the scientific method itself, they do it properly.
 
 This chapter covers two practices that every health researcher will encounter: preregistration and data and code sharing. Reporting guidelines, which specify how to document a completed study for publication, are covered in the preceding chapter.

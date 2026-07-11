@@ -1,5 +1,14 @@
 # The structure of a scientific article
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- structure a paper on the IMRAD and hourglass models
+- write a structured abstract and a title that names the study
+- write a limitations paragraph that discloses rather than apologises
+:::
+
 Most scientific articles follow the IMRAD format: Introduction, Methods, Results, and Discussion [@sollaci2004imrad]. This structure is not arbitrary. It mirrors the logic of an investigation: *Why did you do it? How did you do it? What did you find? What does it mean?*
 
 ## The hourglass model

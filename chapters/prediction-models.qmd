@@ -1,5 +1,14 @@
 # Reporting a prediction model
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- report a prediction model to TRIPOD+AI
+- distinguish and report discrimination, calibration, and clinical usefulness
+- separate development from validation performance
+:::
+
 A prediction model earns a different reporting standard because it makes a different kind of claim. A cohort study says *this exposure is associated with this outcome*. A prediction model says *give me these inputs for a new patient and I will return a probability you can act on*. The second claim is only worth anything if the model has been shown to work on patients who were not used to build it, and if the paper reports enough for a reader to judge whether it will work on theirs. STROBE was not written for that. TRIPOD+AI was [@collins2024tripod], and it applies whether the model is a logistic regression or a gradient-boosted ensemble.
 
 This chapter reports one worked model to that standard: a model for 30-day readmission after acute heart failure, built on the Part I cohort. Three numbers decide whether it is any good, and a paper that reports one of them and hides the other two is the most common failure in this literature.

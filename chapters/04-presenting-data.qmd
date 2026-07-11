@@ -1,5 +1,14 @@
 # Presenting data effectively
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- choose between text, table, and figure for a given result
+- design a baseline and a results table to journal standard
+- report numbers with appropriate precision and confidence intervals
+:::
+
 Readers look at tables and figures before they read the text. Each one must stand alone, legible without flipping back to the methods. Together, they should carry the paper's main message for someone who reads only the abstract, skims the headings, and studies the figures.
 
 ## Choosing the right format

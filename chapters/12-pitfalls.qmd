@@ -1,5 +1,14 @@
 # Seven paired pitfalls
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- recognise seven common figure failures and their fixes
+- avoid truncated axes, rainbow palettes, and mean-hiding bars
+- turn a misleading figure into an honest one
+:::
+
 ::: {.column-margin}
 Each pitfall here maps to a rule in Part I. The three rules in the Results section of Chapter 2 and the graph guidance in Chapter 4 are the writing counterparts to the visual failures corrected below.
 :::

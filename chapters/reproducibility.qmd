@@ -1,5 +1,14 @@
 # Reproducibility and code as an output
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- pin a computational environment and fix random seeds
+- structure and version-control an analysis so it reruns with one command
+- treat code and data as citable, licensed, FAIR outputs
+:::
+
 A paper makes a claim; reproducibility is whether anyone can check it. The standard to aim for is that your results are a function of your data and your code (`results = f(data, code)`), and that a stranger with both can run one command and get your numbers, figures, and tables back. The open-science chapter covered the *policy*: preregister, share data, share code. This chapter covers the *practice* that makes shared code worth sharing, and treats the code and data themselves as research outputs that get cited, licensed, and archived like the paper.
 
 The reason to care is not virtue. The datasets behind most papers become unavailable within a few years, and analysis code that ran once on its author's laptop rarely runs anywhere else. Reproducibility is the discipline that stops your own results becoming irretrievable to you: the version of "future you" who, eighteen months from now, gets a reviewer asking for one more sensitivity analysis and cannot rerun the pipeline [@sandve2013reproducible].

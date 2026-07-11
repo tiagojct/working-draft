@@ -1,5 +1,14 @@
 # Writing in English as a second language
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- recognise the two sources of second-language difficulty
+- correct common first-language transfer patterns in English prose
+- use language-editing tools without losing your voice
+:::
+
 Most health researchers publish in English regardless of the language they think in, dream in, and use to argue with their supervisors. This is not a disadvantage to be overcome; it is the condition of contemporary science. The researchers who handle it best are not those who write perfect English; they are those who have learned to separate the two distinct problems: saying what you mean, and saying it in English.
 
 These are not the same problem, and they have different remedies.

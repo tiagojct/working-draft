@@ -1,5 +1,14 @@
 # Writing statistical results
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- write matched methods and results paragraphs that name the same numbers
+- report regression, survival, and diagnostic-accuracy results correctly
+- avoid the common statistical reporting errors, multiplicity included
+:::
+
 The methods section and results section are a contract. The methods announce, in advance, every analysis you will report; the results deliver them, in the same order, with the same terminology. A results section that contains analyses not named in the methods is unreported work. A methods section that names analyses absent from the results is unfulfilled specification. Reviewers read both against each other, and mismatches are one of the most common reasons for major revisions.
 
 This chapter provides worked templates for the most common analytical scenarios in clinical health research. Each template pairs a methods paragraph with its results paragraph, because the two must be read and written as a unit. The SAMPL guidelines [@lang2015sampl] catalogue the minimum statistical information that must appear in any biomedical article; this chapter operationalises that catalogue as paired paragraphs you can adapt directly.

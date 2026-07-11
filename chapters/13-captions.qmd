@@ -1,5 +1,14 @@
 # Captions and the story of one figure
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- write a caption that lets a figure stand alone
+- title and footnote a table to journal standard
+- tell the story of one figure across a paper
+:::
+
 ## Captions that read themselves
 
 Wilke's rule for captions: a reader who sees only the figure and the caption, without the methods or the results, should know what was studied, what was measured, and what was found [@wilke2019fundamentals]. A complete caption includes a short title stating what is being shown, the groups or conditions (what each colour, line, or symbol represents), the statistical test and which groups are compared, the sample size for each group, and definitions of any abbreviations used in the figure.

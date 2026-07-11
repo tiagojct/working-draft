@@ -1,5 +1,14 @@
 # Framing the research question
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- turn a topic into an answerable PICO question with one primary outcome
+- test a question against the FINER criteria before committing to it
+- match a design to its question and identify confounders on a causal diagram
+:::
+
 Writing starts before the first sentence, at the question. A paper is the answer to a question, and a vague question has no answer worth writing. If you cannot state in one sentence what you asked, whom you asked it about, and what you measured, the introduction will wander, the methods will not line up with the aims, and the discussion will reach for conclusions the data cannot support. Most unpublishable first drafts are not badly written. They are badly asked.
 
 This chapter is the on-ramp for the earliest stage, before you have results or even data: turning a topic into a question a study can answer, and matching that question to a design that can answer it. Everything in Part I becomes easier once the question is sharp.
