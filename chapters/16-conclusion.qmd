@@ -2,7 +2,7 @@
 
 A paper and its figures are one argument rendered in two registers: the words carry the logic and the context; the figures carry the data and its shape. Each helps the reader interpret the other — a confused figure strains the prose around it, and muddled prose makes even a clean figure harder to trust.
 
-The two parts of this book share a premise: a paper and its figures are one argument, and the same discipline governs both. In practice, this means revising prose and figures together, not in separate rounds. What the prose says the analysis found and what the figure shows must agree — on the direction of effects, on the degree of uncertainty, on what the study could not establish. When they conflict, the problem is not a sentence or a colour choice. The argument has come apart.
+The parts of this book share a premise: a paper, its figures, and the analysis beneath them are one argument, and the same discipline governs all three. In practice, this means revising prose and figures together, not in separate rounds. What the prose says the analysis found and what the figure shows must agree — on the direction of effects, on the degree of uncertainty, on what the study could not establish. When they conflict, the problem is not a sentence or a colour choice. The argument has come apart. Part III adds the layer underneath: a result stated in clear prose and drawn in an honest figure is still only a claim until someone can reproduce it, so the code and the data that produced it are part of the argument too.
 
 ## What to do next
 

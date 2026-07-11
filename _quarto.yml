@@ -49,8 +49,15 @@ book:
         - chapters/13-captions.qmd
         - chapters/14-colour.qmd
         - chapters/15-ai-figures.qmd
+    - chapters/part-iii-bridge.qmd
+    - part: "Part III · Reproducible research"
+      chapters:
+        - chapters/prediction-models.qmd
+        - chapters/reproducibility.qmd
     - chapters/16-conclusion.qmd
     - chapters/guide.qmd
+    - chapters/glossary.qmd
+    - chapters/checklists.qmd
     - references.qmd
 
 citation:
