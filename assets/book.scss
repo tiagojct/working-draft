@@ -49,3 +49,27 @@ main:has(.landing) #title-block-header .subtitle {
 
 // Tabular figures for data-heavy tables so columns of numbers align.
 table { font-variant-numeric: tabular-nums lining-nums; }
+
+// The book title at the top of the sidebar already links home, so the first
+// nav entry (the index/preface) is redundant; hide it and let the list start
+// at Part I. (The page still has a real title, so no "index.html" label.)
+.sidebar-menu-container > ul > li.sidebar-item:first-child {
+  display: none;
+}
+
+// Sidebar: roomier spacing and a slightly larger, more legible link size.
+.sidebar-navigation .sidebar-item-text {
+  font-size: 0.925rem;
+  line-height: 1.35;
+}
+.sidebar-navigation .sidebar-item .sidebar-item-container {
+  margin-block: 0.18rem;
+}
+// Breathing room above each Part section (and its bold header).
+.sidebar-navigation .sidebar-item-section {
+  margin-top: 0.6rem;
+}
+// The top-level (part-header and standalone) entries carry a touch more weight.
+.sidebar-navigation > ul > .sidebar-item > .sidebar-item-container > .sidebar-item-text {
+  padding-block: 0.05rem;
+}
