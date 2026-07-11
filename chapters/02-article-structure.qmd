@@ -70,6 +70,8 @@ A five-paragraph discussion covers most papers.
 
 A discussion that only restates the results is a missed opportunity. A discussion that overreaches (claiming causality from an observational study, generalising from one hospital to all hospitals) is the fastest path to rejection.
 
+Write the limitations paragraph as engineering. Most are perfunctory: a generic list of "small sample, single centre, retrospective design" that could be pasted into any paper and tells the reader nothing about *this* one [@ioannidis2007limitations]. A limitation earns its place when it is specific to your study, ranked by how much it could change the conclusion, and paired with what you did about it and what concern remains. *"Residual confounding by disease severity cannot be excluded, though we adjusted for NYHA class and LVEF and the estimate was stable in a restricted sensitivity analysis"* names the threat, the mitigation, and the honest remainder in one sentence. Separate the two kinds: threats to *internal validity* (confounding, selection and measurement bias, missing data) ask whether the finding is real in your sample; threats to *external validity* (a single centre, a narrow population, a specific era) ask whether it transports to anyone else's.
+
 When the primary hypothesis is not supported, write the null result honestly. A well-conducted study with a clear negative answer is a contribution, not a failure. State the finding directly (*"we did not find evidence that NT-proBNP improved risk prediction beyond NYHA class and LVEF"*), comment on statistical power, discuss what would be needed to rule out a true effect, and resist the temptation to rescue the story with unplanned subgroup analyses.
 
 ::: {.column-margin}
