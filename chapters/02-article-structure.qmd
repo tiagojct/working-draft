@@ -184,3 +184,19 @@ AI writing tools have made this distinction more pressing. Large language models
 ::: {.column-margin}
 AI tools in the writing process — disclosure standards, the four-tier framework, and peer-review confidentiality — are covered in the dedicated chapter later in Part I.
 :::
+
+::: {.callout-tip collapse="true"}
+## Practice: which section?
+
+Each sentence below belongs in a different IMRAD section. Name the section — Introduction, Methods, Results, or Discussion — for each.
+
+1. *"NT-proBNP was measured within 24 hours of discharge using a sandwich immunoassay."*
+2. *"The 30-day readmission rate was 12.8% (95% CI 11.9–13.7)."*
+3. *"These findings suggest discharge NT-proBNP could support targeted follow-up, though residual confounding cannot be excluded."*
+4. *"Risk stratification at discharge remains imperfect, and few biomarkers combine routine availability with prognostic value."*
+5. *"Patients were followed for 30 days through the national hospital registry."*
+
+---
+
+Answers: 1. Methods. 2. Results. 3. Discussion. 4. Introduction. 5. Methods. If you placed 3 in Results, note the giveaway: "suggest" and the stated limitation are interpretation, which belongs in the Discussion.
+:::

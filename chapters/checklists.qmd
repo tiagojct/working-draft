@@ -1,0 +1,51 @@
+# Checklists {.unnumbered}
+
+Three checklists to run down before you submit. They gather into one place the guidance scattered across the chapters; each item links back to where it is explained. Copy them into your own notes and tick as you go.
+
+## Before you submit
+
+- [ ] The paper is drafted around the relevant reporting guideline (CONSORT, STROBE, PRISMA, TRIPOD+AI…), and the filled checklist is ready as a supplement ([reporting](06-reporting-guidelines.qmd)).
+- [ ] The abstract states the main finding, with the key numbers and their confidence intervals ([article structure](02-article-structure.qmd)).
+- [ ] Every estimate is reported with a 95% confidence interval; no bare p-values, no `p = 0.000`, no `NS` ([presenting data](04-presenting-data.qmd)).
+- [ ] Methods and results use the same terms for the same things ([statistical writing](statistical-writing.qmd)).
+- [ ] Missing data: the denominator is stated for every analysis and the handling is described ([reporting](06-reporting-guidelines.qmd)).
+- [ ] Confirmatory and exploratory analyses are labelled as such; unplanned subgroups are flagged exploratory ([open science](open-science.qmd)).
+- [ ] Causal language is used only where the design licenses it ([clear writing](03-clear-writing.qmd)).
+- [ ] Every figure is self-sufficient — title, axes, units, sample size — and each has a caption that reads on its own ([captions](13-captions.qmd)).
+- [ ] Figures use an accessible palette and honest axes; each has alt text ([colour](14-colour.qmd)).
+- [ ] The target journal's author guidelines (word limit, structure, figure format) have been read and met ([editorial process](05-editorial-process.qmd)).
+- [ ] Trial/registration number, ethics statement, and all declarations are present ([reporting](06-reporting-guidelines.qmd); see below).
+- [ ] Data and code are deposited with a DOI, or the data-availability statement explains why not ([open science](open-science.qmd); [reproducibility](reproducibility.qmd)).
+- [ ] The analysis reruns from raw data to every reported number with one command ([reproducibility](reproducibility.qmd)).
+- [ ] Two people who are not co-authors have read it; at least one is outside the field ([editorial process](05-editorial-process.qmd)).
+- [ ] A cover letter names the journal, the contribution, and the declarations ([editorial process](05-editorial-process.qmd)).
+
+## Authorship and contributions
+
+Agree this **before** writing, and confirm it before submission ([co-authorship](08-co-authorship.qmd)).
+
+- [ ] Every author meets all four ICMJE criteria (substantial contribution; drafting or revising; final approval; accountability).
+- [ ] Everyone who meets the criteria is included; no one who does not is (no gift or ghost authorship).
+- [ ] Author order is agreed and understood by all; the corresponding author is named.
+- [ ] Each author's contribution is recorded against the CRediT roles.
+- [ ] Contributors who do not meet authorship criteria are named in the acknowledgements, with their permission.
+- [ ] Every co-author has seen and approved the final version being submitted.
+
+## Declarations block
+
+A fill-in template for the end of the paper ([reporting](06-reporting-guidelines.qmd)). Replace the brackets; keep the honest defaults ("no role", "declare none").
+
+```
+Ethics: Approved by [committee] (ref [number]); conducted per the
+        Declaration of Helsinki. [Consent procedure.]
+Registration: [Registry] ([number]), registered [date].
+Funding: [Funder], grant [number]; the funder had no role in design,
+        analysis, or the decision to publish.
+Competing interests: [Author initials + interest], or "The authors
+        declare none."
+Data and code availability: [Repository + DOI], or the reason data
+        cannot be shared.
+PPI: [How patients were involved], or "No patient or public
+        involvement," reported per GRIPP2.
+Contributions: [CRediT statement].
+```

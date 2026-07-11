@@ -128,3 +128,20 @@ Keep interpretation out of the legend. *"Kaplan-Meier curves for 30-day readmiss
 ::: {.column-margin}
 Figures for **posters** and **oral presentations** follow different conventions: larger type, fewer panels, one take-home per slide or panel. I have written short guides on both in the *Breathe* journal's *Doing Science* series: posters [@jacinto2013poster] and oral presentations [@jacinto2014oral].
 :::
+
+::: {.callout-tip collapse="true"}
+## Practice: fix the reporting
+
+The results sentence below has four reporting problems. Find them before revealing the answer.
+
+> *"Mortality was 12.812% in the treated group versus 8.1% in controls (p = 0.000), a significant reduction. LVEF was 34.56789 ± 11."*
+
+---
+
+Answers:
+
+1. **Spurious precision.** 12.812% and 34.56789 imply an accuracy the data cannot support; one decimal is enough.
+2. **`p = 0.000`.** No p-value is literally zero; report `< 0.001`.
+3. **No effect estimate with a confidence interval.** The mortality difference needs an absolute or relative measure with a 95% CI, not two percentages and a p-value.
+4. **"Significant" as if it meant important, plus a units/precision mismatch.** "Significant reduction" states statistical significance where the reader needs the effect size; and LVEF is given without units (%) and with inconsistent precision (34.6 ± 11).
+:::
