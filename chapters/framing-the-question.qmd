@@ -24,7 +24,7 @@ A topic ("NT-proBNP in heart failure") is not a question. Sharpen it with **PICO
 
 Assembled: *"In adults hospitalised for acute heart failure (P), does a higher discharge NT-proBNP (I/C) predict 30-day unplanned readmission (O)?"* That sentence is the seed of the title, the last line of the introduction, the primary analysis, and the primary outcome in the abstract. Write it down before anything else, and revise the paper against it whenever a section drifts.
 
-The **O** deserves the most care. Name one **primary outcome**, define it precisely (30-day *unplanned* readmission, ascertained from the national registry), and pre-specify it (open science chapter). A study with five co-equal "primary" outcomes has none, and reviewers read the plurality as a search for whatever reached significance.
+The **O** deserves the most care. Name one **primary outcome**, define it precisely (30-day *unplanned* readmission, ascertained from the national registry), and pre-specify it ([open science](open-science.qmd)). A study with five co-equal "primary" outcomes has none, and reviewers read the plurality as a search for whatever reached significance.
 
 ## Is the question worth asking: FINER
 
@@ -32,15 +32,15 @@ PICO makes a question answerable; **FINER** asks whether it is worth answering [
 
 - **F**easible: adequate sample, accessible data, realistic scope and funding.
 - **I**nteresting: to you, and to the readers and reviewers of your target field.
-- **N**ovel: it confirms, refutes, or extends existing work rather than repeating it. Search the literature first; a systematic review may already answer it (systematic-reviews chapter).
-- **E**thical: approvable by a research ethics committee, with a defensible consent model (reporting chapter).
+- **N**ovel: it confirms, refutes, or extends existing work rather than repeating it. Search the literature first; a systematic review may already answer it ([systematic reviews](systematic-reviews.qmd)).
+- **E**thical: approvable by a research ethics committee, with a defensible consent model ([reporting](06-reporting-guidelines.qmd)).
 - **R**elevant: the answer changes practice, policy, or the next study, whichever way it comes out.
 
 A question that fails F or N is the most common reason a promising project stalls. Test it against FINER on paper before you test it in the clinic.
 
 ## Match the design to the question
 
-The question dictates the design; the design dictates the reporting guideline (reporting chapter). Choosing the wrong design for the question is a flaw no writing can repair.
+The question dictates the design; the design dictates the reporting guideline ([reporting](06-reporting-guidelines.qmd)). Choosing the wrong design for the question is a flaw no writing can repair.
 
 | Your question is about… | Design | Guideline |
 |--------------------------|--------|-----------|
@@ -52,7 +52,7 @@ The question dictates the design; the design dictates the reporting guideline (r
 | Who is at risk? (individual prediction) | Prediction-model study | TRIPOD+AI |
 | What does all the evidence say? | Systematic review / meta-analysis | PRISMA |
 
-Only randomisation licenses a causal claim from the design alone. Every observational design answers an *associational* question and must defend its causal interpretation by other means (statistical-writing chapter, on correlation and causation).
+Only randomisation licenses a causal claim from the design alone. Every observational design answers an *associational* question and must defend its causal interpretation by other means ([statistical writing](statistical-writing.qmd), on correlation and causation).
 
 ## Confounding, drawn before it is adjusted
 
@@ -65,7 +65,7 @@ Decide what to adjust for before you see the data, and decide it by drawing a **
 A sharp question is not a preliminary you leave behind. It is the spine:
 
 - the **title** names the P, the I/E, and the O;
-- the **introduction** funnels from the field to exactly this gap (article-structure chapter, on the hourglass);
+- the **introduction** funnels from the field to exactly this gap ([article structure](02-article-structure.qmd), on the hourglass);
 - the **methods** describe the design chosen to answer it and nothing else;
 - the **primary analysis** tests it, once, as pre-specified;
 - the **discussion** answers it plainly in the first paragraph before qualifying the answer.

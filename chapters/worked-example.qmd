@@ -5,7 +5,7 @@ The book has taught the parts. This appendix assembles them into one short paper
 ::: {.callout-note}
 ## About the worked data
 
-The cohort here is simulated, on purpose. A textbook needs a dataset it can publish in full, regenerate on demand, and design to show a specific teaching point; no real patient dataset can be all three. [`figures/sw_cohort.py`](https://github.com/tiagojct/working-draft/blob/main/figures/sw_cohort.py) draws 5,204 fictional patients from a fixed seed, so every number below is reproducible and every figure regenerates from code (reproducibility chapter). The findings are invented but clinically plausible. Treat the paper as a model of *form*, not a source of evidence.
+The cohort here is simulated, on purpose. A textbook needs a dataset it can publish in full, regenerate on demand, and design to show a specific teaching point; no real patient dataset can be all three. [`figures/sw_cohort.py`](https://github.com/tiagojct/working-draft/blob/main/figures/sw_cohort.py) draws 5,204 fictional patients from a fixed seed, so every number below is reproducible and every figure regenerates from code ([reproducibility](reproducibility.qmd)). The findings are invented but clinically plausible. Treat the paper as a model of *form*, not a source of evidence.
 :::
 
 ## The paper
@@ -26,11 +26,11 @@ The cohort here is simulated, on purpose. A textbook needs a dataset it can publ
 
 Every move above follows a rule from the book:
 
-- The **title** names the exposure, outcome, and design (article-structure chapter, on titles), and the PICO question that generated it comes from the framing chapter.
-- The **structured abstract** states the main finding with its effect size and confidence interval, not just a p-value (article-structure chapter, on abstracts; presenting-data chapter, on reporting numbers).
-- The **introduction** funnels from the field to one gap and ends on the question (article-structure chapter, on the hourglass).
-- The **methods** name the primary outcome once, report the missing-data denominator and handling, and justify the covariates by a causal diagram rather than by availability (reporting chapter, on STROBE item 12; statistical-writing chapter; framing chapter, on confounding).
-- The **results** lead with the event rate, then the adjusted estimate with its interval, then the sensitivity check, in the order the methods promised (statistical-writing chapter, on the methods–results contract).
-- The **discussion** answers the question in the first sentence, then bounds it: association not causation, named limitations, no overreach (article-structure chapter, on the discussion; statistical-writing chapter, on correlation and causation).
+- The **title** names the exposure, outcome, and design ([article structure](02-article-structure.qmd), on titles), and the PICO question that generated it comes from the [framing chapter](framing-the-question.qmd).
+- The **structured abstract** states the main finding with its effect size and confidence interval, not just a p-value ([article structure](02-article-structure.qmd), on abstracts; [presenting data](04-presenting-data.qmd), on reporting numbers).
+- The **introduction** funnels from the field to one gap and ends on the question ([article structure](02-article-structure.qmd), on the hourglass).
+- The **methods** name the primary outcome once, report the missing-data denominator and handling, and justify the covariates by a causal diagram rather than by availability ([reporting](06-reporting-guidelines.qmd), on STROBE item 12; [statistical writing](statistical-writing.qmd); [framing the research question](framing-the-question.qmd), on confounding).
+- The **results** lead with the event rate, then the adjusted estimate with its interval, then the sensitivity check, in the order the methods promised ([statistical writing](statistical-writing.qmd), on the methods–results contract).
+- The **discussion** answers the question in the first sentence, then bounds it: association not causation, named limitations, no overreach ([article structure](02-article-structure.qmd), on the discussion; [statistical writing](statistical-writing.qmd), on correlation and causation).
 
 The figures for a cohort like this (a distribution of the biomarker, a Kaplan–Meier curve of readmission-free survival, a table of baseline characteristics) are built to the standards in Part II, and the whole analysis is seeded and version-controlled to the standards in Part III. One question, answered once, reported so a reader can check every number against the next: that is the whole book in four paragraphs.

@@ -27,7 +27,7 @@ The PRISMA flow diagram carries the accounting: records identified, duplicates r
 
 ## The sections rearrange
 
-The hourglass (Chapter: article structure) still holds, but the waist is different. The Introduction motivates the question and states why a synthesis is needed now. The Methods describes the search, screening, data extraction, and risk-of-bias assessment rather than a study population. The Results leads with the flow diagram and a study-characteristics table (one row per included study: design, n, population, effect estimate), then the synthesis. The Discussion interprets the pooled estimate against its heterogeneity and the certainty of the evidence, not against a single confidence interval.
+The hourglass ([article structure](02-article-structure.qmd)) still holds, but the waist is different. The Introduction motivates the question and states why a synthesis is needed now. The Methods describes the search, screening, data extraction, and risk-of-bias assessment rather than a study population. The Results leads with the flow diagram and a study-characteristics table (one row per included study: design, n, population, effect estimate), then the synthesis. The Discussion interprets the pooled estimate against its heterogeneity and the certainty of the evidence, not against a single confidence interval.
 
 Risk of bias is assessed per study and reported per study, with a recognised tool (RoB 2 for randomised trials, ROBINS-I for non-randomised). Do not collapse it into a single adjective. A reader needs to see which studies are at high risk and whether the pooled estimate depends on them.
 
@@ -44,7 +44,7 @@ Read it from the parts:
 - **The diamond** is the pooled estimate; its width is the confidence interval of the pool. Here the pooled odds ratio is 1.30 (95% CI 1.16–1.45): higher discharge NT-proBNP is associated with more readmission across the literature, and the interval excludes the null.
 - **The dotted line through the diamond** is the 95% prediction interval, and it is the number most reviews omit and most reviewers should demand [@inthout2016plea]. It runs from 0.93 to 1.80. The pooled *mean* is clearly above the null, but a future study drawn from this heterogeneous set could still land below it. Reporting only the diamond hides that.
 
-Everything Part II says applies. The x-axis is a ratio, so it is on a log scale, or the confidence intervals would be visually asymmetric and the plot would lie about which studies disagree (Chapter: pitfalls, on honest axes). Studies are ordered by year, not sorted by effect size, because sorting by effect manufactures a gradient the data do not have. The weight is shown, not just implied by the square, so the reader can see that the pool is not being driven by one study.
+Everything Part II says applies. The x-axis is a ratio, so it is on a log scale, or the confidence intervals would be visually asymmetric and the plot would lie about which studies disagree ([pitfalls](12-pitfalls.qmd), on honest axes). Studies are ordered by year, not sorted by effect size, because sorting by effect manufactures a gradient the data do not have. The weight is shown, not just implied by the square, so the reader can see that the pool is not being driven by one study.
 
 ## Report the synthesis in words
 

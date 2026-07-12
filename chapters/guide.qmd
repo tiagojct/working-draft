@@ -2,42 +2,42 @@
 
 Two tables for when you need a specific answer fast. The first maps common reviewer comments to the chapter that addresses them. The second maps figure problems to the chapters that cover them.
 
-New to research? Start with Chapters 1 and 3, and keep the [glossary](glossary.qmd) open for any unfamiliar term. When you are ready to submit, run down the [checklists](checklists.qmd).
+New to research? Start with [why writing matters](01-why-writing.qmd) and [clear writing](03-clear-writing.qmd), and keep the [glossary](glossary.qmd) open for any unfamiliar term. When you are ready to submit, run down the [checklists](checklists.qmd).
 
 ## If your reviewer said…
 
 | Reviewer comment | Where to look |
 |:----------------|:-------------|
-| "The abstract doesn't state the main finding" | Ch. 2 — Abstract section |
-| "The introduction is too long / too broad" | Ch. 2 — Introduction section |
-| "The key result is buried in a subordinate clause" | Ch. 3 — Stress position |
-| "You report p-values without confidence intervals" | Ch. 4 — Statistical significance |
-| "Your methods and results use different terminology" | Statistical writing chapter |
-| "The sensitivity analysis contradicts your primary result" | Statistical writing chapter — Discordant sensitivity analysis |
-| "You don't discuss what happens when data are missing" | Statistical writing chapter — Missing-data paragraph |
-| "I couldn't tell what the figure shows without reading the methods" | Ch. 13 — Captions |
-| "Your y-axis doesn't start at zero" | Ch. 12 — Pitfall 3 (Truncated y-axis) |
-| "Colours are indistinguishable to colour-blind readers" | Ch. 14 — Colour-vision deficiency |
-| "The figure contradicts the results text" | Ch. 10 — Principles |
-| "Too many pie charts" | Ch. 12 — Pitfall 1 (Pie chart) |
-| "The figure uses a rainbow palette" | Ch. 12 — Pitfall 2 / Ch. 14 — Sequential palettes |
-| "I can't find the dataset or analysis code" | Open science chapter |
-| "The citation doesn't say what you say it says" | Ch. 7 — Citation hygiene |
-| "I'm not sure who actually wrote this" | AI writing chapter |
-| "Ghost authorship / I can't identify the contribution" | Ch. 8 — CRediT and authorship |
-| "The reporting checklist item is incomplete" | Ch. 6 — Reporting guidelines |
-| "The English is non-native but the argument is unclear" | Writing in a second language chapter |
+| "The abstract doesn't state the main finding" | [Article structure](02-article-structure.qmd), abstracts |
+| "The introduction is too long / too broad" | [Article structure](02-article-structure.qmd), the introduction |
+| "The key result is buried in a subordinate clause" | [Clear writing](03-clear-writing.qmd), stress position |
+| "You report p-values without confidence intervals" | [Presenting data](04-presenting-data.qmd), reporting numbers |
+| "Your methods and results use different terminology" | [Statistical writing](statistical-writing.qmd) |
+| "The sensitivity analysis contradicts your primary result" | [Statistical writing](statistical-writing.qmd), discordant sensitivity analysis |
+| "You don't discuss what happens when data are missing" | [Statistical writing](statistical-writing.qmd), the missing-data paragraph |
+| "I couldn't tell what the figure shows without reading the methods" | [Captions](13-captions.qmd) |
+| "Your y-axis doesn't start at zero" | [Pitfalls](12-pitfalls.qmd), truncated y-axis |
+| "Colours are indistinguishable to colour-blind readers" | [Colour](14-colour.qmd), colour-vision deficiency |
+| "The figure contradicts the results text" | [Principles of data visualisation](10-principles.qmd) |
+| "Too many pie charts" | [Pitfalls](12-pitfalls.qmd), pie chart |
+| "The figure uses a rainbow palette" | [Pitfalls](12-pitfalls.qmd) / [Colour](14-colour.qmd), sequential palettes |
+| "I can't find the dataset or analysis code" | [Open science](open-science.qmd); [Reproducibility](reproducibility.qmd) |
+| "The citation doesn't say what you say it says" | [Reference management](07-reference-management.qmd), citation hygiene |
+| "I'm not sure who actually wrote this" | [AI in writing](ai-writing.qmd) |
+| "Ghost authorship / I can't identify the contribution" | [Co-authorship](08-co-authorship.qmd), CRediT |
+| "The reporting checklist item is incomplete" | [Reporting guidelines](06-reporting-guidelines.qmd) |
+| "The English is non-native but the argument is unclear" | [Writing in a second language](writing-l2.qmd) |
 
 ## If your figure fails at…
 
 | Problem | Where to look |
 |:--------|:-------------|
-| Choosing the right chart type for your data | Ch. 11 — Chart types |
-| A palette that is not perceptually uniform | Ch. 14 — Sequential palettes / CVD |
-| An incomplete or under-specified caption | Ch. 13 — Captions |
-| Bars that don't start at zero | Ch. 12 — Pitfall 3 |
-| Too many categories in one panel | Ch. 14 — Categorical palettes (max 8) |
-| File format or resolution for journal submission | Ch. 14 — Preparing figures for submission |
-| Dual-axis confusion | Ch. 12 — Pitfall 5 |
-| Mean ± SE bars hiding the distribution | Ch. 12 — Pitfall 6 |
-| Code-generated figure with unverified values | Ch. 15 — Code-generation tools |
+| Choosing the right chart type for your data | [Chart types](11-chart-types.qmd) |
+| A palette that is not perceptually uniform | [Colour](14-colour.qmd), sequential palettes / CVD |
+| An incomplete or under-specified caption | [Captions](13-captions.qmd) |
+| Bars that don't start at zero | [Pitfalls](12-pitfalls.qmd), truncated y-axis |
+| Too many categories in one panel | [Colour](14-colour.qmd), categorical palettes (max 8) |
+| File format or resolution for journal submission | [Colour](14-colour.qmd), preparing figures for submission |
+| Dual-axis confusion | [Pitfalls](12-pitfalls.qmd), dual-axis line chart |
+| Mean ± SE bars hiding the distribution | [Pitfalls](12-pitfalls.qmd), mean ± SE bars |
+| Code-generated figure with unverified values | [AI for figures](15-ai-figures.qmd), code-generation tools |

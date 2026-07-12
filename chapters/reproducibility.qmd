@@ -57,14 +57,14 @@ Two rules specific to clinical code:
 - **Never commit patient data.** A `.gitignore` that excludes `data/raw/`, `*.csv` with real values, and anything under a controlled-access agreement keeps protected health information out of the history, where, once committed and pushed, it is hard to remove. Commit the *code* and a *synthetic* or de-identified sample, never the real records.
 - **Tag the release.** When the paper is submitted, tag the exact commit (`git tag v1.0-submission`) so the code that produced the reported results is recoverable even as the repository moves on.
 
-A public GitHub repository is not an archive: repositories are deleted, made private, or rewritten. Archive the tagged release to a DOI-issuing repository (open science chapter) so the citable version is permanent.
+A public GitHub repository is not an archive: repositories are deleted, made private, or rewritten. Archive the tagged release to a DOI-issuing repository ([open science](open-science.qmd)) so the citable version is permanent.
 
 ## Code and data are citable outputs
 
 Your analysis code and your dataset are research products in their own right. Treat them as citable.
 
 - **Cite the software you used.** `citation("lme4")` in R and a package's `CITATION.cff` file give the reference the authors ask for; naming and versioning the tools that produced your results is both courteous and part of reproducibility. "Analyses used R 4.4.1 and the `survival` package (v3.7)" belongs in the methods.
-- **Licence what you release.** Code with no licence is, legally, code no one may reuse. A permissive licence (MIT, Apache-2.0) for code and an open licence (CC BY) for data and text tell readers what they may do. State the licence in the repository and the data-availability statement.
+- **License what you release.** Code with no licence is, legally, code no one may reuse. A permissive licence (MIT, Apache-2.0) for code and an open licence (CC BY) for data and text tell readers what they may do. State the licence in the repository and the data-availability statement.
 - **Consider a software or data paper.** A genuinely reusable tool or dataset can be published in its own right (*JOSS* for software, *Scientific Data* or *Data in Brief* for datasets), giving it a citable DOI and formal credit separate from the analysis paper [@smith2016software].
 
 ## Manage the data as data
@@ -72,7 +72,7 @@ Your analysis code and your dataset are research products in their own right. Tr
 Sharing a CSV is not data management. The FAIR principles (Findable, Accessible, Interoperable, Reusable) are the standard funders increasingly expect, and they are mostly about metadata [@wilkinson2016fair]. Two artifacts do most of the work:
 
 - **A data dictionary** (codebook): one row per variable, with its name, type, units, coding, and allowed range. Without it, a shared dataset is a grid of numbers no one else can interpret; with it, a reader knows that `nyha_admission` is a factor with levels I–IV and that `egfr` is in mL/min/1.73m².
-- **A de-identification step, documented.** Clinical data cannot be shared until direct identifiers are removed. The HIPAA Safe Harbor method names eighteen identifier types to strip; k-anonymity ensures no combination of quasi-identifiers (age, postcode, admission date) picks out fewer than *k* individuals. When even a de-identified release is too risky, generate a **synthetic** dataset that preserves the analytic structure without exposing anyone (open science chapter). This book's cohorts are exactly that.
+- **A de-identification step, documented.** Clinical data cannot be shared until direct identifiers are removed. The HIPAA Safe Harbor method names eighteen identifier types to strip; k-anonymity ensures no combination of quasi-identifiers (age, postcode, admission date) picks out fewer than *k* individuals. When even a de-identified release is too risky, generate a **synthetic** dataset that preserves the analytic structure without exposing anyone ([open science](open-science.qmd)). This book's cohorts are exactly that.
 
 ## Write the paper as an executable document
 

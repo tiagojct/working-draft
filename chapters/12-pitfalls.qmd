@@ -10,7 +10,7 @@ By the end of this chapter you will be able to:
 :::
 
 ::: {.column-margin}
-Each pitfall here maps to a rule in Part I. The three rules in the Results section of Chapter 2 and the graph guidance in Chapter 4 are the writing counterparts to the visual failures corrected below.
+Each pitfall here maps to a rule in Part I. The three rules in the results section of [article structure](02-article-structure.qmd) and the graph guidance in [presenting data](04-presenting-data.qmd) are the writing counterparts to the visual failures corrected below.
 :::
 
 With the toolkit established, each tool's failure modes need to be named. Each pair below shows the same data drawn two ways: a *bad / ugly / wrong* version, then a *good* version.
@@ -41,7 +41,7 @@ bp_counts <- cohort |>
 ggplot(bp_counts, aes(reorder(bp_class_6m, n), n)) +
   geom_col(fill = "#16222a", width = 0.7) +
   geom_text(aes(label = sprintf("%d  (%.0f%%)", n, 100 * pct)),
-            hjust = -0.15, family = "JetBrains Mono", size = 3.4) +
+            hjust = -0.15, family = "IBM Plex Mono", size = 3.4) +
   coord_flip(clip = "off") +
   scale_y_continuous(expand = expansion(mult = c(0, 0.32))) +
   labs(x = NULL, y = "Participants (n)") +
@@ -58,7 +58,7 @@ import matplotlib.pyplot as plt
 cohort = pd.read_csv("figures/dataviz/cohort.csv")
 counts = (cohort["bp_class_6m"].value_counts()
           .rename_axis("class").reset_index(name="n"))
-counts = counts.sort_values("n")
+counts = counts.sort_values("n").reset_index(drop=True)
 counts["pct"] = counts["n"] / counts["n"].sum()
 
 fig, ax = plt.subplots(figsize=(6.4, 4))
@@ -108,7 +108,7 @@ ggplot(heat, aes(bmi_band, age_band, fill = delta)) +
   geom_tile(colour = "white", linewidth = 0.4) +
   scale_fill_glauca_c(name = "Δ SBP\n(mmHg)") +
   geom_text(aes(label = sprintf("%.1f", delta)),
-            family = "JetBrains Mono", size = 3.1, colour = "white") +
+            family = "IBM Plex Mono", size = 3.1, colour = "white") +
   labs(x = "BMI band (kg/m²)", y = "Age band (years)") +
   theme_glauca()
 ```
@@ -147,7 +147,7 @@ fig.tight_layout()
 
 This is the single most common dishonest figure in clinical journals. Pick a y-axis that starts somewhere convenient (132 mmHg in the example below) and a 10-mmHg gap looks like a chasm. The numbers are right; the visual claim is wrong. Tufte calls this a *lie factor* [@tufte2001visual], Wilke calls it *proportional ink* [@wilke2019fundamentals]. The fix is to anchor at zero whenever the y-axis encodes magnitude with bar length. If the differences then look small, the differences *are* small, and the chart should say so. @fig-truncated and @fig-honest plot the same four numbers.
 
-![Mean SBP at six months by treatment, y-axis starting at 132 mmHg. Placebo looks twice the height of ACEi; the actual difference is about 10 mmHg.](../figures/dataviz/03-truncated-wrong.png){#fig-truncated fig-alt="A bar chart of mean six-month systolic by treatment with the y-axis starting at 132 mmHg, exaggerating a roughly 10 mmHg difference."}
+![Mean SBP at six months by treatment, y-axis starting at 132 mmHg. Placebo looks nearly four times the height of ACEi; the actual difference is about 11 mmHg.](../figures/dataviz/03-truncated-wrong.png){#fig-truncated fig-alt="A bar chart of mean six-month systolic by treatment with the y-axis starting at 132 mmHg, exaggerating a roughly 11 mmHg difference into an almost fourfold apparent gap."}
 
 ![Same numbers, zero-anchored. The eye reads proportional differences honestly.](../figures/dataviz/03-honest-good.png){#fig-honest fig-alt="The same means on a zero-anchored y-axis, where the between-arm differences look proportionally small."}
 
@@ -178,7 +178,7 @@ ggplot(trt_summary, aes(treatment, sbp_6m_mean)) +
   geom_errorbar(aes(ymin = sbp_6m_mean - se, ymax = sbp_6m_mean + se),
                 width = 0.15) +
   geom_text(aes(label = sprintf("%.1f", sbp_6m_mean)),
-            vjust = -1.6, family = "JetBrains Mono", size = 3.4) +
+            vjust = -1.6, family = "IBM Plex Mono", size = 3.4) +
   scale_y_continuous(limits = c(0, 160),
                      expand = expansion(mult = c(0, 0.05))) +
   labs(x = NULL, y = "SBP (mmHg)") +
@@ -214,9 +214,9 @@ sns.despine(); fig.tight_layout()
 
 A row of pies or donuts asks the reader to compare angles across panels. Each donut is its own coordinate system, and the eye cannot triangulate between them. A dot plot puts every group on a single common scale, sortable by effect, and the comparison becomes automatic. The same data appears in @fig-donut and @fig-dotplot.
 
-![Four donuts, one per treatment, showing the proportion controlled at six months. Which arm is highest? Which two are tied?](../figures/dataviz/04-3d-ugly.png){#fig-donut fig-alt="Four donut charts, one per treatment, showing proportion controlled; the four are hard to rank against each other by eye."}
+![Four donuts, one per treatment, showing the proportion controlled at six months. Which arm is highest, and by how much?](../figures/dataviz/04-3d-ugly.png){#fig-donut fig-alt="Four donut charts, one per treatment, showing proportion controlled; the four are hard to rank against each other by eye."}
 
-![A dot plot of the same percentages. ACEi tops the list. ARB and CCB are within a percentage point of each other. The visual ranking matches the numerical one.](../figures/dataviz/04-dotplot-good.png){#fig-dotplot fig-alt="A dot plot of the same four proportions on one axis: ACEi highest, ARB and CCB nearly tied, the ranking immediately clear."}
+![A dot plot of the same percentages: ACEi highest at 47%, then ARB (40%) and CCB (34%), with Placebo lowest at 15%. The visual ranking matches the numerical one.](../figures/dataviz/04-dotplot-good.png){#fig-dotplot fig-alt="A dot plot of the same four proportions on one axis: ACEi highest at 47 percent, then ARB 40, CCB 34, and Placebo lowest at 15; the ranking is immediately clear."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -241,7 +241,7 @@ ggplot(ctrl, aes(reorder(treatment, pct), pct)) +
                colour = "#c8cdd2") +
   geom_point(colour = "#16222a", size = 4.2) +
   geom_text(aes(label = scales::percent(pct, accuracy = 1)),
-            hjust = -0.5, family = "JetBrains Mono", size = 3.4) +
+            hjust = -0.5, family = "IBM Plex Mono", size = 3.4) +
   coord_flip() +
   scale_y_continuous(labels = scales::percent_format(),
                      limits = c(0, 1)) +
@@ -368,14 +368,15 @@ ggplot(cohort, aes(treatment, sbp_6m, colour = treatment)) +
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-crew = ["#16222a", "#0b62cf", "#D55E00", "#009E73"]
+crew = ["#16222a", "#0072B2", "#009E73", "#D55E00"]
 
 fig, ax = plt.subplots(figsize=(6.4, 4))
 sns.stripplot(data=cohort, x="treatment", y="sbp_6m",
-              palette=crew, alpha=0.25, jitter=0.18, ax=ax)
+              hue="treatment", palette=crew, legend=False,
+              alpha=0.25, jitter=0.18, ax=ax)
 sns.boxplot(data=cohort, x="treatment", y="sbp_6m",
-            palette=crew, showfliers=False, fill=False,
-            width=0.4, ax=ax)
+            hue="treatment", palette=crew, legend=False,
+            showfliers=False, fill=False, width=0.4, ax=ax)
 ax.set(xlabel=None, ylabel="SBP (mmHg)")
 sns.despine(); fig.tight_layout()
 ```
@@ -427,7 +428,7 @@ ggplot(mapping = aes(month, sbp)) +
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-crew = ["#16222a", "#0b62cf", "#D55E00", "#009E73"]
+crew = ["#16222a", "#0072B2", "#009E73", "#D55E00"]
 
 g = sns.FacetGrid(traj, col="treatment", hue="treatment",
                   palette=crew, height=3.2, aspect=1.0,
@@ -447,7 +448,7 @@ g.set_axis_labels("Months from baseline", "SBP (mmHg)")
 ::: {.callout-tip collapse="true"}
 ## Practice: classify before you fix
 
-For each figure description below, identify the failure category (ugly / bad / wrong from Chapter 10) and name the specific pitfall from this chapter.
+For each figure description below, identify the failure category (ugly / bad / wrong from [principles of data visualisation](10-principles.qmd)) and name the specific pitfall from this chapter.
 
 1. A bar chart where the y-axis runs from 130 to 155 mmHg. The tallest bar appears to be about three times the height of the shortest. The actual difference between the groups is 8 mmHg.
 

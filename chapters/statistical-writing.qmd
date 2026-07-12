@@ -31,15 +31,15 @@ Three things in this results paragraph. The effect estimate appears as OR + 95% 
 
 ## Survival analysis
 
-Most survival analyses in clinical research involve three related outputs reported across two to three sentences: the event rate, the Kaplan-Meier comparison, and the Cox regression estimate. Write them in that order.
+Most survival analyses in clinical research involve three related outputs reported across two to three sentences: the event rate, the Kaplan–Meier comparison, and the Cox regression estimate. Write them in that order.
 
 **In methods:**
 
-> *"Time to 30-day readmission was analysed using Kaplan-Meier estimation, with group comparisons by the log-rank test. The independent association between NT-proBNP at discharge and time to readmission was assessed with a Cox proportional hazards model, adjusted for the same covariates as the logistic regression. NT-proBNP was modelled both continuously (per log-unit increment) and in quartiles. The proportional hazards assumption was examined by Schoenfeld residuals [@schoenfeld1982residuals]."*
+> *"Time to 30-day readmission was analysed using Kaplan–Meier estimation, with group comparisons by the log-rank test. The independent association between NT-proBNP at discharge and time to readmission was assessed with a Cox proportional hazards model, adjusted for the same covariates as the logistic regression. NT-proBNP was modelled both continuously (per log-unit increment) and in quartiles. The proportional hazards assumption was examined by Schoenfeld residuals [@schoenfeld1982residuals]."*
 
 **In results:**
 
-> *"The 30-day readmission rate was 12.8% (95% CI 11.9–13.7%). Kaplan-Meier curves showed a higher cumulative incidence of readmission in patients with NT-proBNP ≥ 1,000 pg/mL at discharge (log-rank p < 0.001; Figure 2). In multivariable Cox regression, NT-proBNP at discharge was independently associated with time to readmission both continuously (adjusted HR per log-unit: 1.31, 95% CI 1.08–1.59, p = 0.005) and across quartiles, with a monotonic gradient from Q1 (reference) to Q4 (adjusted HR 2.14, 95% CI 1.56–2.94). The proportional hazards assumption was satisfied for all covariates (global Schoenfeld test p = 0.61)."*
+> *"The 30-day readmission rate was 12.8% (95% CI 11.9–13.7%). Kaplan–Meier curves showed a higher cumulative incidence of readmission in patients with NT-proBNP ≥ 1,000 pg/mL at discharge (log-rank p < 0.001; Figure 2). In multivariable Cox regression, NT-proBNP at discharge was independently associated with time to readmission both continuously (adjusted HR per log-unit: 1.31, 95% CI 1.08–1.59, p = 0.005) and across quartiles, with a monotonic gradient from Q1 (reference) to Q4 (adjusted HR 2.14, 95% CI 1.56–2.94). The proportional hazards assumption was satisfied for all covariates (global Schoenfeld test p = 0.61)."*
 
 The order matters: event rate first, visual result second, adjusted estimate third. The Schoenfeld test is reported regardless of the result; it was named in methods.
 
@@ -54,6 +54,10 @@ Diagnostic accuracy studies produce a cluster of statistics that should be repor
 **In results:**
 
 > *"The AUC for NT-proBNP at discharge was 0.71 (95% CI 0.68–0.74). At the threshold of 1,000 pg/mL (Youden index 0.31), sensitivity was 73% (95% CI 69–77%) and specificity 62% (95% CI 61–64%). Given the observed readmission prevalence of 12.8%, the positive predictive value was 21% (95% CI 19–24%) and the negative predictive value 94% (95% CI 93–95%)."*
+
+::: {.column-margin}
+The 0.71 here is an illustrative teaching value. The same NT-proBNP model fitted to the committed cohort discriminates more modestly (validation c-statistic 0.62); that worked example, with calibration and decision-curve analysis, is in [prediction models](prediction-models.qmd).
+:::
 
 ## The missing-data paragraph
 
@@ -117,11 +121,11 @@ The templates above are about reporting an analysis correctly. A separate discip
 
 **Multiplicity.** Test twenty independent hypotheses at α = 0.05 and, on average, one comes up "significant" by chance alone. A paper that runs many comparisons and reports the significant ones without adjustment is fishing. State how many tests were planned and correct for them: Bonferroni for a small confirmatory family, Benjamini–Hochberg (false-discovery rate) for a large exploratory screen [@bender2001multiple]. A single pre-specified primary outcome needs no correction — but then say so, rather than leaving the reader to count.
 
-**Subgroup fishing.** A subgroup effect that was not pre-specified, was tested as one of many, and is reported because it reached significance is a hypothesis, not a finding. Report the pre-specified subgroups, test for interaction rather than comparing within-subgroup p-values, and label any post-hoc subgroup as exploratory (open science chapter). "The drug worked in diabetics," pulled from an unplanned split of an otherwise null trial, is the canonical way to mislead.
+**Subgroup fishing.** A subgroup effect that was not pre-specified, was tested as one of many, and is reported because it reached significance is a hypothesis, not a finding. Report the pre-specified subgroups, test for interaction rather than comparing within-subgroup p-values, and label any post-hoc subgroup as exploratory ([open science](open-science.qmd)). "The drug worked in diabetics," pulled from an unplanned split of an otherwise null trial, is the canonical way to mislead.
 
-**P-value misuse.** A p-value is not the probability that the null hypothesis is true, and "non-significant" is not "no effect" (Chapter: presenting data). Report the estimate and its confidence interval first; the p-value is a footnote to the effect size, never a substitute for it. Never write `p = 0.000`, and never use `NS` in place of a number.
+**P-value misuse.** A p-value is not the probability that the null hypothesis is true, and "non-significant" is not "no effect" ([presenting data](04-presenting-data.qmd)). Report the estimate and its confidence interval first; the p-value is a footnote to the effect size, never a substitute for it. Never write `p = 0.000`, and never use `NS` in place of a number.
 
-**Correlation and causation.** An association from observational data is not a causal effect, however carefully adjusted. Reserve causal verbs (*reduces*, *causes*, *leads to*) for randomised evidence or an explicit causal-inference design; use associational language (*was associated with*) otherwise, and name residual confounding as a limitation (Chapter: clear writing, on hedging).
+**Correlation and causation.** An association from observational data is not a causal effect, however carefully adjusted. Reserve causal verbs (*reduces*, *causes*, *leads to*) for randomised evidence or an explicit causal-inference design; use associational language (*was associated with*) otherwise, and name residual confounding as a limitation ([clear writing](03-clear-writing.qmd), on hedging).
 
 **Overfitting.** A model tuned until it fits the data at hand will not fit the next dataset. Discrimination measured on the same data used to build the model is optimistic; report validated performance and calibration, not apparent performance ([prediction models](prediction-models.qmd)).
 

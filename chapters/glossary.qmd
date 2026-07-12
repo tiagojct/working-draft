@@ -2,6 +2,9 @@
 
 Short definitions of the terms this book uses. Where a chapter treats a term in depth, it is named. Aimed at readers new to research; skip what you already know.
 
+Alt text
+:   The text description of a figure that a screen reader speaks aloud. Write it to convey the chart type, the axes, and the finding, not merely the title ([colour and accessibility](14-colour.qmd)).
+
 APC (article processing charge)
 :   The fee an open-access journal charges the author to publish. Can run to several thousand euros; many funders and institutions cover it.
 
@@ -17,6 +20,9 @@ Bootstrap
 Calibration
 :   The agreement between a model's predicted probabilities and observed frequencies — whether "20% risk" happens to one in five. Distinct from discrimination and more often omitted ([prediction models](prediction-models.qmd)).
 
+Colour-vision deficiency (CVD)
+:   Reduced ability to distinguish certain hues; the red–green types affect about 8% of men, so a figure must never carry meaning by colour alone ([colour and accessibility](14-colour.qmd)).
+
 Confidence interval (CI)
 :   The range of values compatible with the data at a stated level (usually 95%). Report it with every estimate; it carries the uncertainty a p-value hides.
 
@@ -31,6 +37,9 @@ CRediT
 
 Cross-validation
 :   Repeatedly splitting data into training and testing folds to estimate how a model performs on unseen data. Internal validation; weaker than external validation.
+
+Data-to-ink ratio
+:   Tufte's principle that a figure should spend its ink on data and erase decoration that carries no information ([principles of data visualisation](10-principles.qmd)).
 
 Decision-curve analysis (DCA)
 :   A plot of a model's net benefit against the "treat all" and "treat none" strategies across decision thresholds — whether acting on the model beats the blunt alternatives ([prediction models](prediction-models.qmd)).
@@ -56,6 +65,9 @@ FAIR
 False-discovery rate (FDR)
 :   The expected proportion of false positives among the results called significant; controlled by the Benjamini–Hochberg procedure when many tests are run.
 
+Forest plot
+:   A plot of effect estimates, one row per study or subgroup, each with its confidence interval, and in meta-analysis a pooled diamond at the foot ([systematic reviews](systematic-reviews.qmd); [chart types](11-chart-types.qmd)).
+
 Hazard ratio (HR)
 :   The ratio of event rates between groups at any instant, from a survival (time-to-event) analysis. HR 1.3 means a 30% higher instantaneous risk.
 
@@ -65,11 +77,11 @@ Hedging
 ICMJE
 :   The International Committee of Medical Journal Editors, whose recommendations define authorship, trial registration, and disclosure norms.
 
-IMRAD
-:   The Introduction, Methods, Results, and Discussion structure of a scientific article ([article structure](02-article-structure.qmd)).
-
 Impact factor
 :   The average citations per article for a journal over two years. A crude, gamed proxy for quality; useful only as one weak signal among many.
+
+IMRAD
+:   The Introduction, Methods, Results, and Discussion structure of a scientific article ([article structure](02-article-structure.qmd)).
 
 Intention-to-treat (ITT)
 :   Analysing trial participants in the arm they were randomised to, regardless of what they received. Preserves randomisation; contrast with per-protocol.
@@ -77,11 +89,14 @@ Intention-to-treat (ITT)
 Interquartile range (IQR)
 :   The 25th-to-75th-percentile span of a distribution; the spread to report with a median for skewed data.
 
-Multiple imputation (MICE)
-:   A method for handling missing data by creating several completed datasets, analysing each, and pooling — Multiple Imputation by Chained Equations ([statistical writing](statistical-writing.qmd)).
+Kaplan–Meier curve
+:   A step plot of the probability of remaining event-free over time, estimated so that censored participants still contribute until they leave ([chart types](11-chart-types.qmd)).
 
 Missingness (MCAR / MAR / MNAR)
 :   Missing Completely At Random, At Random (given observed data), or Not At Random. The mechanism decides which handling is valid.
+
+Multiple imputation (MICE)
+:   A method for handling missing data by creating several completed datasets, analysing each, and pooling — Multiple Imputation by Chained Equations ([statistical writing](statistical-writing.qmd)).
 
 Multiplicity
 :   The inflation of false positives when many hypotheses are tested; addressed by correction (Bonferroni, FDR) ([statistical writing](statistical-writing.qmd)).
@@ -92,11 +107,17 @@ Net benefit
 Odds ratio (OR)
 :   The ratio of the odds of an outcome between groups, from logistic regression. Approximates the risk ratio only when the outcome is rare.
 
+Okabe-Ito
+:   An eight-colour categorical palette chosen to stay distinguishable under the common types of colour-vision deficiency; the categorical scale used for the treatment arms in this book ([colour and accessibility](14-colour.qmd)).
+
 Open access
 :   Publication free for readers, funded by an APC (gold) or by self-archiving (green).
 
 Overfitting
 :   A model that fits its training data too closely and fails on new data; visible as a calibration slope below 1 ([prediction models](prediction-models.qmd)).
+
+Palette (categorical, sequential, diverging)
+:   A set of colours chosen by the data it encodes: categorical for unordered groups, sequential for ordered magnitude (one luminance direction), diverging for values either side of a meaningful midpoint ([colour and accessibility](14-colour.qmd)).
 
 Peer review
 :   Evaluation of a manuscript by independent experts before publication; single- or double-blind depending on what is concealed ([editorial process](05-editorial-process.qmd)).
@@ -131,14 +152,14 @@ P-value
 Random seed
 :   A fixed starting value that makes a random procedure repeatable, so an analysis returns the same numbers each run ([reproducibility](reproducibility.qmd)).
 
+renv / requirements.txt
+:   Files that pin the exact package versions a project used, so its computational environment can be rebuilt.
+
 Reporting guideline
 :   A checklist specifying what a given study design must report (CONSORT, STROBE, PRISMA, TRIPOD…) ([reporting](06-reporting-guidelines.qmd)).
 
 Reproducibility
 :   The property that another researcher with your data and code can rerun the analysis and get the same results ([reproducibility](reproducibility.qmd)).
-
-renv / requirements.txt
-:   Files that pin the exact package versions a project used, so its computational environment can be rebuilt.
 
 Risk ratio (relative risk, RR)
 :   The ratio of outcome probabilities between groups. More directly interpretable than an odds ratio.
@@ -152,6 +173,9 @@ Sensitivity / specificity
 Sensitivity analysis
 :   Repeating the primary analysis under different assumptions to test how robust the finding is ([statistical writing](statistical-writing.qmd)). (Distinct from the diagnostic term *sensitivity*.)
 
+Small multiples
+:   A grid of small panels that share axes and scale, one per group, so the eye compares by position instead of untangling overlaid series ([pitfalls](12-pitfalls.qmd)).
+
 SPIRIT
 :   The reporting guideline for clinical-trial protocols.
 
@@ -163,6 +187,9 @@ Systematic review / meta-analysis
 
 TRIPOD+AI
 :   The reporting guideline for clinical prediction models, including machine-learning models ([prediction models](prediction-models.qmd)).
+
+viridis
+:   A perceptually uniform sequential colourmap that stays legible in greyscale and under colour-vision deficiency ([colour and accessibility](14-colour.qmd)).
 
 Zenodo
 :   A CERN-hosted repository that issues a citable DOI for datasets and software releases and archives GitHub repositories ([open science](open-science.qmd)).

@@ -19,7 +19,7 @@ A short example. The caption
 
 becomes
 
-> *"Systolic blood pressure (SBP) at six months by randomised treatment arm (Placebo, ACEi, ARB, CCB; n = 122/183/142/153). Boxes show median and IQR; whiskers extend to the most extreme value within 1.5 × IQR. Individual participants shown as jittered points. Simulated cohort, n = 600."*
+> *"Systolic blood pressure (SBP) at six months by randomised treatment arm (Placebo, ACEi, ARB, CCB; n = 125/180/144/151). Boxes show median and IQR; whiskers extend to the most extreme value within 1.5 × IQR. Individual participants shown as jittered points. Simulated cohort, n = 600."*
 
 The first leaves the reader unable to interpret the figure without the methods section open. The second is self-contained.
 
@@ -29,7 +29,7 @@ The caption is the part of the figure that does not need to be drawn. Treat it a
 
 The anatomy of a complete caption is the same regardless of chart type, but the specific elements change. The following pairs show what gets lost and gained.
 
-**Kaplan-Meier curve:**
+**Kaplan–Meier curve:**
 
 Inadequate:
 
@@ -37,7 +37,7 @@ Inadequate:
 
 Complete:
 
-> *"Kaplan-Meier curves for 30-day readmission-free survival by NT-proBNP tertile at discharge (T1: < 600 pg/mL; T2: 600–1,500 pg/mL; T3: > 1,500 pg/mL). Number at risk is shown below the x-axis. Log-rank test p < 0.001. Shaded bands show 95% pointwise confidence intervals. Retrospective cohort of 5,204 adults hospitalised for acute heart failure."*
+> *"Kaplan–Meier curves for 30-day readmission-free survival by NT-proBNP tertile at discharge (T1: < 600 pg/mL; T2: 600–1,500 pg/mL; T3: > 1,500 pg/mL). Number at risk is shown below the x-axis. Log-rank test p < 0.001. Shaded bands show 95% pointwise confidence intervals. Retrospective cohort of 5,204 adults hospitalised for acute heart failure."*
 
 What is missing from the first: the variable defining the groups, how the groups were defined, the statistical test, and the cohort.
 
@@ -71,7 +71,7 @@ A results figure is an argument. Before drawing anything, decide the one sentenc
 
 The reader's eye lands somewhere first, and the chart should ensure it lands where you want it. Use the most striking visual element — a bolder line, a darker fill, a labelled point, a highlighted panel — for the *finding*. Push everything else into the background with thinner lines, lighter colours, and smaller type. The hero of the figure should be unambiguous within the first second of looking at it.
 
-The distribution figure in Chapter 12 (pitfall 6, the boxplot-with-jitter against the bar-with-error-whiskers) does this by suppressing colour distinction across the four treatment arms: none of them is the answer in isolation, so none receives visual privilege. If the analysis had found that ACEi outperforms the rest, the right chart would reflect that — ACEi at full crew-dark opacity, the remaining three arms at 0.4. The visual hierarchy is not decoration; it is the argument made visible.
+The distribution figure in the [pitfalls chapter](12-pitfalls.qmd) (the boxplot-with-jitter against the bar-with-error-whiskers) does this by suppressing colour distinction across the four treatment arms: none of them is the answer in isolation, so none receives visual privilege. If the analysis had found that ACEi outperforms the rest, the right chart would reflect that — ACEi at full opacity, the remaining three arms at 0.4. The visual hierarchy is not decoration; it is the argument made visible.
 
 ## Table titles and footnotes
 
@@ -85,7 +85,7 @@ Table captions follow a different convention from figure captions. By journal an
 ::: {.callout-tip collapse="true"}
 ## Practice: write the missing caption
 
-The figure shows a dot plot of the proportion of patients with controlled blood pressure at six months, one dot per treatment arm, sorted from lowest to highest. The arms are Placebo (31%), ACEi (58%), ARB (55%), CCB (54%). Error bars show 95% confidence intervals based on Wilson's interval. The dataset has 600 participants divided across four arms. There are no adjustments for covariates; this is a unadjusted proportion.
+The figure shows a dot plot of the proportion of patients with controlled blood pressure at six months, one dot per treatment arm, sorted from lowest to highest. The arms are Placebo (15%), ACEi (47%), ARB (40%), CCB (34%). Error bars show 95% confidence intervals based on Wilson's interval. The dataset has 600 participants divided across four arms. There are no adjustments for covariates; this is a unadjusted proportion.
 
 Write a complete caption for this figure. Use the criteria above: title, groups and conditions, statistical method, sample sizes, and any necessary disclosures.
 
@@ -93,5 +93,5 @@ Write a complete caption for this figure. Use the criteria above: title, groups 
 
 Model caption:
 
-> *"Proportion of participants with controlled blood pressure (SBP < 140 and DBP < 90 mmHg) at six months by randomised treatment arm (n = 122/183/142/153 for Placebo/ACEi/ARB/CCB). Dots show the observed proportion; error bars show 95% confidence intervals (Wilson's interval). Arms are sorted by proportion controlled. Unadjusted proportions; no covariate adjustment. Simulated cohort, n = 600."*
+> *"Proportion of participants with controlled blood pressure (SBP < 140 and DBP < 90 mmHg) at six months by randomised treatment arm (n = 125/180/144/151 for Placebo/ACEi/ARB/CCB). Dots show the observed proportion; error bars show 95% confidence intervals (Wilson's interval). Arms are sorted by proportion controlled. Unadjusted proportions; no covariate adjustment. Simulated cohort, n = 600."*
 :::

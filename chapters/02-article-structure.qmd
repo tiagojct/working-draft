@@ -64,7 +64,7 @@ Three rules avoid most problems:
 - **No interpretation.** "We found X" belongs in the results; "this suggests Y" belongs in the discussion.
 
 ::: {.column-margin}
-Choosing the right chart type and avoiding common visual errors are covered in Chapter 4 (Presenting data) and, in much greater depth, in Part II (Figures).
+Choosing the right chart type and avoiding common visual errors are covered in [presenting data](04-presenting-data.qmd) and, in much greater depth, in Part II (Figures).
 :::
 
 ## Discussion
@@ -193,7 +193,7 @@ Many journals now require a [CRediT](https://credit.niso.org/) (Contributor Role
 AI writing tools have made this distinction more pressing. Large language models cannot be listed as authors because they cannot be held responsible for the accuracy, integrity, and originality of the work. Authors must disclose AI use, review AI-generated outputs carefully, and remain accountable for everything in the manuscript [@icmje2023recommendations].
 
 ::: {.column-margin}
-AI tools in the writing process — disclosure standards, the four-tier framework, and peer-review confidentiality — are covered in the dedicated chapter later in Part I.
+AI tools in the writing process — disclosure standards, the four-tier framework, and peer-review confidentiality — are covered in the [AI-in-writing chapter](ai-writing.qmd) later in Part I.
 :::
 
 ::: {.callout-tip collapse="true"}

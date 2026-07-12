@@ -13,13 +13,13 @@ Readers look at tables and figures before they read the text. Each one must stan
 
 ## Choosing the right format
 
-- **Text** when a result is one or two numbers and no comparison is needed ("Participants were mostly female, 3,300 (83%)").
+- **Text** when a result is one or two numbers and no comparison is needed ("Participants were mostly male, 2,829 (54%)").
 - **Table** when exact values matter, or when readers may want to compare more than two or three numbers.
 - **Figure** when the pattern, distribution, or trend matters more than individual values.
 
 Never repeat the same result across text, table, and figure; most journals will flag duplicate reporting in review.
 
-A worked example of why the format choice matters. The same finding (*"participants were mostly female, 3,300 (83%)"*) plotted as a pie chart and a bar chart:
+A worked example of why the format choice matters. The same finding (*"participants were mostly male, 2,829 (54%)"*) plotted as a pie chart and a bar chart:
 
 ::: {#fig-overkill layout-ncol=2}
 
@@ -27,7 +27,7 @@ A worked example of why the format choice matters. The same finding (*"participa
 
 ![A bar chart of the same proportion: two bars, the y-axis carries no extra meaning, and the reader still has to read the number off the label.](../figures/sw/06-bar-overkill.png){#fig-bar-overkill fig-alt="A two-bar chart of the same single proportion; the value is still read from the number label rather than the bar height."}
 
-Both charts occupy valuable space to communicate a single number. The sentence *"Participants were mostly female, 3,300 (83%)"* conveys the same information in less space, with no risk of misreading.
+Both charts occupy valuable space to communicate a single number. The sentence *"Participants were mostly male, 2,829 (54%)"* conveys the same information in less space, with no risk of misreading.
 :::
 
 Rule of thumb: if a sentence will do the job, let it.
@@ -77,7 +77,7 @@ A baseline table describes the sample; a results table carries the analysis, and
 | NT-proBNP (per log-unit)     | 1.31 (1.08--1.59)    | 0.005   |
 | Age (per 10 years)           | 1.14 (1.02--1.28)    | 0.02    |
 | Male sex (vs female)         | 1.09 (0.88--1.35)    | 0.43    |
-| LVEF (per 5 %)               | 0.92 (0.85--0.99)    | 0.03    |
+| LVEF (per 5%)               | 0.92 (0.85--0.99)    | 0.03    |
 | NYHA III--IV (vs I--II)      | 1.67 (1.31--2.13)    | <0.001  |
 
 : Multivariable logistic regression for 30-day readmission (complete-case, n = 5,065). Reference categories: female sex, NYHA I--II. {tbl-colwidths="[46,30,24]"}
@@ -104,7 +104,7 @@ Claus Wilke's taxonomy of bad figures is useful here [@wilke2019fundamentals]. A
 Accessibility matters. Roughly 8% of men have some form of colour vision deficiency [@birch2012diagnosis]. Use colour palettes designed for universal readability ([viridis](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html) and [ColorBrewer](https://colorbrewer2.org/) are reliable choices), and do not rely on colour alone to distinguish categories. Duplicate colour distinctions with shape, line style, or pattern.
 
 ::: {.column-margin}
-Part II goes deeper. Chapter 10 develops the principles here into a full taxonomy. Chapter 11 surveys chart types by data structure. Chapter 12 works through seven paired failure modes with corrected examples.
+Part II goes deeper. [Principles of data visualisation](10-principles.qmd) develops the principles here into a full taxonomy. [Chart types](11-chart-types.qmd) surveys chart types by data structure. [Pitfalls](12-pitfalls.qmd) works through seven paired failure modes with corrected examples.
 :::
 
 The same fictional heart failure data, plotted four different ways, shows each failure mode and a publication-ready counterpart.
@@ -132,7 +132,7 @@ Figure legends are part of the figure, not the text. A reader who sees only the 
 - the sample size for each group;
 - definitions of any abbreviations or symbols.
 
-Keep interpretation out of the legend. *"Kaplan-Meier curves for 30-day readmission after acute heart failure, stratified by NT-proBNP at discharge (above vs below the cohort median). Log-rank test. n = 2,602 per group."* belongs in the legend. *"Showing that NT-proBNP identifies high-risk patients at discharge..."* belongs in the results and discussion.
+Keep interpretation out of the legend. *"Kaplan–Meier curves for 30-day readmission after acute heart failure, stratified by NT-proBNP at discharge (above vs below the cohort median). Log-rank test. n = 2,602 per group."* belongs in the legend. *"Showing that NT-proBNP identifies high-risk patients at discharge..."* belongs in the results and discussion.
 
 ::: {.column-margin}
 Figures for **posters** and **oral presentations** follow different conventions: larger type, fewer panels, one take-home per slide or panel. I have written short guides on both in the *Breathe* journal's *Doing Science* series: posters [@jacinto2013poster] and oral presentations [@jacinto2014oral].

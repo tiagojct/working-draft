@@ -15,13 +15,13 @@ This chapter reports one worked model to that standard: a model for 30-day readm
 
 ## Development and validation are different studies
 
-Report them as such. The model here was **developed** on a random 60% of the cohort (3,038 patients) and **validated** on the held-out 40% (2,027 patients) that played no part in fitting. Every performance number below is the validation number, because the development numbers are optimistic by construction: a model always fits the data it was trained on better than it fits anything else.
+Report them as such. Of the 5,204 patients, 139 with a missing discharge NT-proBNP were excluded, leaving 5,065; the model was **developed** on a random 60% of those (3,038 patients) and **validated** on the held-out 40% (2,027 patients) that played no part in fitting. Every performance number below is the validation number, because the development numbers are optimistic by construction: a model always fits the data it was trained on better than it fits anything else.
 
 A held-out split is the weakest form of validation and the one to use only when nothing better is available. Internal validation by bootstrapping or cross-validation uses the data more efficiently and yields an optimism-corrected estimate. **External** validation (a different hospital, a later time period, a different country) is what a reader wants, because it is the only evidence that the model survives the distribution shift it will meet in use. State which one you did, in the title if it is the point of the paper: *"development and internal validation"* and *"external validation"* are different studies and TRIPOD+AI asks you to say which.
 
 ## Discrimination: can the model rank?
 
-Discrimination is the model's ability to give higher probabilities to patients who have the event than to those who do not. The summary is the area under the ROC curve (@fig-pred-roc), equal to the c-statistic (Chapter: statistical writing, on diagnostic accuracy). Here it is 0.62 on validation, down from 0.64 on development: modest, and honestly so.
+Discrimination is the model's ability to give higher probabilities to patients who have the event than to those who do not. The summary is the area under the ROC curve (@fig-pred-roc), equal to the c-statistic ([statistical writing](statistical-writing.qmd), on diagnostic accuracy). Here it is 0.62 on validation, down from 0.64 on development: modest, and honestly so.
 
 ![ROC curve for the readmission model on the validation set. The curve sits above the no-information diagonal; the area under it (AUC) is 0.62.](../figures/sw/predmodel-roc.png){#fig-pred-roc fig-alt="A receiver-operating-characteristic curve rising above the 45-degree diagonal, with an annotated area under the curve of 0.62."}
 
@@ -55,7 +55,8 @@ from sklearn.metrics import roc_auc_score
 d = pd.read_csv("figures/sw/cohort.csv").dropna(subset=["ntprobnp_discharge"])
 d = d.assign(lognt=np.log(d.ntprobnp_discharge / 1000),
              male=(d.sex == "M").astype(int), y=d.readmit_30d.astype(int))
-dev, val = d.sample(frac=0.6, random_state=1), d.drop(d.sample(frac=0.6, random_state=1).index)
+dev = d.sample(frac=0.6, random_state=1)
+val = d.drop(dev.index)
 
 f = "y ~ lognt + age + male + lvef + egfr + prior_hf_admit + afib + C(nyha_admission)"
 fit = smf.logit(f, data=dev).fit()
@@ -92,7 +93,7 @@ TRIPOD+AI is a checklist; the paper is prose. Two paragraphs carry most of the m
 Three things this reporting does that a discrimination-only report does not: it separates development from validation performance, it reports calibration (both numbers, not just a claim that it was "adequate"), and it states the limit of the evidence in the same breath as the result. For a reader deciding whether to use the model, that last sentence is the one that matters most: it says where the evidence stops.
 
 ::: {.callout-note}
-The c-statistic here (0.62) is computed from the committed cohort and is deliberately modest, to make the point that calibration and net benefit still matter when discrimination is unremarkable. It is a different, lower number from the illustrative c-statistic of 0.71 used as a rounded teaching value in the statistical-writing chapter's diagnostic-accuracy template; the two are not the same worked model.
+The c-statistic here (0.62) is computed from the committed cohort and is deliberately modest, to make the point that calibration and net benefit still matter when discrimination is unremarkable. It is a different, lower number from the illustrative c-statistic of 0.71 used as a rounded teaching value in the [statistical-writing chapter](statistical-writing.qmd)'s diagnostic-accuracy template; the two are not the same worked model.
 :::
 
 ## Practice: what is missing from this report?
@@ -106,5 +107,5 @@ A colleague sends you the results paragraph below for a readmission model. Name 
 
 1. **No validation statement.** An AUC of 0.81 with no mention of a held-out set, cross-validation, or external cohort is almost certainly the apparent (development) performance, optimistic and uninformative about new patients. "Outperforming the clinical baseline" on the same data it was trained on is not evidence.
 2. **No calibration.** Discrimination is reported and calibration is absent, so the reader cannot tell whether the probabilities are true. A well-discriminating, badly-calibrated model prints confident wrong risks.
-3. **No clinical usefulness and no usable model.** There is no threshold analysis or decision curve, so "outperforming" is undefined in decision terms; and "available on request" (Chapter: open science) means the model itself cannot be examined, reproduced, or applied. TRIPOD+AI asks for the full model equation or the code.
+3. **No clinical usefulness and no usable model.** There is no threshold analysis or decision curve, so "outperforming" is undefined in decision terms; and "available on request" ([open science](open-science.qmd)) means the model itself cannot be examined, reproduced, or applied. TRIPOD+AI asks for the full model equation or the code.
 :::
