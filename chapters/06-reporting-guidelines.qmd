@@ -17,7 +17,7 @@ The [EQUATOR Network](https://www.equator-network.org/) catalogues every publish
 
 | Study design                  | Guideline                                                                          | Scope                                                            |
 |-------------------------------|-------------------------------------------------------------------------------------|------------------------------------------------------------------|
-| Randomised trial              | [CONSORT](https://www.consort-statement.org/) [@schulz2010consort]                  | Individually randomised, parallel-group trials                   |
+| Randomised trial              | [CONSORT](https://www.consort-statement.org/) [@hopewell2025consort]                | Individually randomised, parallel-group trials                   |
 | Non-randomised intervention   | [TREND](https://www.equator-network.org/reporting-guidelines/trend-statement/) [@desjarlais2004trend] | Evaluations of non-randomised interventions                      |
 | Observational study           | [STROBE](https://www.strobe-statement.org/) [@vonelm2007strobe]                     | Cohort, case-control, and cross-sectional studies                |
 | Systematic review / meta-analysis | [PRISMA](https://www.prisma-statement.org/) [@page2021prisma]                  | Systematic reviews and meta-analyses of interventions            |
@@ -32,7 +32,7 @@ The [EQUATOR Network](https://www.equator-network.org/) catalogues every publish
 Use the guideline as a writing guide from the start, not as a pre-submission audit. A manuscript drafted around the checklist is easier to revise than one retrofitted to it at the last moment. Submit the filled checklist as a supplement; most journals require it and editors check it on receipt.
 
 ::: {.column-margin}
-CONSORT 2025 added items on harms reporting, protocol deviations, and handling of missing outcome data that were absent from the 2010 version [@schulz2010consort]. If you wrote a trial protocol before 2025, review the new checklist before submission. Most high-impact journals require a CONSORT flow diagram as a non-negotiable condition of review.
+CONSORT 2025 [@hopewell2025consort] added items on harms reporting, protocol deviations, and handling of missing outcome data that were absent from the 2010 version [@schulz2010consort]. If you wrote a trial protocol before 2025, review the new checklist before submission. Most high-impact journals require a CONSORT flow diagram as a non-negotiable condition of review.
 :::
 
 ## Three under-reported items, with worked text
@@ -57,7 +57,7 @@ A reviewer should be able to paste the supplementary strategy into the same data
 
 ### CONSORT item 16 — numbers analysed
 
-In multi-arm trials, report who was randomised, who received the intervention, and who was analysed for each arm, with reasons for every departure, in a CONSORT flow diagram [@schulz2010consort]. The text in the results section must agree with the flow diagram on every number.
+In multi-arm trials, report who was randomised, who received the intervention, and who was analysed for each arm, with reasons for every departure, in a CONSORT flow diagram [@hopewell2025consort]. The text in the results section must agree with the flow diagram on every number.
 
 > *"Of 612 patients screened, 600 were randomised (Placebo n = 150, ACEi n = 150, ARB n = 150, CCB n = 150). All randomised patients received the allocated intervention and were included in the intention-to-treat analysis. Three patients in the ACEi arm and two in the ARB arm withdrew consent before week 4 and contributed no follow-up data; their baseline values were carried forward in a sensitivity analysis. The per-protocol analysis (n = 583) excluded 17 patients with documented protocol deviations (Placebo 4, ACEi 5, ARB 4, CCB 4)."*
 
@@ -73,7 +73,7 @@ Beyond the study-design checklist, four short statements decide whether a paper 
 
 > *"The study was approved by the Ethics Committee of [Institution] (reference 2024/XYZ) and conducted in accordance with the Declaration of Helsinki. Written informed consent was obtained from all participants; for the retrospective cohort, the committee waived individual consent given the use of anonymised routine data."*
 
-**Trial registration.** For any prospective trial, give the registry, the number, and the date — in the abstract and the methods (open science chapter).
+**Trial registration.** For any prospective trial, give the registry, the number, and the date — in the abstract and the methods ([open science](open-science.qmd)).
 
 > *"The trial was registered at ClinicalTrials.gov (NCT01234567) on 3 January 2023, before first enrolment."*
 
@@ -81,7 +81,7 @@ Beyond the study-design checklist, four short statements decide whether a paper 
 
 > *"Two patient partners with lived experience of heart failure reviewed the outcome set and the plain-language summary; they were not involved in recruitment or analysis. Reporting follows the GRIPP2 short form."*
 
-**Declarations block.** Conflicts of interest, funding, data availability, and author contributions travel together at the end of the paper. Name every funder with grant numbers and their role, declare each author's interests (or "none"), and state where the data and code are (open science chapter; [co-authorship](08-co-authorship.qmd) for CRediT).
+**Declarations block.** Conflicts of interest, funding, data availability, and author contributions travel together at the end of the paper. Name every funder with grant numbers and their role, declare each author's interests (or "none"), and state where the data and code are ([open science](open-science.qmd); [co-authorship](08-co-authorship.qmd) for CRediT).
 
 > *"Funding: [Funder], grant 12345; the funder had no role in design, analysis, or the decision to publish. Competing interests: AB has received consulting fees from [Company]; the other authors declare none. Data and code availability: the analysis code is archived at Zenodo (DOI 10.5281/zenodo.xxxxxx); individual patient data are available under a data-use agreement from the corresponding author. Author contributions: see the CRediT statement."*
 
@@ -98,6 +98,6 @@ The declarations block below would be returned by most journals. Name three prob
 
 1. **The funder is not named, there is no grant number, and the funder's role is unstated** — "funded by industry" is exactly the vagueness the declaration exists to remove.
 2. **"No conflicts" is implausible and unsupported** for an industry-funded study; each author's interests should be declared individually, and the industry funding itself is a relationship to disclose.
-3. **"Data available on request" is the weakest data statement** (open science chapter) and, with no repository or DOI for the code, fails most journals' data-availability policies. State where the data are, under what conditions, and give a code DOI.
+3. **"Data available on request" is the weakest data statement** ([open science](open-science.qmd)) and, with no repository or DOI for the code, fails most journals' data-availability policies. State where the data are, under what conditions, and give a code DOI.
 :::
 

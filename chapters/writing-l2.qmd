@@ -24,7 +24,7 @@ The most consistent writing pattern I observe in L2 health researchers is over-h
 The diagnostic question is the same as for native writers: if you removed the hedge, would the claim still be accurate? If yes, the hedge is linguistic, not scientific, and should come out. A finding supported by an adjusted HR of 1.31 with a 95% CI that excludes 1 does not need "might perhaps suggest a possible trend toward".
 
 ::: {.column-margin}
-The hedging chapter (Chapter 3) gives a calibration exercise using three versions of the same finding — unhedged, appropriate, and over-hedged. The over-hedged version is a reliable portrait of the default L2 first draft. The appropriate version is the target.
+The hedging section of [clear writing](03-clear-writing.qmd) gives a calibration exercise using three versions of the same finding — unhedged, appropriate, and over-hedged. The over-hedged version is a reliable portrait of the default L2 first draft. The appropriate version is the target.
 :::
 
 ## Common Portuguese-to-English patterns

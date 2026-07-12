@@ -60,7 +60,7 @@ sns.despine(); fig.tight_layout()
 
 ## Boxplot, strip plot, and violin: distribution by group
 
-A boxplot summarises a distribution as five numbers: median, quartiles, whiskers. A strip plot shows every observation as a jittered dot. A violin plot shows the kernel density mirrored around a vertical axis. Layered together, as in @fig-type-distribution, they cover the full vocabulary: median for the centre, IQR for the spread, individual points for outliers and sample size, and the violin's silhouette for shape. For small groups (n < 30), drop the box and just show the points; the percentile machinery is unstable. Use this combination for comparing the distribution of a continuous variable across two or more groups. The temptation to replace the whole layered chart with a bar of means and an error whisker is the failure mode addressed in the pitfalls chapter.
+A boxplot summarises a distribution as five numbers: median, quartiles, whiskers. A strip plot shows every observation as a jittered dot. A violin plot shows the kernel density mirrored around a vertical axis. Layered together, as in @fig-type-distribution, they cover the full vocabulary: median for the centre, IQR for the spread, individual points for outliers and sample size, and the violin's silhouette for shape. For small groups (n < 30), drop the box and just show the points; the percentile machinery is unstable. Use this combination for comparing the distribution of a continuous variable across two or more groups. The temptation to replace the whole layered chart with a bar of means and an error whisker is the failure mode addressed in the [pitfalls chapter](12-pitfalls.qmd).
 
 ![Layered box, strip, and violin plot of DBP at baseline by treatment arm.](../figures/dataviz/type-02-distribution.png){#fig-type-distribution fig-alt="Overlaid box, strip, and violin plots of baseline diastolic blood pressure for each treatment arm, showing similar spreads across arms."}
 
@@ -93,16 +93,18 @@ ggplot(cohort, aes(treatment, dbp_baseline,
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-palette = ["#16222a", "#0b62cf", "#D55E00", "#009E73"]
+palette = ["#16222a", "#0072B2", "#009E73", "#D55E00"]
 
 fig, ax = plt.subplots(figsize=(6.4, 4))
 sns.violinplot(data=cohort, x="treatment", y="dbp_baseline",
-               palette=palette, fill=False, linewidth=0.6, ax=ax)
+               hue="treatment", palette=palette, legend=False,
+               fill=False, linewidth=0.6, ax=ax)
 sns.stripplot(data=cohort, x="treatment", y="dbp_baseline",
-              palette=palette, alpha=0.30, jitter=0.16, size=3, ax=ax)
+              hue="treatment", palette=palette, legend=False,
+              alpha=0.30, jitter=0.16, size=3, ax=ax)
 sns.boxplot(data=cohort, x="treatment", y="dbp_baseline",
-            palette=palette, showfliers=False, fill=False,
-            width=0.18, ax=ax)
+            hue="treatment", palette=palette, legend=False,
+            showfliers=False, fill=False, width=0.18, ax=ax)
 ax.set(xlabel=None, ylabel="DBP at baseline (mmHg)")
 sns.despine(); fig.tight_layout()
 ```
@@ -190,7 +192,7 @@ ggplot(traj_summary, aes(month, sbp, colour = treatment)) +
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-palette = ["#16222a", "#0b62cf", "#D55E00", "#009E73"]
+palette = ["#16222a", "#0072B2", "#009E73", "#D55E00"]
 
 fig, ax = plt.subplots(figsize=(7.2, 4))
 sns.lineplot(data=traj_summary, x="month", y="sbp",
@@ -207,9 +209,9 @@ sns.despine(); fig.tight_layout()
 
 ## Forest plot: effect sizes with confidence
 
-A forest plot puts one effect-size estimate per row, each with its 95 % confidence interval drawn as a horizontal whisker. The reader sees the point estimate and its precision in a single glance, and a vertical reference line at zero (or 1 for ratios) does the rhetorical work of "is this difference compatible with no effect?". @fig-type-forest shows the effect of each active arm versus placebo on six-month SBP change. Forest plots are central to clinical research: subgroup analyses, regression coefficients, and meta-analyses all live in this format. Watch for stretched x-axes that make small effects look substantial, and report the test statistic alongside the interval.
+A forest plot puts one effect-size estimate per row, each with its 95% confidence interval drawn as a horizontal whisker. The reader sees the point estimate and its precision in a single glance, and a vertical reference line at zero (or 1 for ratios) does the rhetorical work of "is this difference compatible with no effect?". @fig-type-forest shows the effect of each active arm versus placebo on six-month SBP change. Forest plots are central to clinical research: subgroup analyses, regression coefficients, and meta-analyses all live in this format. Watch for stretched x-axes that make small effects look substantial, and report the test statistic alongside the interval.
 
-![Forest plot of mean Δ SBP versus Placebo by treatment arm; whiskers are 95% confidence intervals.](../figures/dataviz/type-05-forest.png){#fig-type-forest fig-alt="A forest plot of mean change in systolic blood pressure versus placebo per treatment arm, each point with horizontal 95 percent confidence-interval whiskers, active arms left of the null line."}
+![Forest plot of mean Δ SBP versus Placebo by treatment arm; whiskers are 95% confidence intervals.](../figures/dataviz/type-05-forest.png){#fig-type-forest fig-alt="A forest plot of mean change in systolic blood pressure versus placebo per treatment arm, each point with horizontal 95 percent confidence-interval whiskers, active arms right of the null line."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -241,7 +243,7 @@ ggplot(forest_data, aes(estimate, arm)) +
   geom_point(colour = "#16222a", size = 4) +
   geom_text(aes(x = hi, label = sprintf("%.1f  (%.1f – %.1f)",
                                         estimate, lo, hi)),
-            hjust = 0, nudge_x = 0.4, family = "JetBrains Mono", size = 3.3) +
+            hjust = 0, nudge_x = 0.4, family = "IBM Plex Mono", size = 3.3) +
   labs(x = "Δ SBP (mmHg, vs Placebo)", y = NULL) +
   theme_glauca()
 ```
@@ -325,7 +327,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from lifelines import KaplanMeierFitter
 
-palette = ["#16222a", "#0b62cf", "#D55E00", "#009E73"]
+palette = ["#16222a", "#0072B2", "#009E73", "#D55E00"]
 
 fig, ax = plt.subplots(figsize=(7.2, 4))
 for arm, colour in zip(["Placebo", "ACEi", "ARB", "CCB"], palette):

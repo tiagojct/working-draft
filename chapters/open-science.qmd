@@ -46,12 +46,10 @@ Deposit the data openly when possible; Level 2 should not be the default.
 
 ### Code sharing
 
-Share the analysis code alongside the data. For R users, an `.Rmd` or `.qmd` file that runs from raw data to all manuscript figures and tables is the standard. For Python users, a structured script directory with a `requirements.txt` or `environment.yml` and a `README` that describes execution order.
-
-Three things make shared code useful to a reader: it runs without modification on the data provided; it is commented enough that the analytical logic is followable; and the software environment is specified. A `sessionInfo()` call at the end of an R script, or `renv::snapshot()` for fully reproducible package management, satisfies the last requirement.
+Share the analysis code alongside the data. Three things make it useful to a reader: it runs without modification on the data provided, its logic is followable, and its software environment is specified. Meeting that bar in practice — pinned environments, random seeds, a sane project structure, and treating code as a citable output — is the subject of the [reproducibility](reproducibility.qmd) chapter in Part III.
 
 ::: {.column-margin}
 [Zenodo](https://zenodo.org/) is the most practical repository for research code because it issues a citable DOI, integrates with GitHub (a repository release can be archived to Zenodo automatically), and is hosted by CERN under an open-science mandate. An archived Zenodo record is stable; a GitHub repository alone is not — repositories are deleted, made private, or reorganised.
 :::
 
-Deposit the code in a DOI-issuing repository and include the DOI in the manuscript's data availability statement and methods section. If your data cannot be shared openly, consider releasing a synthetic version: the `synthpop` package in R and the `SDV` library in Python generate realistic synthetic datasets that preserve analytical structure without exposing individuals.
+Deposit the code in a DOI-issuing repository and include the DOI in the data-availability statement and the methods. If the data themselves cannot be shared openly, release a synthetic version instead: the `synthpop` package in R and the `SDV` library in Python generate realistic synthetic datasets that preserve analytical structure without exposing individuals.

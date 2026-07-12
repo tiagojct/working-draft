@@ -227,7 +227,7 @@ with plt.rc_context(GLAUCA_RC):
 # ── sw/05-pie-overkill.png ────────────────────────────────────────────────────
 with plt.rc_context({**GLAUCA_RC, "axes.grid": False}):
     fig, ax = plt.subplots(figsize=(4.5, 4.5))
-    ax.pie([83, 17], labels=["Female", "Male"], colors=[INK, "#B3BBC4"],
+    ax.pie([54, 46], labels=["Male", "Female"], colors=[INK, "#B3BBC4"],
            autopct="%1.0f%%", startangle=90, textprops={"fontsize": 9}, pctdistance=0.7)
     ax.set_title("Sex at birth (n = 5,204)", fontsize=10)
     savefig(fig, SW_DIR / "05-pie-overkill.png", GLAUCA_RC)
@@ -235,7 +235,7 @@ with plt.rc_context({**GLAUCA_RC, "axes.grid": False}):
 # ── sw/06-bar-overkill.png ────────────────────────────────────────────────────
 with plt.rc_context(GLAUCA_RC):
     fig, ax = plt.subplots(figsize=(4.5, 4))
-    ax.bar(["Female", "Male"], [83, 17], color=[INK, "#B3BBC4"], edgecolor="none", width=0.5)
+    ax.bar(["Male", "Female"], [54, 46], color=[INK, "#B3BBC4"], edgecolor="none", width=0.5)
     ax.set_ylabel("Percentage (%)")
     ax.set_title("Sex at birth (n = 5,204)", fontsize=10)
     savefig(fig, SW_DIR / "06-bar-overkill.png", GLAUCA_RC)

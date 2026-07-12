@@ -9,7 +9,7 @@ By the end of this chapter you will be able to:
 - prepare figures (resolution, format, colour space) for submission
 :::
 
-Colour is the element of a figure most likely to be discussed in peer review and most likely to fail. A default rainbow palette, a red-green pair that excludes 8 % of male readers, or a gradient that looks meaningful but encodes nothing — all are routine in health research and all are avoidable.
+Colour is the element of a figure most likely to be discussed in peer review and most likely to fail. A default rainbow palette, a red-green pair that excludes 8% of male readers, or a gradient that looks meaningful but encodes nothing — all are routine in health research and all are avoidable.
 
 Colour encodes meaning: the choice of palette is a claim about the structure of the data: a sequential ramp claims the data have a direction; a diverging scale claims there is a meaningful midpoint; a categorical set claims the groups are unordered. Getting the encoding wrong produces a wrong figure even if the numbers are correct.
 
@@ -23,7 +23,7 @@ Colour encodes meaning: the choice of palette is a claim about the structure of 
 
 ## Colour-vision deficiency
 
-Approximately 8 % of men and 0.5 % of women have some form of colour-vision deficiency [@birch2012diagnosis]. The most common forms — protanopia and deuteranopia — make red and green look similar. Tritanopia, which confuses blue and yellow, is rarer but not negligible.
+Approximately 8% of men and 0.5% of women have some form of colour-vision deficiency [@birch2012diagnosis]. The most common forms — protanopia and deuteranopia — make red and green look similar. Tritanopia, which confuses blue and yellow, is rarer but not negligible.
 
 ::: {.column-margin}
 Before publishing, run your palette through a CVD simulation. The Colblindor tool accepts any image. In R, `colorBlindness::cvdPlot()` simulates all major types programmatically. Check early: fixing a palette before writing the captions is much less painful than fixing it after the figures are finalised.
@@ -35,9 +35,9 @@ Two rules prevent most accessibility failures. First, never rely on colour alone
 
 Colour is the accessibility failure reviewers name most often, but it is not the only one. Two further checks catch the rest.
 
-**Text size.** Figure text competes with the body text around it, and it is set at the size of the final printed figure, not the size on screen while you draw it. Axis labels, tick labels, and annotations should stay legible when the figure is scaled to its column width. A safe floor is 7 pt for the smallest text at final dimensions; below 5 pt it is unreadable in print. Export at the target width (see [Preparing figures for submission](#preparing-figures-for-submission) below) and read the labels at 100 %.
+**Text size.** Figure text competes with the body text around it, and it is set at the size of the final printed figure, not the size on screen while you draw it. Axis labels, tick labels, and annotations should stay legible when the figure is scaled to its column width. A safe floor is 7 pt for the smallest text at final dimensions; below 5 pt it is unreadable in print. Export at the target width (see [Preparing figures for submission](#preparing-figures-for-submission) below) and read the labels at 100%.
 
-**Alt text.** An online figure needs a text alternative for readers using a screen reader. The caption does not serve: it states the point of the figure, whereas the alt text describes what the figure shows — the chart type, the axes, and the shape of the pattern — so that a reader who cannot see it reaches the same conclusion. One sentence is usually enough: *"Kaplan-Meier curves for two arms; the treated arm separates upward after month two."* In Quarto, set it with the `fig-alt` attribute; most journal submission systems now provide an alt-text field, and leaving it blank is a growing cause of accessibility-desk queries.
+**Alt text.** An online figure needs a text alternative for readers using a screen reader. The caption does not serve: it states the point of the figure, whereas the alt text describes what the figure shows — the chart type, the axes, and the shape of the pattern — so that a reader who cannot see it reaches the same conclusion. One sentence is usually enough: *"Kaplan–Meier curves for two arms; the treated arm separates upward after month two."* In Quarto, set it with the `fig-alt` attribute; most journal submission systems now provide an alt-text field, and leaving it blank is a growing cause of accessibility-desk queries.
 
 ## The book's palette
 
@@ -94,9 +94,11 @@ pal  = {"Placebo": "#16222a", **dict(zip(arms[1:], GLAUCA_CATEGORICAL))}
 
 fig, ax = plt.subplots(figsize=(6.5, 4.0))
 sns.violinplot(data=cohort, x="treatment", y="dbp_baseline",
-               palette=pal, fill=False, linewidth=0.6, ax=ax)
+               hue="treatment", palette=pal, legend=False,
+               fill=False, linewidth=0.6, ax=ax)
 sns.stripplot(data=cohort, x="treatment", y="dbp_baseline",
-              palette=pal, alpha=0.25, jitter=True, size=3, ax=ax)
+              hue="treatment", palette=pal, legend=False,
+              alpha=0.25, jitter=True, size=3, ax=ax)
 ax.set(xlabel=None, ylabel="DBP at baseline (mmHg)")
 sns.despine(); fig.tight_layout()
 ```

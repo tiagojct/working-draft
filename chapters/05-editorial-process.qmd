@@ -87,7 +87,7 @@ If the journal's editorial system asks you to suggest reviewers, include three t
 
 ## Peer review
 
-Systematic external peer review took shape in journals such as *Science* and the *New England Journal of Medicine* in the 1940s and became routine across medicine in the early 1970s [@spier2002history]. It attempts to ensure that published work meets minimum standards of quality, but it is not infallible. Hans Krebs's 1937 paper on the urea cycle was famously rejected by *Nature* before being published elsewhere; many other now-landmark papers have been rejected or heavily revised before publication. This is not failure of the system but evidence that it works imperfectly.
+Systematic external peer review took shape in journals such as *Science* and the *New England Journal of Medicine* in the 1940s and became routine across medicine in the early 1970s [@spier2002history]. It attempts to ensure that published work meets minimum standards of quality, but it is not infallible. Hans Krebs's 1937 paper on the citric-acid cycle was famously rejected by *Nature* before being published elsewhere; many other now-landmark papers have been rejected or heavily revised before publication. This is not failure of the system but evidence that it works imperfectly.
 
 ::: {.column-margin}
 Peer review is a floor, not a ceiling: it filters out obvious errors, not subtle ones. Your responsibility for your own work does not end when reviewers sign off.
