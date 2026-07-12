@@ -1,5 +1,14 @@
 # Principles of data visualisation
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- apply the data-to-ink and self-sufficiency principles
+- choose an encoding that matches the data and the message
+- design a figure for the reviewer, not only for yourself
+:::
+
 A figure is the only part of your paper that a tired reviewer is guaranteed to read. They may skim the methods, scan the results, and bookmark the discussion for later, but they will look at every figure you draw. This makes the figure the part of the paper that has to do the most work per square centimetre. A clear chart can carry a modestly written paper; a confused chart can sink a careful one.
 
 Good data visualisation is a set of decisions taken with discipline, the same discipline that produces clear prose. Edward Tufte stated the rule plainly: maximise the data-to-ink ratio [@tufte2001visual]. Erase what does not earn its place. Claus Wilke gave us a practical taxonomy of failure [@wilke2019fundamentals], *ugly*, *bad*, *wrong*, *good*, that turns the rule into a checklist for revision.

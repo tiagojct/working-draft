@@ -1,5 +1,14 @@
 # Colour in figures
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- choose sequential, diverging, and categorical palettes by function
+- make figures legible under colour-vision deficiency
+- prepare figures (resolution, format, colour space) for submission
+:::
+
 Colour is the element of a figure most likely to be discussed in peer review and most likely to fail. A default rainbow palette, a red-green pair that excludes 8 % of male readers, or a gradient that looks meaningful but encodes nothing — all are routine in health research and all are avoidable.
 
 Colour encodes meaning: the choice of palette is a claim about the structure of the data: a sequential ramp claims the data have a direction; a diverging scale claims there is a meaningful midpoint; a categorical set claims the groups are unordered. Getting the encoding wrong produces a wrong figure even if the numbers are correct.

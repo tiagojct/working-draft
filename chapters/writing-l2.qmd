@@ -1,5 +1,14 @@
 # Writing in English as a second language
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- recognise the two sources of second-language difficulty
+- correct common first-language transfer patterns in English prose
+- use language-editing tools without losing your voice
+:::
+
 Most health researchers publish in English regardless of the language they think in, dream in, and use to argue with their supervisors. This is not a disadvantage to be overcome; it is the condition of contemporary science. The researchers who handle it best are not those who write perfect English; they are those who have learned to separate the two distinct problems: saying what you mean, and saying it in English.
 
 These are not the same problem, and they have different remedies.
@@ -71,3 +80,21 @@ The fear L2 writers most often express is losing their voice. In practice, L2 sc
 Scientific prose is not where individual style does its most important work. What is most distinctively yours in a journal article is not the sentence rhythm; it is the question you chose to ask, the analytical decision you made, the limitation you were honest about when others would have glossed it. Those survive any language revision.
 
 A practical note: if a sentence in English feels wrong, it usually is. Trust the discomfort. You may not be able to say why the sentence is wrong, but your reading-in-English accumulation is often a reliable detector even when it cannot articulate the problem. Write a note to yourself — *"recheck this sentence"* — and return to it after the draft is done, when you can compare it against the surrounding text and decide whether it needs a language editor's eye.
+
+::: {.callout-tip collapse="true"}
+## Practice: revise the L2 patterns
+
+Each sentence shows a common second-language pattern. Revise it before revealing a suggested rewrite.
+
+1. *"In this study, we tried to investigate the possible potential association that may exist between the biomarker and the outcome."*
+2. *"The obtained results demonstrate clearly that the treatment is effective."*
+3. *"It is well known that heart failure is a serious disease."*
+
+---
+
+Suggested rewrites:
+
+1. **Stacked hedges and redundancy.** *"We examined the association between the biomarker and the outcome."* — "possible potential… that may exist" piles up three hedges, and "tried to investigate" weakens the claim before it is made.
+2. **Over-claiming from one study, vague verb.** *"These results indicate that the treatment reduced [outcome] in this cohort."* — "demonstrate clearly" overstates what one study shows; name what improved.
+3. **Empty opener.** Cut it, or replace with a specific cited fact: *"Heart failure causes more than one million hospital admissions a year in Europe [ref]."*
+:::

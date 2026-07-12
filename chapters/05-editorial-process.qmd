@@ -1,5 +1,14 @@
 # The editorial process
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- choose a journal and recognise predatory ones
+- respond to reviewers point by point, including where you disagree
+- prepare a submission and handle a revision or rejection
+:::
+
 ![From manuscript to publication. Editorial screening filters submissions in 1--5 days; external peer review takes 4--12 weeks; the decision routes to publication, revisions, or, on reject-and-resubmit, onto a new journal.](../figures/sw/editorial-process.svg){fig-align="center" fig-alt="Flow diagram from manuscript submission through editorial screening and external peer review to one of three outcomes: publication, revision, or reject-and-resubmit to another journal."}
 
 ## Choosing a journal

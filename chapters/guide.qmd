@@ -2,6 +2,8 @@
 
 Two tables for when you need a specific answer fast. The first maps common reviewer comments to the chapter that addresses them. The second maps figure problems to the chapters that cover them.
 
+New to research? Start with Chapters 1 and 3, and keep the [glossary](glossary.qmd) open for any unfamiliar term. When you are ready to submit, run down the [checklists](checklists.qmd).
+
 ## If your reviewer said…
 
 | Reviewer comment | Where to look |

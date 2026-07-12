@@ -1,0 +1,168 @@
+# Glossary {.unnumbered}
+
+Short definitions of the terms this book uses. Where a chapter treats a term in depth, it is named. Aimed at readers new to research; skip what you already know.
+
+APC (article processing charge)
+:   The fee an open-access journal charges the author to publish. Can run to several thousand euros; many funders and institutions cover it.
+
+Association vs causation
+:   An association is a statistical relationship between two variables; a causal effect is one changing the other. Observational data show association; only randomisation or an explicit causal design licenses causal language ([statistical writing](statistical-writing.qmd)).
+
+AUC / c-statistic
+:   Area under the ROC curve, and the equivalent concordance statistic: a model's ability to rank a patient with the event above one without it. 0.5 is chance, 1.0 is perfect ([prediction models](prediction-models.qmd)).
+
+Bootstrap
+:   Resampling the data with replacement to estimate uncertainty or to correct a model's optimism. A way to get a confidence interval or an internal-validation estimate without a formula.
+
+Calibration
+:   The agreement between a model's predicted probabilities and observed frequencies — whether "20% risk" happens to one in five. Distinct from discrimination and more often omitted ([prediction models](prediction-models.qmd)).
+
+Confidence interval (CI)
+:   The range of values compatible with the data at a stated level (usually 95%). Report it with every estimate; it carries the uncertainty a p-value hides.
+
+Confounding
+:   A third variable associated with both exposure and outcome that distorts their apparent relationship. Adjusted for by design (randomisation) or in analysis (regression), never fully in observational data.
+
+CONSORT
+:   The reporting guideline for randomised controlled trials, including the flow diagram of participants ([reporting](06-reporting-guidelines.qmd)).
+
+CRediT
+:   The Contributor Roles Taxonomy: fourteen standard roles (conceptualisation, analysis, writing, etc.) used to state who did what ([co-authorship](08-co-authorship.qmd)).
+
+Cross-validation
+:   Repeatedly splitting data into training and testing folds to estimate how a model performs on unseen data. Internal validation; weaker than external validation.
+
+Decision-curve analysis (DCA)
+:   A plot of a model's net benefit against the "treat all" and "treat none" strategies across decision thresholds — whether acting on the model beats the blunt alternatives ([prediction models](prediction-models.qmd)).
+
+De-identification
+:   Removing direct and indirect identifiers so data can be shared without exposing individuals (e.g. HIPAA Safe Harbor, k-anonymity) ([reproducibility](reproducibility.qmd)).
+
+Discrimination
+:   A model's ability to separate those who have the outcome from those who do not, summarised by the AUC/c-statistic.
+
+DOI (digital object identifier)
+:   A permanent identifier for a paper, dataset, or software release. A Zenodo or Dryad deposit issues one so the object stays citable and findable.
+
+EQUATOR Network
+:   The online library cataloguing every published reporting guideline ([reporting](06-reporting-guidelines.qmd)).
+
+External validation
+:   Testing a model on data from a different setting, time, or population than it was built on — the evidence that it transports.
+
+FAIR
+:   Findable, Accessible, Interoperable, Reusable: the principles for research-data management, mostly a matter of good metadata ([reproducibility](reproducibility.qmd)).
+
+False-discovery rate (FDR)
+:   The expected proportion of false positives among the results called significant; controlled by the Benjamini–Hochberg procedure when many tests are run.
+
+Hazard ratio (HR)
+:   The ratio of event rates between groups at any instant, from a survival (time-to-event) analysis. HR 1.3 means a 30% higher instantaneous risk.
+
+Hedging
+:   Calibrating the strength of a claim to the strength of the evidence — neither overstating nor burying a finding ([clear writing](03-clear-writing.qmd)).
+
+ICMJE
+:   The International Committee of Medical Journal Editors, whose recommendations define authorship, trial registration, and disclosure norms.
+
+IMRAD
+:   The Introduction, Methods, Results, and Discussion structure of a scientific article ([article structure](02-article-structure.qmd)).
+
+Impact factor
+:   The average citations per article for a journal over two years. A crude, gamed proxy for quality; useful only as one weak signal among many.
+
+Intention-to-treat (ITT)
+:   Analysing trial participants in the arm they were randomised to, regardless of what they received. Preserves randomisation; contrast with per-protocol.
+
+Interquartile range (IQR)
+:   The 25th-to-75th-percentile span of a distribution; the spread to report with a median for skewed data.
+
+Multiple imputation (MICE)
+:   A method for handling missing data by creating several completed datasets, analysing each, and pooling — Multiple Imputation by Chained Equations ([statistical writing](statistical-writing.qmd)).
+
+Missingness (MCAR / MAR / MNAR)
+:   Missing Completely At Random, At Random (given observed data), or Not At Random. The mechanism decides which handling is valid.
+
+Multiplicity
+:   The inflation of false positives when many hypotheses are tested; addressed by correction (Bonferroni, FDR) ([statistical writing](statistical-writing.qmd)).
+
+Net benefit
+:   The decision-curve metric that weighs true positives against false positives at a given decision threshold.
+
+Odds ratio (OR)
+:   The ratio of the odds of an outcome between groups, from logistic regression. Approximates the risk ratio only when the outcome is rare.
+
+Open access
+:   Publication free for readers, funded by an APC (gold) or by self-archiving (green).
+
+Overfitting
+:   A model that fits its training data too closely and fails on new data; visible as a calibration slope below 1 ([prediction models](prediction-models.qmd)).
+
+Peer review
+:   Evaluation of a manuscript by independent experts before publication; single- or double-blind depending on what is concealed ([editorial process](05-editorial-process.qmd)).
+
+Per-protocol
+:   Analysing only participants who completed the intervention as assigned. Answers a different question from ITT and can reintroduce selection bias.
+
+PPI (patient and public involvement)
+:   Patients or the public shaping the question, design, or dissemination of research; reported against GRIPP2 ([reporting](06-reporting-guidelines.qmd)).
+
+Predatory journal
+:   A journal that charges an APC but provides no genuine peer review or editorial service ([editorial process](05-editorial-process.qmd)).
+
+Preprint
+:   A manuscript posted publicly (e.g. medRxiv) before peer review, to share results early and establish priority.
+
+Preregistration
+:   Recording the hypothesis and analysis plan in a public registry before data collection, to separate confirmatory from exploratory analysis ([open science](open-science.qmd)).
+
+PRISMA
+:   The reporting guideline for systematic reviews and meta-analyses, including the flow diagram ([systematic reviews](systematic-reviews.qmd)).
+
+Prospective / retrospective
+:   Whether data are collected forward from a defined start (prospective) or assembled from records after the fact (retrospective).
+
+PROSPERO
+:   The international registry for systematic-review protocols.
+
+P-value
+:   The probability of data at least as extreme as observed, if the null hypothesis were true. Not the probability the null is true; report it beside an effect estimate, never alone.
+
+Random seed
+:   A fixed starting value that makes a random procedure repeatable, so an analysis returns the same numbers each run ([reproducibility](reproducibility.qmd)).
+
+Reporting guideline
+:   A checklist specifying what a given study design must report (CONSORT, STROBE, PRISMA, TRIPOD…) ([reporting](06-reporting-guidelines.qmd)).
+
+Reproducibility
+:   The property that another researcher with your data and code can rerun the analysis and get the same results ([reproducibility](reproducibility.qmd)).
+
+renv / requirements.txt
+:   Files that pin the exact package versions a project used, so its computational environment can be rebuilt.
+
+Risk ratio (relative risk, RR)
+:   The ratio of outcome probabilities between groups. More directly interpretable than an odds ratio.
+
+ROC curve
+:   Receiver operating characteristic: sensitivity plotted against 1 − specificity across thresholds; its area is the AUC.
+
+Sensitivity / specificity
+:   The proportion of true positives correctly identified (sensitivity) and true negatives correctly excluded (specificity) by a test at a threshold.
+
+Sensitivity analysis
+:   Repeating the primary analysis under different assumptions to test how robust the finding is ([statistical writing](statistical-writing.qmd)). (Distinct from the diagnostic term *sensitivity*.)
+
+SPIRIT
+:   The reporting guideline for clinical-trial protocols.
+
+STROBE
+:   The reporting guideline for observational studies (cohort, case-control, cross-sectional).
+
+Systematic review / meta-analysis
+:   A structured synthesis of all studies on a question (systematic review) and their statistical pooling (meta-analysis) ([systematic reviews](systematic-reviews.qmd)).
+
+TRIPOD+AI
+:   The reporting guideline for clinical prediction models, including machine-learning models ([prediction models](prediction-models.qmd)).
+
+Zenodo
+:   A CERN-hosted repository that issues a citable DOI for datasets and software releases and archives GitHub repositories ([open science](open-science.qmd)).

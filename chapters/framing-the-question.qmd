@@ -1,0 +1,89 @@
+# Framing the research question
+
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- turn a topic into an answerable PICO question with one primary outcome
+- test a question against the FINER criteria before committing to it
+- match a design to its question and identify confounders on a causal diagram
+:::
+
+Writing starts before the first sentence, at the question. A paper is the answer to a question, and a vague question has no answer worth writing. If you cannot state in one sentence what you asked, whom you asked it about, and what you measured, the introduction will wander, the methods will not line up with the aims, and the discussion will reach for conclusions the data cannot support. Most unpublishable first drafts are not badly written. They are badly asked.
+
+This chapter is the on-ramp for the earliest stage, before you have results or even data: turning a topic into a question a study can answer, and matching that question to a design that can answer it. Everything in Part I becomes easier once the question is sharp.
+
+## From topic to question: PICO
+
+A topic ("NT-proBNP in heart failure") is not a question. Sharpen it with **PICO** [@richardson1995wellbuilt], the four parts every answerable clinical question names:
+
+- **P**opulation: who? *Adults hospitalised for acute heart failure.*
+- **I**ntervention or exposure: what are you studying? *NT-proBNP measured at discharge.*
+- **C**omparison: against what? *Lower versus higher NT-proBNP (or, in a trial, treatment versus placebo).*
+- **O**utcome: measured how? *Unplanned readmission within 30 days.*
+
+Assembled: *"In adults hospitalised for acute heart failure (P), does a higher discharge NT-proBNP (I/C) predict 30-day unplanned readmission (O)?"* That sentence is the seed of the title, the last line of the introduction, the primary analysis, and the primary outcome in the abstract. Write it down before anything else, and revise the paper against it whenever a section drifts.
+
+The **O** deserves the most care. Name one **primary outcome**, define it precisely (30-day *unplanned* readmission, ascertained from the national registry), and pre-specify it (open science chapter). A study with five co-equal "primary" outcomes has none, and reviewers read the plurality as a search for whatever reached significance.
+
+## Is the question worth asking: FINER
+
+PICO makes a question answerable; **FINER** asks whether it is worth answering [@hulley2013designing]. Before committing months to a study, check that it is:
+
+- **F**easible: adequate sample, accessible data, realistic scope and funding.
+- **I**nteresting: to you, and to the readers and reviewers of your target field.
+- **N**ovel: it confirms, refutes, or extends existing work rather than repeating it. Search the literature first; a systematic review may already answer it (systematic-reviews chapter).
+- **E**thical: approvable by a research ethics committee, with a defensible consent model (reporting chapter).
+- **R**elevant: the answer changes practice, policy, or the next study, whichever way it comes out.
+
+A question that fails F or N is the most common reason a promising project stalls. Test it against FINER on paper before you test it in the clinic.
+
+## Match the design to the question
+
+The question dictates the design; the design dictates the reporting guideline (reporting chapter). Choosing the wrong design for the question is a flaw no writing can repair.
+
+| Your question is about… | Design | Guideline |
+|--------------------------|--------|-----------|
+| Does a treatment work? (efficacy) | Randomised controlled trial | CONSORT |
+| What is the risk or prognosis over time? | Cohort study | STROBE |
+| What caused a rare outcome? | Case-control study | STROBE |
+| How common is a condition? (prevalence) | Cross-sectional study | STROBE |
+| How good is a test? | Diagnostic-accuracy study | STARD |
+| Who is at risk? (individual prediction) | Prediction-model study | TRIPOD+AI |
+| What does all the evidence say? | Systematic review / meta-analysis | PRISMA |
+
+Only randomisation licenses a causal claim from the design alone. Every observational design answers an *associational* question and must defend its causal interpretation by other means (statistical-writing chapter, on correlation and causation).
+
+## Confounding, drawn before it is adjusted
+
+The single largest threat to an observational answer is **confounding**: a third factor associated with both the exposure and the outcome that distorts their apparent relationship. Age confounds almost everything in a heart-failure cohort, because it raises both NT-proBNP and readmission risk on its own.
+
+Decide what to adjust for before you see the data, and decide it by drawing a **causal diagram** (a DAG), not by throwing every available variable into the model [@greenland1999causal]. A DAG is a sketch of arrows from causes to effects; it shows which variables are confounders to adjust for and, just as important, which are mediators or colliders that adjusting for them would *bias* the estimate. "We adjusted for everything we had" is not a strategy; it is how a collider quietly inverts an effect. The diagram belongs in your analysis plan, and often in the supplement.
+
+## The question runs through the whole paper
+
+A sharp question is not a preliminary you leave behind. It is the spine:
+
+- the **title** names the P, the I/E, and the O;
+- the **introduction** funnels from the field to exactly this gap (article-structure chapter, on the hourglass);
+- the **methods** describe the design chosen to answer it and nothing else;
+- the **primary analysis** tests it, once, as pre-specified;
+- the **discussion** answers it plainly in the first paragraph before qualifying the answer.
+
+When a draft feels unfocused, the problem is rarely the prose. Return to the PICO sentence and check that every section is still answering it.
+
+::: {.callout-tip collapse="true"}
+## Practice: sharpen the question
+
+Rewrite each vague aim as a one-sentence PICO question, then name the design and guideline it implies.
+
+1. *"We wanted to study inflammation in sepsis."*
+2. *"This project looks at whether our new sepsis score is any good."*
+
+---
+
+Suggested answers:
+
+1. Still a topic, not a question. One version: *"In adults admitted to intensive care with sepsis (P), is a higher day-1 C-reactive protein (E) associated with 28-day mortality (O)?"* Prognostic association over time → cohort study → STROBE.
+2. *"In adults presenting to the emergency department with suspected sepsis (P), how accurately does the new score (I), compared with qSOFA (C), predict in-hospital mortality (O)?"* Test performance → diagnostic-accuracy or prediction-model study → STARD or TRIPOD+AI.
+:::

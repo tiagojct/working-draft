@@ -1,5 +1,14 @@
 # The structure of a scientific article
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- structure a paper on the IMRAD and hourglass models
+- write a structured abstract and a title that names the study
+- write a limitations paragraph that discloses rather than apologises
+:::
+
 Most scientific articles follow the IMRAD format: Introduction, Methods, Results, and Discussion [@sollaci2004imrad]. This structure is not arbitrary. It mirrors the logic of an investigation: *Why did you do it? How did you do it? What did you find? What does it mean?*
 
 ## The hourglass model
@@ -69,6 +78,8 @@ A five-paragraph discussion covers most papers.
 5. **Implications and next steps.** What does this mean for practice, policy, or the next study?
 
 A discussion that only restates the results is a missed opportunity. A discussion that overreaches (claiming causality from an observational study, generalising from one hospital to all hospitals) is the fastest path to rejection.
+
+Write the limitations paragraph as engineering. Most are perfunctory: a generic list of "small sample, single centre, retrospective design" that could be pasted into any paper and tells the reader nothing about *this* one [@ioannidis2007limitations]. A limitation earns its place when it is specific to your study, ranked by how much it could change the conclusion, and paired with what you did about it and what concern remains. *"Residual confounding by disease severity cannot be excluded, though we adjusted for NYHA class and LVEF and the estimate was stable in a restricted sensitivity analysis"* names the threat, the mitigation, and the honest remainder in one sentence. Separate the two kinds: threats to *internal validity* (confounding, selection and measurement bias, missing data) ask whether the finding is real in your sample; threats to *external validity* (a single centre, a narrow population, a specific era) ask whether it transports to anyone else's.
 
 When the primary hypothesis is not supported, write the null result honestly. A well-conducted study with a clear negative answer is a contribution, not a failure. State the finding directly (*"we did not find evidence that NT-proBNP improved risk prediction beyond NYHA class and LVEF"*), comment on statistical power, discuss what would be needed to rule out a true effect, and resist the temptation to rescue the story with unplanned subgroup analyses.
 
@@ -183,4 +194,20 @@ AI writing tools have made this distinction more pressing. Large language models
 
 ::: {.column-margin}
 AI tools in the writing process — disclosure standards, the four-tier framework, and peer-review confidentiality — are covered in the dedicated chapter later in Part I.
+:::
+
+::: {.callout-tip collapse="true"}
+## Practice: which section?
+
+Each sentence below belongs in a different IMRAD section. Name the section — Introduction, Methods, Results, or Discussion — for each.
+
+1. *"NT-proBNP was measured within 24 hours of discharge using a sandwich immunoassay."*
+2. *"The 30-day readmission rate was 12.8% (95% CI 11.9–13.7)."*
+3. *"These findings suggest discharge NT-proBNP could support targeted follow-up, though residual confounding cannot be excluded."*
+4. *"Risk stratification at discharge remains imperfect, and few biomarkers combine routine availability with prognostic value."*
+5. *"Patients were followed for 30 days through the national hospital registry."*
+
+---
+
+Answers: 1. Methods. 2. Results. 3. Discussion. 4. Introduction. 5. Methods. If you placed 3 in Results, note the giveaway: "suggest" and the stated limitation are interpretation, which belongs in the Discussion.
 :::

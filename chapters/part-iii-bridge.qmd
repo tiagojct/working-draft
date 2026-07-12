@@ -1,0 +1,5 @@
+# From figures to reproducible research {.unnumbered}
+
+Part I was about what to write; Part II was about how to show it. Both assume the analysis behind the words and the figures is sound and can be trusted. Part III is about making that assumption defensible: reporting a model so a reader can judge whether it works, and producing the whole analysis so a stranger (or a later version of you) can run it again and get the same answer.
+
+The two chapters here serve the readers who write with code as much as with prose. The first takes the running heart-failure cohort and builds a clinical prediction model, then reports it to the standard such models are held to: whether it ranks patients, whether its probabilities are true, and whether acting on them helps. The second treats the analysis code and the data as first-class research outputs (pinned, seeded, version-controlled, licensed, and archived), because a result no one can reproduce is only a claim. The discipline is the same one that runs through the whole book: say enough, honestly, that someone else can check you.

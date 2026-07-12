@@ -1,5 +1,14 @@
 # Using AI tools for figures
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- use code- and image-generation AI for figures responsibly
+- verify AI-generated figure values against the data
+- disclose AI use in figure construction
+:::
+
 ::: {.column-margin}
 *Current as of May 2026. AI tools for figure generation are evolving quickly; check your target journal's current policy on image-model disclosure before submission.*
 :::

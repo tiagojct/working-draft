@@ -1,5 +1,14 @@
 # Common chart types
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- match the six common chart types to data structures
+- build each chart type in R or Python
+- choose the right chart for a distribution, relationship, or effect
+:::
+
 Before diagnosing failures, the toolkit needs to be established. Six chart types cover most figures in clinical and epidemiological research; each is the right choice when the data structure and the message align. The worked code uses seaborn [@waskom2021seaborn] in Python and ggplot2 [@wickham2016ggplot2] in R; VanderPlas's *Python Data Science Handbook* [@vanderplas2016pythondatascience] is a fuller reference for the Python plotting stack.
 
 ## Histogram and density: one variable's distribution

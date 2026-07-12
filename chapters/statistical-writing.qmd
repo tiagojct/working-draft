@@ -1,5 +1,14 @@
 # Writing statistical results
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- write matched methods and results paragraphs that name the same numbers
+- report regression, survival, and diagnostic-accuracy results correctly
+- avoid the common statistical reporting errors, multiplicity included
+:::
+
 The methods section and results section are a contract. The methods announce, in advance, every analysis you will report; the results deliver them, in the same order, with the same terminology. A results section that contains analyses not named in the methods is unreported work. A methods section that names analyses absent from the results is unfulfilled specification. Reviewers read both against each other, and mismatches are one of the most common reasons for major revisions.
 
 This chapter provides worked templates for the most common analytical scenarios in clinical health research. Each template pairs a methods paragraph with its results paragraph, because the two must be read and written as a unit. The SAMPL guidelines [@lang2015sampl] catalogue the minimum statistical information that must appear in any biomedical article; this chapter operationalises that catalogue as paired paragraphs you can adapt directly.
@@ -101,6 +110,20 @@ When a sensitivity analysis produces a different result from the primary analysi
 > *"In the full cohort, NT-proBNP at discharge was associated with 30-day readmission (adjusted OR 1.31, 95% CI 1.08–1.59). In the pre-specified sensitivity analysis restricted to patients with index NT-proBNP ≥ 1,500 pg/mL, the adjusted OR was 1.09 (95% CI 0.83–1.43), with the confidence interval crossing the null. This attenuation is consistent with the higher baseline readmission rate in this subgroup reducing the relative discriminative contribution of discharge NT-proBNP; it does not contradict the primary finding but limits its extension to the highest-risk stratum."*
 
 The last sentence does the interpretive work: it explains the mechanism of the discordance rather than simply noting it.
+
+## Common statistical reporting errors
+
+The templates above are about reporting an analysis correctly. A separate discipline is avoiding the errors that survive peer review most often. Five recur.
+
+**Multiplicity.** Test twenty independent hypotheses at α = 0.05 and, on average, one comes up "significant" by chance alone. A paper that runs many comparisons and reports the significant ones without adjustment is fishing. State how many tests were planned and correct for them: Bonferroni for a small confirmatory family, Benjamini–Hochberg (false-discovery rate) for a large exploratory screen [@bender2001multiple]. A single pre-specified primary outcome needs no correction — but then say so, rather than leaving the reader to count.
+
+**Subgroup fishing.** A subgroup effect that was not pre-specified, was tested as one of many, and is reported because it reached significance is a hypothesis, not a finding. Report the pre-specified subgroups, test for interaction rather than comparing within-subgroup p-values, and label any post-hoc subgroup as exploratory (open science chapter). "The drug worked in diabetics," pulled from an unplanned split of an otherwise null trial, is the canonical way to mislead.
+
+**P-value misuse.** A p-value is not the probability that the null hypothesis is true, and "non-significant" is not "no effect" (Chapter: presenting data). Report the estimate and its confidence interval first; the p-value is a footnote to the effect size, never a substitute for it. Never write `p = 0.000`, and never use `NS` in place of a number.
+
+**Correlation and causation.** An association from observational data is not a causal effect, however carefully adjusted. Reserve causal verbs (*reduces*, *causes*, *leads to*) for randomised evidence or an explicit causal-inference design; use associational language (*was associated with*) otherwise, and name residual confounding as a limitation (Chapter: clear writing, on hedging).
+
+**Overfitting.** A model tuned until it fits the data at hand will not fit the next dataset. Discrimination measured on the same data used to build the model is optimistic; report validated performance and calibration, not apparent performance ([prediction models](prediction-models.qmd)).
 
 ::: {.callout-tip collapse="true"}
 ## Practice: find the mismatch

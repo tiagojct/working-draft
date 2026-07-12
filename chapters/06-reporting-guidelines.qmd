@@ -1,5 +1,14 @@
 # Reporting and research transparency
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- select the reporting guideline for a given study design
+- write the most under-reported items in methods and results
+- write the ethics, registration, PPI, and declarations statements
+:::
+
 Your paper will be checked against a reporting guideline before it clears peer review. Write from one. The most common reason for desk rejection at high-impact journals is not a flawed study — it is a missing item on a reporting checklist. This chapter covers the main guidelines for clinical and biomedical research. Preregistration, data sharing, and code sharing are covered in the next chapter.
 
 ## Reporting guidelines
@@ -53,4 +62,42 @@ In multi-arm trials, report who was randomised, who received the intervention, a
 > *"Of 612 patients screened, 600 were randomised (Placebo n = 150, ACEi n = 150, ARB n = 150, CCB n = 150). All randomised patients received the allocated intervention and were included in the intention-to-treat analysis. Three patients in the ACEi arm and two in the ARB arm withdrew consent before week 4 and contributed no follow-up data; their baseline values were carried forward in a sensitivity analysis. The per-protocol analysis (n = 583) excluded 17 patients with documented protocol deviations (Placebo 4, ACEi 5, ARB 4, CCB 4)."*
 
 Three things this paragraph does: the analysis populations are named explicitly (ITT, per-protocol), the departures are itemised by arm with reasons, and the per-protocol denominator is reconciled with the randomised total. A reviewer can match every number to the flow diagram without a calculator.
+
+For prediction-model studies, the equivalent standard is [TRIPOD+AI](prediction-models.qmd) [@collins2024tripod], which asks you to report development and validation separately and to show calibration and clinical usefulness, not discrimination alone; that reporting is worked through in Part III.
+
+## Research-integrity statements
+
+Beyond the study-design checklist, four short statements decide whether a paper clears the integrity screen most journals now run on receipt. Each is a sentence or two, each is checked, and each is a common reason for an editorial query. Write them as commitments, not boilerplate.
+
+**Ethics and consent.** Name the approving committee and its reference number, the consent procedure, and the framework. A study on human participants without this cannot be published.
+
+> *"The study was approved by the Ethics Committee of [Institution] (reference 2024/XYZ) and conducted in accordance with the Declaration of Helsinki. Written informed consent was obtained from all participants; for the retrospective cohort, the committee waived individual consent given the use of anonymised routine data."*
+
+**Trial registration.** For any prospective trial, give the registry, the number, and the date — in the abstract and the methods (open science chapter).
+
+> *"The trial was registered at ClinicalTrials.gov (NCT01234567) on 3 January 2023, before first enrolment."*
+
+**Patient and public involvement.** Journals increasingly ask whether patients shaped the question, the design, or the dissemination — and expect an honest "they did not" rather than silence. Report it against GRIPP2 [@staniszewska2017gripp2].
+
+> *"Two patient partners with lived experience of heart failure reviewed the outcome set and the plain-language summary; they were not involved in recruitment or analysis. Reporting follows the GRIPP2 short form."*
+
+**Declarations block.** Conflicts of interest, funding, data availability, and author contributions travel together at the end of the paper. Name every funder with grant numbers and their role, declare each author's interests (or "none"), and state where the data and code are (open science chapter; [co-authorship](08-co-authorship.qmd) for CRediT).
+
+> *"Funding: [Funder], grant 12345; the funder had no role in design, analysis, or the decision to publish. Competing interests: AB has received consulting fees from [Company]; the other authors declare none. Data and code availability: the analysis code is archived at Zenodo (DOI 10.5281/zenodo.xxxxxx); individual patient data are available under a data-use agreement from the corresponding author. Author contributions: see the CRediT statement."*
+
+A missing or vague declaration reads, to an editor, as something hidden. The honest version — including "the funder had no role" and "the authors declare none" — is faster to write than the evasive one and never triggers a query.
+
+## Practice: fix the declarations
+
+The declarations block below would be returned by most journals. Name three problems before revealing the answer.
+
+> *"This work was funded by industry. The authors have no conflicts. Data available on request."*
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+1. **The funder is not named, there is no grant number, and the funder's role is unstated** — "funded by industry" is exactly the vagueness the declaration exists to remove.
+2. **"No conflicts" is implausible and unsupported** for an industry-funded study; each author's interests should be declared individually, and the industry funding itself is a relationship to disclose.
+3. **"Data available on request" is the weakest data statement** (open science chapter) and, with no repository or DOI for the code, fails most journals' data-availability policies. State where the data are, under what conditions, and give a code DOI.
+:::
 

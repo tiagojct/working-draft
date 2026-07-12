@@ -1,5 +1,14 @@
 # A writing workflow
 
+::: {.callout-note appearance="simple"}
+## Learning objectives
+By the end of this chapter you will be able to:
+
+- get past the blank page and start a draft
+- follow a nine-step sequence from key result to submission
+- build a writing habit you can sustain
+:::
+
 ## The blank page
 
 The workflow that follows tells you what to do. This section addresses why you are not already doing it.
