@@ -63,7 +63,7 @@ We would like to submit our manuscript, "NT-proBNP at discharge
 predicts 30-day readmission in acute heart failure: a retrospective
 cohort study," for consideration for publication in [Journal Name].
 We report that NT-proBNP at discharge was independently associated
-with 30-day unplanned readmission (adjusted HR 1.31, 95% CI 1.08–1.59)
+with 30-day unplanned readmission (adjusted HR 1.24, 95% CI 1.13–1.36)
 in a cohort of 5,204 adults hospitalised for acute heart failure,
 after adjustment for age, sex, LVEF, and NYHA class.
 This finding has direct implications for discharge risk stratification
@@ -101,7 +101,7 @@ A worked example. A reviewer's comment and a response that does its job:
 
 > **Reviewer 2, comment 3.** *"The authors do not adjust for estimated glomerular filtration rate (eGFR), which is a well-established confounder of the relationship between NT-proBNP and cardiovascular outcomes. This is a significant omission."*
 
-> **Response.** *"We thank the reviewer for this point. eGFR was available for 5,065 of 5,204 patients (97.3%). We have added it as a covariate in the multivariable Cox model (revised Table 3). The association between NT-proBNP at discharge and readmission was attenuated but remained significant (adjusted HR 1.24, 95% CI 1.03--1.49, p = 0.02). The Methods (page 7, paragraph 2) and Discussion (page 14, paragraph 3) have been updated to describe this analysis and to note that the two variables may share predictive information."*
+> **Response.** *"We thank the reviewer for this point. eGFR at discharge was recorded for all 5,204 patients. We have added it as a covariate in the multivariable Cox model (revised Table 3). The association between NT-proBNP at discharge and readmission was slightly attenuated and remained significant (adjusted HR 1.23, 95% CI 1.13--1.35, p < 0.001, from 1.24, 95% CI 1.13--1.36). The Methods (page 7, paragraph 2) and Discussion (page 14, paragraph 3) have been updated to describe this analysis and to note that the two variables may share predictive information."*
 
 Three things make this response work. It thanks the reviewer without grovelling. It states exactly what changed, with numbers and page references. It is honest about the analytical consequence (the coefficient attenuated) rather than hiding it.
 
@@ -121,7 +121,7 @@ Most manuscripts receive *major revisions* on first review. Treat the revision a
 
 ## Reviewing other people's work
 
-Most ECRs are invited to review before they feel ready. Accept invitations that match your expertise and decline (politely, quickly) those that do not. Reviewing well is a skill that grows with practice, and nothing else teaches you faster how editors actually read manuscripts.
+Most early-career researchers are invited to review before they feel ready. Accept invitations that match your expertise and decline (politely, quickly) those that do not. Reviewing well is a skill that grows with practice, and nothing else teaches you faster how editors actually read manuscripts.
 
 A useful review has three parts:
 
@@ -133,7 +133,6 @@ Two conventions matter. Write to the authors, not about them: *"the authors shou
 
 Expect to spend four to eight hours on a first full review. Claim credit via [ORCID](https://orcid.org/) or the publisher's integration with Web of Science Reviewer Recognition. Reviewing is unpaid work, but it builds editorial judgement that steadily improves your own writing.
 
-::: {.callout-tip collapse="true"}
 ## Practice: responding to peer review
 
 *These exercises are for self-check or peer workshop use. Try each before expanding the answer.*
@@ -150,7 +149,8 @@ Draft a response that follows the point-by-point format described in this chapte
 
 There is no single correct answer — what matters is the structure: acknowledge, change, quote.
 
----
+::: {.callout-tip collapse="true"}
+## Answer
 
 Model response:
 

@@ -80,7 +80,9 @@ STUDIES = [
     ("Gomes et al.",        2021, 1.22, 1.00, 1.49),
     ("Hansen et al.",       2022, 1.12, 0.90, 1.39),
     ("Ito et al.",          2023, 1.40, 1.12, 1.75),
-    ("This cohort (Jacinto)", 2026, 1.31, 1.08, 1.59),
+    # Fitted on figures/sw/cohort.csv: adjusted OR for NT-proBNP >= 1,000 vs
+    # < 1,000 pg/mL, the same dichotomised contrast the other eight rows report.
+    ("This cohort (Jacinto)", 2026, 1.47, 1.24, 1.75),
 ]
 
 

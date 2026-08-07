@@ -1,9 +1,16 @@
 """Regenerate the hypertension trial cohort used throughout Part II.
 
 This produces ``figures/dataviz/cohort.csv`` — a 600-patient simulated cohort
-from a four-arm hypertension trial (Placebo / ACEi / ARB / CCB), followed for
-six months. All figures in Chapters 10–14 reference this cohort. The data are
+from a four-arm hypertension trial (Placebo / ACEi / ARB / CCB), with blood
+pressure re-measured at six months and total follow-up running from 3 to 24
+months. All figures in Chapters 10–14 reference this cohort. The data are
 simulated for didactic purposes only.
+
+Allocation is by simple randomisation, so the four arms come out unequal, the
+way they do in a trial that neither blocks nor stratifies.
+
+Sign convention: ``delta_sbp`` and ``delta_dbp`` are baseline minus six months,
+so a positive value is a reduction. The chapter code in ch. 12 assumes this.
 
 Variables match the table in Chapter 10:
 
@@ -38,8 +45,12 @@ region = rng.choice(["North", "Centre", "South", "Islands"], size=N,
 bmi   = np.clip(rng.normal(28, 4.5, N), 18, 50).round(1)
 como  = rng.poisson(1.2, N)
 
-treatment = np.repeat(["Placebo", "ACEi", "ARB", "CCB"], N // 4)
-rng.shuffle(treatment)
+# Simple randomisation: equal probability, unequal realised arm sizes.
+treatment = rng.choice(["Placebo", "ACEi", "ARB", "CCB"], size=N)
+
+# Total follow-up is not the six-month BP endpoint: patients enter over a
+# recruitment window and are followed to a common closing date.
+follow_up = np.clip(rng.gamma(shape=6.0, scale=2.3, size=N), 3, 24).round(1)
 
 # ── BP at baseline ────────────────────────────────────────────────────────────
 sbp_b = np.clip(rng.normal(148, 16, N), 110, 200).round(1)
@@ -55,8 +66,8 @@ d_eff = np.array([dbp_shift[t] for t in treatment])
 sbp_6m = np.clip(sbp_b + s_eff + rng.normal(0, 6, N), 90, 200).round(1)
 dbp_6m = np.clip(dbp_b + d_eff + rng.normal(0, 4, N), 55, 120).round(1)
 
-delta_sbp = (sbp_6m - sbp_b).round(1)
-delta_dbp = (dbp_6m - dbp_b).round(1)
+delta_sbp = (sbp_b - sbp_6m).round(1)   # positive = reduction
+delta_dbp = (dbp_b - dbp_6m).round(1)
 
 controlled = (sbp_6m < 140) & (dbp_6m < 90)
 
@@ -64,7 +75,7 @@ def classify(s: float, d: float) -> str:
     if s < 120 and d < 80:
         return "Normal"
     if s < 140 and d < 90:
-        return "Pre-HT"
+        return "Pre-hypertension"
     if s < 160 and d < 100:
         return "Stage 1"
     return "Stage 2"
@@ -81,7 +92,7 @@ cohort = pd.DataFrame({
     "treatment":        treatment,
     "sbp_baseline":     sbp_b,
     "dbp_baseline":     dbp_b,
-    "follow_up_months": 6,
+    "follow_up_months": follow_up,
     "sbp_6m":           sbp_6m,
     "dbp_6m":           dbp_6m,
     "delta_sbp":        delta_sbp,

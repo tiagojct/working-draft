@@ -52,7 +52,6 @@ If your manuscript is in Quarto, the `.bib` file exported from Zotero or any CSL
 For a plain-text pipeline — stable Zotero cite keys, auto-exported `.bib`, and Pandoc citation rendering — see [Zettlr and Zotero](https://tiagojct.eu/notes/zettlr-zotero/) on tiagojct.eu.
 :::
 
-::: {.callout-tip collapse="true"}
 ## Practice: citation hygiene check
 
 *These exercises are for self-check or peer workshop use. Try each before expanding the answer.*
@@ -68,7 +67,8 @@ Reference list (numbers as cited):
 3. Martinez R, et al. NT-proBNP and ICU mortality in sepsis. *Crit Care Med.* 2025;53(2):88–97.
 4. Smith J, et al. Cox proportional hazards modelling in clinical registries. *Stat Med.* 2021;40:1234–1245.
 
----
+::: {.callout-tip collapse="true"}
+## Answer
 
 Suggested answers (one per claim above):
 

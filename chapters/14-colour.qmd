@@ -11,7 +11,7 @@ By the end of this chapter you will be able to:
 
 Colour is the element of a figure most likely to be discussed in peer review and most likely to fail. A default rainbow palette, a red-green pair that excludes 8% of male readers, or a gradient that looks meaningful but encodes nothing — all are routine in health research and all are avoidable.
 
-Colour encodes meaning: the choice of palette is a claim about the structure of the data: a sequential ramp claims the data have a direction; a diverging scale claims there is a meaningful midpoint; a categorical set claims the groups are unordered. Getting the encoding wrong produces a wrong figure even if the numbers are correct.
+The choice of palette is a claim about the structure of the data. A sequential ramp claims the data have a direction; a diverging scale claims there is a meaningful midpoint; a categorical set claims the groups are unordered. Getting the encoding wrong produces a wrong figure even if the numbers are correct.
 
 ## The three functional categories
 
@@ -37,13 +37,15 @@ Colour is the accessibility failure reviewers name most often, but it is not the
 
 **Text size.** Figure text competes with the body text around it, and it is set at the size of the final printed figure, not the size on screen while you draw it. Axis labels, tick labels, and annotations should stay legible when the figure is scaled to its column width. A safe floor is 7 pt for the smallest text at final dimensions; below 5 pt it is unreadable in print. Export at the target width (see [Preparing figures for submission](#preparing-figures-for-submission) below) and read the labels at 100%.
 
+**Contrast.** Text drawn *on* a coloured element — a label inside a filled bar, a value on a heatmap cell, a legend key on a tinted panel — has to survive the same contrast test as body text: a ratio of at least 4.5:1 against the colour behind it (3:1 if the type is 18 pt, or 14 pt bold). Saturated mid-tone hues fail this more often than people expect. White on the Okabe-Ito vermillion `#D55E00` reaches only 3.9:1, and white on its green `#009E73` only 3.4:1, so a white label on either is unreadable for some readers even though the palette itself is colour-vision safe. The fix is to darken the fill under the label, or to switch the label to ink. A palette that passes a CVD simulation has not thereby passed a contrast check; they are different tests.
+
 **Alt text.** An online figure needs a text alternative for readers using a screen reader. The caption does not serve: it states the point of the figure, whereas the alt text describes what the figure shows — the chart type, the axes, and the shape of the pattern — so that a reader who cannot see it reaches the same conclusion. One sentence is usually enough: *"Kaplan–Meier curves for two arms; the treated arm separates upward after month two."* In Quarto, set it with the `fig-alt` attribute; most journal submission systems now provide an alt-text field, and leaving it blank is a growing cause of accessibility-desk queries.
 
 ## The book's palette
 
 Every figure in this book uses [Glauca](https://github.com/tiagojct/glauca), and its three scales map directly onto the three functional categories above.
 
-**Categorical** is the Okabe-Ito set — seven colours chosen for maximum separation under all three types of colour-vision deficiency, not for brand. Treatment arms, regions, diagnostic groups: `scale_colour_glauca_d()` in R, or the default cycle after `use_glauca()` in Python. Placebo is drawn in ink rather than a hue, so the control reads as a baseline against the coloured active arms.
+**Categorical** is the Okabe-Ito set — eight colours, seven hues plus black, chosen for maximum separation under all three types of colour-vision deficiency, not for brand. Treatment arms, regions, diagnostic groups: `scale_colour_glauca_d()` in R, or the default cycle after `use_glauca()` in Python. Placebo is drawn in ink rather than a hue, so the control reads as a baseline against the coloured active arms.
 
 **Sequential** is a single-hue blue ramp (`glauca_seq`) with even luminance steps: darker means more, without ambiguity. Heatmaps, density ramps, a dot coloured by biomarker level. `scale_fill_glauca_c()` in R, `cmap="glauca_seq"` in matplotlib after `import glauca`.
 
@@ -80,17 +82,38 @@ A theme is not just a colour palette — it is the complete visual vocabulary of
 
 ::: {.panel-tabset}
 
+#### R
+
+```r
+library(ggplot2)
+source("glauca.R")             # theme_glauca(), scale_*_glauca_d()
+
+# Placebo in ink, the three active arms in Okabe-Ito hues.
+arm_pal <- c(Placebo = "#16222a", ACEi = "#0072B2",
+             ARB = "#009E73", CCB = "#D55E00")
+
+ggplot(cohort, aes(treatment, dbp_baseline, colour = treatment, fill = treatment)) +
+  geom_violin(alpha = 0.18, linewidth = 0.4) +
+  geom_jitter(width = 0.16, alpha = 0.30, size = 1.3) +
+  geom_boxplot(width = 0.18, fill = NA, outlier.shape = NA, linewidth = 0.5) +
+  scale_colour_manual(values = arm_pal) +
+  scale_fill_manual(values = arm_pal) +
+  labs(x = NULL, y = "DBP at baseline (mmHg)") +
+  theme_glauca()
+```
+
 #### Python
 
 ```python
 import seaborn as sns
 import matplotlib.pyplot as plt
-from glauca import use_glauca, GLAUCA_CATEGORICAL
+from glauca import use_glauca
 
 use_glauca("light")            # IBM Plex, pale ground, Okabe-Ito cycle
 
-arms = ["Placebo", "ACEi", "ARB", "CCB"]
-pal  = {"Placebo": "#16222a", **dict(zip(arms[1:], GLAUCA_CATEGORICAL))}
+# Placebo in ink, the three active arms in Okabe-Ito hues.
+pal = {"Placebo": "#16222a", "ACEi": "#0072B2",
+       "ARB": "#009E73", "CCB": "#D55E00"}
 
 fig, ax = plt.subplots(figsize=(6.5, 4.0))
 sns.violinplot(data=cohort, x="treatment", y="dbp_baseline",
@@ -101,22 +124,6 @@ sns.stripplot(data=cohort, x="treatment", y="dbp_baseline",
               alpha=0.25, jitter=True, size=3, ax=ax)
 ax.set(xlabel=None, ylabel="DBP at baseline (mmHg)")
 sns.despine(); fig.tight_layout()
-```
-
-#### R
-
-```r
-library(ggplot2)
-source("glauca.R")             # theme_glauca(), scale_*_glauca_d()
-
-ggplot(cohort, aes(treatment, dbp_baseline, colour = treatment, fill = treatment)) +
-  geom_violin(alpha = 0.18, linewidth = 0.4) +
-  geom_jitter(width = 0.16, alpha = 0.30, size = 1.3) +
-  geom_boxplot(width = 0.18, fill = NA, outlier.shape = NA, linewidth = 0.5) +
-  scale_colour_glauca_d() +
-  scale_fill_glauca_d() +
-  labs(x = NULL, y = "DBP at baseline (mmHg)") +
-  theme_glauca()
 ```
 
 :::

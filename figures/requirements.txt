@@ -1,0 +1,21 @@
+# Environment for the figure and cohort scripts under figures/.
+#
+#     python -m venv .venv && . .venv/bin/activate
+#     pip install -r figures/requirements.txt
+#
+# numpy and pandas are pinned because the committed figures/sw/cohort.csv was
+# drawn under these exact versions: the numpy.random.default_rng stream and
+# pandas' CSV float formatting both move across major versions, so a different
+# pair shifts the cohort by a handful of patients and desynchronises the
+# descriptives quoted in Part I. The remaining packages are listed with lower
+# bounds only; replace them with the output of `pip freeze` from the authoring
+# environment to make the whole pipeline byte-reproducible.
+numpy==2.4.6
+pandas==3.0.3
+
+matplotlib>=3.9
+scipy>=1.13          # generate.py: gaussian_kde, linregress
+seaborn>=0.13        # chapter code examples
+statsmodels>=0.14    # generate.py forest plot; predmodel.py logistic fit
+scikit-learn>=1.5    # predmodel.py: roc_auc_score, roc_curve
+lifelines>=0.29      # generate.py: KaplanMeierFitter

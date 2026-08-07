@@ -19,6 +19,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      # Same guard as check.yml: `quarto render` exits 0 on undefined citations
+      # and broken paths, so without this a direct push to main publishes them.
+      - name: Check references
+        run: python scripts/check-refs.py
+
+      - name: Check cohort numbers
+        run: python scripts/check-numbers.py
+
       - uses: quarto-dev/quarto-actions/setup@v2
       - name: Render book
         run: quarto render

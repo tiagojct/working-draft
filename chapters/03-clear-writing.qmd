@@ -25,7 +25,7 @@ Transitions between paragraphs matter as much as the paragraphs themselves. The 
 
 An example. The paragraph below tries to carry three ideas at once: a finding, a mechanistic interpretation, and a limitation:
 
-> *"NT-proBNP at discharge was the strongest independent predictor of 30-day readmission (adjusted HR 1.31, 95% CI 1.08--1.59), which is consistent with the physiology of persistent congestion in acute heart failure. However, we did not measure dietary sodium intake, which could confound this relationship. Clinicians may want to use NT-proBNP as a discharge risk-stratification tool, particularly in patients with reduced ejection fraction."*
+> *"NT-proBNP at discharge was the strongest independent predictor of 30-day readmission (adjusted HR 1.23, 95% CI 1.13--1.35), which is consistent with the physiology of persistent congestion in acute heart failure. However, we did not measure dietary sodium intake, which could confound this relationship. Clinicians may want to use NT-proBNP as a discharge risk-stratification tool, particularly in patients with reduced ejection fraction."*
 
 Split into three paragraphs (one per idea), the reader can follow each thread. Paragraph one states the finding. Paragraph two explains what prior physiological work suggests. Paragraph three separately acknowledges the limitation. The word count barely changes; the clarity does.
 
@@ -95,12 +95,12 @@ Revision is where the real writing happens. A rough draft says everything you kn
 
 Academic writing requires precision about certainty. When you do not have absolute evidence, hedging is appropriate [@hyland1998hedging]. Hedging protects your reputation, conveys honesty, and reflects the genuine uncertainty inherent in most research.
 
-A calibration exercise. The same finding (higher NT-proBNP at discharge is associated with 30-day readmission after acute heart failure, adjusted HR 1.31, 95% CI 1.08--1.59, p = 0.005), stated at three different levels of confidence:
+A calibration exercise. The same finding (higher NT-proBNP at discharge is associated with 30-day readmission after acute heart failure, adjusted HR 1.23, 95% CI 1.13--1.35, p < 0.001), stated at three different levels of confidence:
 
 - **Unhedged causal claim.** *"Elevated NT-proBNP at discharge causes 30-day heart failure readmission."*
   A causal claim from an observational design. Not supported by the data.
 
-- **Appropriate.** *"In our cohort, higher NT-proBNP at discharge was associated with 30-day readmission (adjusted HR 1.31, 95% CI 1.08--1.59), independent of LVEF and NYHA class; residual confounding from unmeasured severity cannot be excluded."*
+- **Appropriate.** *"In our cohort, higher NT-proBNP at discharge was associated with 30-day readmission (adjusted HR 1.23, 95% CI 1.13--1.35), independent of LVEF and NYHA class; residual confounding from unmeasured severity cannot be excluded."*
   States the association, the direction, the adjusted estimate, and the design-imposed limit.
 
 - **Over-hedged.** *"It is possible that NT-proBNP might perhaps have some form of weak association with readmission in certain patients, though the data do not definitively establish this."*
@@ -137,7 +137,6 @@ When in doubt, write it out. A reader from a different specialty or country shou
 Drug abbreviation errors have caused patient harm. Never abbreviate drug names in clinical documents. Write "insulin" not "INS", "morphine" not "MRP". The [ISMP List of Error-Prone Abbreviations](https://www.ismp.org/recommendations/error-prone-abbreviations-list) is a useful reference for clinical writing, and many journals will not accept drug name abbreviations.
 :::
 
-::: {.callout-tip collapse="true"}
 ## Practice: editing for clarity
 
 *These exercises are for self-check or peer workshop use. Try each before expanding the answer.*
@@ -154,7 +153,8 @@ Each sentence below has at least one clear-writing problem from this chapter. Na
 
 5. *"Of the 142 participants enrolled, alpha-synuclein levels were significantly higher in patients with REM sleep behaviour disorder."*
 
----
+::: {.callout-tip collapse="true"}
+## Answer
 
 Suggested rewrites:
 

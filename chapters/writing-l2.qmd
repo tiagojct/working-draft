@@ -21,7 +21,7 @@ When an L2 writer produces an unclear sentence, the cause is usually one of two 
 
 The most consistent writing pattern I observe in L2 health researchers is over-hedging. The scientific caution is often real: observational studies warrant hedges, association is not causation, single-centre findings should not be generalised. But L2 writers hedge for an additional reason that has nothing to do with the data: linguistic caution. When you are not confident in your English, qualifying everything feels safer. The result is prose that systematically understates findings the data actually support.
 
-The diagnostic question is the same as for native writers: if you removed the hedge, would the claim still be accurate? If yes, the hedge is linguistic, not scientific, and should come out. A finding supported by an adjusted HR of 1.31 with a 95% CI that excludes 1 does not need "might perhaps suggest a possible trend toward".
+The diagnostic question is the same as for native writers: if you removed the hedge, would the claim still be accurate? If yes, the hedge is linguistic, not scientific, and should come out. A finding supported by an adjusted HR of 1.23 with a 95% CI that excludes 1 does not need "might perhaps suggest a possible trend toward".
 
 ::: {.column-margin}
 The hedging section of [clear writing](03-clear-writing.qmd) gives a calibration exercise using three versions of the same finding — unhedged, appropriate, and over-hedged. The over-hedged version is a reliable portrait of the default L2 first draft. The appropriate version is the target.
@@ -81,7 +81,6 @@ Scientific prose is not where individual style does its most important work. Wha
 
 A practical note: if a sentence in English feels wrong, it usually is. Trust the discomfort. You may not be able to say why the sentence is wrong, but your reading-in-English accumulation is often a reliable detector even when it cannot articulate the problem. Write a note to yourself — *"recheck this sentence"* — and return to it after the draft is done, when you can compare it against the surrounding text and decide whether it needs a language editor's eye.
 
-::: {.callout-tip collapse="true"}
 ## Practice: revise the L2 patterns
 
 Each sentence shows a common second-language pattern. Revise it before revealing a suggested rewrite.
@@ -90,7 +89,8 @@ Each sentence shows a common second-language pattern. Revise it before revealing
 2. *"The obtained results demonstrate clearly that the treatment is effective."*
 3. *"It is well known that heart failure is a serious disease."*
 
----
+::: {.callout-tip collapse="true"}
+## Answer
 
 Suggested rewrites:
 

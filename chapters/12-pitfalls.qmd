@@ -13,7 +13,7 @@ By the end of this chapter you will be able to:
 Each pitfall here maps to a rule in Part I. The three rules in the results section of [article structure](02-article-structure.qmd) and the graph guidance in [presenting data](04-presenting-data.qmd) are the writing counterparts to the visual failures corrected below.
 :::
 
-With the toolkit established, each tool's failure modes need to be named. Each pair below shows the same data drawn two ways: a *bad / ugly / wrong* version, then a *good* version.
+Every chart type in the previous chapter has a characteristic way of going wrong. Each pair below shows the same data drawn two ways: a *bad / ugly / wrong* version, then a *good* version.
 
 ## 1. Pie chart → ordered horizontal bar
 
@@ -147,7 +147,7 @@ fig.tight_layout()
 
 This is the single most common dishonest figure in clinical journals. Pick a y-axis that starts somewhere convenient (132 mmHg in the example below) and a 10-mmHg gap looks like a chasm. The numbers are right; the visual claim is wrong. Tufte calls this a *lie factor* [@tufte2001visual], Wilke calls it *proportional ink* [@wilke2019fundamentals]. The fix is to anchor at zero whenever the y-axis encodes magnitude with bar length. If the differences then look small, the differences *are* small, and the chart should say so. @fig-truncated and @fig-honest plot the same four numbers.
 
-![Mean SBP at six months by treatment, y-axis starting at 132 mmHg. Placebo looks nearly four times the height of ACEi; the actual difference is about 11 mmHg.](../figures/dataviz/03-truncated-wrong.png){#fig-truncated fig-alt="A bar chart of mean six-month systolic by treatment with the y-axis starting at 132 mmHg, exaggerating a roughly 11 mmHg difference into an almost fourfold apparent gap."}
+![Mean SBP at six months by treatment, y-axis starting at 132 mmHg. Placebo's bar is about nine times the height of ACEi's; the actual difference is 12 mmHg, or 8%.](../figures/dataviz/03-truncated-wrong.png){#fig-truncated fig-alt="A bar chart of mean six-month systolic by treatment with the y-axis starting at 132 mmHg, exaggerating a roughly 11 mmHg difference into an almost fourfold apparent gap."}
 
 ![Same numbers, zero-anchored. The eye reads proportional differences honestly.](../figures/dataviz/03-honest-good.png){#fig-honest fig-alt="The same means on a zero-anchored y-axis, where the between-arm differences look proportionally small."}
 
@@ -216,7 +216,7 @@ A row of pies or donuts asks the reader to compare angles across panels. Each do
 
 ![Four donuts, one per treatment, showing the proportion controlled at six months. Which arm is highest, and by how much?](../figures/dataviz/04-3d-ugly.png){#fig-donut fig-alt="Four donut charts, one per treatment, showing proportion controlled; the four are hard to rank against each other by eye."}
 
-![A dot plot of the same percentages: ACEi highest at 47%, then ARB (40%) and CCB (34%), with Placebo lowest at 15%. The visual ranking matches the numerical one.](../figures/dataviz/04-dotplot-good.png){#fig-dotplot fig-alt="A dot plot of the same four proportions on one axis: ACEi highest at 47 percent, then ARB 40, CCB 34, and Placebo lowest at 15; the ranking is immediately clear."}
+![A dot plot of the same percentages: ACEi highest at 51%, then ARB (38%) and CCB (32%), with Placebo lowest at 24%. The visual ranking matches the numerical one.](../figures/dataviz/04-dotplot-good.png){#fig-dotplot fig-alt="A dot plot of the same four proportions on one axis: ACEi highest at 47 percent, then ARB 40, CCB 34, and Placebo lowest at 15; the ranking is immediately clear."}
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -445,7 +445,6 @@ g.set_axis_labels("Months from baseline", "SBP (mmHg)")
 
 :::
 
-::: {.callout-tip collapse="true"}
 ## Practice: classify before you fix
 
 For each figure description below, identify the failure category (ugly / bad / wrong from [principles of data visualisation](10-principles.qmd)) and name the specific pitfall from this chapter.
@@ -458,7 +457,8 @@ For each figure description below, identify the failure category (ugly / bad / w
 
 4. A heatmap of mean blood pressure reduction rendered in `rainbow()`. The yellow band near the middle of the colour scale is visually brighter than the deep values at both ends.
 
----
+::: {.callout-tip collapse="true"}
+## Answer
 
 Suggested answers:
 

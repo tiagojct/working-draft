@@ -9,7 +9,7 @@ By the end of this chapter you will be able to:
 - choose the right chart for a distribution, relationship, or effect
 :::
 
-Before diagnosing failures, the toolkit needs to be established. Six chart types cover most figures in clinical and epidemiological research; each is the right choice when the data structure and the message align. The worked code uses seaborn [@waskom2021seaborn] in Python and ggplot2 [@wickham2016ggplot2] in R; VanderPlas's *Python Data Science Handbook* [@vanderplas2016pythondatascience] is a fuller reference for the Python plotting stack.
+Six chart types cover most figures in clinical and epidemiological research; each is the right choice when the data structure and the message align. The worked code uses seaborn [@waskom2021seaborn] in Python and ggplot2 [@wickham2016ggplot2] in R; VanderPlas's *Python Data Science Handbook* [@vanderplas2016pythondatascience] is a fuller reference for the Python plotting stack.
 
 ## Histogram and density: one variable's distribution
 
@@ -115,7 +115,7 @@ sns.despine(); fig.tight_layout()
 
 ## Scatter plot: two continuous variables
 
-A scatter plot puts two continuous variables on the two axes and one dot per observation. Each point is one observation; the scatter plot is the most direct depiction of a bivariate relationship in statistics. A regression line with a confidence ribbon, as in @fig-type-scatter, summarises the trend without erasing the underlying spread; a third variable can be encoded with colour or shape. Use scatter for any pair of continuous variables: SBP versus DBP, age versus a lab value, dose versus response. The failure mode at large n is overplotting; alpha transparency, hex-binning (`geom_hex`), or 2D density contours all help.
+A scatter plot puts two continuous variables on the two axes and one dot per observation. Nothing is aggregated away, which makes it the most direct depiction of a bivariate relationship in statistics. A regression line with a confidence ribbon, as in @fig-type-scatter, summarises the trend without erasing the underlying spread; a third variable can be encoded with colour or shape. Use scatter for any pair of continuous variables: SBP versus DBP, age versus a lab value, dose versus response. The failure mode at large n is overplotting; alpha transparency, hex-binning (`geom_hex`), or 2D density contours all help.
 
 ![Scatter plot of SBP against DBP at baseline with a linear regression overlay and 95% confidence ribbon.](../figures/dataviz/type-03-scatter.png){#fig-type-scatter fig-alt="A scatter plot of systolic against diastolic blood pressure at baseline with a rising linear-regression line and a shaded 95 percent confidence ribbon."}
 
@@ -285,7 +285,7 @@ sns.despine(); fig.tight_layout()
 
 ## Kaplan–Meier curve: time to event
 
-A Kaplan–Meier curve plots the proportion of the cohort still event-free over time, dropping in steps as events occur. Censoring (loss to follow-up) is shown by tick marks. Two or more groups can be overlaid for direct comparison of survival or event-free trajectories. @fig-type-km shows time to BP control across the four arms, computed via `survival::survfit()` with synthetic event times. Use it for time-to-event outcomes: death, hospitalisation, recurrence, or any "first time the outcome happened" measure. The classic missing element in published KM plots is the *number-at-risk* table below the x-axis; without it, the visual confidence in the right-hand tail can far exceed the actual sample size.
+A Kaplan–Meier curve plots the proportion of the cohort still event-free over time, dropping in steps as events occur. Censoring (loss to follow-up) is shown by tick marks. Two or more groups can be overlaid for direct comparison of survival or event-free trajectories. @fig-type-km shows time to BP control across the four arms, computed via `survival::survfit()` with synthetic event times. Use it for time-to-event outcomes: death, hospitalisation, recurrence, or any "first time the outcome happened" measure. The classic missing element in published KM plots is the *number-at-risk* table below the x-axis; without it, the visual confidence in the right-hand tail can far exceed the actual sample size. @fig-type-km is drawn without one, so it shows only the curve geometry — which is the point here, and would not be acceptable in a paper. Add the table with `survminer::ggsurvplot(..., risk.table = TRUE)` in R, or `lifelines.plotting.add_at_risk_counts()` in Python.
 
 ![Kaplan–Meier curve of the proportion still uncontrolled over six months, by treatment arm.](../figures/dataviz/type-06-km.png){#fig-type-km fig-alt="A Kaplan–Meier step curve of the proportion still uncontrolled over six months by treatment arm, the active arms falling faster than placebo."}
 

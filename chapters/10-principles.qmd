@@ -47,7 +47,7 @@ The categories overlap. A figure can be ugly and good at once, or bad and wrong 
 
 ## The cohort
 
-Every example in Part II uses the same simulated dataset: 600 adults with treated hypertension, randomised across four arms (Placebo / ACEi / ARB / CCB), followed for six months. This is a different dataset from the acute heart failure cohort used for examples in Part I; the hypertension trial structure — four arms, repeated blood-pressure measurements, a binary controlled/not-controlled outcome — provides richer material for the chart-type and pitfalls chapters than the Part I cohort would have.
+Every example in Part II uses the same simulated dataset: 600 adults with treated hypertension, allocated across four arms of unequal size (Placebo 156, ACEi 134, ARB 156, CCB 154), with blood pressure re-measured at six months and total follow-up running from 3 to 24 months. This is a different dataset from the acute heart failure cohort used for examples in Part I; the hypertension trial structure — four arms, repeated blood-pressure measurements, a binary controlled/not-controlled outcome — provides richer material for the chart-type and pitfalls chapters than the Part I cohort would have.
 
 | Variable             | Type        | Notes                                          |
 |----------------------|-------------|------------------------------------------------|
@@ -62,8 +62,11 @@ Every example in Part II uses the same simulated dataset: 600 adults with treate
 | `sbp_6m`             | num         | baseline minus a treatment-specific shift      |
 | `dbp_baseline`       | num         | mean 90, SD 10 (mmHg)                          |
 | `dbp_6m`             | num         | baseline minus a treatment-specific shift      |
+| `follow_up_months`   | num         | 3 to 24, mean 13.7                             |
+| `delta_sbp`          | num         | `sbp_baseline - sbp_6m` (positive = reduction) |
+| `delta_dbp`          | num         | `dbp_baseline - dbp_6m` (positive = reduction) |
 | `controlled_6m`      | logical     | `sbp_6m < 140 & dbp_6m < 90`                   |
-| `bp_class_6m`        | factor      | Normal / Pre-HT / Stage 1 / Stage 2            |
+| `bp_class_6m`        | factor      | Normal / Pre-hypertension / Stage 1 / Stage 2  |
 
 The dataset is committed at [`figures/dataviz/cohort.csv`](https://github.com/tiagojct/working-draft/blob/main/figures/dataviz/cohort.csv); the generation script is at [`figures/dv_cohort.py`](https://github.com/tiagojct/working-draft/blob/main/figures/dv_cohort.py). The Part I heart-failure cohort has a parallel generator at [`figures/sw_cohort.py`](https://github.com/tiagojct/working-draft/blob/main/figures/sw_cohort.py).
 

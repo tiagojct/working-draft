@@ -27,10 +27,19 @@ jobs:
       - name: Check references
         run: python scripts/check-refs.py
 
+      # Fails if a chapter quotes a descriptive the committed cohort CSVs no
+      # longer support — the drift that put a baseline table out of step with
+      # its own dataset.
+      - name: Check cohort numbers
+        run: python scripts/check-numbers.py
+
       - uses: quarto-dev/quarto-actions/setup@v2
 
+      # Full render, not --to html: the Typst/PDF path fails on things HTML
+      # tolerates (a duplicate bib key, a missing font), and deploy.yml renders
+      # both. Checking only HTML here lets those breakages through to main.
       - name: Render book
-        run: quarto render --to html
+        run: quarto render
 
       # Non-blocking for now (fail: false) to avoid flaky third-party URLs;
       # flip to blocking once the baseline is clean.

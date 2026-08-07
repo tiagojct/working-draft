@@ -20,6 +20,12 @@ Bootstrap
 Calibration
 :   The agreement between a model's predicted probabilities and observed frequencies — whether "20% risk" happens to one in five. Distinct from discrimination and more often omitted ([prediction models](prediction-models.qmd)).
 
+Causal diagram (DAG)
+:   A directed acyclic graph: a drawing of the assumed causal relations between exposure, outcome, and other variables. It is what tells you which variables to adjust for and which to leave alone ([framing the question](framing-the-question.qmd)).
+
+Collider
+:   A variable caused by both the exposure and the outcome. Adjusting for a collider *creates* bias rather than removing it, which is why "adjust for everything measured" is bad advice ([framing the question](framing-the-question.qmd)).
+
 Colour-vision deficiency (CVD)
 :   Reduced ability to distinguish certain hues; the red–green types affect about 8% of men, so a figure must never carry meaning by colour alone ([colour and accessibility](14-colour.qmd)).
 
@@ -53,6 +59,12 @@ Discrimination
 DOI (digital object identifier)
 :   A permanent identifier for a paper, dataset, or software release. A Zenodo or Dryad deposit issues one so the object stays citable and findable.
 
+eGFR (estimated glomerular filtration rate)
+:   A calculated measure of kidney function in mL/min/1.73 m², used throughout the book's heart-failure examples as a covariate.
+
+Egger's test
+:   A regression test for funnel-plot asymmetry, used as a formal check for small-study effects in a meta-analysis. Underpowered with fewer than about ten studies ([systematic reviews](systematic-reviews.qmd)).
+
 EQUATOR Network
 :   The online library cataloguing every published reporting guideline ([reporting](06-reporting-guidelines.qmd)).
 
@@ -68,11 +80,20 @@ False-discovery rate (FDR)
 Forest plot
 :   A plot of effect estimates, one row per study or subgroup, each with its confidence interval, and in meta-analysis a pooled diamond at the foot ([systematic reviews](systematic-reviews.qmd); [chart types](11-chart-types.qmd)).
 
+Funnel plot
+:   A scatter of each study's effect estimate against its precision. Symmetry is the expected shape; asymmetry suggests small-study effects, of which publication bias is one cause ([systematic reviews](systematic-reviews.qmd)).
+
+GRADE
+:   A framework for rating the certainty of pooled evidence (high, moderate, low, very low) from risk of bias, inconsistency, indirectness, imprecision, and publication bias ([systematic reviews](systematic-reviews.qmd)).
+
 Hazard ratio (HR)
 :   The ratio of event rates between groups at any instant, from a survival (time-to-event) analysis. HR 1.3 means a 30% higher instantaneous risk.
 
 Hedging
 :   Calibrating the strength of a claim to the strength of the evidence — neither overstating nor burying a finding ([clear writing](03-clear-writing.qmd)).
+
+Heterogeneity (I², τ²)
+:   The extent to which the studies in a meta-analysis disagree beyond chance. I² is the percentage of variability attributable to real differences rather than sampling error; τ² is the estimated variance of the true effects across studies ([systematic reviews](systematic-reviews.qmd)).
 
 ICMJE
 :   The International Committee of Medical Journal Editors, whose recommendations define authorship, trial registration, and disclosure norms.
@@ -91,6 +112,15 @@ Interquartile range (IQR)
 
 Kaplan–Meier curve
 :   A step plot of the probability of remaining event-free over time, estimated so that censored participants still contribute until they leave ([chart types](11-chart-types.qmd)).
+
+L1 / L2
+:   First language and second language. An L2 writer is writing in a language they acquired after their first; the label describes the writing situation, not the writer's competence ([writing in a second language](writing-l2.qmd)).
+
+Lie factor
+:   Tufte's ratio of the size of an effect as drawn to the size of the effect in the data. A truncated axis is the commonest way to push it above 1 ([pitfalls](12-pitfalls.qmd)).
+
+Mediator
+:   A variable on the causal path between exposure and outcome. Adjusting for it removes part of the effect you are trying to estimate ([framing the question](framing-the-question.qmd)).
 
 Missingness (MCAR / MAR / MNAR)
 :   Missing Completely At Random, At Random (given observed data), or Not At Random. The mechanism decides which handling is valid.
@@ -130,6 +160,12 @@ PPI (patient and public involvement)
 
 Predatory journal
 :   A journal that charges an APC but provides no genuine peer review or editorial service ([editorial process](05-editorial-process.qmd)).
+
+Prediction interval
+:   In a meta-analysis, the range within which the true effect of a *future* study is expected to fall. Wider than the confidence interval around the pooled estimate, and often the more honest summary when heterogeneity is substantial ([systematic reviews](systematic-reviews.qmd)).
+
+Predictive values (PPV / NPV)
+:   The probability that a positive test is a true positive (PPV) or that a negative test is a true negative (NPV). Unlike sensitivity and specificity, both depend on prevalence, so they must always be reported with it ([statistical writing](statistical-writing.qmd)).
 
 Preprint
 :   A manuscript posted publicly (e.g. medRxiv) before peer review, to share results early and establish priority.
@@ -190,6 +226,9 @@ TRIPOD+AI
 
 viridis
 :   A perceptually uniform sequential colourmap that stays legible in greyscale and under colour-vision deficiency ([colour and accessibility](14-colour.qmd)).
+
+Youden index
+:   Sensitivity + specificity − 1, used to pick the threshold that maximises the two together. Ranges from 0 (useless) to 1 (perfect) ([statistical writing](statistical-writing.qmd)).
 
 Zenodo
 :   A CERN-hosted repository that issues a citable DOI for datasets and software releases and archives GitHub repositories ([open science](open-science.qmd)).

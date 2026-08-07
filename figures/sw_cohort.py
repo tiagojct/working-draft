@@ -18,13 +18,16 @@ egfr              : num    mL/min/1.73m^2, eGFR (CKD-EPI) at discharge
 prior_hf_admit    : bool   HF admission within preceding 12 months
 afib              : bool   atrial fibrillation documented during index stay
 ntprobnp_discharge: num    pg/mL, lognormal; the exposure
-bnp_discharge     : num    pg/mL, available for a 2,104-patient subset
+bnp_discharge     : num    pg/mL, available for a 2,068-patient subset
 readmit_30d       : bool   primary outcome (30-day unplanned readmission)
 time_to_readmit   : num    days to readmission or 30 if event-free
 
 The simulation reproduces the headline estimates referenced in the chapters
-(primary adjusted OR ~1.31 for log-unit NT-proBNP, ~12.8% readmission rate, BNP
-subset ~2,068, ~97.3% NT-proBNP availability) to within Monte Carlo noise.
+(~12.8% readmission rate, BNP subset ~2,068, ~97.3% NT-proBNP availability) to
+within Monte Carlo noise. Every regression estimate quoted in Part I and Part
+III is fitted on the committed draw rather than assumed: adjusted OR 1.25 per
+log-unit NT-proBNP (logistic), adjusted HR 1.23 (Cox), 1.43 dichotomised at
+1,000 pg/mL.
 
 Reproducibility
 ---------------
@@ -73,7 +76,9 @@ log_mu = (
 ntprobnp = rng.lognormal(mean=log_mu, sigma=0.85)
 
 # ── primary outcome (30-day readmission) ──────────────────────────────────────
-# Target adjusted OR ~1.31 per log-unit NT-proBNP; base rate ~12%.
+# Marginal OR ~1.31 per log-unit NT-proBNP (exp(0.270)); base rate ~12%. Fitting
+# the full adjusted model on the realised draw attenuates this to 1.25, which is
+# the number the chapters quote.
 logit_p = (
     -2.30
     + 0.270 * np.log(ntprobnp / 1000.0)
@@ -93,7 +98,7 @@ time_to_readmit = np.where(
     30.0,
 )
 
-# ── BNP subset (n ≈ 2,104) ────────────────────────────────────────────────────
+# ── BNP subset (p = 0.404 → n = 2,068 in the committed draw) ──────────────────
 bnp_mask = rng.binomial(1, 0.404, N).astype(bool)
 bnp = np.where(bnp_mask, ntprobnp / rng.uniform(5.0, 7.0, N), np.nan)
 

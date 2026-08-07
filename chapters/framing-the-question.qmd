@@ -72,7 +72,6 @@ A sharp question is not a preliminary you leave behind. It is the spine:
 
 When a draft feels unfocused, the problem is rarely the prose. Return to the PICO sentence and check that every section is still answering it.
 
-::: {.callout-tip collapse="true"}
 ## Practice: sharpen the question
 
 Rewrite each vague aim as a one-sentence PICO question, then name the design and guideline it implies.
@@ -80,7 +79,8 @@ Rewrite each vague aim as a one-sentence PICO question, then name the design and
 1. *"We wanted to study inflammation in sepsis."*
 2. *"This project looks at whether our new sepsis score is any good."*
 
----
+::: {.callout-tip collapse="true"}
+## Answer
 
 Suggested answers:
 

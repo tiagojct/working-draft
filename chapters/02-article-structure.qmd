@@ -61,7 +61,7 @@ Three rules avoid most problems:
 
 - **One paragraph per table or figure.** Introduce the table, describe its message in one or two sentences, highlight the numbers that matter most, and move on.
 - **Estimate + 95% CI + p-value, in that order.** Not a p-value alone.
-- **No interpretation.** "We found X" belongs in the results; "this suggests Y" belongs in the discussion.
+- **No clinical interpretation.** "We found X" belongs in the results; "this suggests Y" belongs in the discussion. The line falls between statistical and clinical reading: results may say that an estimate attenuated, that a sensitivity analysis was underpowered, or that a difference fell short of the pre-specified minimum clinically important difference, because those are properties of the analysis. What the finding means for patients, and what might explain it, waits for the discussion.
 
 ::: {.column-margin}
 Choosing the right chart type and avoiding common visual errors are covered in [presenting data](04-presenting-data.qmd) and, in much greater depth, in Part II (Figures).
@@ -140,7 +140,7 @@ A practical template for writing a structured abstract follows the hourglass log
 
 A worked example using the heart failure / NT-proBNP study:
 
-> **Background.** Heart failure is responsible for more than one million hospital admissions per year in Europe, and 30-day readmission rates exceed 20% in several registries *[context]*. Risk stratification at discharge remains imperfect, and few biomarkers combine routine availability with strong prognostic value *[gap]*. **Objective.** To assess whether N-terminal pro-B-type natriuretic peptide (NT-proBNP) at discharge predicts 30-day unplanned readmission in patients hospitalised for acute heart failure *[objective]*. **Methods.** In a retrospective cohort of 5,204 adults discharged from two tertiary hospitals in Portugal between 2018 and 2023, NT-proBNP was measured within 24 hours before discharge. Thirty-day unplanned readmission was ascertained from the national hospital registry. Cox proportional-hazards models were adjusted for age, sex, left ventricular ejection fraction (LVEF), and New York Heart Association (NYHA) class *[methods]*. **Results.** The 30-day readmission rate was 12.8% (95% CI 11.9--13.7%). NT-proBNP ≥ 1,000 pg/mL at discharge was independently associated with readmission (adjusted HR 1.31, 95% CI 1.08--1.59, p = 0.005), with a monotonic gradient across quartiles *[main findings]*. **Conclusion.** In patients hospitalised for acute heart failure, NT-proBNP at discharge identifies those at highest 30-day readmission risk and may support targeted post-discharge follow-up *[conclusion]*.
+> **Background.** Heart failure is responsible for more than one million hospital admissions per year in Europe, and 30-day readmission rates exceed 20% in several registries *[context]*. Risk stratification at discharge remains imperfect, and few biomarkers combine routine availability with strong prognostic value *[gap]*. **Objective.** To assess whether N-terminal pro-B-type natriuretic peptide (NT-proBNP) at discharge predicts 30-day unplanned readmission in patients hospitalised for acute heart failure *[objective]*. **Methods.** In a retrospective cohort of 5,204 adults discharged from two tertiary hospitals in Portugal between 2018 and 2023, NT-proBNP was measured within 24 hours before discharge. Thirty-day unplanned readmission was ascertained from the national hospital registry. Cox proportional-hazards models were adjusted for age, sex, left ventricular ejection fraction (LVEF), and New York Heart Association (NYHA) class *[methods]*. **Results.** The 30-day readmission rate was 12.8% (95% CI 11.9--13.7%). NT-proBNP ≥ 1,000 pg/mL at discharge was independently associated with readmission (adjusted HR 1.43, 95% CI 1.21--1.68, p < 0.001), with the excess concentrated in the upper two quartiles *[main findings]*. **Conclusion.** In patients hospitalised for acute heart failure, NT-proBNP at discharge identifies those at highest 30-day readmission risk and may support targeted post-discharge follow-up *[conclusion]*.
 
 Note what the abstract does and does not do. It states the gap, the objective, and the main finding with numbers. It contains no references, no figures, and no overreach ("may support targeted follow-up" is cautious and accurate). Every sentence earns its place.
 
@@ -196,7 +196,6 @@ AI writing tools have made this distinction more pressing. Large language models
 AI tools in the writing process — disclosure standards, the four-tier framework, and peer-review confidentiality — are covered in the [AI-in-writing chapter](ai-writing.qmd) later in Part I.
 :::
 
-::: {.callout-tip collapse="true"}
 ## Practice: which section?
 
 Each sentence below belongs in a different IMRAD section. Name the section — Introduction, Methods, Results, or Discussion — for each.
@@ -207,7 +206,8 @@ Each sentence below belongs in a different IMRAD section. Name the section — I
 4. *"Risk stratification at discharge remains imperfect, and few biomarkers combine routine availability with prognostic value."*
 5. *"Patients were followed for 30 days through the national hospital registry."*
 
----
+::: {.callout-tip collapse="true"}
+## Answer
 
 Answers: 1. Methods. 2. Results. 3. Discussion. 4. Introduction. 5. Methods. If you placed 3 in Results, note the giveaway: "suggest" and the stated limitation are interpretation, which belongs in the Discussion.
 :::

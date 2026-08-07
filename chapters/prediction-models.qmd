@@ -39,9 +39,9 @@ Report two numbers, not just the picture. **Calibration-in-the-large** is the ag
 
 Discrimination and calibration are properties of the probabilities. Whether the model *helps* depends on what you do with them and at what threshold. Decision-curve analysis answers that directly [@vickers2006decision]: across a range of threshold probabilities (the risk at which a clinician would act), it plots the model's **net benefit** against two default strategies, treat everyone and treat no one (@fig-pred-dca).
 
-![Decision curve on the validation set: net benefit of the model against the treat-all and treat-none strategies across threshold probabilities. The model line is at or above both defaults across the clinically relevant range.](../figures/sw/predmodel-dca.png){#fig-pred-dca fig-alt="A decision-curve plot: the model's net-benefit line stays at or above the treat-all diagonal and the treat-none horizontal across threshold probabilities from about 5 to 30 percent."}
+![Decision curve on the validation set: net benefit of the model against the treat-all and treat-none strategies across threshold probabilities. The model line is at or above both defaults across the clinically relevant range.](../figures/sw/predmodel-dca.png){#fig-pred-dca fig-alt="A decision-curve plot: the model's net-benefit line stays at or above the treat-all diagonal and the treat-none horizontal across threshold probabilities from about 3 to 30 percent."}
 
-The model is worth using only where its curve is above both defaults. Here it beats *treat all* once the acting threshold exceeds roughly 7% and stays above *treat none* to about 20%. So for a clinician who would intervene on a patient at, say, 15% readmission risk, the model adds net benefit; for one who would act only above 30%, it does not, and the honest report says so. A decision curve turns an abstract c-statistic into the question a reader has: at my threshold, is this model better than the blunt alternatives?
+The model is worth using only where its curve is above both defaults. Here it beats *treat all* once the acting threshold exceeds roughly 3% and stays above *treat none* to about 30%. So for a clinician who would intervene on a patient at, say, 15% readmission risk, the model adds net benefit; for one who would act only above 35%, it does not, and the honest report says so. A decision curve turns an abstract c-statistic into the question a reader has: at my threshold, is this model better than the blunt alternatives?
 
 ::: {.callout-note collapse="true"}
 ## Code
@@ -55,8 +55,14 @@ from sklearn.metrics import roc_auc_score
 d = pd.read_csv("figures/sw/cohort.csv").dropna(subset=["ntprobnp_discharge"])
 d = d.assign(lognt=np.log(d.ntprobnp_discharge / 1000),
              male=(d.sex == "M").astype(int), y=d.readmit_30d.astype(int))
-dev = d.sample(frac=0.6, random_state=1)
-val = d.drop(dev.index)
+rng = np.random.default_rng(20260515)          # stratified 60/40 split
+dev_idx = []
+for _, g in d.groupby("y"):
+    idx = g.index.to_numpy().copy()
+    rng.shuffle(idx)
+    dev_idx.extend(idx[: int(0.6 * len(idx))])
+dev = d.loc[d.index.isin(dev_idx)]
+val = d.loc[~d.index.isin(dev_idx)]
 
 f = "y ~ lognt + age + male + lvef + egfr + prior_hf_admit + afib + C(nyha_admission)"
 fit = smf.logit(f, data=dev).fit()
@@ -84,16 +90,16 @@ TRIPOD+AI is a checklist; the paper is prose. Two paragraphs carry most of the m
 
 **Methods.**
 
-> *"We developed a logistic-regression model for 30-day unplanned readmission using eight pre-specified predictors available at discharge (NT-proBNP [log-transformed], age, sex, LVEF, eGFR, prior heart-failure admission, atrial fibrillation, and NYHA class). The model was fitted on a randomly selected 60% of the cohort (development set, n = 3,038) and evaluated on the held-out 40% (validation set, n = 2,027). Performance was assessed by discrimination (c-statistic), calibration (calibration plot, calibration slope, and calibration-in-the-large), and clinical usefulness (decision-curve analysis across threshold probabilities of 5–30%). No predictor selection was performed after seeing the outcome; the model was pre-specified [@collins2024tripod; @steyerberg2010assessing]."*
+> *"We developed a logistic-regression model for 30-day unplanned readmission using eight pre-specified predictors available at discharge (NT-proBNP [log-transformed], age, sex, LVEF, eGFR, prior heart-failure admission, atrial fibrillation, and NYHA class). The model was fitted on a randomly selected 60% of the cohort (development set, n = 3,038) and evaluated on the held-out 40% (validation set, n = 2,027). Performance was assessed by discrimination (c-statistic), calibration (calibration plot, calibration slope, and calibration-in-the-large), and clinical usefulness (decision-curve analysis across threshold probabilities of 1–40%). No predictor selection was performed after seeing the outcome; the model was pre-specified [@collins2024tripod; @steyerberg2010assessing]."*
 
 **Results.**
 
-> *"On validation, the model discriminated modestly (c-statistic 0.62; development 0.64). Calibration was good in the large (mean predicted risk 12.7% vs observed 12.8%) with a calibration slope of 0.85, indicating mild overfitting of the development estimates. Decision-curve analysis showed net benefit over both treat-all and treat-none strategies across threshold probabilities of approximately 7–20%. The model has not been externally validated; its transportability to other settings is unknown."*
+> *"On validation, the model discriminated modestly (c-statistic 0.62; development 0.64). Calibration was good in the large (mean predicted risk 12.7% vs observed 12.8%) with a calibration slope of 0.85, indicating mild overfitting of the development estimates. Decision-curve analysis showed net benefit over both treat-all and treat-none strategies across threshold probabilities of approximately 3–30%. The model has not been externally validated; its transportability to other settings is unknown."*
 
-Three things this reporting does that a discrimination-only report does not: it separates development from validation performance, it reports calibration (both numbers, not just a claim that it was "adequate"), and it states the limit of the evidence in the same breath as the result. For a reader deciding whether to use the model, that last sentence is the one that matters most: it says where the evidence stops.
+Three things this reporting does that a discrimination-only report does not: it separates development from validation performance, it reports calibration (both numbers, not just a claim that it was "adequate"), and it states the limit of the evidence in the same breath as the result. For a reader deciding whether to use the model, that last sentence is the one that matters most: it says where the evidence stops. It is also the one place this book relaxes the "no interpretation in results" rule of [article structure](02-article-structure.qmd): TRIPOD+AI asks for the validation status to be stated alongside the performance it qualifies, because a c-statistic read without it invites exactly the wrong conclusion.
 
 ::: {.callout-note}
-The c-statistic here (0.62) is computed from the committed cohort and is deliberately modest, to make the point that calibration and net benefit still matter when discrimination is unremarkable. It is a different, lower number from the illustrative c-statistic of 0.71 used as a rounded teaching value in the [statistical-writing chapter](statistical-writing.qmd)'s diagnostic-accuracy template; the two are not the same worked model.
+The c-statistic here (0.62) is computed from the committed cohort and is deliberately modest, to make the point that calibration and net benefit still matter when discrimination is unremarkable. It is close to the full-cohort in-sample c-statistic of 0.63 reported in the [statistical-writing chapter](statistical-writing.qmd), the small drop being what held-out validation costs you; the two are not the same worked model.
 :::
 
 ## Practice: what is missing from this report?

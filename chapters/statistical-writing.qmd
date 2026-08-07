@@ -25,7 +25,7 @@ Name the analysis once in methods, using the exact term you will use in results.
 
 **In results:**
 
-> *"After adjustment for age, sex, NYHA class, and LVEF, NT-proBNP at discharge was independently associated with 30-day readmission (adjusted OR 1.31, 95% CI 1.08–1.59, p = 0.005). There was no evidence of effect modification by LVEF (interaction p = 0.42). Model discrimination was moderate (c-statistic 0.71, 95% CI 0.68–0.74)."*
+> *"After adjustment for age, sex, NYHA class, and LVEF, NT-proBNP at discharge was independently associated with 30-day readmission (adjusted OR 1.25, 95% CI 1.14–1.38, p < 0.001). There was no evidence of effect modification by LVEF (interaction p = 0.85). Model discrimination was modest (c-statistic 0.63, 95% CI 0.61–0.66)."*
 
 Three things in this results paragraph. The effect estimate appears as OR + 95% CI + p-value in a single parenthetical. The interaction test is reported even when non-significant, because it was named in methods. The c-statistic is reported with its own CI, not as a bare number.
 
@@ -39,7 +39,7 @@ Most survival analyses in clinical research involve three related outputs report
 
 **In results:**
 
-> *"The 30-day readmission rate was 12.8% (95% CI 11.9–13.7%). Kaplan–Meier curves showed a higher cumulative incidence of readmission in patients with NT-proBNP ≥ 1,000 pg/mL at discharge (log-rank p < 0.001; Figure 2). In multivariable Cox regression, NT-proBNP at discharge was independently associated with time to readmission both continuously (adjusted HR per log-unit: 1.31, 95% CI 1.08–1.59, p = 0.005) and across quartiles, with a monotonic gradient from Q1 (reference) to Q4 (adjusted HR 2.14, 95% CI 1.56–2.94). The proportional hazards assumption was satisfied for all covariates (global Schoenfeld test p = 0.61)."*
+> *"The 30-day readmission rate was 12.8% (95% CI 11.9–13.7%). Kaplan–Meier curves showed a higher cumulative incidence of readmission in patients with NT-proBNP ≥ 1,000 pg/mL at discharge (log-rank p < 0.001; Figure 2). In multivariable Cox regression, NT-proBNP at discharge was independently associated with time to readmission both continuously (adjusted HR per log-unit: 1.23, 95% CI 1.13–1.35, p < 0.001) and across quartiles, with the excess concentrated in the upper half (Q2 adjusted HR 0.99, 95% CI 0.78–1.27; Q3 1.31, 1.04–1.66; Q4 1.57, 1.25–1.97, all versus Q1). The proportional hazards assumption was satisfied for all covariates (global Schoenfeld test p = 0.61)."*
 
 The order matters: event rate first, visual result second, adjusted estimate third. The Schoenfeld test is reported regardless of the result; it was named in methods.
 
@@ -53,10 +53,10 @@ Diagnostic accuracy studies produce a cluster of statistics that should be repor
 
 **In results:**
 
-> *"The AUC for NT-proBNP at discharge was 0.71 (95% CI 0.68–0.74). At the threshold of 1,000 pg/mL (Youden index 0.31), sensitivity was 73% (95% CI 69–77%) and specificity 62% (95% CI 61–64%). Given the observed readmission prevalence of 12.8%, the positive predictive value was 21% (95% CI 19–24%) and the negative predictive value 94% (95% CI 93–95%)."*
+> *"The AUC for NT-proBNP at discharge was 0.58 (95% CI 0.55–0.60). At the threshold of 1,000 pg/mL (Youden index 0.12), sensitivity was 59% (95% CI 55–63%) and specificity 52% (95% CI 51–54%). Given the observed readmission prevalence of 12.8%, the positive predictive value was 15% (95% CI 14–17%) and the negative predictive value 90% (95% CI 89–91%)."*
 
 ::: {.column-margin}
-The 0.71 here is an illustrative teaching value. The same NT-proBNP model fitted to the committed cohort discriminates more modestly (validation c-statistic 0.62); that worked example, with calibration and decision-curve analysis, is in [prediction models](prediction-models.qmd).
+Every number here is computed from the committed cohort, and they are unflattering on purpose. NT-proBNP alone is a statistically significant predictor and a poor test: at this threshold it misses two readmissions in five and calls a false alarm on nearly half the patients who go home safely. Reporting the cluster in full is what makes that visible; an AUC quoted alone would not. Adding the other discharge variables lifts discrimination only to 0.63 — see [prediction models](prediction-models.qmd).
 :::
 
 ## The missing-data paragraph
@@ -69,7 +69,7 @@ Missing-data handling requires two coordinated paragraphs: one in methods (what 
 
 **In results:**
 
-> *"The complete-case analysis included 5,065 participants. In the multiple imputation sensitivity analysis, results were consistent with the primary analysis: the adjusted OR was 1.28 (95% CI 1.05–1.56) in the imputed dataset, compared with 1.31 (95% CI 1.08–1.59) in the complete-case analysis."*
+> *"The complete-case analysis included 5,065 participants. In the multiple imputation sensitivity analysis, results were consistent with the primary analysis: the adjusted OR was 1.25 (95% CI 1.13–1.38) in the imputed dataset, compared with 1.25 (95% CI 1.14–1.38) in the complete-case analysis."*
 
 Note what this results paragraph does not say: it does not declare the results "similar" without a number. It reports both estimates in the same format and lets the reader judge.
 
@@ -83,9 +83,9 @@ Name each sensitivity analysis in methods and give it a label — (i), (ii), (ii
 
 **In results:**
 
-> *"In sensitivity analysis (i), restricted to patients with LVEF < 50% (n = 2,410), the adjusted OR was 1.38 (95% CI 1.08–1.77). In analysis (ii), after excluding patients with prior HF admission (n = 3,687), the adjusted OR was 1.29 (95% CI 1.02–1.63). In analysis (iii), BNP was associated with readmission in the subset (adjusted OR 1.26, 95% CI 0.99–1.59, p = 0.06). The primary result was consistent across analyses (i) and (ii); analysis (iii) was underpowered to confirm the association."*
+> *"In sensitivity analysis (i), restricted to patients with LVEF < 50% (n = 3,620), the adjusted OR was 1.27 (95% CI 1.13–1.42). In analysis (ii), after excluding patients with prior HF admission (n = 3,623), the adjusted OR was 1.24 (95% CI 1.10–1.41). In analysis (iii), BNP was associated with readmission in the subset (adjusted OR 1.37, 95% CI 1.17–1.60, p < 0.001). The primary result was consistent in direction and magnitude across all three analyses."*
 
-The labels (i), (ii), (iii) match the methods exactly. Each estimate is reported in the same format as the primary result. The last sentence gives an honest summary that distinguishes which analyses were consistent and which were not, and why.
+The labels (i), (ii), (iii) match the methods exactly. Each estimate is reported in the same format as the primary result. The last sentence summarises the pattern in one line rather than walking the reader through three near-identical numbers a second time.
 
 ## Non-significant pre-specified primary outcome
 
@@ -93,7 +93,7 @@ A null result for a pre-specified primary endpoint must be reported as a result,
 
 **In methods:**
 
-> *"The primary outcome was the proportion of patients with NT-proBNP below 1,000 pg/mL at six months. Based on a pilot study estimating a 45% responder rate in the control arm, 600 participants (150 per arm) provided 80% power to detect a 15 percentage-point absolute difference at a two-sided α of 0.05."*
+> *"The primary outcome was the proportion of patients with NT-proBNP below 1,000 pg/mL at six months. Based on a pilot study estimating a 45% responder rate in the control arm, 600 participants provided 80% power to detect a 15 percentage-point absolute difference at a two-sided α of 0.05."*
 
 **In results:**
 
@@ -111,7 +111,7 @@ When a sensitivity analysis produces a different result from the primary analysi
 
 **In results:**
 
-> *"In the full cohort, NT-proBNP at discharge was associated with 30-day readmission (adjusted OR 1.31, 95% CI 1.08–1.59). In the pre-specified sensitivity analysis restricted to patients with index NT-proBNP ≥ 1,500 pg/mL, the adjusted OR was 1.09 (95% CI 0.83–1.43), with the confidence interval crossing the null. This attenuation is consistent with the higher baseline readmission rate in this subgroup reducing the relative discriminative contribution of discharge NT-proBNP; it does not contradict the primary finding but limits its extension to the highest-risk stratum."*
+> *"In the full cohort, NT-proBNP at discharge was associated with 30-day readmission (adjusted OR 1.25, 95% CI 1.14–1.38). In the pre-specified sensitivity analysis restricted to patients with index NT-proBNP ≥ 1,500 pg/mL, the adjusted OR was 1.09 (95% CI 0.83–1.43), with the confidence interval crossing the null. This attenuation is consistent with the higher baseline readmission rate in this subgroup reducing the relative discriminative contribution of discharge NT-proBNP; it does not contradict the primary finding but limits its extension to the highest-risk stratum."*
 
 The last sentence does the interpretive work: it explains the mechanism of the discordance rather than simply noting it.
 
@@ -129,18 +129,16 @@ The templates above are about reporting an analysis correctly. A separate discip
 
 **Overfitting.** A model tuned until it fits the data at hand will not fit the next dataset. Discrimination measured on the same data used to build the model is optimistic; report validated performance and calibration, not apparent performance ([prediction models](prediction-models.qmd)).
 
-::: {.callout-tip collapse="true"}
 ## Practice: find the mismatch
 
 The methods and results paragraphs below contain three inconsistencies. Identify each one.
 
 **Methods:** *"The association between discharge NT-proBNP and 30-day readmission was assessed by multivariable logistic regression, adjusted for age, sex, NYHA class, LVEF, and eGFR. A sensitivity analysis excluding patients with atrial fibrillation was pre-specified."*
 
-**Results:** *"After adjustment for age, sex, LVEF, and renal function, the adjusted OR was 1.31 (95% CI 1.08–1.59). The finding was consistent in the sensitivity analysis excluding patients with prior heart failure admission."*
+**Results:** *"After adjustment for age, sex, LVEF, and renal function, the adjusted OR was 1.25 (95% CI 1.14–1.38). The finding was consistent in the sensitivity analysis excluding patients with prior heart failure admission."*
 
----
-
-Answers:
+::: {.callout-tip collapse="true"}
+## Answer
 
 1. Methods names eGFR as a covariate; results substitutes *"renal function"* — an inconsistent term.
 2. Methods names NYHA class as a covariate; results drops it from the adjustment list without explanation.

@@ -59,7 +59,7 @@ A reviewer should be able to paste the supplementary strategy into the same data
 
 In multi-arm trials, report who was randomised, who received the intervention, and who was analysed for each arm, with reasons for every departure, in a CONSORT flow diagram [@hopewell2025consort]. The text in the results section must agree with the flow diagram on every number.
 
-> *"Of 612 patients screened, 600 were randomised (Placebo n = 150, ACEi n = 150, ARB n = 150, CCB n = 150). All randomised patients received the allocated intervention and were included in the intention-to-treat analysis. Three patients in the ACEi arm and two in the ARB arm withdrew consent before week 4 and contributed no follow-up data; their baseline values were carried forward in a sensitivity analysis. The per-protocol analysis (n = 583) excluded 17 patients with documented protocol deviations (Placebo 4, ACEi 5, ARB 4, CCB 4)."*
+> *"Of 612 patients screened, 600 were randomised (Placebo n = 156, ACEi n = 134, ARB n = 156, CCB n = 154). All randomised patients received the allocated intervention and were included in the intention-to-treat analysis. Three patients in the ACEi arm and two in the ARB arm withdrew consent before week 4 and contributed no follow-up data; their baseline values were carried forward in a sensitivity analysis. The per-protocol analysis (n = 583) excluded 17 patients with documented protocol deviations (Placebo 4, ACEi 5, ARB 4, CCB 4)."*
 
 Three things this paragraph does: the analysis populations are named explicitly (ITT, per-protocol), the departures are itemised by arm with reasons, and the per-protocol denominator is reconciled with the randomised total. A reviewer can match every number to the flow diagram without a calculator.
 

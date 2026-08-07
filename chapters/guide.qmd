@@ -18,7 +18,7 @@ New to research? Start with [why writing matters](01-why-writing.qmd) and [clear
 | "I couldn't tell what the figure shows without reading the methods" | [Captions](13-captions.qmd) |
 | "Your y-axis doesn't start at zero" | [Pitfalls](12-pitfalls.qmd), truncated y-axis |
 | "Colours are indistinguishable to colour-blind readers" | [Colour](14-colour.qmd), colour-vision deficiency |
-| "The figure contradicts the results text" | [Principles of data visualisation](10-principles.qmd) |
+| "The figure contradicts the results text" | [Presenting data](04-presenting-data.qmd), text/table/figure agreement |
 | "Too many pie charts" | [Pitfalls](12-pitfalls.qmd), pie chart |
 | "The figure uses a rainbow palette" | [Pitfalls](12-pitfalls.qmd) / [Colour](14-colour.qmd), sequential palettes |
 | "I can't find the dataset or analysis code" | [Open science](open-science.qmd); [Reproducibility](reproducibility.qmd) |
