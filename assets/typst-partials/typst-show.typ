@@ -113,3 +113,65 @@ $endif$
 // This rule is inside book()'s body scope, so it is the nested one and wins.
 // 0.75em lands the pitch near 15pt, the usual 11/15 setting for a book.
 #set par(leading: 0.75em)
+
+// orange-book hardcodes `pagebreak(to: "odd")` on every level-1 heading, so
+// every chapter that ended on an odd page left a blank verso behind: 24 of them
+// here, each still carrying a running head and a folio. That is a print-binding
+// convention, and this PDF is a download. Demote the forced recto start to an
+// ordinary page break; chapters still open on a fresh page.
+#show pagebreak: it => if it.to == "odd" { pagebreak(weak: true) } else { it }
+
+// Running heads, reimplemented. orange-book's own header prints
+// "<supplement> <counter>. <body>" unconditionally, so an unnumbered chapter —
+// the two Part bridges, and the preface — inherited the preceding chapter's
+// number and read "Chapter 22. From figures to reproducible research". This
+// version drops the number when the heading carries `numbering: none`. The two
+// `state()` keys are orange-book's own; Typst states are global by key.
+#set page(header: context {
+  let pn = counter(page).at(here()).first()
+  let appendix = state("appendix-state", none).at(here())
+  set text(size: 11pt)
+
+  // Chapter openings and part dividers carry no running head.
+  if query(heading.where(level: 1)).any(h => h.location().page() == pn) { return }
+  if state("part-change", false).at(here()) { return }
+
+  if calc.odd(pn) {
+    // Recto: the current section.
+    let before = query(selector(heading.where(level: 2)).before(here()))
+    let c = counter(heading).at(here())
+    if before == () or c.len() <= 1 { return }
+    let hd = before.last()
+    box(width: 100%, inset: (bottom: 5pt), stroke: (bottom: 0.5pt))[
+      #if hd.numbering != none {
+        numbering(if appendix != none { "A.1" } else { "1.1" }, ..c.slice(0, 2))
+        [ ]
+      }
+      #hd.body
+      #h(1fr)
+      #pn
+    ]
+  } else {
+    // Verso: the current chapter.
+    let before = query(selector(heading.where(level: 1)).before(here()))
+    let c = counter(heading).at(here()).first()
+    if before == () { return }
+    let hd = before.last()
+    box(width: 100%, inset: (bottom: 5pt), stroke: (bottom: 0.5pt))[
+      #set par(justify: false)
+      #grid(
+        columns: (auto, 1fr),
+        align: (left + horizon, right + horizon),
+        column-gutter: 0.3em,
+        [#pn],
+        text(weight: "bold", if hd.numbering == none {
+          hd.body
+        } else if appendix != none {
+          numbering("A.1", c) + ". " + hd.body
+        } else {
+          hd.supplement + " " + str(c) + ". " + hd.body
+        }),
+      )
+    ]
+  }
+})

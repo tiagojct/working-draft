@@ -38,6 +38,33 @@
   ]
 ]
 
+// ------------------------------------------------------------ breakable callouts
+// Quarto builds every Typst callout as `block(breakable: false, ...)`, and the
+// R/Python tabsets in Part II render as callouts. A tall one that does not fit
+// the remaining space is pushed whole to the next page, which left big white
+// holes: p.87 carried a figure and then 60% empty. Rebuild the callout shell as
+// breakable so it can split.
+//
+// Matched on "has both a fill and a stroke", which is the callout shell and
+// nothing else in Quarto's output: figure blocks carry neither (making those
+// breakable would split an image from its caption), and code blocks have a fill
+// but no stroke. A `set` rule cannot do this — an explicit constructor argument
+// beats it — so the block has to be rebuilt from its fields.
+#show block.where(breakable: false): it => {
+  if it.fill == none or it.stroke == none { return it }
+  let f = it.fields()
+  let body = f.remove("body", default: none)
+  // `above`/`below` come back synthesized: a relative length has to be reduced
+  // to its absolute part before it can be passed back in (the workaround Quarto
+  // uses in block_with_new_content), and either may also be plain `auto`.
+  for k in ("above", "below") {
+    let v = f.at(k, default: none)
+    if type(v) == relative { f.insert(k, v.abs) }
+  }
+  f.breakable = true
+  block(..f, body)
+}
+
 // ---------------------------------------------------------------------- dates
 // Quarto hands the partial an ISO date; the cover and colophon want it long.
 #let wd-longdate(iso) = {
