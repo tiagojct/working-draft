@@ -1,9 +1,11 @@
 project:
   type: book
   output-dir: _book
-  # CNAME is what tells GitHub Pages the custom domain; it has to land inside
-  # the uploaded artifact (_book), so it is listed as a project resource rather
-  # than set in the repository's Pages settings.
+  # The custom domain is set in the repository's Pages settings, NOT by this
+  # file: a CNAME inside the artifact only configures the domain under the
+  # legacy branch-based deploy, and this repo builds Pages from a workflow.
+  # Kept anyway so the domain survives a switch back to branch deploys, and as
+  # the in-repo record of where the book is published.
   resources:
     - CNAME
 
