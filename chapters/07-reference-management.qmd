@@ -11,7 +11,7 @@ By the end of this chapter you will be able to:
 
 Do not track citations by hand. A reference manager keeps metadata, PDFs, annotations, and formatted citations in one searchable library; formatting a reference list that might take hours in Word plus a folder of PDFs takes minutes. [Zotero](https://www.zotero.org/) is the most common choice in healthcare research, with free cloud sync and strong community support. [Mendeley](https://www.mendeley.com/) and [EndNote](https://endnote.com/) are widely used alternatives. All three export to [BibTeX](https://en.wikipedia.org/wiki/BibTeX) (for LaTeX or Quarto) and to most journal styles via [CSL](https://citationstyles.org/).
 
-I have written a longer [note on using Zotero](https://tiagojct.eu/notes/zotero/) that covers installation, tagging, collections, annotations, and integration with Word, LibreOffice, and Quarto. The short version for PhD students: pick one tool, commit to it, and import every paper you cite from your first week. A library you trust saves hours in the final weeks before submission, which is where most manuscripts come apart.
+I have written a longer [note on using Zotero](https://tiagojacinto.eu/notes/zotero/) that covers installation, tagging, collections, annotations, and integration with Word, LibreOffice, and Quarto. The short version for PhD students: pick one tool, commit to it, and import every paper you cite from your first week. A library you trust saves hours in the final weeks before submission, which is where most manuscripts come apart.
 
 ## Building the library
 
@@ -49,7 +49,7 @@ Most health journals use numerical citation styles (Vancouver, Nature) or author
 If your manuscript is in Quarto, the `.bib` file exported from Zotero or any CSL-compatible manager plugs directly into the `bibliography:` key in your YAML front matter. The `csl:` key selects the citation style; [Zotero's style repository](https://www.zotero.org/styles) hosts thousands of journal-specific CSL files. For Word users, the Zotero word processor plugin inserts citations as formatted fields that update automatically when you change style.
 
 ::: {.column-margin}
-For a plain-text pipeline — stable Zotero cite keys, auto-exported `.bib`, and Pandoc citation rendering — see [Zettlr and Zotero](https://tiagojct.eu/notes/zettlr-zotero/) on tiagojct.eu.
+For a plain-text pipeline — stable Zotero cite keys, auto-exported `.bib`, and Pandoc citation rendering — see [Zettlr and Zotero](https://tiagojacinto.eu/notes/zettlr-zotero/) on tiagojacinto.eu.
 :::
 
 ## Practice: citation hygiene check

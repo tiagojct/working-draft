@@ -1,0 +1,43 @@
+The Working Draft: Writing and Data Visualisation for Health Researchers
+Copyright (c) 2026 Tiago Jacinto
+
+This work is licensed under the Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International License
+(CC BY-NC-SA 4.0).
+
+The full legal code governs and is available at:
+
+    https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+A human-readable summary (not a substitute for the licence) is at:
+
+    https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+You are free to:
+
+  Share    copy and redistribute the material in any medium or format
+  Adapt    remix, transform, and build upon the material
+
+Under the following terms:
+
+  Attribution     You must give appropriate credit, provide a link to the
+                  licence, and indicate if changes were made.
+  NonCommercial   You may not use the material for commercial purposes.
+  ShareAlike      If you remix, transform, or build upon the material, you
+                  must distribute your contributions under the same licence
+                  as the original.
+
+Suggested attribution:
+
+    Jacinto T. The Working Draft: Writing and Data Visualisation for Health
+    Researchers. Porto: Faculty of Medicine, University of Porto; 2026.
+    https://workingdraft.tiagojacinto.eu/
+
+Third-party components vendored in this repository carry their own licences
+and are not covered by the above:
+
+  - IBM Plex Serif, IBM Plex Sans, and IBM Plex Mono (fonts/glauca/, and the
+    base64-inlined faces in assets/glauca-fonts.css) are (c) IBM Corp.,
+    released under the SIL Open Font License 1.1.
+  - assets/nature.csl is from the Citation Style Language styles repository,
+    released under CC BY-SA 3.0.

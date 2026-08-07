@@ -180,7 +180,9 @@ def main() -> None:
             ha="center", va="center", linespacing=1.1)
 
     # heterogeneity annotation below the axis
-    ax.text(0.0, -0.20,
+    # -0.17, not -0.20: at -0.20 the line falls below the figure canvas and the
+    # renderer clips it (bottom=0.17 leaves only 0.02 of figure height there).
+    ax.text(0.0, -0.17,
             "Random effects (DerSimonian-Laird).  "
             rf"$I^2$ = {i2:.0f}%,  $\tau^2$ = {tau2:.3f}.  "
             f"95% prediction interval {pi_lo:.2f}–{pi_hi:.2f} (dotted).",

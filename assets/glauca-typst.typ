@@ -5,3 +5,6 @@
 #show heading.where(level: 1): set text(fill: rgb("#0b62cf"))
 #show link: set text(fill: rgb("#0b62cf"))
 #show raw: set text(font: "IBM Plex Mono")
+// Headings are ragged-right: justifying them opens word gaps wide enough to
+// break a chapter title across the page ("3. Framing    the research question").
+#show heading: set par(justify: false)

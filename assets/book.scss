@@ -50,6 +50,32 @@ main:has(.landing) #title-block-header .subtitle {
 // Tabular figures for data-heavy tables so columns of numbers align.
 table { font-variant-numeric: tabular-nums lining-nums; }
 
+// Figure and table legends read as apparatus, not body copy: a step down in
+// size, muted, ragged right, and set on a narrower measure than the body so
+// the eye can tell caption from prose at a glance. Mirrors the Typst rule in
+// assets/book-typst.typ. Quarto emits the "Figure 19.1:" label as plain text
+// inside figcaption with no wrapping element, so the label cannot be given its
+// own weight here the way it is in the PDF.
+figcaption.quarto-float-caption,
+figcaption.figure-caption,
+.quarto-figure figcaption,
+table caption,
+caption {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--bs-secondary-color);
+  text-align: left;
+  max-width: 62ch;
+  margin-top: 0.7rem;
+  text-wrap: pretty;
+}
+
+// Table captions sit above the table; give them the gap on the other side.
+table caption, caption {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+
 // The book title at the top of the sidebar already links home, so the first
 // nav entry (the index/preface) is redundant; hide it and let the list start
 // at Part I. (The page still has a real title, so no "index.html" label.)

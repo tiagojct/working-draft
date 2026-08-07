@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use or cite this book, please cite it as below."
+type: book
+title: "The Working Draft: Writing and Data Visualisation for Health Researchers"
+abstract: >-
+  A field guide to scientific writing, data visualisation, and reproducible
+  research for health researchers. Part I covers the architecture and craft of
+  the journal article; Part II covers the decisions behind a figure worth
+  looking at; Part III covers reporting a clinical prediction model and making
+  code and data reproducible. Written for doctoral students in clinical
+  research and health data science, and for medical undergraduates. Every
+  dataset, cohort, and effect estimate in the book is simulated.
+authors:
+  - family-names: Jacinto
+    given-names: Tiago
+    orcid: "https://orcid.org/0000-0002-7897-1101"
+    affiliation: "Faculty of Medicine, University of Porto"
+version: "1.0.0"
+date-released: "2026-08-07"
+license: CC-BY-NC-SA-4.0
+url: "https://workingdraft.tiagojacinto.eu/"
+repository-code: "https://github.com/tiagojct/working-draft"
+publisher:
+  name: "Faculty of Medicine, University of Porto"
+  city: Porto
+  country: PT
+languages:
+  - en
+keywords:
+  - scientific writing
+  - data visualisation
+  - reproducible research
+  - health research
+  - medical education
+  - reporting guidelines
+  - TRIPOD+AI
+  - Quarto

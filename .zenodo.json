@@ -1,0 +1,39 @@
+{
+  "upload_type": "publication",
+  "publication_type": "book",
+  "title": "The Working Draft: Writing and Data Visualisation for Health Researchers",
+  "description": "<p>A field guide to scientific writing, data visualisation, and reproducible research for health researchers.</p><p>Part I covers the architecture and craft of the journal article: framing an answerable question, article structure, clear prose, writing in English as a second language, presenting data and statistical results, the editorial process, reporting guidelines, open science, evidence synthesis, reference management, co-authorship, the use of AI, and workflow. Part II covers the decisions that produce a figure worth looking at: encoding choices, chart types, failure modes, captions, colour, and the responsible use of AI in figure construction. Part III covers reporting a clinical prediction model to the TRIPOD+AI standard and making code and data reproducible.</p><p>Written for doctoral students in clinical research, doctoral students in health data science, and medical undergraduates. Every dataset, cohort, and effect estimate in the book is simulated and describes no real patients.</p>",
+  "creators": [
+    {
+      "name": "Jacinto, Tiago",
+      "affiliation": "Faculty of Medicine, University of Porto",
+      "orcid": "0000-0002-7897-1101"
+    }
+  ],
+  "access_right": "open",
+  "license": "cc-by-nc-sa-4.0",
+  "language": "eng",
+  "publication_date": "2026-08-07",
+  "version": "1.0.0",
+  "imprint_publisher": "Faculty of Medicine, University of Porto",
+  "imprint_place": "Porto, Portugal",
+  "keywords": [
+    "scientific writing",
+    "data visualisation",
+    "reproducible research",
+    "health research",
+    "medical education",
+    "reporting guidelines",
+    "TRIPOD+AI",
+    "clinical prediction models",
+    "Quarto"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://workingdraft.tiagojacinto.eu/",
+      "relation": "isIdenticalTo",
+      "resource_type": "publication-book",
+      "scheme": "url"
+    }
+  ]
+}

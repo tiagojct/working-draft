@@ -44,7 +44,7 @@ Advice drawn from Saramäki [@saramaki2022write] and Heard [@heard2016scientist]
 6. **Complete a rough first draft quickly.** Do not revise as you go. A bad draft is progress; an unfinished one is not. Saramäki's version of this principle: your first draft is allowed to be bad [@saramaki2022write]. Get everything down, then revise [@sterk2008joy].
 
    ::: {.column-margin}
-   [Zettlr](https://tiagojct.eu/notes/zettlr/) is a Markdown editor designed for academic writing: distraction-free, outline-aware, and built around plain `.md` files. It pairs directly with Zotero for in-text citations and Pandoc for export.
+   [Zettlr](https://tiagojacinto.eu/notes/zettlr/) is a Markdown editor designed for academic writing: distraction-free, outline-aware, and built around plain `.md` files. It pairs directly with Zotero for in-text citations and Pandoc for export.
    :::
 
 7. **Revise for structure and content.** Is the paper focused? Is there enough context? Does the story answer an important question?

@@ -1,6 +1,11 @@
 project:
   type: book
   output-dir: _book
+  # CNAME is what tells GitHub Pages the custom domain; it has to land inside
+  # the uploaded artifact (_book), so it is listed as a project resource rather
+  # than set in the repository's Pages settings.
+  resources:
+    - CNAME
 
 book:
   title: "The Working Draft"
@@ -9,8 +14,13 @@ book:
     name: Tiago Jacinto
     affiliation: Faculty of Medicine, University of Porto
     orcid: 0000-0002-7897-1101
-  date: "2026-05-15"
+  date: "2026-08-07"
+  site-url: https://workingdraft.tiagojacinto.eu/
   favicon: assets/favicon.svg
+  # Without an explicit social image Quarto falls back to the first image in the
+  # page, which on the landing page is its own inline link-icon data URI.
+  # Regenerate with `python3 figures/social_card.py`.
+  image: assets/social-card.png
   repo-url: https://github.com/tiagojct/working-draft
   repo-actions: [edit, issue]
   search: true
@@ -18,10 +28,13 @@ book:
   open-graph:
     title: "The Working Draft"
     description: "Writing and data visualisation for health researchers."
+    # Absolute on purpose: Quarto resolves a relative og:image per page, which
+    # gave chapters the broken /chapters/assets/social-card.png.
+    image: https://workingdraft.tiagojacinto.eu/assets/social-card.png
   page-footer:
     center: |
-      [Tiago Jacinto](https://tiagojct.eu) · Faculty of Medicine, University of Porto ·
-      [tiagojct.eu/working-draft/](https://tiagojct.eu/working-draft/)
+      [Tiago Jacinto](https://tiagojacinto.eu) · Faculty of Medicine, University of Porto ·
+      [workingdraft.tiagojacinto.eu](https://workingdraft.tiagojacinto.eu/)
   chapters:
     - index.qmd
     - part: "Part I · Writing"
@@ -63,7 +76,7 @@ book:
     - references.qmd
 
 citation:
-  url: https://tiagojct.eu/working-draft/
+  url: https://workingdraft.tiagojacinto.eu/
   type: book
 
 bibliography: [assets/refs-sw.bib, assets/refs-dataviz.bib]
@@ -99,14 +112,38 @@ format:
     # Downloadable PDF. Glauca brand (IBM Plex + blue headings/links)
     # injected via typst-brand.typ; static IBM Plex faces bundled under
     # fonts/glauca so the PDF is correctly set on CI too.
-    include-in-header: assets/glauca-typst.typ
+    include-in-header:
+      - assets/glauca-typst.typ
+      - assets/book-typst.typ
+    # Quarto routes book+typst through the bundled orange-book extension. These
+    # override two of its partials: a cover and credits page, and unnumbered
+    # front matter. See the header comment in each file.
+    template-partials:
+      - assets/typst-partials/page.typ
+      - assets/typst-partials/typst-show.typ
     font-paths:
       - fonts/glauca
     papersize: a4
     fontsize: 11pt
+    # Chapters use .column-margin, so Quarto routes the Typst book through
+    # marginalia and derives the page geometry itself. Its derived values are
+    # wrong here: `margin.x` is read as inner.sep/outer.far, which squeezed the
+    # body to 76 mm (tables overflowed, chapter titles broke mid-word). These
+    # explicit overrides restore an A4 book measure: 25 mm inner, 120 mm body,
+    # 45 mm outer note column. They must sum to the 210 mm page width.
+    margin-geometry:
+      inner:
+        far: 15mm
+        width: 5mm
+        separation: 5mm
+      outer:
+        far: 15mm
+        width: 45mm
+        separation: 5mm
+      clearance: 12pt
     margin:
-      x: 2.5cm
-      y: 2.5cm
+      top: 2.2cm
+      bottom: 2.2cm
     mainfont: "IBM Plex Sans"
     monofont: "IBM Plex Mono"
     toc: true
