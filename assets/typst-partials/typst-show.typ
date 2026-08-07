@@ -39,6 +39,14 @@ $if(lang)$
   lang: "$lang$",
 $endif$
   main-color: wd-blue,
+  // Part dividers carry a mini-outline of the part. At orange-book's default
+  // depth of 2 it lists every section too, which for Part I (16 chapters) fills
+  // the whole page and collides with the placed "Part I · Writing" title and the
+  // big numeral. Chapters only.
+  outline-small-depth: 1,
+  // orange-book's default numeral is 16em, which for "III" runs far enough right
+  // to collide with the part title (placed top-right in a 60%-wide box).
+  part-font-size: 7em,
   copyright: wd-colophon(
     title: [$title$],
     subtitle: [$subtitle$],
@@ -117,9 +125,12 @@ $endif$
 // orange-book hardcodes `pagebreak(to: "odd")` on every level-1 heading, so
 // every chapter that ended on an odd page left a blank verso behind: 24 of them
 // here, each still carrying a running head and a folio. That is a print-binding
-// convention, and this PDF is a download. Demote the forced recto start to an
-// ordinary page break; chapters still open on a fresh page.
-#show pagebreak: it => if it.to == "odd" { pagebreak(weak: true) } else { it }
+// convention, and this PDF is a download. Drop the parity but keep the break.
+//
+// The replacement must be a STRONG pagebreak. With `weak: true` the break
+// inside orange-book's part divider collapsed and the divider painted straight
+// over the last page of the contents.
+#show pagebreak: it => if it.to == "odd" { pagebreak() } else { it }
 
 // Running heads, reimplemented. orange-book's own header prints
 // "<supplement> <counter>. <body>" unconditionally, so an unnumbered chapter —
